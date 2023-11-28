@@ -201,6 +201,240 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">22安全开发-php应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-07 10:25:06" itemprop="dateCreated datePublished" datetime="2023-10-07T10:25:06+08:00">2023-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 20:42:54" itemprop="dateModified" datetime="2023-11-06T20:42:54+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/image3.png"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>1、PHP留言板前后端功能实现<br>2、数据库创建&amp;架构&amp;增删改查<br>3、内置超全局变量&amp;HTML&amp;JS混编<br>4、第三方应用插件&amp;传参&amp;对象调用</p>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/%E8%AF%84%E8%AE%BA%E5%8C%BA.png"></p>
+<h2 id="开发环境："><a href="#开发环境：" class="headerlink" title="开发环境："></a>开发环境：</h2><p>DW + PHPStorm + PhpStudy + Navicat Premium<br>DW : HTML&amp;JS&amp;CSS开发<br>PHPStorm : 专业PHP开发IDE<br>PhpStudy ：Apache MYSQL环境<br>Navicat Premium: 全能数据库管理工具  </p>
+<h2 id="数据导入-mysql架构-库表列"><a href="#数据导入-mysql架构-库表列" class="headerlink" title="数据导入-mysql架构&amp;库表列"></a>数据导入-mysql架构&amp;库表列</h2><p>1、数据库名，数据库表名，数据库列名<br>2、数据库数据，格式类型，长度，键等  </p>
+<h2 id="数据库操作-mysqli函数-增删改查"><a href="#数据库操作-mysqli函数-增删改查" class="headerlink" title="数据库操作-mysqli函数&amp;增删改查"></a>数据库操作-mysqli函数&amp;增删改查</h2><p>PHP函数：连接，选择，执行，结果，关闭等<br>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-ref-mysqli.html">https://www.runoob.com/php/php-ref-mysqli.html</a><br>常用：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysqli_connect()	打开一个到MySQL的新的连接。  </span><br><span class="line">mysqli_select_db()	更改连接的默认数据库。  </span><br><span class="line">mysqli_query()	执行某个针对数据库的查询。  </span><br><span class="line">mysqli_fetch_row()	从结果集中取得一行，并作为枚举数组返回。  </span><br><span class="line">mysqli_close()	关闭先前打开的数据库连接。  </span><br></pre></td></tr></table></figure>
+<p>MYSQL增删改查：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查：select * from 表名 where 列名=&#x27;条件&#x27;;  </span><br><span class="line">增：insert into 表名(`列名1`, `列名2`) value(&#x27;列1值1&#x27;, &#x27;列2值2&#x27;);  </span><br><span class="line">删：delete from 表名 where 列名 = &#x27;条件&#x27;;  </span><br><span class="line">改：update 表名 set 列名 = 数据 where 列名 = &#x27;条件&#x27;;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="数据接收输出-html混编-超全局变量"><a href="#数据接收输出-html混编-超全局变量" class="headerlink" title="数据接收输出-html混编&amp;超全局变量"></a>数据接收输出-html混编&amp;超全局变量</h2><p>1、html混编：使HTML(JS)在PHP语言中运行  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line">echo &#x27;&lt;script&gt;alert(&#x27;x&#x27;);&lt;/script&gt;&#x27;  </span><br><span class="line">?&gt;  </span><br></pre></td></tr></table></figure>
+<p>2、超全局变量：<br>参考：<br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/php/php_superglobals.asp">https://www.w3school.com.cn/php/php_superglobals.asp</a><br><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/language.variables.superglobals.php">https://www.php.net/manual/zh/language.variables.superglobals.php</a>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$GLOBALS：这种全局变量用于在 PHP 脚本中的任意位置访问全局变量  </span><br><span class="line">$_SERVER：这种超全局变量保存关于报头、路径和脚本位置的信息。  </span><br><span class="line">$_REQUEST：$_REQUEST 用于收集 HTML 表单提交的数据。  </span><br><span class="line">$_POST：广泛用于收集提交method=&quot;post&quot; 的HTML表单后的表单数据。  </span><br><span class="line">$_GET：收集URL中的发送的数据。也可用于收集提交HTML表单数据(method=&quot;get&quot;)   </span><br><span class="line">$_FILES：文件上传且处理包含通过HTTP POST方法上传给当前脚本的文件内容。  </span><br><span class="line">$_ENV：是一个包含服务器端环境变量的数组。  </span><br><span class="line">$_COOKIE：是一个关联数组，包含通过cookie传递给当前脚本的内容。  </span><br><span class="line">$_SESSION：是一个关联数组，包含当前脚本中的所有session内容。  </span><br></pre></td></tr></table></figure>
+
+<h2 id="第三方插件引用-js传参-函数对象调用"><a href="#第三方插件引用-js传参-函数对象调用" class="headerlink" title="第三方插件引用-js传参&amp;函数对象调用"></a>第三方插件引用-js传参&amp;函数对象调用</h2><p>引用：<script src="../xxx.js"></script><br>函数对象调用：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    value : 0,</span><br><span class="line">    increment : function (inc) &#123;   </span><br><span class="line">        this.value += typeof inc === &#x27;number&#x27; ? inc :1;</span><br><span class="line">        //设置inc且为数字时 value=inc 反之 value=1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.increment();</span><br><span class="line">console.log(obj.value);  //1</span><br><span class="line">obj.increment(2);</span><br><span class="line">console.log(obj.value);  //2</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/06/21%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/06/21%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="post-title-link" itemprop="url">21信息打点-公众号信息收集</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-06 09:46:43" itemprop="dateCreated datePublished" datetime="2023-10-06T09:46:43+08:00">2023-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:07:31" itemprop="dateModified" datetime="2023-11-06T21:07:31+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>29、开发泄漏-Github监控</li>
+<li>30、文件泄漏-网盘全局搜索</li>
+<li>31、架构泄漏-目录扫码&amp;爬虫</li>
+<li>32、其他泄漏-公众号服务资产</li>
+<li>33、收集进阶-证书&amp;图标&amp;邮箱</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
+<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
+<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
+<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
+<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
+<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等 </li>
+<li>技术：APK反编译&#x2F;小程序解包反编译&#x2F;动态调试APP&amp;小程序等</li>
+</ul>
+<h2 id="微信公众号-获取-三方服务"><a href="#微信公众号-获取-三方服务" class="headerlink" title="微信公众号-获取&amp;三方服务"></a>微信公众号-获取&amp;三方服务</h2><p>1、获取微信公众号途径<br><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a><br>2、微信公众号有无第三方服务(非调用api，用自己的资产)  </p>
+<h2 id="Github监控-开发-配置-源码"><a href="#Github监控-开发-配置-源码" class="headerlink" title="Github监控-开发&amp;配置&amp;源码"></a>Github监控-开发&amp;配置&amp;源码</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标中开发人员或者托管公司上传的项目存在源码泄漏或配置信息（密码密匙等），人员数据库等敏感信息，找到多个脆弱点。  </p>
+<ul>
+<li>1、人员&amp;域名&amp;邮箱等筛选<br>eg：xxx.cn password in:file<br><a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a><br><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a><br><a target="_blank" rel="noopener" href="https://www.huzhan.com/">https://www.huzhan.com/</a><br>GITHUB资源搜索：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">in:name test               #仓库标题搜索含有关键字 </span><br><span class="line">in:descripton test         #仓库描述搜索含有关键字 </span><br><span class="line">in:readme test             #Readme文件搜素含有关键字 </span><br><span class="line">stars:&gt;3000 test           #stars数量大于3000的搜索关键字 </span><br><span class="line">stars:1000..3000 test      #stars数量大于1000小于3000的搜索关键字 </span><br><span class="line">forks:&gt;1000 test           #forks数量大于1000的搜索关键字 </span><br><span class="line">forks:1000..3000 test      #forks数量大于1000小于3000的搜索关键字 </span><br><span class="line">size:&gt;=5000 test           #指定仓库大于5000k(5M)的搜索关键字</span><br><span class="line">pushed:&gt;2019-02-12 test    #发布时间大于2019-02-12的搜索关键字 </span><br><span class="line">created:&gt;2019-02-12 test   #创建时间大于2019-02-12的搜索关键字 </span><br><span class="line">user:test                  #用户名搜素 </span><br><span class="line">license:apache-2.0 test    #明确仓库的 LICENSE 搜索关键字</span><br><span class="line">language:java test         #在java语言的代码中搜索关键字 </span><br><span class="line">user:test in:name test     #组合搜索,用户名test的标题含有test的关键字配合谷歌搜索：</span><br><span class="line">site:Github.com smtp   </span><br><span class="line">site:Github.com smtp @qq.com   </span><br><span class="line">site:Github.com smtp @126.com   </span><br><span class="line">site:Github.com smtp @163.com   </span><br><span class="line">site:Github.com smtp @sina.com.cn </span><br><span class="line">site:Github.com smtp password </span><br><span class="line">site:Github.com String password smtp</span><br></pre></td></tr></table></figure></li>
+<li>2、语法固定长期后续监控新泄露<br>-基于关键字监控<br>-基于项目规则监控<br><a target="_blank" rel="noopener" href="https://github.com/madneal/gshark">https://github.com/madneal/gshark</a><br><a target="_blank" rel="noopener" href="https://github.com/NHPT/FireEyeGoldCrystal">https://github.com/NHPT/FireEyeGoldCrystal</a><br><a target="_blank" rel="noopener" href="https://github.com/Explorer1092/Github-Monitor">https://github.com/Explorer1092/Github-Monitor</a></li>
+</ul>
+<h2 id="网盘资源搜索-全局文件机密"><a href="#网盘资源搜索-全局文件机密" class="headerlink" title="网盘资源搜索-全局文件机密"></a>网盘资源搜索-全局文件机密</h2><p>主要就是查看网盘中是否存有目标的敏感文件<br>如：企业招标，人员信息，业务产品，应用源码等</p>
+<h2 id="敏感目录文件-目录扫描-爬虫"><a href="#敏感目录文件-目录扫描-爬虫" class="headerlink" title="敏感目录文件-目录扫描&amp;爬虫"></a>敏感目录文件-目录扫描&amp;爬虫</h2><p>-后续会详细讲到各类工具项目  </p>
+<h2 id="网络空间进阶-证书-图标-邮箱"><a href="#网络空间进阶-证书-图标-邮箱" class="headerlink" title="网络空间进阶-证书&amp;图标&amp;邮箱"></a>网络空间进阶-证书&amp;图标&amp;邮箱</h2><ul>
+<li>证书资产<br>fofa quake hunter  </li>
+<li>ICO资产<br>fofa quake hunter  </li>
+<li>邮箱资产<br><a target="_blank" rel="noopener" href="https://hunter.io/">https://hunter.io/</a></li>
+</ul>
+<p>#实战案例四则-技术分享打击方位<br>案例1–招标平台二级跳<br>案例2–爱企查隐藏的惊喜<br>案例3–邮箱爆破到内网<br>案例4–不靠系统漏洞，从外网获取域控
+  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/06/20%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B7%A5%E5%85%B7%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1562,481 +1796,10 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">12信息打点-信息收集网站</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-03 09:02:20" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:20+08:00">2023-10-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 20:39:09" itemprop="dateModified" datetime="2023-11-06T20:39:09+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/image2.png"></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>1、业务资产-应用类型分类<br>2、Web单域名获取-接口查询<br>3、Web子域名获取-解析枚举<br>4、Web架构资产-平台指纹识别</p>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等<br>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等<br>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等<br>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等<br>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等<br>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</p>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th>名称</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>企业信息</td>
-<td>天眼查</td>
-<td><a target="_blank" rel="noopener" href="https://www.tianyancha.com/">https://www.tianyancha.com/</a></td>
-</tr>
-<tr>
-<td>企业信息</td>
-<td>小蓝本</td>
-<td><a target="_blank" rel="noopener" href="https://www.xiaolanben.com/">https://www.xiaolanben.com/</a></td>
-</tr>
-<tr>
-<td>企业信息</td>
-<td>爱企查</td>
-<td><a target="_blank" rel="noopener" href="https://aiqicha.baidu.com/">https://aiqicha.baidu.com/</a></td>
-</tr>
-<tr>
-<td>企业信息</td>
-<td>企查查</td>
-<td><a target="_blank" rel="noopener" href="https://www.qcc.com/">https://www.qcc.com/</a></td>
-</tr>
-<tr>
-<td>企业信息</td>
-<td>国外企查</td>
-<td><a target="_blank" rel="noopener" href="https://opencorporates.com/">https://opencorporates.com/</a></td>
-</tr>
-<tr>
-<td>企业信息</td>
-<td>启信宝</td>
-<td><a target="_blank" rel="noopener" href="https://www.qixin.com/">https://www.qixin.com/</a></td>
-</tr>
-<tr>
-<td>备案信息</td>
-<td>备案信息查询</td>
-<td><a target="_blank" rel="noopener" href="http://www.beianx.cn/">http://www.beianx.cn/</a></td>
-</tr>
-<tr>
-<td>备案信息</td>
-<td>备案管理系统</td>
-<td><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">https://beian.miit.gov.cn/</a></td>
-</tr>
-<tr>
-<td>公众号信息</td>
-<td>搜狗微信搜索</td>
-<td><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a></td>
-</tr>
-<tr>
-<td>注册域名</td>
-<td>域名注册查询</td>
-<td><a target="_blank" rel="noopener" href="https://buy.cloud.tencent.com/domain">https://buy.cloud.tencent.com/domain</a></td>
-</tr>
-<tr>
-<td>IP反查</td>
-<td>IP反查域名</td>
-<td><a target="_blank" rel="noopener" href="https://x.threatbook.cn/">https://x.threatbook.cn/</a></td>
-</tr>
-<tr>
-<td>IP反查</td>
-<td>IP反查域名</td>
-<td><a target="_blank" rel="noopener" href="http://dns.bugscaner.com/">http://dns.bugscaner.com/</a></td>
-</tr>
-<tr>
-<td>DNS数据</td>
-<td>dnsdumpster</td>
-<td><a target="_blank" rel="noopener" href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></td>
-</tr>
-<tr>
-<td>证书查询</td>
-<td>CertificateSearch</td>
-<td><a target="_blank" rel="noopener" href="https://crt.sh/">https://crt.sh/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>FOFA</td>
-<td><a target="_blank" rel="noopener" href="https://fofa.info/">https://fofa.info/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>全球鹰</td>
-<td><a target="_blank" rel="noopener" href="http://hunter.qianxin.com/">http://hunter.qianxin.com/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>360</td>
-<td><a target="_blank" rel="noopener" href="https://quake.360.cn/quake/#/index">https://quake.360.cn/quake/#/index</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>微步在线 情报社区</td>
-<td><a target="_blank" rel="noopener" href="https://x.threatbook.cn/">https://x.threatbook.cn/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>奇安信 威胁情报中心</td>
-<td><a target="_blank" rel="noopener" href="https://ti.qianxin.com/">https://ti.qianxin.com/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>360 威胁情报中心</td>
-<td><a target="_blank" rel="noopener" href="https://ti.360.cn/#/homepage">https://ti.360.cn/#/homepage</a></td>
-</tr>
-<tr>
-<td>枚举解析</td>
-<td>在线子域名查询</td>
-<td><a target="_blank" rel="noopener" href="http://tools.bugscaner.com/subdomain/">http://tools.bugscaner.com/subdomain/</a></td>
-</tr>
-<tr>
-<td>枚举解析</td>
-<td>DNSGrep子域名查询</td>
-<td><a target="_blank" rel="noopener" href="https://www.dnsgrep.cn/subdomain">https://www.dnsgrep.cn/subdomain</a></td>
-</tr>
-<tr>
-<td>枚举解析</td>
-<td>工具强大的子域名收集器</td>
-<td><a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a></td>
-</tr>
-<tr>
-<td>指纹识别</td>
-<td>在线cms指纹识别</td>
-<td><a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></td>
-</tr>
-<tr>
-<td>指纹识别</td>
-<td>Wappalyzer</td>
-<td><a target="_blank" rel="noopener" href="https://github.com/AliasIO/wappalyzer">https://github.com/AliasIO/wappalyzer</a></td>
-</tr>
-<tr>
-<td>指纹识别</td>
-<td>TideFinger潮汐</td>
-<td><a target="_blank" rel="noopener" href="http://finger.tidesec.net/">http://finger.tidesec.net/</a></td>
-</tr>
-<tr>
-<td>指纹识别</td>
-<td>云悉指纹</td>
-<td><a target="_blank" rel="noopener" href="https://www.yunsee.cn/">https://www.yunsee.cn/</a></td>
-</tr>
-<tr>
-<td>指纹识别</td>
-<td>WhatWeb</td>
-<td><a target="_blank" rel="noopener" href="https://github.com/urbanadventurer/WhatWeb">https://github.com/urbanadventurer/WhatWeb</a></td>
-</tr>
-<tr>
-<td>指纹识别</td>
-<td>数字观星Finger-P</td>
-<td><a target="_blank" rel="noopener" href="https://fp.shuziguanxing.com/#/">https://fp.shuziguanxing.com/#/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>钟馗之眼</td>
-<td><a target="_blank" rel="noopener" href="https://www.zoomeye.org/?R1nG">https://www.zoomeye.org/?R1nG</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>零零信安</td>
-<td><a target="_blank" rel="noopener" href="https://0.zone/">https://0.zone/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>Shodan</td>
-<td><a target="_blank" rel="noopener" href="https://www.shodan.io/">https://www.shodan.io/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>Censys</td>
-<td><a target="_blank" rel="noopener" href="https://censys.io/">https://censys.io/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>ONYPHE</td>
-<td><a target="_blank" rel="noopener" href="https://www.onyphe.io/">https://www.onyphe.io/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>FullHunt</td>
-<td><a target="_blank" rel="noopener" href="https://fullhunt.io/">https://fullhunt.io/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>Soall Search Engine</td>
-<td><a target="_blank" rel="noopener" href="https://soall.org/">https://soall.org/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>Netlas</td>
-<td><a target="_blank" rel="noopener" href="https://app.netlas.io/responses/">https://app.netlas.io/responses/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>Leakix</td>
-<td><a target="_blank" rel="noopener" href="https://leakix.net/">https://leakix.net/</a></td>
-</tr>
-<tr>
-<td>网络空间</td>
-<td>DorkSearch</td>
-<td><a target="_blank" rel="noopener" href="https://dorksearch.com/">https://dorksearch.com/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>VirusTotal在线查杀平台</td>
-<td><a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/">https://www.virustotal.com/gui/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>VenusEye 威胁情报中心</td>
-<td><a target="_blank" rel="noopener" href="https://www.venuseye.com.cn/">https://www.venuseye.com.cn/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>绿盟科技 威胁情报云</td>
-<td><a target="_blank" rel="noopener" href="https://ti.nsfocus.com/">https://ti.nsfocus.com/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>IBM 情报中心</td>
-<td><a target="_blank" rel="noopener" href="https://exchange.xforce.ibmcloud.com/">https://exchange.xforce.ibmcloud.com/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>天际友盟安全智能平台</td>
-<td><a target="_blank" rel="noopener" href="https://redqueen.tj-un.com/IntelHome.html">https://redqueen.tj-un.com/IntelHome.html</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>华为安全中心平台</td>
-<td><a target="_blank" rel="noopener" href="https://isecurity.huawei.com/sec/web/intelligencePortal.do">https://isecurity.huawei.com/sec/web/intelligencePortal.do</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>安恒威胁情报中心</td>
-<td><a target="_blank" rel="noopener" href="https://ti.dbappsecurity.com.cn/">https://ti.dbappsecurity.com.cn/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>AlienVault</td>
-<td><a target="_blank" rel="noopener" href="https://otx.alienvault.com/">https://otx.alienvault.com/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>深信服</td>
-<td><a target="_blank" rel="noopener" href="https://sec.sangfor.com.cn/analysis-platform">https://sec.sangfor.com.cn/analysis-platform</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>丁爸情报分析师的工具箱</td>
-<td><a target="_blank" rel="noopener" href="http://dingba.top/">http://dingba.top/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>听风者情报源 start.me</td>
-<td><a target="_blank" rel="noopener" href="https://start.me/p/X20Apn">https://start.me/p/X20Apn</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>GreyNoise Visualizer</td>
-<td><a target="_blank" rel="noopener" href="https://viz.greynoise.io/">https://viz.greynoise.io/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>URLhaus 数据库</td>
-<td><a target="_blank" rel="noopener" href="https://urlhaus.abuse.ch/browse/">https://urlhaus.abuse.ch/browse/</a></td>
-</tr>
-<tr>
-<td>威胁情报</td>
-<td>Pithus</td>
-<td><a target="_blank" rel="noopener" href="https://beta.pithus.org/">https://beta.pithus.org/</a></td>
-</tr>
-</tbody></table>
-<h2 id="业务资产："><a href="#业务资产：" class="headerlink" title="业务资产："></a>业务资产：</h2><p>1、WEB应用<br>2、APP应用<br>3、PC端应用<br>4、小程序应用<br>5、微信公众号<br>6、其他产品等  </p>
-<h2 id="WEB单域名："><a href="#WEB单域名：" class="headerlink" title="WEB单域名："></a>WEB单域名：</h2><p>1、备案信息<br>2、企业产权<br>3、注册域名<br>4、反查解析  </p>
-<h2 id="WEB子域名："><a href="#WEB子域名：" class="headerlink" title="WEB子域名："></a>WEB子域名：</h2><p>1、DNS数据<br>2、证书查询(https)<br>3、网络空间<br>4、威胁情报<br>5、枚举解析(爆破子域)  </p>
-<h2 id="Web架构资产：（指纹识别）"><a href="#Web架构资产：（指纹识别）" class="headerlink" title="Web架构资产：（指纹识别）"></a>Web架构资产：（指纹识别）</h2><p>1、程序语言<br>2、框架源码（纯内网识别cms用工具cmsmap、cmseek）<br>3、搭建平台<br>4、数据库类<br>5、操作系统  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/11%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-chatGPT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/03/11%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-chatGPT/" class="post-title-link" itemprop="url">11基础入门-chatGPT</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-03 09:02:15" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:15+08:00">2023-10-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 20:31:20" itemprop="dateModified" datetime="2023-11-06T20:31:20+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>625</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Chatgpt大概科普"><a href="#Chatgpt大概科普" class="headerlink" title="Chatgpt大概科普"></a>Chatgpt大概科普</h2><h3 id="1、ChatGPT是什么"><a href="#1、ChatGPT是什么" class="headerlink" title="1、ChatGPT是什么?"></a>1、ChatGPT是什么?</h3><p><a target="_blank" rel="noopener" href="https://openai.com/blog/chatgpt/">https://openai.com/blog/chatgpt/</a><br>ChatGPT–可能很多人被这个缩写的名字搞糊涂了，第一眼无法看出到底什么意思，GPT 的英文原文是 Generative Pre-training Transformer（预训练生成模型），业界有人将 ChatGPT 概括为聊天机器人+搜索工具+文本创造工具的组合，或者简单理解它是一个生成式 AI（内容生成器）。</p>
-<h3 id="2、ChatGPT能做什么？"><a href="#2、ChatGPT能做什么？" class="headerlink" title="2、ChatGPT能做什么？"></a>2、ChatGPT能做什么？</h3><p>它的主要功能是协助回答问题、提供信息和生成有关历史、科学、地理等各种主题的信息，这些信息仅限于它所接受的训练，但其知识在不断扩展。</p>
-<h3 id="3、ChatGPT牛在哪里？"><a href="#3、ChatGPT牛在哪里？" class="headerlink" title="3、ChatGPT牛在哪里？"></a>3、ChatGPT牛在哪里？</h3><p>(1）它是个通用的模型，只要提示词引导，就能快速适应不同领域。<br>(2）它能理解你的问题，只要给的引导越多，它就能给出你想要的答案。<br>安全行业影响：<br>(1）整合多种恶意软件<br>(2）提升漏洞发现能力<br>(3）给新手攻击者赋能<br>(4）便于社会工程学攻击<br>(5）快速筛选和锁定目标<br>(6）模拟网络防御攻击技术<br>利用：<br>– 安全开发<br>1、如何使用Python写一个jwt爆破脚本？<br>2、如何使用Python写一个Webshell检测脚本？<br>3、如何使用Python写一个MS17010漏洞检测脚本？<br>4、使用PHP开发一个免杀混淆复杂的webshell脚本<br>4.1、在渗透测试靶机中，发现PHP脚本被禁用了敏感函数，如何生成一个绕过的webshell<br>– 逆向免杀</p>
-<ul>
-<li>注册教程<br>百度即可</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2104,7 +1867,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2180,19 +1943,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">153k</span>
+    <span title="站点总字数">162k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:19</span>
+    <span title="站点阅读时长">2:27</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共57.5k字</span>
+  <span class="post-count">博客全站共60.3k字</span>
 </div>
 
 
