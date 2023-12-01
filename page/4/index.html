@@ -201,6 +201,375 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/35%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/35%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">35安全开发-JavaEE应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 10:39:21" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:21+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:53" itemprop="dateModified" datetime="2023-11-06T21:10:53+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>35、JavaEE-反序列化-解释&amp;使用&amp;安全</li>
+<li>36、JavaEE-安全-利用链&amp;直接重写方法</li>
+<li>37、JavaEE-安全-利用链&amp;外部重写方法</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
+</ul>
+<p> <img src="/2023/10/18/35%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%961.png"><br> <img src="/2023/10/18/35%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962.png"></p>
+<h2 id="序列化-反序列化技术"><a href="#序列化-反序列化技术" class="headerlink" title="序列化&#x2F;反序列化技术"></a>序列化&#x2F;反序列化技术</h2><ul>
+<li><p>1、序列化与反序列化<br>序列化：将内存中的对象压缩成字节流<br>反序列化：将字节流转化成内存中的对象  </p>
+</li>
+<li><p>2、为什么有序列化技术<br>序列化与反序列化的设计就是用来传输数据的。<br>当两个进程进行通信的时候，可以通过序列化反序列化来进行传输。<br>能够实现数据的持久化，通过序列化可以把数据永久的保存在硬盘上，也可以理解为通过序列化将数据保存在文件中。<br>应用场景<br>(1) 想把内存中的对象保存到一个文件中或者是数据库当中。<br>(2) 用套接字在网络上传输对象。<br>(3) 通过RMI传输对象的时候。  </p>
+</li>
+<li><p>3、几种创建的序列化和反序列化协议<br>• JAVA内置的writeObject()&#x2F;readObject()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果对方使用的是这种方法，那么就可以利用hashmap或重写来触发readObject，如果对方打印输出了反序列化结果，那么也可以利用toString来实现攻击。但是上述的这些方法，都取决于对方用的序列化与反序列化协议是writeObject与readObject。（攻击原理有3种，第1就是重写readObject，对方反序列化时由于用到了readObject，那么此时就会去调用readObject这个方法，但是如果我们自己也写了个与java本身的readObject名称一样的方法，那么对方执行的时候会将系统本身的readObject与我们写的readObject方法都执行一遍，假设我们写的readObject设定了弹出cmd，那么对方反序列化的时候就会弹出cmd。）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第2种攻击方法hashmap，原理就是hashmap本身自己就定义了readObject，且这个readObject是自带的，且hashmap中的readObject会自动解析dns，也就是说如果我们塞进去的是一个危险网页，那么它一样会进行访问，如果这个网页中存在挂马之类的东西，危害可想而知。当然，第二种方法想要实现，那么对方必须同时使用hashmap和readObject。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第3种攻击方法就是toString方法。如果对方在反序列化的时候同时输出了结果，那么就会执行toString中的代码，如果我们在代码中输入了打开计算器，那么对方在打印结果的时候就会自动打开计算器。这种方法必须得对方打印了反序列化的输出结果才有用，否则不生效。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述方法的这些方法必须建立在对方序列化与反序列化时，使用的是writeObject与readObject，否则都是不生效的。对方使用的序列化与反序列化的方法不同，那么我们的攻击方式也会有所不同，上述的攻击方法都建立在readObject的利用上，所以对方一旦使用的不是readObject，那么这些方法就会失效。<br>• JAVA内置的XMLDecoder()&#x2F;XMLEncoder<br>• XStream<br>• SnakeYaml<br>• FastJson<br>• Jackson  </p>
+</li>
+<li><p>4、为什么会出现反序列化安全问题<br>内置原生写法分析<br>• 重写readObject方法<br>• 输出调用toString方法  </p>
+</li>
+<li><p>5、反序列化利用链<br>(1) 入口类的readObject直接调用危险方法<br>(2) 入口参数中包含可控类，该类有危险方法，readObject时调用<br>(3) 入口类参数中包含可控类，该类又调用其他有危险方法的类，readObject时调用<br>(4) 构造函数&#x2F;静态代码块等类加载时隐式执行(例如：tostring)</p>
+</li>
+</ul>
+<h2 id="Java-原生使用-序列化-反序列化"><a href="#Java-原生使用-序列化-反序列化" class="headerlink" title="Java-原生使用-序列化&amp;反序列化"></a>Java-原生使用-序列化&amp;反序列化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//进行序列化对象并写入文件ser.txt</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">serializeTest</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;ser.txt&quot;</span>));</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//读入Filename进行反序列化</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">unserializeTest</span><span class="params">(String Filename)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">        ObjectInputStream ois=<span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(Filename));</span><br><span class="line">        <span class="type">Object</span> <span class="variable">o</span> <span class="operator">=</span> ois.readObject();        </span><br><span class="line">        <span class="keyword">return</span> o;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java-安全问题-重写方法-触发方法"><a href="#Java-安全问题-重写方法-触发方法" class="headerlink" title="Java-安全问题-重写方法&amp;触发方法"></a>Java-安全问题-重写方法&amp;触发方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">toString <span class="comment">//输出调用toString方法</span></span><br><span class="line"><span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;xdsec&quot;</span>,<span class="string">&quot;man&quot;</span>,<span class="number">30</span>);</span><br><span class="line">System.out.println(u);</span><br><span class="line">serializeTest(u);</span><br><span class="line">unserializeTest(<span class="string">&quot;ser.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">readObject <span class="comment">//序列化后被重写readObject调用</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">readObject</span><span class="params">(ObjectInputStream ois)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">        <span class="comment">//指向正确defaultReadObject</span></span><br><span class="line">        ois.defaultReadObject();</span><br><span class="line">        Runtime.getRuntime().exec(<span class="string">&quot;calc&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java-安全问题-可控其他类重写方法"><a href="#Java-安全问题-可控其他类重写方法" class="headerlink" title="Java-安全问题-可控其他类重写方法"></a>Java-安全问题-可控其他类重写方法</h2><p>参考：<a target="_blank" rel="noopener" href="https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java">https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java</a>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">UrlDNS.java  </span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.example.serdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.MalformedURLException;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UrlDNS</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">        HashMap&lt;URL,Integer&gt; hashmap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        URL url=<span class="keyword">new</span> <span class="title class_">URL</span>(<span class="string">&quot;http://xxxx.dnslog.cn&quot;</span>);</span><br><span class="line">        hashmap.put(url,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//进行序列化对象hashmap</span></span><br><span class="line">        serializeTest(hashmap);</span><br><span class="line">        <span class="comment">//进行反序列化dns.txt</span></span><br><span class="line">        unserializeTest(<span class="string">&quot;dns.txt&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">serializeTest</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="comment">//进行序列化对象并写入文件dns.txt</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;dns.txt&quot;</span>));</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">unserializeTest</span><span class="params">(String Filename)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">    <span class="comment">//读入Filename进行反序列化</span></span><br><span class="line">        ObjectInputStream ois=<span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(Filename));</span><br><span class="line">        <span class="type">Object</span> <span class="variable">o</span> <span class="operator">=</span> ois.readObject();<span class="comment">//默认调用ObjectInputStream里的readObject();</span></span><br><span class="line">        <span class="keyword">return</span> o;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">34安全开发-JavaEE应用-java反射</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 10:39:13" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:13+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:47" itemprop="dateModified" datetime="2023-11-06T21:10:47+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>32、JavaEE-反射机制-开发和安全应用场景</li>
+<li>33、JavaEE-反射机制-类&amp;成员变量&amp;方法&amp;构造方法操作</li>
+<li>34、JavaEE-反射机制-安全应用&amp;反射执行&amp;反序列化链相关</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
+</ul>
+<p> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB.png"><br> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB2.png"><br> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB3.png"><br> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB4.png"></p>
+<h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><ul>
+<li><p>1、什么是Java反射<br>参考：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/9117">https://xz.aliyun.com/t/9117</a><br>Java提供了一套反射API，该API由Class类与java.lang.reflect类库组成。<br>该类库包含了Field、Method、Constructor等类。<br>对成员变量，成员方法和构造方法的信息进行的编程操作可以理解为反射机制。  </p>
+</li>
+<li><p>2、为什么要用到反射<br>参考：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/9117">https://xz.aliyun.com/t/9117</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实从官方定义中就能找到其存在的价值，在运行时获得程序或程序集中每一个类型的成员和成员的信息，从而动态的创建、修改、调用、获取其属性，而不需要事先知道运行的对象是谁。划重点：在运行时而不是编译时。（不改变原有代码逻辑，自行运行的时候动态创建和编译即可）  </p>
+</li>
+<li><p>3、反射机制应用<br>开发应用场景：<br>Spring框架的IOC基于反射创建对象和设置依赖属性。<br>SpringMVC的请求调用对应方法，也是通过反射。<br>JDBC的Class#forName(String className)方法，也是使用反射。  </p>
+</li>
+<li><p>4、安全应用场景：<br>构造利用链，触发命令执行<br>反序列化中的利用链构造<br>动态获取或执行任意类中的属性或方法<br>动态代理的底层原理是反射技术<br>rmi反序列化也涉及到反射操作</p>
+</li>
+</ul>
+<h2 id="Java-反射-Class对象类获取"><a href="#Java-反射-Class对象类获取" class="headerlink" title="Java-反射-Class对象类获取"></a>Java-反射-Class对象类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、根据类名：类名.class</span></span><br><span class="line"><span class="type">Class</span> <span class="variable">userClass</span> <span class="operator">=</span> User.class;</span><br><span class="line"><span class="comment">//2、根据对象：对象.getClass()</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> user.getClass();</span><br><span class="line"><span class="comment">//3、根据全限定类名：Class.forName(&quot;全路径类名&quot;)</span></span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass1</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"><span class="comment">//4、通过类加载器获得Class对象：//ClassLoader.getSystemClassLoader().loadClass(&quot;全路径类名&quot;);</span></span><br><span class="line">ClassLoader clsload=ClassLoader.getSystemClassLoader();</span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass2</span> <span class="operator">=</span> clsload.loadClass(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java-反射-Field成员变量类获取"><a href="#Java-反射-Field成员变量类获取" class="headerlink" title="Java-反射-Field成员变量类获取"></a>Java-反射-Field成员变量类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"><span class="comment">//获取公共成员变量对象</span></span><br><span class="line">        Field[] fields=aClass.getFields();</span><br><span class="line">        <span class="keyword">for</span>(Field f:fields)&#123;</span><br><span class="line">            System.out.println(f);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取所有成员变量对象</span></span><br><span class="line">        Field[] fields=aClass.getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span>(Field f:fields)&#123;</span><br><span class="line">            System.out.println(f);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取公共，私有单个成员变量对象</span></span><br><span class="line">        Field field=aClass.getField(<span class="string">&quot;age&quot;</span>);</span><br><span class="line">        Field field=aClass.getDeclaredField(<span class="string">&quot;gender&quot;</span>);</span><br><span class="line">        System.out.println(field);</span><br><span class="line"></span><br><span class="line"><span class="comment">//城边变量值获取和赋值</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">        Field field=aClass.getField(<span class="string">&quot;age&quot;</span>);</span><br><span class="line">        field.set(u,<span class="number">30</span>);</span><br><span class="line">        Object a=field.get(u);</span><br><span class="line">        System.out.println(a);</span><br></pre></td></tr></table></figure>
+<h2 id="Java-反射-Method成员方法类获取"><a href="#Java-反射-Method成员方法类获取" class="headerlink" title="Java-反射-Method成员方法类获取"></a>Java-反射-Method成员方法类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有公共成员方法对象的数组，包括继承的</span></span><br><span class="line">        Method[] methods = aClass.getMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method me:methods)&#123;</span><br><span class="line">            System.out.println(me);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有成员方法对象的数组，不包括继承的</span></span><br><span class="line">        Method[] methods = aClass.getDeclaredMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method me:methods)&#123;</span><br><span class="line">            System.out.println(me);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个公共成员方法对象</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;getName&quot;</span>);</span><br><span class="line">        System.out.println(methods);</span><br><span class="line"></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;setName&quot;</span>, String.class);</span><br><span class="line">        System.out.println(methods);</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个成员方法对象</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getDeclaredMethod(<span class="string">&quot;UserInfo&quot;</span>, String.class, <span class="type">int</span>.class, String.class);</span><br><span class="line">        System.out.println(methods);</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行方法invoke</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getDeclaredMethod(<span class="string">&quot;UserInfo&quot;</span>, String.class, <span class="type">int</span>.class, String.class);</span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="comment">//私有需要开启临时</span></span><br><span class="line">        methods.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        methods.invoke(u,<span class="string">&quot;xiaodi&quot;</span>,<span class="number">18</span>,<span class="string">&quot;man&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java-反射-Constructor构造方法类获取"><a href="#Java-反射-Constructor构造方法类获取" class="headerlink" title="Java-反射-Constructor构造方法类获取"></a>Java-反射-Constructor构造方法类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"><span class="comment">//返回所有公共构造方法对象的数组</span></span><br><span class="line">        Constructor[] constructors = aClass.getConstructors();</span><br><span class="line">        <span class="keyword">for</span>(Constructor con:constructors)&#123;</span><br><span class="line">            System.out.println(con);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有构造方法对象的数组</span></span><br><span class="line">        Constructor[] constructors = aClass.getDeclaredConstructors();</span><br><span class="line">        <span class="keyword">for</span>(Constructor con:constructors)&#123;</span><br><span class="line">            System.out.println(con);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个公共构造方法对象</span></span><br><span class="line">        Constructor con1=aClass.getConstructor();</span><br><span class="line">        Constructor con1=aClass.getConstructor(String.class);</span><br><span class="line">        System.out.println(con1);</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个构造方法对象</span></span><br><span class="line">        Constructor con2=aClass.getDeclaredConstructor(<span class="type">int</span>.class);</span><br><span class="line">		Constructor con2=aClass.getDeclaredConstructor(String.class,<span class="type">int</span>.class, String.class);</span><br><span class="line">        System.out.println(con2);</span><br><span class="line"></span><br><span class="line">        Constructor con2=aClass.getDeclaredConstructor(<span class="type">int</span>.class);</span><br><span class="line">        con2.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        User uu=(User) con2.newInstance(<span class="string">&quot;xiaodi&quot;</span>,<span class="number">30</span>,<span class="string">&quot;man&quot;</span>);</span><br><span class="line">        System.out.println(uu);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java-反射-不安全命令执行-反序列化链构造"><a href="#Java-反射-不安全命令执行-反序列化链构造" class="headerlink" title="Java-反射-不安全命令执行&amp;反序列化链构造"></a>Java-反射-不安全命令执行&amp;反序列化链构造</h2><ul>
+<li><p>1、反射实现-命令执行  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-原型：</span><br><span class="line">Runtime.getRuntime().exec(<span class="string">&quot;calc&quot;</span>);</span><br><span class="line">-反射：</span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">Method[] methods = aClass.getMethods();</span><br><span class="line"><span class="keyword">for</span> (Method me:methods)&#123;</span><br><span class="line">    System.out.println(me);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">Method</span> <span class="variable">exec</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;exec&quot;</span>, String.class);</span><br><span class="line"><span class="type">Method</span> <span class="variable">getRuntimeMethod</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;getRuntime&quot;</span>);</span><br><span class="line"><span class="type">Object</span> <span class="variable">runtime</span> <span class="operator">=</span> getRuntimeMethod.invoke(aClass);</span><br><span class="line">exec.invoke(runtime, <span class="string">&quot;calc.exe&quot;</span>);</span><br><span class="line"></span><br><span class="line">Class c1= Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line"><span class="type">Constructor</span> <span class="variable">m</span> <span class="operator">=</span> c1.getDeclaredConstructor();</span><br><span class="line">m.setAccessible(<span class="literal">true</span>);</span><br><span class="line">c1.getMethod(<span class="string">&quot;exec&quot;</span>, String.class).invoke(m.newInstance(), <span class="string">&quot;calc&quot;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、不安全的反射对象<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指应用程序使用具有反射功能的外部输入来选择要使用的类或代码，<br>可能被攻击者利用而输入或选择不正确的类。绕过身份验证或访问控制检查<br>参考分析：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/165273855">https://zhuanlan.zhihu.com/p/165273855</a><br>利用结合：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7031%EF%BC%88%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8%E9%93%BE%EF%BC%89">https://xz.aliyun.com/t/7031（反序列化利用链）</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">33安全开发-JavaEE应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 10:39:04" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:04+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:40" itemprop="dateModified" datetime="2023-11-06T21:10:40+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>29、JavaEE-JDBC-SQL预编译</li>
+<li>30、JavaEE-HTTP-Filter过滤器</li>
+<li>31、JavaEE-对象域-Listen监听器</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
+</ul>
+<p> <img src="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/filter1.png"><br> <img src="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/filter2.png"><br> <img src="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/filter3.png"></p>
+<h2 id="JavaEE-预编译-SQL"><a href="#JavaEE-预编译-SQL" class="headerlink" title="JavaEE-预编译-SQL"></a>JavaEE-预编译-SQL</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">预编译SQL语句并执行,预防SQL注入问题 </span><br><span class="line">String safesql=&quot;select * from news where id=?&quot;; </span><br><span class="line">PreparedStatement preparedStatement=connection.prepareStatement();</span><br><span class="line">preparedStatement.setString(1,s);</span><br><span class="line">ResultSet resultSet=preparedStatement.executeQuery();</span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaEE-过滤器-Filter"><a href="#JavaEE-过滤器-Filter" class="headerlink" title="JavaEE-过滤器-Filter"></a>JavaEE-过滤器-Filter</h2><p>(和安全相关的技术：内存马，权限控制)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filter被称为过滤器，过滤器实际上就是对Web资源进行拦截，做一些处理后再交给下一个过滤器或Servlet处理，通常都是用来拦截request进行处理的，也可以对返回的 response进行拦截处理。开发人员利用filter技术，可以实现对所有Web资源的管理，例如实现权限访问控制、过滤敏感词汇、压缩响应信息等一些高级功能。  </p>
+<ul>
+<li>1、创建过滤器  </li>
+<li>2、过滤器内置方法<br>init  doFilter destroy  </li>
+<li>3、过滤器触发流程  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter(&quot;/xss&quot;)</span></span><br><span class="line">&lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;xssFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-class&gt;com.example.filter.xssFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">    &lt;filter-name&gt;xssFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/xss&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure></li>
+<li>4、过滤器安全场景<br>Payload检测，权限访问控制，红队内存马植入，蓝队清理内存马等<br>内存马参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hev4G1FivLtqKjt0VhHKmw">https://mp.weixin.qq.com/s/hev4G1FivLtqKjt0VhHKmw</a></li>
+</ul>
+<h2 id="JavaEE-监听器-Listen"><a href="#JavaEE-监听器-Listen" class="headerlink" title="JavaEE-监听器-Listen"></a>JavaEE-监听器-Listen</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52797170/article/details/124023760">https://blog.csdn.net/qq_52797170/article/details/124023760</a>  </p>
+<ul>
+<li>监听ServletContext、HttpSession、ServletRequest等域对象创建和销毁事件</li>
+<li>监听域对象的属性发生修改的事件</li>
+<li>监听在事件发生前、发生后做一些必要的处理<br>1、创建监听器<br>2、监听器内置方法<br>3、监听器触发流程  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebListener</span></span><br><span class="line">&lt;listener&gt;</span><br><span class="line">    .......</span><br><span class="line">&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
+4、监听器安全场景<br>代码审计中分析执行逻辑触发操作，红队内存马植入，蓝队清理内存马等</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1061,366 +1430,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">25安全开发-文件管理</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-08 19:56:32" itemprop="dateCreated datePublished" datetime="2023-10-08T19:56:32+08:00">2023-10-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:09:37" itemprop="dateModified" datetime="2023-11-06T21:09:37+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>11、PHP文件管理-下载&amp;删除功能实现</li>
-<li>12、PHP文件管理-编辑&amp;包含功能实现</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86.png"></p>
-<h2 id="PHP文件操作安全"><a href="#PHP文件操作安全" class="headerlink" title="PHP文件操作安全"></a>PHP文件操作安全</h2><p>-文件包含，文件上传，文件下载，文件删除，文件写入，文件遍历  </p>
-<h2 id="文件包含："><a href="#文件包含：" class="headerlink" title="文件包含："></a>文件包含：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">include() 在错误发生后脚本继续执行  </span><br><span class="line">require() 在错误发生后脚本停止执行  </span><br><span class="line">include_once() 如果已经包含，则不再执行  </span><br><span class="line">require_once() 如果已经包含，则不再执行  </span><br></pre></td></tr></table></figure>
-
-<h2 id="文件上传："><a href="#文件上传：" class="headerlink" title="文件上传："></a>文件上传：</h2><p>1、无过滤机制<br>2、黑名单过滤机制<br>3、白名单过滤机制<br>4、文件类型过滤机制  </p>
-<p>架构：<br>1、上传至服务器本身的存储磁盘(源码在一起)<br>2、云产品OSS存储对象去存储文件(泄漏安全)<br>3、把文件上传到其他域名,如：<a href="http://www.xiaodi8.com->upload.xiaodi8.com">www.xiaodi8.com-&gt;upload.xiaodi8.com</a>  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$_FILES：PHP中一个预定义的超全局变量，用于在上传文件时从客户端接收文件，并将其保存到服务器上。它是一个包含上传文件信息的数组，包括文件名、类型、大小、临时文件名等信息。  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;name&quot;] 获取上传文件原始名称  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;type&quot;] 获取上传文件MIME类型  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;size&quot;] 获取上传文件字节单位大小  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;tmp_name&quot;] 获取上传的临时副本文件名  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;error&quot;] 获取上传时发生的错误代码  </span><br><span class="line">move_uploaded_file() 将上传的文件移动到指定位置的函数  </span><br></pre></td></tr></table></figure>
-<h2 id="文件显示："><a href="#文件显示：" class="headerlink" title="文件显示："></a>文件显示：</h2><p>1.打开目录读取文件列表<br>2.递归循环读取文件列表<br>3.判断是文件还是文件夹<br>4.PHP.INI目录访问控制  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">is_dir() 函数用于检查指定的路径是否是一个目录  </span><br><span class="line">opendir() 函数用于打开指定的目录，返回句柄，用来读取目录中的文件和子目录  </span><br><span class="line">readdir() 函数用于从打开的目录句柄中读取目录中的文件和子目录  </span><br><span class="line">open_basedir：PHP.INI中的设置用来控制脚本程序访问目录  </span><br><span class="line">ini_set(&#x27;open_basedir&#x27;,__DIR__); 设置配置文件中，只能访问本目录  </span><br></pre></td></tr></table></figure>
-<h2 id="文件删除："><a href="#文件删除：" class="headerlink" title="文件删除："></a>文件删除：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unlink() 文件删除函数  </span><br><span class="line">调用命令删除：system shell_exec exec等  </span><br></pre></td></tr></table></figure>
-<h2 id="文件下载："><a href="#文件下载：" class="headerlink" title="文件下载："></a>文件下载：</h2><p>修改HTTP头实现文件读取解析下载：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">header(&quot;Content-Type: application/octet-stream&quot;);  </span><br><span class="line">header(&quot;Content-Disposition: attachment; filename=&quot;&quot;);  </span><br><span class="line">header(&quot;Content-Length: &quot; . filesize($file));  </span><br><span class="line">readfile($file);  </span><br></pre></td></tr></table></figure>
-<h2 id="文件编辑："><a href="#文件编辑：" class="headerlink" title="文件编辑："></a>文件编辑：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、file_get_contents() 读取文件内容  </span><br><span class="line">2、fopen() fread() 文件打开读入  </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/08/24%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/08/24%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">24安全开发-文件管理</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-08 19:56:22" itemprop="dateCreated datePublished" datetime="2023-10-08T19:56:22+08:00">2023-10-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:09:26" itemprop="dateModified" datetime="2023-11-06T21:09:26+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>964</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>8、PHP文件管理-显示&amp;上传功能实现</li>
-<li>9、文件上传-$_FILES&amp;过滤机制实现</li>
-<li>10、文件显示-目录遍历&amp;过滤机制实现</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……</p>
-<h2 id="文件管理模块-上传-过滤机制"><a href="#文件管理模块-上传-过滤机制" class="headerlink" title="文件管理模块-上传-过滤机制"></a>文件管理模块-上传-过滤机制</h2><ul>
-<li>1、无过滤机制  </li>
-<li>2、黑名单过滤机制  </li>
-<li>3、白名单过滤机制  </li>
-<li>4、文件类型过滤机制  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$_FILES：PHP中一个预定义的超全局变量，用于在上传文件时从客户端接收文件，并将其保存到服务器上。它是一个包含上传文件信息的数组，包括文件名、类型、大小、临时文件名等信息。  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;name&quot;] 获取上传文件原始名称  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;type&quot;] 获取上传文件MIME类型  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;size&quot;] 获取上传文件字节单位大小  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;tmp_name&quot;] 获取上传的临时副本文件名  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;error&quot;] 获取上传时发生的错误代码  </span><br><span class="line">move_uploaded_file() 将上传的文件移动到指定位置的函数  </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="文件管理模块-显示-过滤机制"><a href="#文件管理模块-显示-过滤机制" class="headerlink" title="文件管理模块-显示-过滤机制"></a>文件管理模块-显示-过滤机制</h2><p>功能：显示 上传 下载 删除 编辑 包含等<br>1.打开目录读取文件列表<br>2.递归循环读取文件列表<br>3.判断是文件还是文件夹<br>4.PHP.INI目录访问控制  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">is_dir() 函数用于检查指定的路径是否是一个目录  </span><br><span class="line">opendir() 函数用于打开指定的目录，返回句柄，用来读取目录中的文件和子目录  </span><br><span class="line">readdir() 函数用于从打开的目录句柄中读取目录中的文件和子目录  </span><br><span class="line">open_basedir：PHP.INI中的设置用来控制脚本程序访问目录  </span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">23安全开发-php应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-07 20:56:17" itemprop="dateCreated datePublished" datetime="2023-10-07T20:56:17+08:00">2023-10-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:09:18" itemprop="dateModified" datetime="2023-11-06T21:09:18+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>5、PHP后台身份验证模块实现  </li>
-<li>6、Cookie&amp;Session技术&amp;差异  </li>
-<li>7、Token数据包唯一性应用场景  </li>
-<li>项目1：用cookie做后台身份验证  </li>
-<li>项目2：用session做后台身份验证  </li>
-<li>项目3：用token做用户登录判断</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/cookie1.png"><br> <img src="/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/cookie1.png"></p>
-<h2 id="身份验证-Cookie使用"><a href="#身份验证-Cookie使用" class="headerlink" title="身份验证-Cookie使用"></a>身份验证-Cookie使用</h2><p>生成cookie的原理图过程：见图  </p>
-<ul>
-<li>1、客户端向服务器发送HTTP请求。  </li>
-<li>2、服务器检查请求头中是否包含cookie信息。  </li>
-<li>3、如果请求头中包含cookie信息，则服务器使用该cookie来识别客户端，否则服务器将生成一个新的cookie。  </li>
-<li>4、服务器在响应头中设置cookie信息并将其发送回客户端。  </li>
-<li>5、客户端接收响应并将cookie保存在本地。  </li>
-<li>6、当客户端发送下一次HTTP请求时，它会将cookie信息附加到请求头中。  </li>
-<li>7、服务器收到请求并检查cookie的有效性。  </li>
-<li>8、如果cookie有效，则服务器响应请求。否则，服务器可能会要求客户端重新登录。</li>
-</ul>
-<p>setcookie(): 设置一个cookie并发送到客户端浏览器。<br>unset(): 用于删除指定的cookie。  </p>
-<h2 id="身份验证-Session使用"><a href="#身份验证-Session使用" class="headerlink" title="身份验证-Session使用"></a>身份验证-Session使用</h2><ul>
-<li>1、客户端向服务器发送HTTP请求。  </li>
-<li>2、服务器为客户端生成一个唯一的session ID，并将其存储在服务器端的存储器中（如文件、数据库等）。  </li>
-<li>3、服务器将生成的session ID作为一个cookie发送给客户端。  </li>
-<li>4、客户端将session ID保存为一个cookie，通常是在本地浏览器中存储。  </li>
-<li>5、当客户端在发送下一次HTTP请求时，它会将该cookie信息附加到请求头中，以便服务器可以通过该session ID来识别客户端。   </li>
-<li>6、服务器使用session ID来检索存储在服务器端存储器中的与该客户端相关的session数据，从而在客户端和服务器之间共享数据。</li>
-</ul>
-<p>session_start(): 启动会话，用于开始或恢复一个已经存在的会话。<br>$_SESSION: 用于存储和访问当前会话中的所有变量。<br>session_destroy(): 销毁当前会话中的所有数据。<br>session_unset(): 释放当前会话中的所有变量。<br>Session存储路径：PHP.INI中session.save_path设置路径  </p>
-<h2 id="唯一性判断-Token使用"><a href="#唯一性判断-Token使用" class="headerlink" title="唯一性判断-Token使用"></a>唯一性判断-Token使用</h2><ul>
-<li>1、生成Token并将其存储在Session  </li>
-<li>2、生成Token并将其绑定在Cookie触发  </li>
-<li>3、尝试登录表单中带入Token验证逻辑  </li>
-<li>4、思考Token安全特性</li>
-</ul>
-<h2 id="具体安全知识点："><a href="#具体安全知识点：" class="headerlink" title="具体安全知识点："></a>具体安全知识点：</h2><h3 id="Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制"><a href="#Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制" class="headerlink" title="Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制"></a>Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制</h3><ul>
-<li>1、存储位置不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie是存储在客户端（浏览器）上的，而Session是存储在服务器端的。  </li>
-<li>2、安全性不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie存储在客户端上，可能会被黑客利用窃取信息，而Session存储在服务器上，更加安全。  </li>
-<li>3、存储容量不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie的存储容量有限，一般为4KB，而Session的存储容量理论上没有限制，取决于服务器的硬件和配置。  </li>
-<li>4、生命周期不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie可以设置过期时间，即便关闭浏览器或者重新打开电脑，Cookie仍然存在，直到过期或者被删除。而Session一般默认在浏览器关闭后就会过期。  </li>
-<li>5、访问方式不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie可以通过JavaScript访问，而Session只能在服务器端进行访问。  </li>
-<li>6、使用场景不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie一般用于存储小型的数据，如用户的用户名和密码等信息。而Session一般用于存储大型的数据，如购物车、登录状态等信息。</li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总之，Cookie和Session都有各自的优缺点，选择使用哪一种方式，取决于具体的应用场景和需求。一般来说，如果需要存储敏感信息或者数据较大，建议使用Session；如果只需要存储少量的数据，并且需要在客户端进行访问，可以选择使用Cookie。  </p>
-<h3 id="在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。"><a href="#在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。" class="headerlink" title="在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。"></a>在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。</h3><ul>
-<li>1.身份验证：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用token机制的Web应用程序，用户在登录成功后会收到一个token，这个token可以在每次请求时发送给服务器进行身份验证。而不采用token机制的Web应用程序，一般会使用session机制来保存用户登录状态，服务器会在用户登录成功后创建一个session，之后的每个请求都需要在HTTP头中附带这个session ID，以便服务器能够验证用户身份。  </li>
-<li>2、安全性：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用token机制的Web应用程序，在服务器上不会存储用户的登录状态，只需要存储token即可。因此，即使token被盗取，黑客也无法获得用户的密码或者其他敏感信息。而不采用token机制的Web应用程序，一般会在服务器上存储用户的登录状态，因此如果服务器被黑客攻击，黑客可能会获得用户的敏感信息。  </li>
-<li>3、跨域访问：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用token机制的Web应用程序，在跨域访问时，可以使用HTTP头中的Authorization字段来传递token信息，方便实现跨域访问。而不采用token机制的Web应用程序，在跨域访问时，需使用cookie或session来传递用户身份信息，比较麻烦。</li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总之，采用token机制可以提高Web应用程序的安全性，并且方便实现跨域访问。不过，使用token机制也需要开发者自己来实现身份验证和token的生成和验证，相对来说比较复杂。而不采用token机制，使用session机制则相对简单，但是安全性相对较低。因此，具体采用哪种机制，需要根据实际情况进行权衡和选择。  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1492,7 +1501,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1568,19 +1577,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">162k</span>
+    <span title="站点总字数">164k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:27</span>
+    <span title="站点阅读时长">2:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60.3k字</span>
+  <span class="post-count">博客全站共61.3k字</span>
 </div>
 
 

@@ -23,19 +23,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="思维导图见 41WEB攻防 知识点： 57、PHP-反序列化-应用&amp;识别&amp;函数 58、PHP-反序列化-魔术方法&amp;触发规则 59、PHP-反序列化-联合漏洞&amp;POP链构造  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTOP10：注入，文件安全，XSS，RCE，XXE，C">
+  <meta name="description" content="思维导图见 41WEB攻防 知识点： 60、PHP-反序列化-属性类型&amp;显示特征 61、PHP-反序列化-CVE绕过&amp;字符串逃逸 62、PHP-反序列化-原生类生成&amp;利用&amp;配合  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTOP10：注入，文件安全，XSS，RCE，XX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="61WEB攻防-PHP反序列化2">
 <meta property="og:url" content="http://example.com/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="思维导图见 41WEB攻防 知识点： 57、PHP-反序列化-应用&amp;识别&amp;函数 58、PHP-反序列化-魔术方法&amp;触发规则 59、PHP-反序列化-联合漏洞&amp;POP链构造  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTOP10：注入，文件安全，XSS，RCE，XXE，C">
+<meta property="og:description" content="思维导图见 41WEB攻防 知识点： 60、PHP-反序列化-属性类型&amp;显示特征 61、PHP-反序列化-CVE绕过&amp;字符串逃逸 62、PHP-反序列化-原生类生成&amp;利用&amp;配合  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTOP10：注入，文件安全，XSS，RCE，XX">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%961.png">
 <meta property="og:image" content="http://example.com/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962.png">
 <meta property="og:image" content="http://example.com/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%963.png">
 <meta property="og:image" content="http://example.com/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%964.png">
 <meta property="article:published_time" content="2023-11-28T12:19:19.000Z">
-<meta property="article:modified_time" content="2023-11-28T12:33:25.054Z">
+<meta property="article:modified_time" content="2023-12-01T14:32:24.179Z">
 <meta property="article:author" content="z7">
 <meta property="article:tag" content="WEB攻防">
 <meta name="twitter:card" content="summary">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-11-28 20:19:19 / 修改时间：20:33:25" itemprop="dateCreated datePublished" datetime="2023-11-28T20:19:19+08:00">2023-11-28</time>
+              <time title="创建时间：2023-11-28 20:19:19" itemprop="dateCreated datePublished" datetime="2023-11-28T20:19:19+08:00">2023-11-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-01 22:32:24" itemprop="dateModified" datetime="2023-12-01T22:32:24+08:00">2023-12-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -281,9 +287,9 @@
       
         <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
 <h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>57、PHP-反序列化-应用&amp;识别&amp;函数</li>
-<li>58、PHP-反序列化-魔术方法&amp;触发规则</li>
-<li>59、PHP-反序列化-联合漏洞&amp;POP链构造</li>
+<li>60、PHP-反序列化-属性类型&amp;显示特征</li>
+<li>61、PHP-反序列化-CVE绕过&amp;字符串逃逸</li>
+<li>62、PHP-反序列化-原生类生成&amp;利用&amp;配合</li>
 </ul>
 <h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
 <p> <img src="/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%961.png"><br> <img src="/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962.png"><br> <img src="/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%963.png"><br> <img src="/2023/11/28/61WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%962/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%964.png"></p>
@@ -461,7 +467,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -537,19 +543,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">162k</span>
+    <span title="站点总字数">164k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:27</span>
+    <span title="站点阅读时长">2:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60.3k字</span>
+  <span class="post-count">博客全站共61.3k字</span>
 </div>
 
 
