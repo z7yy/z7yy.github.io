@@ -4,11 +4,61 @@
   
     
     <entry>
-      <title>65WEB攻防-JS应用3</title>
-      <link href="/2023/12/01/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/"/>
-      <url>/2023/12/01/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/</url>
+      <title>67WEB攻防-JAVA安全2</title>
+      <link href="/2023/12/07/67WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A82/"/>
+      <url>/2023/12/07/67WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A82/</url>
       
         <content type="html"><![CDATA[<h1 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WEB攻防 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>66WEB攻防-JAVA安全1</title>
+      <link href="/2023/12/06/66WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A81/"/>
+      <url>/2023/12/06/66WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>75、Java安全-SQL注入-JDBC&amp;MyBatis</li><li>76、Java安全-XXE注入-Reader&amp;Builder</li><li>77、Java安全-SSTI模版-Thymeleaf&amp;URL</li><li>78、Java安全-SPEL表达式-SpringBoot框架</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p><h2 id="JAVA安全"><a href="#JAVA安全" class="headerlink" title="JAVA安全"></a>JAVA安全</h2><p><a href="https://github.com/bewhale/JavaSec">https://github.com/bewhale/JavaSec</a><br><a href="https://github.com/j3ers3/Hello-Java-Sec">https://github.com/j3ers3/Hello-Java-Sec</a><br><a href="https://mp.weixin.qq.com/s/ZO4tpz9ys6kCIryNhA5nYw">https://mp.weixin.qq.com/s/ZO4tpz9ys6kCIryNhA5nYw</a>  </p><h2 id="Java安全-SQL注入-JDBC-MyBatis"><a href="#Java安全-SQL注入-JDBC-MyBatis" class="headerlink" title="Java安全-SQL注入-JDBC&amp;MyBatis"></a>Java安全-SQL注入-JDBC&amp;MyBatis</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><ul><li>1、采用Statement方法拼接SQL语句  </li><li>2、PrepareStatement会对SQL语句进行预编译，但如果直接采取拼接的方式构造SQL，此时进行预编译也无用。  </li><li>3、JDBCTemplate是Spring对JDBC的封装，如果使用拼接语句便会产生注入<br>安全写法：SQL语句占位符（?） + PrepareStatement预编译</li></ul><h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBatis支持两种参数符号，一种是#，另一种是$，#使用预编译，$使用拼接SQL。  </p><ul><li>1、order by注入：由于使用#{}会将对象转成字符串，形成order by “user” desc造成错误，因此很多研发会采用${}来解决，从而造成注入.</li><li>2、like 注入：模糊搜索时，直接使用’%#{q}%’ 会报错，部分研发图方便直接改成’%${q}%’从而造成注入.</li><li>3、in注入：in之后多个id查询时使用 # 同样会报错，从而造成注入.</li></ul><h3 id="代码审计案例：inxedu后台MyBatis注入"><a href="#代码审计案例：inxedu后台MyBatis注入" class="headerlink" title="代码审计案例：inxedu后台MyBatis注入"></a>代码审计案例：inxedu后台MyBatis注入</h3><h2 id="Java安全-XXE注入-Reader-Builder"><a href="#Java安全-XXE注入-Reader-Builder" class="headerlink" title="Java安全-XXE注入-Reader&amp;Builder"></a>Java安全-XXE注入-Reader&amp;Builder</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXE (XML External Entity Injection), XML外部实体注入，当开发人员配置其XML解析功能允许外部实体引用时，攻击者可利用这一可引发安全问题的配置方式，实施任意文件读取、内网端口探测、命令执行、拒绝服务等攻击。<br>-XMLReader<br>-SAXReader<br>-SAXBuilder<br>-Unmarshaller<br>-DocumentBuilder  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 审计的函数</span><br><span class="line"> * 1. XMLReader</span><br><span class="line"> * 2. SAXReader</span><br><span class="line"> * 3. DocumentBuilder</span><br><span class="line"> * 4. XMLStreamReader</span><br><span class="line"> * 5. SAXBuilder</span><br><span class="line"> * 6. SAXParser</span><br><span class="line"> * 7. SAXSource</span><br><span class="line"> * 8. TransformerFactory</span><br><span class="line"> * 9. SAXTransformerFactory</span><br><span class="line"> * 10. SchemaFactory</span><br><span class="line"> * 11. Unmarshaller</span><br><span class="line"> * 12. XPathExpression</span><br><span class="line"> */</span><br></pre></td></tr></table></figure><h2 id="Java安全-SSTI模版-Thymeleaf-URL"><a href="#Java安全-SSTI模版-Thymeleaf-URL" class="headerlink" title="Java安全-SSTI模版-Thymeleaf&amp;URL"></a>Java安全-SSTI模版-Thymeleaf&amp;URL</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SSTI(Server Side Template Injection) 服务器模板注入, 服务端接收了用户的输入，将其作为 Web 应用模板内容的一部分，在进行目标编译渲染的过程中，执行了用户插入的恶意内容。  </p><ul><li>1、URL作视图    </li><li>2、Velocity  </li><li>3、Thymeleaf  </li><li>其他语言参考：<br><a href="https://www.cnblogs.com/bmjoker/p/13508538.html">https://www.cnblogs.com/bmjoker/p/13508538.html</a></li></ul><h2 id="Java安全-SPEL表达式-SpringBoot框架"><a href="#Java安全-SPEL表达式-SpringBoot框架" class="headerlink" title="Java安全-SPEL表达式-SpringBoot框架"></a>Java安全-SPEL表达式-SpringBoot框架</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpEL（Spring Expression Language）表达式注入, 是一种功能强大的表达式语言、用于在运行时查询和操作对象图，由于未对参数做过滤可造成任意命令执行。   </p><ul><li>1、Spring表达式  </li><li>2、Spring反射绕过<br>参考：<a href="https://www.jianshu.com/p/e3c77c053359">https://www.jianshu.com/p/e3c77c053359</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WEB攻防 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>65WEB攻防-JS应用3</title>
+      <link href="/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/"/>
+      <url>/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/</url>
+      
+        <content type="html"><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>71、JavaScript安全-泄漏配置信息</li><li>72、JavaScript安全-获取接口测试</li><li>73、JavaScript安全-代码逻辑分析</li><li>74、JavaScript安全-框架漏洞检测</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中…. </p><p> <img src="/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/JS%E5%BA%94%E7%94%A81.png"><br> <img src="/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/JS%E5%BA%94%E7%94%A82.png"></p><h2 id="JS安全"><a href="#JS安全" class="headerlink" title="JS安全"></a>JS安全</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Javascript中也存在变量和函数，当存在可控变量及函数调用即可参数漏洞。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JS开发应用和PHP，JAVA等区别在于即没源代码，也可通过浏览器查看源代码。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获取URL，获取JS敏感信息，获取代码传参等，所以相当于JS开发的WEB应用属于白盒测试，一般会在JS中寻找更多URL地址，（加密算法，APIkey配置，验证逻辑，框架漏洞等）进行后期安全测试。  </p><ul><li><p>1、会增加攻击面（URL、接口，分析调试代码逻辑）  </p></li><li><p>2、敏感信息（用户密码、ak&#x2F;sk、token&#x2F;session）  </p></li><li><p>3、潜在危险函数（eval、dangerallySetInnerHTML）  </p></li><li><p>4、开发框架类(寻找历史漏洞Vue、NodeJS、Angular等)  </p></li><li><p>打包器Webpack：PackerFuzzer<br>AK&#x2F;SK云安全利用：工具箱CF（云安全后续会讲更多）<br>浏览器插件：Pentestkit FindSomething Wappalyzer（前期的JS收集项目）</p></li></ul>]]></content>
       
       
       <categories>
