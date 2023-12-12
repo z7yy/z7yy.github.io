@@ -201,6 +201,375 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/13/31%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/13/31%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-webpack/" class="post-title-link" itemprop="url">31安全开发-webpack</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-13 10:03:17" itemprop="dateCreated datePublished" datetime="2023-10-13T10:03:17+08:00">2023-10-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:23" itemprop="dateModified" datetime="2023-11-06T21:10:23+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>25、三方库-JQuery-使用&amp;安全</li>
+<li>26、打包器-WebPack-使用&amp;安全</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>内容筹备中……</li>
+</ul>
+<h2 id="打包器-WebPack-使用-安全"><a href="#打包器-WebPack-使用-安全" class="headerlink" title="打包器-WebPack-使用&amp;安全"></a>打包器-WebPack-使用&amp;安全</h2><p>参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/J3bpy-SsCnQ1lBov1L98WA">https://mp.weixin.qq.com/s/J3bpy-SsCnQ1lBov1L98WA</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Webpack是一个模块打包器。在Webpack中会将前端的所有资源文件都作为模块处理。它将根据模块的依赖关系进行分析，生成对应的资源。  </p>
+<h3 id="五个核心概念"><a href="#五个核心概念" class="headerlink" title="五个核心概念:"></a>五个核心概念:</h3><ol>
+<li>【入口(entry)】：指示webpack应该使用哪个模块，来作为构建内部依赖图开始。  </li>
+<li>【输出(output)】：在哪里输出文件，以及如何命名这些文件。  </li>
+<li>【Loader】：处理那些非JavaScript文件（webpack 自身只能解析 JavaScript和json）。webpack 本身只能处理JS、JSON模块，如果要加载其他类型的文件(模块)，就需要使用对应的loader。  </li>
+<li>【插件(plugins)】：执行范围更广的任务，从打包到优化都可以实现。  </li>
+<li>【模式(mode)】：有生产模式production和开发模式development。</li>
+</ol>
+<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p>1、创建需打包文件<br>2、安装webpack库<br>3、创建webpack配置文件<br>4、运行webpack打包命令  </p>
+<h3 id="安全："><a href="#安全：" class="headerlink" title="安全："></a>安全：</h3><p>1、WebPack源码泄漏-模式选择<br>2、模糊提取安全检查-PacketFuzzer<br><a target="_blank" rel="noopener" href="https://github.com/rtcatc/Packer-Fuzzer">https://github.com/rtcatc/Packer-Fuzzer</a><br>原生态JS：前端语言直接浏览器显示源代码<br>NodeJS：服务段语言浏览器不显示源代码<br>WebPack：打包模式选择开发者模式后会造成源码泄漏（nodejs vue）  </p>
+<h2 id="第三方库-JQuery-使用-安全"><a href="#第三方库-JQuery-使用-安全" class="headerlink" title="第三方库-JQuery-使用&amp;安全"></a>第三方库-JQuery-使用&amp;安全</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery是一个快速、简洁的JavaScript框架,是一个丰富的JavaScript代码库。设计目的是为了写更少的代码，做更多的事情。它封装JavaScript常用功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。  </p>
+<p>1、使用：<br>引用路径：<a target="_blank" rel="noopener" href="https://www.jq22.com/jquery-info122">https://www.jq22.com/jquery-info122</a><br>2、安全：<br>检测：<a target="_blank" rel="noopener" href="http://research.insecurelabs.org/jquery/test/">http://research.insecurelabs.org/jquery/test/</a><br>测试：CVE-2020-11022&#x2F;CVE-2020-11023<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44309905/article/details/120902867">https://blog.csdn.net/weixin_44309905/article/details/120902867</a>  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/11/30%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-NodeJS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/11/30%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-NodeJS/" class="post-title-link" itemprop="url">30安全开发-NodeJS</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-11 09:30:39" itemprop="dateCreated datePublished" datetime="2023-10-11T09:30:39+08:00">2023-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:14" itemprop="dateModified" datetime="2023-11-06T21:10:14+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>22、NodeJS-开发环境&amp;功能实现</li>
+<li>23、NodeJS-安全漏洞&amp;案例分析</li>
+<li>24、NodeJS-开发指南&amp;特有漏洞</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>内容筹备中……</li>
+</ul>
+<h2 id="环境搭建-NodeJS-解析安装-库安装"><a href="#环境搭建-NodeJS-解析安装-库安装" class="headerlink" title="环境搭建-NodeJS-解析安装&amp;库安装"></a>环境搭建-NodeJS-解析安装&amp;库安装</h2><h3 id="1、文档参考："><a href="#1、文档参考：" class="headerlink" title="1、文档参考："></a>1、文档参考：</h3><p><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/nodejs/">https://www.w3cschool.cn/nodejs/</a>  </p>
+<h3 id="2、Nodejs安装"><a href="#2、Nodejs安装" class="headerlink" title="2、Nodejs安装"></a>2、Nodejs安装</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/en">https://nodejs.org/en</a>  </p>
+<h3 id="3、三方库安装"><a href="#3、三方库安装" class="headerlink" title="3、三方库安装"></a>3、三方库安装</h3><ul>
+<li><p>express<br>Express是一个简洁而灵活的node.js Web应用框架  </p>
+</li>
+<li><p>body-parser<br>node.js中间件，用于处理 JSON, Raw, Text和URL编码的数据。  </p>
+</li>
+<li><p>cookie-parser<br>这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。  </p>
+</li>
+<li><p>multer<br>node.js中间件，用于处理 enctype&#x3D;”multipart&#x2F;form-data”（设置表单的MIME编码）的表单数据。  </p>
+</li>
+<li><p>mysql<br>Node.js来连接MySQL专用库，并对数据库进行操作。</p>
+</li>
+</ul>
+<p>安装命令：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i express</span><br><span class="line">npm i body-parser</span><br><span class="line">npm i cookie-parser</span><br><span class="line">npm i multer</span><br><span class="line">npm i mysql</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能实现-NodeJS-数据库-文件-执行"><a href="#功能实现-NodeJS-数据库-文件-执行" class="headerlink" title="功能实现-NodeJS-数据库&amp;文件&amp;执行"></a>功能实现-NodeJS-数据库&amp;文件&amp;执行</h2><ul>
+<li><p>an<br>1、Express开发<br>2、实现用户登录<br>3、加入数据库操作  </p>
+</li>
+<li><p>文件操作<br>1、Express开发<br>2、实现目录读取<br>3、加入传参接受  </p>
+</li>
+<li><p>命令执行（RCE）<br>1、eval<br>2、exec &amp; spawnSync</p>
+</li>
+</ul>
+<h2 id="安全问题-NodeJS-注入-RCE-原型链"><a href="#安全问题-NodeJS-注入-RCE-原型链" class="headerlink" title="安全问题-NodeJS-注入&amp;RCE&amp;原型链"></a>安全问题-NodeJS-注入&amp;RCE&amp;原型链</h2><ul>
+<li>1、SQL注入&amp;文件操作</li>
+<li>2、RCE执行&amp;原型链污染</li>
+<li>3、NodeJS黑盒无代码分析<br>实战测试NodeJS安全：<br>判断：参考前期的信息收集<br>黑盒：通过对各种功能和参数进行payload测试<br>白盒：通过对代码中写法安全进行审计分析  </li>
+<li>4、原型链污染<br>如果攻击者控制并修改了一个对象的原型，(<strong>proto</strong>)<br>那么将可以影响所有和这个对象来自同一个类、父祖类的对象。</li>
+</ul>
+<h2 id="案例分析-NodeJS-CTF题目-源码审计"><a href="#案例分析-NodeJS-CTF题目-源码审计" class="headerlink" title="案例分析-NodeJS-CTF题目&amp;源码审计"></a>案例分析-NodeJS-CTF题目&amp;源码审计</h2><ul>
+<li>1、CTFSHOW几个题目<br><a target="_blank" rel="noopener" href="https://ctf.show/">https://ctf.show/</a> Web334-344<br><a target="_blank" rel="noopener" href="https://f1veseven.github.io/2022/04/03/ctf-nodejs-zhi-yi-xie-xiao-zhi-shi/">https://f1veseven.github.io/2022/04/03/ctf-nodejs-zhi-yi-xie-xiao-zhi-shi/</a>  </li>
+<li>2、YApi管理平台漏洞<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42353842/article/details/127960229">https://blog.csdn.net/weixin_42353842/article/details/127960229</a></li>
+</ul>
+<h2 id="开发指南-NodeJS-安全SecGuide项目"><a href="#开发指南-NodeJS-安全SecGuide项目" class="headerlink" title="开发指南-NodeJS-安全SecGuide项目"></a>开发指南-NodeJS-安全SecGuide项目</h2><p><a target="_blank" rel="noopener" href="https://github.com/Tencent/secguide">https://github.com/Tencent/secguide</a>  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/10/29%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/10/29%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">29安全开发-JS技术</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-10 17:58:10" itemprop="dateCreated datePublished" datetime="2023-10-10T17:58:10+08:00">2023-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:07" itemprop="dateModified" datetime="2023-11-06T21:10:07+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>20、JS技术-DOM树操作及安全隐患</li>
+<li>21、JS技术-加密编码及数据安全调试</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>内容筹备中……</li>
+</ul>
+<h2 id="JS原生开发-DOM树-用户交互"><a href="#JS原生开发-DOM树-用户交互" class="headerlink" title="JS原生开发-DOM树-用户交互"></a>JS原生开发-DOM树-用户交互</h2><p>DOM：文档操作对象<br>浏览器提供的一套专门用来操作网页代码内容的功能，实现自主或用户交互动作反馈  </p>
+<p>安全问题：本身的前端代码通过DOM技术实现代码的更新修改，但是更新修改如果修改的数据可以由用户来指定，就会造成DOM-XSS攻击！  </p>
+<ul>
+<li><p>1、获取对象<br>标签：直接写<br>Class：加上符号.<br>id：加上符号#  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getValue()&quot;</span>&gt;</span>这是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">document.querySelector(&#x27;h1&#x27;)</span><br><span class="line">document.querySelector(&#x27;.id&#x27;)</span><br><span class="line">document.querySelector(&#x27;#myHeader&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、获取对象属性  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getValue()&quot;</span>&gt;</span>这是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">const h1=document.querySelector(&#x27;h1&#x27;)</span><br><span class="line">const id=h1.id</span><br><span class="line">console.log(id)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、操作元素数据<br>innerHTML 解析后续代码<br>innerText 不解析后续代码  </p>
+</li>
+<li><p>4、操作元素属性  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">className src id等  </span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;iphone.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span><br><span class="line">const src=document.querySelector(&#x27;img&#x27;)</span><br><span class="line">src.src=&#x27;huawei.png&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="JS导入库开发-编码加密-逆向调试"><a href="#JS导入库开发-编码加密-逆向调试" class="headerlink" title="JS导入库开发-编码加密-逆向调试"></a>JS导入库开发-编码加密-逆向调试</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Base64</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MD5</span></span><br><span class="line">&lt;script src=<span class="string">&quot;js/md5.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str_encode = <span class="title function_">md5</span>(str1);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode) </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//SHA1</span></span><br><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> str_encode = <span class="title class_">CryptoJS</span>.<span class="title class_">SHA1</span>(str1).<span class="title function_">toString</span>(); <span class="comment">// 注意：1是数字1</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/html&gt;      </span><br><span class="line"></span><br><span class="line"><span class="comment">//HMAC</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> key = <span class="string">&#x27;key&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> hash = <span class="title class_">CryptoJS</span>.<span class="title class_">HmacSHA256</span>(key, str1);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str_encode = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Hex</span>.<span class="title function_">stringify</span>(hash);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode)  <span class="comment">// &#x27;11a7960cd583ee2c3f1ed910dbc3b6c3991207cbc527d122f69e84d13cc5ce5c&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//AES</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> aseKey = <span class="string">&quot;12345678&quot;</span>     <span class="comment">// 定制秘钥，长度必须为：8/16/32位, 长度不一致也没问题</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> message = <span class="string">&quot;xiaodisec&quot;</span>;  <span class="comment">// 需要加密的内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="comment">// 加密 DES/AES切换只需要修改 CryptoJS.AES &lt;=&gt; CryptoJS.DES</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> encrypt = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">encrypt</span>(message, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey),  <span class="comment">// 参数1=密钥, 参数2=加密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>, <span class="comment">// 为DES的工作方式</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span>  <span class="comment">// 当加密后密文长度达不到指定整数倍(8个字节、16个字节)则填充对应字符</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">             &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          ).<span class="title function_">toString</span>(); <span class="comment">// toString=转字符串类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypt); <span class="comment">// 在弹窗中打印字符串 2vcsEDJv9vAZZLgFLjkZ9A==</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="comment">//解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> decrypt = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">decrypt</span>(encrypt, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey), <span class="comment">// 参数1=密钥, 参数2=解密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          ).<span class="title function_">toString</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>); <span class="comment">// toString=转字符串类型,并指定编码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="variable language_">console</span>.<span class="title function_">log</span>(decrypt); <span class="comment">// &quot;xiaodisec&quot;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//DES</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> aseKey = <span class="string">&quot;12345678&quot;</span>     <span class="comment">// 定制秘钥，长度必须为：8/16/32位， 长度不一致也没问题</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> message = <span class="string">&quot;xiaodisec&quot;</span>;  <span class="comment">// 需要加密的内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 加密 DES/AES切换只需要修改 CryptoJS.AES &lt;=&gt; CryptoJS.DES</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> encrypt = <span class="title class_">CryptoJS</span>.<span class="property">DES</span>.<span class="title function_">encrypt</span>(message, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey),  <span class="comment">// 参数1=密钥, 参数2=加密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>, <span class="comment">// 为DES的工作方式</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span>  <span class="comment">// 当加密后密文长度达不到指定整数倍(8个字节、16个字节)则填充对应字符</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">         &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      ).<span class="title function_">toString</span>(); <span class="comment">// toString=转字符串类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypt); <span class="comment">// 控制台打印 CDVNwmEwDRM</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> decrypt = <span class="title class_">CryptoJS</span>.<span class="property">DES</span>.<span class="title function_">decrypt</span>(encrypt, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey), <span class="comment">// 参数1=密钥, 参数2=解密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      ).<span class="title function_">toString</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>); <span class="comment">// toString=转字符串类型,并指定编码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(decrypt); <span class="comment">// 控制台打印 &quot;i am xiaozhou ?&quot;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//RSA</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/jsencrypt.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// 公钥 私匙是通过公匙计算生成的，不能盲目设置</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> <span class="variable constant_">PUBLIC_KEY</span> = <span class="string">&#x27;-----BEGIN PUBLIC KEY-----MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALyBJ6kZ/VFJYTV3vOC07jqWIqgyvHulv6us/8wzlSBqQ2+eOTX7s5zKfXY40yZWDoCaIGk+tP/sc0D6dQzjaxECAwEAAQ==-----END PUBLIC KEY-----&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//私钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> <span class="variable constant_">PRIVATE_KEY</span> = <span class="string">&#x27;-----BEGIN PRIVATE KEY-----MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAvIEnqRn9UUlhNXe84LTuOpYiqDK8e6W/q6z/zDOVIGpDb545NfuznMp9djjTJlYOgJogaT60/+xzQPp1DONrEQIDAQABAkEAu7DFsqQEDDnKJpiwYfUE9ySiIWNTNLJWZDN/Bu2dYIV4DO2A5aHZfMe48rga5BkoWq2LALlY3tqsOFTe3M6yoQIhAOSfSAU3H6jIOnlEiZabUrVGqiFLCb5Ut3Jz9NN+5p59AiEA0xQDMrxWBBJ9BYq6RRY4pXwa/MthX/8Hy+3GnvNw/yUCIG/3Ee578KVYakq5pih8KSVeVjO37C2qj60d3Ok3XPqBAiEAqGPvxTsAuBDz0kcBIPqASGzArumljkrLsoHHkakOfU0CIDuhxKQwHlXFDO79ppYAPcVO3bph672qGD84YUaHF+pQ-----END PRIVATE KEY-----&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//使用公钥加密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> encrypt = <span class="keyword">new</span> <span class="title class_">JSEncrypt</span>();<span class="comment">//实例化加密对象</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        encrypt.<span class="title function_">setPublicKey</span>(<span class="variable constant_">PUBLIC_KEY</span>);<span class="comment">//设置公钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> message = <span class="string">&#x27;xiaodisec&#x27;</span> <span class="comment">// 需要加密的数据 </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> encrypted = encrypt.<span class="title function_">encrypt</span>(message);<span class="comment">//对指定数据进行加密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypted)  <span class="comment">// &#x27;JQ83h8tmJpsSZcb4BJ3eQvuqIAs3ejepcUUnoFhQEvum8fA8bf1Y/fG+DO1bSIVNJF6EOZKe4wa0njv6aOar9w==&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//使用私钥解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> decrypt = <span class="keyword">new</span> <span class="title class_">JSEncrypt</span>(); <span class="comment">// 创建解密对象</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        decrypt.<span class="title function_">setPrivateKey</span>(<span class="variable constant_">PRIVATE_KEY</span>); <span class="comment">//设置私钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> uncrypted = decrypt.<span class="title function_">decrypt</span>(encrypted); <span class="comment">//解密 &#x27;xiaodisec&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(uncrypted);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/10/28%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1026,396 +1395,10 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/06/21%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/06/21%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="post-title-link" itemprop="url">21信息打点-公众号信息收集</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-06 09:46:43" itemprop="dateCreated datePublished" datetime="2023-10-06T09:46:43+08:00">2023-10-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:07:31" itemprop="dateModified" datetime="2023-11-06T21:07:31+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>29、开发泄漏-Github监控</li>
-<li>30、文件泄漏-网盘全局搜索</li>
-<li>31、架构泄漏-目录扫码&amp;爬虫</li>
-<li>32、其他泄漏-公众号服务资产</li>
-<li>33、收集进阶-证书&amp;图标&amp;邮箱</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
-<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
-<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
-<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
-<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
-<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等 </li>
-<li>技术：APK反编译&#x2F;小程序解包反编译&#x2F;动态调试APP&amp;小程序等</li>
-</ul>
-<h2 id="微信公众号-获取-三方服务"><a href="#微信公众号-获取-三方服务" class="headerlink" title="微信公众号-获取&amp;三方服务"></a>微信公众号-获取&amp;三方服务</h2><p>1、获取微信公众号途径<br><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a><br>2、微信公众号有无第三方服务(非调用api，用自己的资产)  </p>
-<h2 id="Github监控-开发-配置-源码"><a href="#Github监控-开发-配置-源码" class="headerlink" title="Github监控-开发&amp;配置&amp;源码"></a>Github监控-开发&amp;配置&amp;源码</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标中开发人员或者托管公司上传的项目存在源码泄漏或配置信息（密码密匙等），人员数据库等敏感信息，找到多个脆弱点。  </p>
-<ul>
-<li>1、人员&amp;域名&amp;邮箱等筛选<br>eg：xxx.cn password in:file<br><a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a><br><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a><br><a target="_blank" rel="noopener" href="https://www.huzhan.com/">https://www.huzhan.com/</a><br>GITHUB资源搜索：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">in:name test               #仓库标题搜索含有关键字 </span><br><span class="line">in:descripton test         #仓库描述搜索含有关键字 </span><br><span class="line">in:readme test             #Readme文件搜素含有关键字 </span><br><span class="line">stars:&gt;3000 test           #stars数量大于3000的搜索关键字 </span><br><span class="line">stars:1000..3000 test      #stars数量大于1000小于3000的搜索关键字 </span><br><span class="line">forks:&gt;1000 test           #forks数量大于1000的搜索关键字 </span><br><span class="line">forks:1000..3000 test      #forks数量大于1000小于3000的搜索关键字 </span><br><span class="line">size:&gt;=5000 test           #指定仓库大于5000k(5M)的搜索关键字</span><br><span class="line">pushed:&gt;2019-02-12 test    #发布时间大于2019-02-12的搜索关键字 </span><br><span class="line">created:&gt;2019-02-12 test   #创建时间大于2019-02-12的搜索关键字 </span><br><span class="line">user:test                  #用户名搜素 </span><br><span class="line">license:apache-2.0 test    #明确仓库的 LICENSE 搜索关键字</span><br><span class="line">language:java test         #在java语言的代码中搜索关键字 </span><br><span class="line">user:test in:name test     #组合搜索,用户名test的标题含有test的关键字配合谷歌搜索：</span><br><span class="line">site:Github.com smtp   </span><br><span class="line">site:Github.com smtp @qq.com   </span><br><span class="line">site:Github.com smtp @126.com   </span><br><span class="line">site:Github.com smtp @163.com   </span><br><span class="line">site:Github.com smtp @sina.com.cn </span><br><span class="line">site:Github.com smtp password </span><br><span class="line">site:Github.com String password smtp</span><br></pre></td></tr></table></figure></li>
-<li>2、语法固定长期后续监控新泄露<br>-基于关键字监控<br>-基于项目规则监控<br><a target="_blank" rel="noopener" href="https://github.com/madneal/gshark">https://github.com/madneal/gshark</a><br><a target="_blank" rel="noopener" href="https://github.com/NHPT/FireEyeGoldCrystal">https://github.com/NHPT/FireEyeGoldCrystal</a><br><a target="_blank" rel="noopener" href="https://github.com/Explorer1092/Github-Monitor">https://github.com/Explorer1092/Github-Monitor</a></li>
-</ul>
-<h2 id="网盘资源搜索-全局文件机密"><a href="#网盘资源搜索-全局文件机密" class="headerlink" title="网盘资源搜索-全局文件机密"></a>网盘资源搜索-全局文件机密</h2><p>主要就是查看网盘中是否存有目标的敏感文件<br>如：企业招标，人员信息，业务产品，应用源码等</p>
-<h2 id="敏感目录文件-目录扫描-爬虫"><a href="#敏感目录文件-目录扫描-爬虫" class="headerlink" title="敏感目录文件-目录扫描&amp;爬虫"></a>敏感目录文件-目录扫描&amp;爬虫</h2><p>-后续会详细讲到各类工具项目  </p>
-<h2 id="网络空间进阶-证书-图标-邮箱"><a href="#网络空间进阶-证书-图标-邮箱" class="headerlink" title="网络空间进阶-证书&amp;图标&amp;邮箱"></a>网络空间进阶-证书&amp;图标&amp;邮箱</h2><ul>
-<li>证书资产<br>fofa quake hunter  </li>
-<li>ICO资产<br>fofa quake hunter  </li>
-<li>邮箱资产<br><a target="_blank" rel="noopener" href="https://hunter.io/">https://hunter.io/</a></li>
-</ul>
-<p>#实战案例四则-技术分享打击方位<br>案例1–招标平台二级跳<br>案例2–爱企查隐藏的惊喜<br>案例3–邮箱爆破到内网<br>案例4–不靠系统漏洞，从外网获取域控
-  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/06/20%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B7%A5%E5%85%B7%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/06/20%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B7%A5%E5%85%B7%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">20信息打点-工具项目</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-06 09:46:36" itemprop="dateCreated datePublished" datetime="2023-10-06T09:46:36+08:00">2023-10-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:07:24" itemprop="dateModified" datetime="2023-11-06T21:07:24+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>26、工具项目-红蓝队&amp;自动化部署</li>
-<li>27、工具项目-自动化侦查收集提取</li>
-<li>28、工具项目-综合&amp;网络空间&amp;信息</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
-<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
-<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
-<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
-<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
-<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等 </li>
-<li>技术：APK反编译&#x2F;小程序解包反编译&#x2F;动态调试APP&amp;小程序等</li>
-</ul>
-<h2 id="各类红蓝队优秀工具项目集合："><a href="#各类红蓝队优秀工具项目集合：" class="headerlink" title="各类红蓝队优秀工具项目集合："></a>各类红蓝队优秀工具项目集合：</h2><p><a target="_blank" rel="noopener" href="https://github.com/guchangan1/All-Defense-Tool">https://github.com/guchangan1/All-Defense-Tool</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目集成了全网优秀的开源攻防武器项目，包含信息收集工具（自动化利用工具、资产发现工具、目录扫描工具、子域名收集工具、指纹识别工具、端口扫描工具、各种插件…），漏洞利用工具（各大CMS利用工具、中间件利用工具等项目…），内网渗透工具（隧道代理、密码提取…）、应急响应工具、甲方运维工具、等其他安全攻防资料整理，供攻防双方使用。如果你有更好的建议，欢迎提出请求。  </p>
-<p>##新服务器设置</p>
-<ul>
-<li>Ubuntu<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install docker</span><br><span class="line">apt-get install docker-compose</span><br><span class="line">git clone https://github.com/TophantTechnology/ARL  </span><br><span class="line">cd ARL/docker/  </span><br><span class="line">docker volume create arl_db  </span><br><span class="line">docker-compose pull  </span><br><span class="line">docker-compose up -d </span><br><span class="line">mkdir nemo;tar xvf nemo_linux_amd64.tar -C nemo;cd nemo  </span><br><span class="line">docker-compose up -d </span><br><span class="line">vim docker-compose.yum</span><br><span class="line">version:&#x27;3.7&#x27;(i)----&gt;3.3(:wq)</span><br><span class="line">docker-compose up -d </span><br><span class="line">cd ..</span><br><span class="line">wget : wget -O f8x https://f8x.io/</span><br><span class="line">bash f8x -h</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="自动化-武器库部署-F8x"><a href="#自动化-武器库部署-F8x" class="headerlink" title="自动化-武器库部署-F8x"></a>自动化-武器库部署-F8x</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ffffffff0x/f8x">https://github.com/ffffffff0x/f8x</a>  </p>
-<ul>
-<li>1、介绍：<br>一款红&#x2F;蓝队环境自动化部署工具,支持多种场景,渗透,开发,代理环境,服务可选项等.  </li>
-<li>2、配置：<br>通过 CF Workers 下载 [推荐]  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget : wget -O f8x https://f8x.io/  </span><br><span class="line">curl : curl -o f8x https://f8x.io/  </span><br></pre></td></tr></table></figure></li>
-<li>3、使用：见项目文档  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash f8x -h </span><br><span class="line">例：bash f8x -mobsf</span><br></pre></td></tr></table></figure>
-云服务器Ubuntu系统已搭建好，访问地址：https:&#x2F;&#x2F;[IP]:8000</li>
-</ul>
-<h2 id="自动化-网络空间-AsamF"><a href="#自动化-网络空间-AsamF" class="headerlink" title="自动化-网络空间-AsamF"></a>自动化-网络空间-AsamF</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Kento-Sec/AsamF">https://github.com/Kento-Sec/AsamF</a>  </p>
-<ul>
-<li>1、介绍：<br>AsamF集成了Fofa、Hunter、Quake、Zoomeye、Shodan、爱企查、Chinaz、0.zone、subfinder。AsamF支持Fofa、Hunter、Quake、Zoomeye、Shodan、Chinaz、0.zone配置多个Key。  </li>
-<li>2、配置：<br>AsamF会在<del>&#x2F;.config&#x2F;asamf&#x2F;目录下生成config.json文件。<br>如果你有多个key，按照json的格式录入即可，建议键值按照阿拉伯数字依次录入,方便以阿拉伯数字来切换key。自动结果保存在</del>&#x2F;asamf&#x2F;目录下。  </li>
-<li>3、使用：见项目文档</li>
-</ul>
-<h2 id="自动化-企查信息-ENScan"><a href="#自动化-企查信息-ENScan" class="headerlink" title="自动化-企查信息-ENScan"></a>自动化-企查信息-ENScan</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/wgpsec/ENScan_GO">https://github.com/wgpsec/ENScan_GO</a>  </p>
-<ul>
-<li>1、介绍：<br>剑指HW&#x2F;SRC，解决在HW&#x2F;SRC场景下遇到的各种针对国内企业信息收集难题</li>
-<li>2、配置：<br>ENScanGo在第一次使用时需要使用-v命令生成配置文件信息后进行配置</li>
-<li>3、使用：见项目文档</li>
-</ul>
-<h2 id="自动化-综合架构-ARL-Nemo"><a href="#自动化-综合架构-ARL-Nemo" class="headerlink" title="自动化-综合架构-ARL&amp;Nemo"></a>自动化-综合架构-ARL&amp;Nemo</h2><h3 id="ARL灯塔"><a href="#ARL灯塔" class="headerlink" title="ARL灯塔"></a>ARL灯塔</h3><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/TophantTechnology/ARL">https://github.com/TophantTechnology/ARL</a>  </p>
-<ul>
-<li>1、介绍：<br>&nbsp;&nbsp;&nbsp;&nbsp;旨在快速侦察与目标关联的互联网资产，构建基础资产信息库。 协助甲方安全团队或者渗透测试人员有效侦察和检索资产，发现存在的薄弱点和攻击面。  </li>
-<li>2、配置：（docker搭建）  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/TophantTechnology/ARL  </span><br><span class="line">cd ARL/docker/  </span><br><span class="line">docker volume create arl_db  </span><br><span class="line">docker-compose pull  </span><br><span class="line">docker-compose up -d  </span><br></pre></td></tr></table></figure></li>
-<li>3、使用：见直播操作<br>云服务器Ubuntu系统已搭建好，访问地址：https:&#x2F;&#x2F;[IP]:5003<br>默认用户名&#x2F;密码admin&#x2F;arlpass</li>
-</ul>
-<h3 id="Nemo-Go"><a href="#Nemo-Go" class="headerlink" title="Nemo_Go"></a>Nemo_Go</h3><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/hanc00l/nemo_go">https://github.com/hanc00l/nemo_go</a>  </p>
-<ul>
-<li>1、介绍：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nemo是用来进行自动化信息收集的一个简单平台，通过集成常用的信息收集工具和技术，实现对内网及互联网资产信息的自动收集，提高隐患排查和渗透测试的工作效率，用Golang完全重构了原Python版本。  </li>
-<li>2、配置：（docker搭建）<br><a target="_blank" rel="noopener" href="https://github.com/hanc00l/nemo_go/blob/main/docs/docker.md">https://github.com/hanc00l/nemo_go/blob/main/docs/docker.md</a><br>下载release的nemo_linux_amd64.tar后执行：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir nemo;tar xvf nemo_linux_amd64.tar -C nemo;cd nemo  </span><br><span class="line">docker-compose up -d  </span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启开机后执行：cd nemo  </span><br><span class="line">docker-compose up -d    </span><br></pre></td></tr></table></figure></li>
-<li>3、使用：见直播操作<br>云服务器Ubuntu系统已搭建好，访问地址：http:&#x2F;&#x2F;[IP]:5000<br>默认用户名&#x2F;密码nemo&#x2F;nemo</li>
-<li>4、Bug：网络空间（配置后要重启）<br><a target="_blank" rel="noopener" href="https://github.com/hanc00l/nemo_go/issues/72">https://github.com/hanc00l/nemo_go/issues/72</a></li>
-</ul>
-<h3 id="MobSF"><a href="#MobSF" class="headerlink" title="MobSF"></a>MobSF</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest</span><br></pre></td></tr></table></figure>
-<p>云服务器Ubuntu系统已搭建好，访问地址：http:&#x2F;&#x2F;[IP]:8000 </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/04/19%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/04/19%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">19信息打点-小程序应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-04 16:26:53" itemprop="dateCreated datePublished" datetime="2023-10-04T16:26:53+08:00">2023-10-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:07:15" itemprop="dateModified" datetime="2023-11-06T21:07:15+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>24、Web&amp;备案信息&amp;单位名称中发现小程序</li>
-<li>25、小程序资产静态提取&amp;动态抓包&amp;动态调试<br>解决：<br>1、如何获取到目标小程序信息<br>2、如何从小程序中提取资产信息</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
-<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
-<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
-<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
-<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
-<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等 </li>
-<li>技术：APK反编译&#x2F;小程序解包反编译&#x2F;动态调试APP&amp;小程序等</li>
-</ul>
-<h2 id="小程序获取-各大平台-关键字搜索"><a href="#小程序获取-各大平台-关键字搜索" class="headerlink" title="小程序获取-各大平台&amp;关键字搜索"></a>小程序获取-各大平台&amp;关键字搜索</h2><p>-微信<br>-百度<br>-支付宝<br>-抖音头条  </p>
-<h2 id="小程序体验-凡科建站-模版测试上线"><a href="#小程序体验-凡科建站-模版测试上线" class="headerlink" title="小程序体验-凡科建站&amp;模版测试上线"></a>小程序体验-凡科建站&amp;模版测试上线</h2><p>测试：<a target="_blank" rel="noopener" href="https://qz.fkw.com/">https://qz.fkw.com/</a><br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52445443/article/details/122351865">https://blog.csdn.net/qq_52445443/article/details/122351865</a>  </p>
-<ul>
-<li>1.主体结构<br>小程序包含一个描述整体程序的 app 和多个描述各自页面的 page。<br>一个小程序主体部分(即app)由三个文件组成，必须放在项目的根目录，如下：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">文件                 必需               作用    </span><br><span class="line">app.js               是            小程序逻辑</span><br><span class="line">app.json             是            小程序公共配置</span><br><span class="line">app.wxss             否            小程序公共样式表</span><br></pre></td></tr></table></figure></li>
-<li>2.一个小程序页面由四个文件组成，分别是:   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xxx.js        页面逻辑</span><br><span class="line">xxx.json      页面配置</span><br><span class="line">xxx.wxml      页面结构</span><br><span class="line">xxx.wxss      页面样式</span><br></pre></td></tr></table></figure></li>
-<li>3.项目整体目录结构  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pages                页面文件夹</span><br><span class="line">index                首页</span><br><span class="line">logs                 日志</span><br><span class="line">utils               </span><br><span class="line">util                 工具类(mina框架自动生成,你也可以建立一个：api)</span><br><span class="line">app.js               入口js(类似于java类中的main方法)、全局js</span><br><span class="line">app.json             全局配置文件</span><br><span class="line">app.wxss             全局样式文件</span><br><span class="line">project.config.json  跟你在详情中勾选的配置一样</span><br><span class="line">sitemap.json         用来配置小程序及其页面是否允许被微信索引</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="小程序抓包-Proxifier-BurpSuite联动"><a href="#小程序抓包-Proxifier-BurpSuite联动" class="headerlink" title="小程序抓包-Proxifier&amp;BurpSuite联动"></a>小程序抓包-Proxifier&amp;BurpSuite联动</h2><p>-对抓到的IP或域名进行Web安全测试<br>-对抓到的IP或域名进行API安全测试<br>-对抓到的IP或域名进行端口服务测试  </p>
-<h2 id="小程序逆向-解包反编译-动态调试-架构"><a href="#小程序逆向-解包反编译-动态调试-架构" class="headerlink" title="小程序逆向-解包反编译&amp;动态调试&amp;架构"></a>小程序逆向-解包反编译&amp;动态调试&amp;架构</h2><p>对源码架构进行分析<br>-更多的资产信息<br>-敏感的配置信息<br>-未授权访问测试<br>-源码中的安全问题<br>-小程序多功能组手<br>复杂操作：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/oodcloud/p/16964878.html">https://www.cnblogs.com/oodcloud/p/16964878.html</a><br>简单工具：<a target="_blank" rel="noopener" href="http://xcx.siqingw.top/">http://xcx.siqingw.top/</a><br>-微信官方开发工具<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html</a>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1483,7 +1466,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1559,19 +1542,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">173k</span>
+    <span title="站点总字数">181k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:37</span>
+    <span title="站点阅读时长">2:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.1k字</span>
+  <span class="post-count">博客全站共67.9k字</span>
 </div>
 
 

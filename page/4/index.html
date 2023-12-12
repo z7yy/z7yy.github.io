@@ -201,6 +201,368 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">41WEB攻防-ASP应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 16:11:27" itemprop="dateCreated datePublished" datetime="2023-10-18T16:11:27+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 20:50:14" itemprop="dateModified" datetime="2023-11-06T20:50:14+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/image4.png"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>1、ASP-SQL注入-Access数据库</li>
+<li>2、ASP-默认安装-数据库泄漏下载</li>
+<li>3、ASP-IIS-CVE&amp;短文件&amp;解析&amp;写入</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="ASP-默认安装-MDB数据库泄漏下载"><a href="#ASP-默认安装-MDB数据库泄漏下载" class="headerlink" title="ASP-默认安装-MDB数据库泄漏下载"></a>ASP-默认安装-MDB数据库泄漏下载</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于大部分ASP程序与ACCESS数据库搭建，但ACCESS无需连接，都在脚本文件中定义配置好数据库路径即用，不需要额外配置安装数据库，所以大部分提前固定好的数据库路径如默认未修改，当攻击者知道数据库的完整路径，可远程下载后解密数据实现攻击。  </p>
+<h2 id="ASP-中间件-CVE-短文件-解析-写权限"><a href="#ASP-中间件-CVE-短文件-解析-写权限" class="headerlink" title="ASP-中间件-CVE&amp;短文件&amp;解析&amp;写权限"></a>ASP-中间件-CVE&amp;短文件&amp;解析&amp;写权限</h2><h3 id="HTTP-SYS（CVE-2015-1635）"><a href="#HTTP-SYS（CVE-2015-1635）" class="headerlink" title="HTTP.SYS（CVE-2015-1635）"></a>HTTP.SYS（CVE-2015-1635）</h3><ul>
+<li>1、漏洞描述<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远程执行代码漏洞存在于 HTTP 协议堆栈 (HTTP.sys) 中，当 HTTP.sys 未正确分析经特殊设计的 HTTP 请求时会导致此漏洞。 成功利用此漏洞的攻击者可以在系统帐户的上下文中执行任意代码。</li>
+<li>2、影响版本<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2</li>
+<li>3、漏洞利用条件<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装了IIS6.0以上的Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2版本</li>
+<li>4、漏洞复现(kali)  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msfconsole  </span><br><span class="line">use auxiliary/dos/http/ms15_034_ulonglongadd</span><br><span class="line">set rhosts xx.xx.xx.xx</span><br><span class="line">set rport xx</span><br><span class="line">run</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="IIS短文件"><a href="#IIS短文件" class="headerlink" title="IIS短文件"></a>IIS短文件</h3><ul>
+<li>1、描述：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此漏洞实际是由HTTP请求中旧DOS 8.3名称约定(SFN)的代字符(~)波浪号引起的。它允许远程攻击者在Web根目录下公开文件和文件夹名称(不应该可被访问)。攻击者可以找到通常无法从外部直接访问的重要文件,并获取有关应用程序基础结构的信息。</li>
+<li>2、漏洞成因:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了兼容16位MS-DOS程序,Windows为文件名较长的文件(和文件夹)生成了对应的windows 8.3短文件名。在Windows下查看对应的短文件名,可以使用命令dir &#x2F;x</li>
+<li>3、应用场景：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;后台路径获取，数据库文件获取，其他敏感文件获取等</li>
+<li>4、利用工具：<br><a target="_blank" rel="noopener" href="https://github.com/irsdl/IIS-ShortName-Scanner">https://github.com/irsdl/IIS-ShortName-Scanner</a><br><a target="_blank" rel="noopener" href="https://github.com/lijiejie/IIS_shortname_Scanner">https://github.com/lijiejie/IIS_shortname_Scanner</a></li>
+</ul>
+<h3 id="IIS文件解析"><a href="#IIS文件解析" class="headerlink" title="IIS文件解析"></a>IIS文件解析</h3><p>IIS 6 解析漏洞<br>1、该版本默认会将*.asp;.jpg 此种格式的文件名，当成Asp解析<br>2、该版本默认会将*.asp&#x2F;目录下的所有文件当成Asp解析。<br>如：logo.asp;.jpg xx.asp&#x2F;logo.jpg<br>IIS 7.x 解析漏洞<br>在一个文件路径(&#x2F;xx.jpg)后面加上&#x2F;xx.php会将&#x2F;xx.jpg&#x2F;xx.php 解析为php文件<br>应用场景：配合文件上传获取Webshell  </p>
+<h3 id="IIS写权限"><a href="#IIS写权限" class="headerlink" title="IIS写权限"></a>IIS写权限</h3><p>IIS&lt;&#x3D;6.0 目录权限开启写入，开启WebDAV，设置为允许<br>参考利用：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2050105">https://cloud.tencent.com/developer/article/2050105</a>  </p>
+<h2 id="ASP-SQL注入-SQLMAP使用-ACCESS注入"><a href="#ASP-SQL注入-SQLMAP使用-ACCESS注入" class="headerlink" title="ASP-SQL注入-SQLMAP使用&amp;ACCESS注入"></a>ASP-SQL注入-SQLMAP使用&amp;ACCESS注入</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACCESS数据库无管理帐号密码，顶级架构为表名，列名（字段），数据，所以在注入猜解中一般采用字典猜解表和列再获取数据，猜解简单但又可能出现猜解不到的情况，由于Access数据库在当前安全发展中已很少存在，故直接使用SQLMAP注入，后续再说其他。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;&quot; --tables //获取表名</span><br><span class="line">python sqlmap.py -u &quot;&quot; --columns -T admin //获取admin表名下的列名</span><br><span class="line">python sqlmap.py -u &quot;&quot; --dump -C &quot;&quot; -T admin  //获取表名下的列名数据</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">40安全开发-JavaEE应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 10:40:08" itemprop="dateCreated datePublished" datetime="2023-10-18T10:40:08+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:11:31" itemprop="dateModified" datetime="2023-11-06T21:11:31+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>50、JavaEE-SpringBoot-身份鉴权-JWT技术</li>
+<li>51、JavaEE-SpringBoot-打包部署-JAR&amp;WAR</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，架构分析，待补充</li>
+</ul>
+<p> <img src="/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/JWT.png"></p>
+<h2 id="SpringBoot-身份鉴权-JWT技术"><a href="#SpringBoot-身份鉴权-JWT技术" class="headerlink" title="SpringBoot-身份鉴权-JWT技术"></a>SpringBoot-身份鉴权-JWT技术</h2><p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/394138133]">https://zhuanlan.zhihu.com/p/394138133]</a><br>JWT(JSON Web Token)是由服务端用加密算法对信息签名来保证其完整性和不可伪造；<br>Token里可以包含所有必要信息，这样服务端就无需保存任何关于用户或会话的信息；<br>JWT用于身份认证、会话维持等。由三部分组成，header、payload与signature。<br>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2101634">https://cloud.tencent.com/developer/article/2101634</a>  </p>
+<ul>
+<li>1、引入依赖  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;<span class="number">3.4</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li>2、创建JWT  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JWT.create()  </span><br></pre></td></tr></table></figure></li>
+<li>3、配置JWT  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">JWT.create()  </span><br><span class="line"><span class="comment">//header</span></span><br><span class="line">.withHeader(map)</span><br><span class="line"><span class="comment">//payload</span></span><br><span class="line">.withClaim(<span class="string">&quot;userid&quot;</span>,id)</span><br><span class="line">.withClaim(<span class="string">&quot;username&quot;</span>,user)</span><br><span class="line">.withClaim(<span class="string">&quot;password&quot;</span>,pass)</span><br><span class="line"><span class="comment">//signature</span></span><br><span class="line">.sign(Algorithm.HMAC256(<span class="string">&quot;xiaodisec&quot;</span>));</span><br></pre></td></tr></table></figure></li>
+<li>4、解析JWT  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构建解密注册</span></span><br><span class="line"><span class="type">JWTVerifier</span> <span class="variable">jwt</span> <span class="operator">=</span> JWT.require(Algorithm.HMAC256(<span class="string">&quot;xiaodisec&quot;</span>)).build();</span><br><span class="line"><span class="comment">//解密注册数据</span></span><br><span class="line"><span class="type">DecodedJWT</span> <span class="variable">verify</span> <span class="operator">=</span> jwt.verify(jwtdata);</span><br><span class="line"><span class="comment">//提取解密数据</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">userid</span> <span class="operator">=</span> verify.getClaim(<span class="string">&quot;userid&quot;</span>).asInt();</span><br></pre></td></tr></table></figure></li>
+<li>5、安全问题<br>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2101634">https://cloud.tencent.com/developer/article/2101634</a></li>
+</ul>
+<h2 id="SpringBoot-打包部署-JAR-WAR"><a href="#SpringBoot-打包部署-JAR-WAR" class="headerlink" title="SpringBoot-打包部署-JAR&amp;WAR"></a>SpringBoot-打包部署-JAR&amp;WAR</h2><p>参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/HyqVt7EMFcuKXfiejtfleg">https://mp.weixin.qq.com/s/HyqVt7EMFcuKXfiejtfleg</a>  </p>
+<h3 id="SpringBoot项目打包在linux服务器中运行"><a href="#SpringBoot项目打包在linux服务器中运行" class="headerlink" title="SpringBoot项目打包在linux服务器中运行:"></a>SpringBoot项目打包在linux服务器中运行:</h3><p>①jar类型项目<br>jar类型项目使用SpringBoot打包插件打包时，会在打成的jar中内置tomcat的jar。<br>所以使用jdk直接运行jar即可，jar项目中功能将代码放到其内置的tomcat中运行。<br>②war类型项目<br>在打包时需要将内置的tomcat插件排除，配置servlet的依赖和修改pom.xml，然后将war文件放到tomcat安装目录webapps下,启动运行tomcat自动解析即可。  </p>
+<h3 id="Jar打包"><a href="#Jar打包" class="headerlink" title="Jar打包"></a>Jar打包</h3><p>报错解决：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mrzhuangr/article/details/124731024">https://blog.csdn.net/Mrzhuangr/article/details/124731024</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wobenqingfeng/article/details/129914639">https://blog.csdn.net/wobenqingfeng/article/details/129914639</a><br>1、maven-clean-package<br>2、java -jar xxxxxx.jar  </p>
+<h3 id="War打包"><a href="#War打包" class="headerlink" title="War打包"></a>War打包</h3><ul>
+<li>1、pom.xml加入或修改：<br><packaging>war</packaging>  </li>
+<li>2、启动类里面加入配置：  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestSwaggerDemoApplication</span> <span class="keyword">extends</span> <span class="title class_">SpringBootServletInitializer</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title function_">configure</span><span class="params">(SpringApplicationBuilder builder)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> builder.sources(TestSwaggerDemoApplication.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>3、maven-clean-package</li>
+<li>4、war放置tomcat后启动</li>
+</ul>
+<p>JAVAEE源码架构：<br>无源码下载泄漏风险<br>源码泄漏也需反编译  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/39%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/18/39%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">39安全开发-JavaEE应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-18 10:39:58" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:58+08:00">2023-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:11:21" itemprop="dateModified" datetime="2023-11-06T21:11:21+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>47、JavaEE-SpringBoot-监控系统-Actuator</li>
+<li>48、JavaEE-SpringBoot-接口系统-Swagger</li>
+<li>49、JavaEE-SpringBoot-监控&amp;接口&amp;安全问题</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，，架构分析待补充</li>
+</ul>
+<p> <img src="/2023/10/18/39%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/actuator.png"></p>
+<h2 id="SpringBoot-监控系统-Actuator"><a href="#SpringBoot-监控系统-Actuator" class="headerlink" title="SpringBoot-监控系统-Actuator"></a>SpringBoot-监控系统-Actuator</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringBoot Actuator模块提供了生产级别的功能，比如健康检查，审计，指标收集，HTTP跟踪等，帮助我们监控和管理Spring Boot应用。<br>-开发使用：  </p>
+<h3 id="1、引入依赖"><a href="#1、引入依赖" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2、配置监控"><a href="#2、配置监控" class="headerlink" title="2、配置监控"></a>2、配置监控</h3><ul>
+<li>暴露:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">management.endpoints.web.exposure.include=*</span><br><span class="line"></span><br><span class="line">#application.yml</span><br><span class="line">management:</span><br><span class="line">  endpoints:</span><br><span class="line">    web:</span><br><span class="line">      exposure:</span><br><span class="line">        include: &#x27;*&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>安全配置：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">management.endpoint.env.enabled=false</span><br><span class="line">management.endpoint.heapdump.enabled=false</span><br><span class="line"></span><br><span class="line">#application.yml</span><br><span class="line">management:</span><br><span class="line">    endpoint:</span><br><span class="line">        heapdump:</span><br><span class="line">            enabled: false #启用接口关闭</span><br><span class="line">    env:</span><br><span class="line">        enabled: false #启用接口关闭</span><br></pre></td></tr></table></figure></li>
+<li>2、1 图像化Server&amp;Client端界面<br>Server：引入Server依赖-开启（@EnableAdminServer）<br>Client：引入Client依赖-配置（连接目标，显示配置等）</li>
+</ul>
+<h3 id="3、安全问题"><a href="#3、安全问题" class="headerlink" title="3、安全问题"></a>3、安全问题</h3><ul>
+<li>heapdump泄漏<br>jvisualvm分析器(安装java后直接搜索jvisualvm)<br>JDumpSpider提取器<br><a target="_blank" rel="noopener" href="https://github.com/whwlsfb/JDumpSpider/releases">https://github.com/whwlsfb/JDumpSpider/releases</a><br>分析提取出敏感信息（配置帐号密码，接口信息 数据库 短信 云应用等配置）  </li>
+<li>其他利用见下文<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/drnrrwfs/article/details/125242990">https://blog.csdn.net/drnrrwfs/article/details/125242990</a><br>分析得到有一些组件（不安全的组件，如log4j）</li>
+</ul>
+<h2 id="SpringBoot-接口系统-Swagger"><a href="#SpringBoot-接口系统-Swagger" class="headerlink" title="SpringBoot-接口系统-Swagger"></a>SpringBoot-接口系统-Swagger</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Swagger是当下比较流行的实时接口文文档生成工具。接口文档是当前前后端分离项目中必不可少的工具，在前后端开发之前，后端要先出接口文档，前端根据接口文档来进行项目的开发，双方开发结束后在进行联调测试。<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lsqingfeng/article/details/123678701">https://blog.csdn.net/lsqingfeng/article/details/123678701</a>  </p>
+<h3 id="开发使用"><a href="#开发使用" class="headerlink" title="开发使用"></a>开发使用</h3><ul>
+<li><p>1、引入依赖</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;--<span class="number">2.9</span><span class="number">.2</span>版本--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">2.9</span><span class="number">.2</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">2.9</span><span class="number">.2</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;--<span class="number">3.0</span><span class="number">.0</span>版本--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;springfox-boot-starter&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;<span class="number">3.0</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>2、配置访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">spring.mvc.pathmatch.matching-strategy=ant-path-matcher</span><br><span class="line"></span><br><span class="line">#application.yml</span><br><span class="line">spring</span><br><span class="line">  mvc:</span><br><span class="line">    pathmatch:</span><br><span class="line">      matching-strategy: ant_path_matcher</span><br></pre></td></tr></table></figure>
+<p>2.X版本启动需要注释@EnableSwagger2<br>3.X版本不需注释，写的话是@EnableOpenApi<br>2.X访问路径：<a href="http://ip:port/swagger-ui.html">http://ip:port/swagger-ui.html</a><br>3.X访问路径：<a href="http://ip:port/swagger-ui/index.html">http://ip:port/swagger-ui/index.html</a>  </p>
+</li>
+<li><p>3、安全问题<br>自动化测试：Postman<br>泄漏应用接口：用户登录，信息显示，上传文件等<br>可用于对未授权访问，信息泄漏，文件上传等安全漏洞的测试.</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/38%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1084,379 +1446,10 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/13/31%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/13/31%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-webpack/" class="post-title-link" itemprop="url">31安全开发-webpack</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-13 10:03:17" itemprop="dateCreated datePublished" datetime="2023-10-13T10:03:17+08:00">2023-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:23" itemprop="dateModified" datetime="2023-11-06T21:10:23+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>25、三方库-JQuery-使用&amp;安全</li>
-<li>26、打包器-WebPack-使用&amp;安全</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>内容筹备中……</li>
-</ul>
-<h2 id="打包器-WebPack-使用-安全"><a href="#打包器-WebPack-使用-安全" class="headerlink" title="打包器-WebPack-使用&amp;安全"></a>打包器-WebPack-使用&amp;安全</h2><p>参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/J3bpy-SsCnQ1lBov1L98WA">https://mp.weixin.qq.com/s/J3bpy-SsCnQ1lBov1L98WA</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Webpack是一个模块打包器。在Webpack中会将前端的所有资源文件都作为模块处理。它将根据模块的依赖关系进行分析，生成对应的资源。  </p>
-<h3 id="五个核心概念"><a href="#五个核心概念" class="headerlink" title="五个核心概念:"></a>五个核心概念:</h3><ol>
-<li>【入口(entry)】：指示webpack应该使用哪个模块，来作为构建内部依赖图开始。  </li>
-<li>【输出(output)】：在哪里输出文件，以及如何命名这些文件。  </li>
-<li>【Loader】：处理那些非JavaScript文件（webpack 自身只能解析 JavaScript和json）。webpack 本身只能处理JS、JSON模块，如果要加载其他类型的文件(模块)，就需要使用对应的loader。  </li>
-<li>【插件(plugins)】：执行范围更广的任务，从打包到优化都可以实现。  </li>
-<li>【模式(mode)】：有生产模式production和开发模式development。</li>
-</ol>
-<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p>1、创建需打包文件<br>2、安装webpack库<br>3、创建webpack配置文件<br>4、运行webpack打包命令  </p>
-<h3 id="安全："><a href="#安全：" class="headerlink" title="安全："></a>安全：</h3><p>1、WebPack源码泄漏-模式选择<br>2、模糊提取安全检查-PacketFuzzer<br><a target="_blank" rel="noopener" href="https://github.com/rtcatc/Packer-Fuzzer">https://github.com/rtcatc/Packer-Fuzzer</a><br>原生态JS：前端语言直接浏览器显示源代码<br>NodeJS：服务段语言浏览器不显示源代码<br>WebPack：打包模式选择开发者模式后会造成源码泄漏（nodejs vue）  </p>
-<h2 id="第三方库-JQuery-使用-安全"><a href="#第三方库-JQuery-使用-安全" class="headerlink" title="第三方库-JQuery-使用&amp;安全"></a>第三方库-JQuery-使用&amp;安全</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery是一个快速、简洁的JavaScript框架,是一个丰富的JavaScript代码库。设计目的是为了写更少的代码，做更多的事情。它封装JavaScript常用功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。  </p>
-<p>1、使用：<br>引用路径：<a target="_blank" rel="noopener" href="https://www.jq22.com/jquery-info122">https://www.jq22.com/jquery-info122</a><br>2、安全：<br>检测：<a target="_blank" rel="noopener" href="http://research.insecurelabs.org/jquery/test/">http://research.insecurelabs.org/jquery/test/</a><br>测试：CVE-2020-11022&#x2F;CVE-2020-11023<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44309905/article/details/120902867">https://blog.csdn.net/weixin_44309905/article/details/120902867</a>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/11/30%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-NodeJS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/11/30%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-NodeJS/" class="post-title-link" itemprop="url">30安全开发-NodeJS</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-11 09:30:39" itemprop="dateCreated datePublished" datetime="2023-10-11T09:30:39+08:00">2023-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:14" itemprop="dateModified" datetime="2023-11-06T21:10:14+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>22、NodeJS-开发环境&amp;功能实现</li>
-<li>23、NodeJS-安全漏洞&amp;案例分析</li>
-<li>24、NodeJS-开发指南&amp;特有漏洞</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>内容筹备中……</li>
-</ul>
-<h2 id="环境搭建-NodeJS-解析安装-库安装"><a href="#环境搭建-NodeJS-解析安装-库安装" class="headerlink" title="环境搭建-NodeJS-解析安装&amp;库安装"></a>环境搭建-NodeJS-解析安装&amp;库安装</h2><h3 id="1、文档参考："><a href="#1、文档参考：" class="headerlink" title="1、文档参考："></a>1、文档参考：</h3><p><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/nodejs/">https://www.w3cschool.cn/nodejs/</a>  </p>
-<h3 id="2、Nodejs安装"><a href="#2、Nodejs安装" class="headerlink" title="2、Nodejs安装"></a>2、Nodejs安装</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/en">https://nodejs.org/en</a>  </p>
-<h3 id="3、三方库安装"><a href="#3、三方库安装" class="headerlink" title="3、三方库安装"></a>3、三方库安装</h3><ul>
-<li><p>express<br>Express是一个简洁而灵活的node.js Web应用框架  </p>
-</li>
-<li><p>body-parser<br>node.js中间件，用于处理 JSON, Raw, Text和URL编码的数据。  </p>
-</li>
-<li><p>cookie-parser<br>这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。  </p>
-</li>
-<li><p>multer<br>node.js中间件，用于处理 enctype&#x3D;”multipart&#x2F;form-data”（设置表单的MIME编码）的表单数据。  </p>
-</li>
-<li><p>mysql<br>Node.js来连接MySQL专用库，并对数据库进行操作。</p>
-</li>
-</ul>
-<p>安装命令：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i express</span><br><span class="line">npm i body-parser</span><br><span class="line">npm i cookie-parser</span><br><span class="line">npm i multer</span><br><span class="line">npm i mysql</span><br></pre></td></tr></table></figure>
-
-<h2 id="功能实现-NodeJS-数据库-文件-执行"><a href="#功能实现-NodeJS-数据库-文件-执行" class="headerlink" title="功能实现-NodeJS-数据库&amp;文件&amp;执行"></a>功能实现-NodeJS-数据库&amp;文件&amp;执行</h2><ul>
-<li><p>an<br>1、Express开发<br>2、实现用户登录<br>3、加入数据库操作  </p>
-</li>
-<li><p>文件操作<br>1、Express开发<br>2、实现目录读取<br>3、加入传参接受  </p>
-</li>
-<li><p>命令执行（RCE）<br>1、eval<br>2、exec &amp; spawnSync</p>
-</li>
-</ul>
-<h2 id="安全问题-NodeJS-注入-RCE-原型链"><a href="#安全问题-NodeJS-注入-RCE-原型链" class="headerlink" title="安全问题-NodeJS-注入&amp;RCE&amp;原型链"></a>安全问题-NodeJS-注入&amp;RCE&amp;原型链</h2><ul>
-<li>1、SQL注入&amp;文件操作</li>
-<li>2、RCE执行&amp;原型链污染</li>
-<li>3、NodeJS黑盒无代码分析<br>实战测试NodeJS安全：<br>判断：参考前期的信息收集<br>黑盒：通过对各种功能和参数进行payload测试<br>白盒：通过对代码中写法安全进行审计分析  </li>
-<li>4、原型链污染<br>如果攻击者控制并修改了一个对象的原型，(<strong>proto</strong>)<br>那么将可以影响所有和这个对象来自同一个类、父祖类的对象。</li>
-</ul>
-<h2 id="案例分析-NodeJS-CTF题目-源码审计"><a href="#案例分析-NodeJS-CTF题目-源码审计" class="headerlink" title="案例分析-NodeJS-CTF题目&amp;源码审计"></a>案例分析-NodeJS-CTF题目&amp;源码审计</h2><ul>
-<li>1、CTFSHOW几个题目<br><a target="_blank" rel="noopener" href="https://ctf.show/">https://ctf.show/</a> Web334-344<br><a target="_blank" rel="noopener" href="https://f1veseven.github.io/2022/04/03/ctf-nodejs-zhi-yi-xie-xiao-zhi-shi/">https://f1veseven.github.io/2022/04/03/ctf-nodejs-zhi-yi-xie-xiao-zhi-shi/</a>  </li>
-<li>2、YApi管理平台漏洞<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42353842/article/details/127960229">https://blog.csdn.net/weixin_42353842/article/details/127960229</a></li>
-</ul>
-<h2 id="开发指南-NodeJS-安全SecGuide项目"><a href="#开发指南-NodeJS-安全SecGuide项目" class="headerlink" title="开发指南-NodeJS-安全SecGuide项目"></a>开发指南-NodeJS-安全SecGuide项目</h2><p><a target="_blank" rel="noopener" href="https://github.com/Tencent/secguide">https://github.com/Tencent/secguide</a>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/10/29%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E6%8A%80%E6%9C%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/10/29%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">29安全开发-JS技术</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-10 17:58:10" itemprop="dateCreated datePublished" datetime="2023-10-10T17:58:10+08:00">2023-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:07" itemprop="dateModified" datetime="2023-11-06T21:10:07+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>20、JS技术-DOM树操作及安全隐患</li>
-<li>21、JS技术-加密编码及数据安全调试</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>内容筹备中……</li>
-</ul>
-<h2 id="JS原生开发-DOM树-用户交互"><a href="#JS原生开发-DOM树-用户交互" class="headerlink" title="JS原生开发-DOM树-用户交互"></a>JS原生开发-DOM树-用户交互</h2><p>DOM：文档操作对象<br>浏览器提供的一套专门用来操作网页代码内容的功能，实现自主或用户交互动作反馈  </p>
-<p>安全问题：本身的前端代码通过DOM技术实现代码的更新修改，但是更新修改如果修改的数据可以由用户来指定，就会造成DOM-XSS攻击！  </p>
-<ul>
-<li><p>1、获取对象<br>标签：直接写<br>Class：加上符号.<br>id：加上符号#  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getValue()&quot;</span>&gt;</span>这是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">document.querySelector(&#x27;h1&#x27;)</span><br><span class="line">document.querySelector(&#x27;.id&#x27;)</span><br><span class="line">document.querySelector(&#x27;#myHeader&#x27;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、获取对象属性  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getValue()&quot;</span>&gt;</span>这是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">const h1=document.querySelector(&#x27;h1&#x27;)</span><br><span class="line">const id=h1.id</span><br><span class="line">console.log(id)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3、操作元素数据<br>innerHTML 解析后续代码<br>innerText 不解析后续代码  </p>
-</li>
-<li><p>4、操作元素属性  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">className src id等  </span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;iphone.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span><br><span class="line">const src=document.querySelector(&#x27;img&#x27;)</span><br><span class="line">src.src=&#x27;huawei.png&#x27;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="JS导入库开发-编码加密-逆向调试"><a href="#JS导入库开发-编码加密-逆向调试" class="headerlink" title="JS导入库开发-编码加密-逆向调试"></a>JS导入库开发-编码加密-逆向调试</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Base64</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MD5</span></span><br><span class="line">&lt;script src=<span class="string">&quot;js/md5.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str_encode = <span class="title function_">md5</span>(str1);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode) </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//SHA1</span></span><br><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> str_encode = <span class="title class_">CryptoJS</span>.<span class="title class_">SHA1</span>(str1).<span class="title function_">toString</span>(); <span class="comment">// 注意：1是数字1</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/html&gt;      </span><br><span class="line"></span><br><span class="line"><span class="comment">//HMAC</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> key = <span class="string">&#x27;key&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> hash = <span class="title class_">CryptoJS</span>.<span class="title class_">HmacSHA256</span>(key, str1);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str_encode = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Hex</span>.<span class="title function_">stringify</span>(hash);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode)  <span class="comment">// &#x27;11a7960cd583ee2c3f1ed910dbc3b6c3991207cbc527d122f69e84d13cc5ce5c&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//AES</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> aseKey = <span class="string">&quot;12345678&quot;</span>     <span class="comment">// 定制秘钥，长度必须为：8/16/32位, 长度不一致也没问题</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> message = <span class="string">&quot;xiaodisec&quot;</span>;  <span class="comment">// 需要加密的内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="comment">// 加密 DES/AES切换只需要修改 CryptoJS.AES &lt;=&gt; CryptoJS.DES</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> encrypt = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">encrypt</span>(message, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey),  <span class="comment">// 参数1=密钥, 参数2=加密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>, <span class="comment">// 为DES的工作方式</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span>  <span class="comment">// 当加密后密文长度达不到指定整数倍(8个字节、16个字节)则填充对应字符</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">             &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          ).<span class="title function_">toString</span>(); <span class="comment">// toString=转字符串类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypt); <span class="comment">// 在弹窗中打印字符串 2vcsEDJv9vAZZLgFLjkZ9A==</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="comment">//解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> decrypt = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">decrypt</span>(encrypt, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey), <span class="comment">// 参数1=密钥, 参数2=解密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          ).<span class="title function_">toString</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>); <span class="comment">// toString=转字符串类型,并指定编码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="variable language_">console</span>.<span class="title function_">log</span>(decrypt); <span class="comment">// &quot;xiaodisec&quot;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//DES</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> aseKey = <span class="string">&quot;12345678&quot;</span>     <span class="comment">// 定制秘钥，长度必须为：8/16/32位， 长度不一致也没问题</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> message = <span class="string">&quot;xiaodisec&quot;</span>;  <span class="comment">// 需要加密的内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 加密 DES/AES切换只需要修改 CryptoJS.AES &lt;=&gt; CryptoJS.DES</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> encrypt = <span class="title class_">CryptoJS</span>.<span class="property">DES</span>.<span class="title function_">encrypt</span>(message, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey),  <span class="comment">// 参数1=密钥, 参数2=加密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>, <span class="comment">// 为DES的工作方式</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span>  <span class="comment">// 当加密后密文长度达不到指定整数倍(8个字节、16个字节)则填充对应字符</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">         &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      ).<span class="title function_">toString</span>(); <span class="comment">// toString=转字符串类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypt); <span class="comment">// 控制台打印 CDVNwmEwDRM</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> decrypt = <span class="title class_">CryptoJS</span>.<span class="property">DES</span>.<span class="title function_">decrypt</span>(encrypt, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey), <span class="comment">// 参数1=密钥, 参数2=解密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      ).<span class="title function_">toString</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>); <span class="comment">// toString=转字符串类型,并指定编码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(decrypt); <span class="comment">// 控制台打印 &quot;i am xiaozhou ?&quot;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//RSA</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/jsencrypt.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// 公钥 私匙是通过公匙计算生成的，不能盲目设置</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> <span class="variable constant_">PUBLIC_KEY</span> = <span class="string">&#x27;-----BEGIN PUBLIC KEY-----MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALyBJ6kZ/VFJYTV3vOC07jqWIqgyvHulv6us/8wzlSBqQ2+eOTX7s5zKfXY40yZWDoCaIGk+tP/sc0D6dQzjaxECAwEAAQ==-----END PUBLIC KEY-----&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//私钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> <span class="variable constant_">PRIVATE_KEY</span> = <span class="string">&#x27;-----BEGIN PRIVATE KEY-----MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAvIEnqRn9UUlhNXe84LTuOpYiqDK8e6W/q6z/zDOVIGpDb545NfuznMp9djjTJlYOgJogaT60/+xzQPp1DONrEQIDAQABAkEAu7DFsqQEDDnKJpiwYfUE9ySiIWNTNLJWZDN/Bu2dYIV4DO2A5aHZfMe48rga5BkoWq2LALlY3tqsOFTe3M6yoQIhAOSfSAU3H6jIOnlEiZabUrVGqiFLCb5Ut3Jz9NN+5p59AiEA0xQDMrxWBBJ9BYq6RRY4pXwa/MthX/8Hy+3GnvNw/yUCIG/3Ee578KVYakq5pih8KSVeVjO37C2qj60d3Ok3XPqBAiEAqGPvxTsAuBDz0kcBIPqASGzArumljkrLsoHHkakOfU0CIDuhxKQwHlXFDO79ppYAPcVO3bph672qGD84YUaHF+pQ-----END PRIVATE KEY-----&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//使用公钥加密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> encrypt = <span class="keyword">new</span> <span class="title class_">JSEncrypt</span>();<span class="comment">//实例化加密对象</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        encrypt.<span class="title function_">setPublicKey</span>(<span class="variable constant_">PUBLIC_KEY</span>);<span class="comment">//设置公钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> message = <span class="string">&#x27;xiaodisec&#x27;</span> <span class="comment">// 需要加密的数据 </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> encrypted = encrypt.<span class="title function_">encrypt</span>(message);<span class="comment">//对指定数据进行加密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypted)  <span class="comment">// &#x27;JQ83h8tmJpsSZcb4BJ3eQvuqIAs3ejepcUUnoFhQEvum8fA8bf1Y/fG+DO1bSIVNJF6EOZKe4wa0njv6aOar9w==&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//使用私钥解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> decrypt = <span class="keyword">new</span> <span class="title class_">JSEncrypt</span>(); <span class="comment">// 创建解密对象</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        decrypt.<span class="title function_">setPrivateKey</span>(<span class="variable constant_">PRIVATE_KEY</span>); <span class="comment">//设置私钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> uncrypted = decrypt.<span class="title function_">decrypt</span>(encrypted); <span class="comment">//解密 &#x27;xiaodisec&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(uncrypted);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1524,7 +1517,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1600,19 +1593,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">173k</span>
+    <span title="站点总字数">181k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:37</span>
+    <span title="站点阅读时长">2:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.1k字</span>
+  <span class="post-count">博客全站共67.9k字</span>
 </div>
 
 

