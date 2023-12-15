@@ -201,6 +201,682 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/14%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-JS%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/03/14%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-JS%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">14信息打点-JS架构</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-03 09:02:30" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:30+08:00">2023-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:06:34" itemprop="dateModified" datetime="2023-11-06T21:06:34+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>8、JS前端架构-识别&amp;分析</li>
+<li>9、JS前端架构-开发框架分析</li>
+<li>10、JS前端架构-打包器分析</li>
+<li>11、JS前端架构-提取&amp;FUZZ<br>解决：<br>1、如何从表现中的JS提取价值信息<br>2、如何从地址中FUZZ提取未知的JS文件<br>3、如何从JS开放框架WebPack进行测试</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
+<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
+<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
+<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
+<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
+<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</li>
+</ul>
+<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><ul>
+<li>CMS：<br>Discuz、WordPress、Ecshop、蝉知等  </li>
+<li>前端技术：<br>HTML5、jquery、bootstrap、Vue等  </li>
+<li>开发语言：<br>PHP、JAVA、Ruby、Python、C#，JS等  </li>
+<li>Web服务器：(中间件)<br>Apache、Nginx、IIS、lighttpd，Apache等  </li>
+<li>应用服务器：<br>（应用服务器特点就是会开放一个端口，web和应用服务器是针对不同服务类型的特点就是会开放一个端口，web和应用服务器是针对不同服务类型的）<br>Tomcat、Jboss、Weblogic、Websphere等  </li>
+<li>数据库类型：<br>Mysql、SqlServer、Oracle、Redis、MongoDB等  </li>
+<li>操作系统信息：<br>Linux、windows等  </li>
+<li>应用服务信息：<br>FTP、SSH、RDP、SMB、SMTP、LDAP、Rsync等  </li>
+<li>CDN信息：<br>帝联、Cloudflare、网宿、七牛云、阿里云等  </li>
+<li>WAF信息：<br>创宇盾、宝塔、ModSecurity、玄武盾、OpenRASP等  </li>
+<li>蜜罐信息：<br>HFish、TeaPot、T-Pot、Glastopf等  </li>
+<li>其他组件信息：<br>fastjson、shiro、log4j、OA办公等</li>
+</ul>
+<h3 id="1、什么是JS渗透测试？"><a href="#1、什么是JS渗透测试？" class="headerlink" title="1、什么是JS渗透测试？"></a>1、什么是JS渗透测试？</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Javascript中也存在变量和函数，当存在可控变量及函数调用即可参数漏洞JS开发的WEB应用和PHP，JAVA,NET等区别在于即没有源代码，也可以通过浏览器的查看源代码获取真实的点。获取URL，获取JS敏感信息，获取代码传参等，所以相当于JS开发的WEB应用属于白盒测试（默认有源码参考），一般会在JS中寻找更多的URL地址，在JS代码逻辑（加密算法，APIkey配置，验证逻辑等）进行后期安全测试。<br>前提：Web应用可以采用后端或前端语言开发<br>-后端语言：php java python .NET 浏览器端看不到真实的源代码<br>-前端语言：JavaScript(JS)和JS框架 浏览器端看到真实的源代码<br>例子：<br>zblog：核心功能采用PHP语言去传输接受<br>vue.js：核心功能采用框架语法（JS）传输接受  </p>
+<h3 id="2、JS安全问题"><a href="#2、JS安全问题" class="headerlink" title="2、JS安全问题"></a>2、JS安全问题</h3><p>源码泄漏<br>未授权访问&#x3D;JS里面分析更多的URL访问确定接口路径<br>敏感key泄漏&#x3D;JS文件中可能配置了接口信息（云应用，短信，邮件，数据库等）<br>API接口安全&#x3D;（代码中加密提交参数传递，更多的URL路径）  </p>
+<h3 id="3、流行的Js框架有那些？"><a href="#3、流行的Js框架有那些？" class="headerlink" title="3、流行的Js框架有那些？"></a>3、流行的Js框架有那些？</h3><p>Vue NodeJS jQuery Angular等    </p>
+<h3 id="4、如何判定JS开发应用？"><a href="#4、如何判定JS开发应用？" class="headerlink" title="4、如何判定JS开发应用？"></a>4、如何判定JS开发应用？</h3><p>插件wappalyzer<br>源程序代码简短<br>引入多个js文件<br>一般有&#x2F;static&#x2F;js&#x2F;app.js等顺序的js文件<br>一般cookie中有connect.sid  </p>
+<h3 id="5、如何获取更多的JS文件？"><a href="#5、如何获取更多的JS文件？" class="headerlink" title="5、如何获取更多的JS文件？"></a>5、如何获取更多的JS文件？</h3><p>手工-浏览器搜索<br>半自动-Burpsuite插件<br>工具化-各类提取&amp;FUZZ项目  </p>
+<h3 id="6、如何快速获取价值信息？"><a href="#6、如何快速获取价值信息？" class="headerlink" title="6、如何快速获取价值信息？"></a>6、如何快速获取价值信息？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src=  </span><br><span class="line">path=  </span><br><span class="line">method:&quot;get&quot;  </span><br><span class="line">http.get(&quot;  </span><br><span class="line">method:&quot;post&quot;  </span><br><span class="line">http.post(&quot;  </span><br><span class="line">$.ajax  </span><br><span class="line">http://service.httppost  </span><br><span class="line"> http://service.httpget  </span><br></pre></td></tr></table></figure>
+<h2 id="前端架构-手工搜索分析"><a href="#前端架构-手工搜索分析" class="headerlink" title="前端架构-手工搜索分析"></a>前端架构-手工搜索分析</h2><p>浏览器全局搜索分析  </p>
+<h2 id="前端架构-半自动Burp分析"><a href="#前端架构-半自动Burp分析" class="headerlink" title="前端架构-半自动Burp分析"></a>前端架构-半自动Burp分析</h2><p>自带功能：Target-&gt;sitemap-&gt;Engagement tools-&gt;Find scripts<br>官方插件：JS Link Finder &amp; JS Miner<br>第三方插件：HaE &amp; Unexpected_information<br>插件加载器：jython-standalone-2.7.2<br><strong>Unexpected_information：</strong><br><a target="_blank" rel="noopener" href="https://github.com/ScriptKid-Beta/Unexpected_information">https://github.com/ScriptKid-Beta/Unexpected_information</a><br>用来标记请求包中的一些敏感信息、JS接口和一些特殊字段，防止我们疏忽了一些数据包，使用它可能会有意外的收获信息。<br><strong>HaE：</strong><br><a target="_blank" rel="noopener" href="https://github.com/gh0stkey/HaE">https://github.com/gh0stkey/HaE</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/gh0stkey/HaE/gh-pages/Config.yml">https://raw.githubusercontent.com/gh0stkey/HaE/gh-pages/Config.yml</a><br>基于BurpSuite插件JavaAPI开发的请求高亮标记与信息提取的辅助型插件。该插件可以通过自定义正则的方式匹配响应报文或请求报文，可以自行决定符合该自定义正则匹配的相应请求是否需要高亮标记、信息提取。  </p>
+<h2 id="前端架构-自动化项目分析"><a href="#前端架构-自动化项目分析" class="headerlink" title="前端架构-自动化项目分析"></a>前端架构-自动化项目分析</h2><ul>
+<li><p><strong>Jsfinder</strong>-从表现中JS中提取URL或者敏感数据<br><a target="_blank" rel="noopener" href="https://github.com/Threezh1/JSFinder">https://github.com/Threezh1/JSFinder</a><br>一款用作快速在网站的js文件中提取URL，子域名的工具  </p>
+</li>
+<li><p><strong>URLFinder</strong>-从表现中JS中提取URL或者敏感数据<br><a target="_blank" rel="noopener" href="https://github.com/pingc0y/URLFinder">https://github.com/pingc0y/URLFinder</a><br>一款用于快速提取检测页面中JS与URL的工具。<br>功能类似于JSFinder，但JSFinder好久没更新了。</p>
+</li>
+</ul>
+<p><code>URLFinder-windows-amd64.exe -u url -s all -m 2</code></p>
+<ul>
+<li><p><strong>JSINFO-SCAN</strong>-从表现中JS中提取URL或者敏感数据<br><a target="_blank" rel="noopener" href="https://github.com/p1g3/JSINFO-SCAN">https://github.com/p1g3/JSINFO-SCAN</a><br>递归爬取域名(netloc&#x2F;domain)，以及递归从JS中获取信息的工具  </p>
+</li>
+<li><p><strong>FindSomething</strong>-从表现中JS中提取URL或者敏感数据(浏览器插件)<br><a target="_blank" rel="noopener" href="https://github.com/momosecurity/FindSomething">https://github.com/momosecurity/FindSomething</a><br>该工具是用于快速在网页的html源码或js代码中提取一些有趣的信息的浏览器插件，包括请求的资源、接口的url，请求的ip和域名，泄漏的证件号、手机号、邮箱等信息。</p>
+</li>
+<li><p><strong>ffuf-FUZZ</strong>-爆破找到更多的js文件分析更多的信息<br><a target="_blank" rel="noopener" href="https://github.com/ffuf/ffuf">https://github.com/ffuf/ffuf</a><br><a target="_blank" rel="noopener" href="https://wordlists.assetnote.io(下载字典)/">https://wordlists.assetnote.io(下载字典)</a><br>功能强大的模糊化工具，用它来FUZZ模糊化js文件。</p>
+</li>
+</ul>
+<p><code>ffuf.exe -w 字典.txt -u http://xxx.xxx.com/FUZZ  -t 200</code></p>
+<ul>
+<li><strong>Packer-Fuzzer</strong>-针对JS框架开发打包器Webpack检测（扫描完后生成报告）<br><a target="_blank" rel="noopener" href="https://github.com/rtcatc/Packer-Fuzzer">https://github.com/rtcatc/Packer-Fuzzer</a><br>一款针对Webpack等前端打包工具所构造的网站进行快速、高效安全检测的扫描工具</li>
+</ul>
+<p><code>python Packer-Fuzzer.py -u http://xxx.xxx.com</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/13%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-web%E5%BA%94%E7%94%A8%E6%89%93%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/03/13%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-web%E5%BA%94%E7%94%A8%E6%89%93%E7%82%B9/" class="post-title-link" itemprop="url">13信息打点-web应用打点</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-03 09:02:26" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:26+08:00">2023-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:06:24" itemprop="dateModified" datetime="2023-11-06T21:06:24+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>5、开源-CMS指纹识别源码获取方式</li>
+<li>6、闭源-习惯&amp;配置&amp;特性等获取方式</li>
+<li>7、闭源-托管资产平台资源搜索监控</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
+<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
+<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
+<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
+<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
+<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</li>
+</ul>
+<h2 id="指纹识别"><a href="#指纹识别" class="headerlink" title="指纹识别"></a>指纹识别</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;关于网站指纹识别，可以使用插件，也可以使用在线识别工具<br>&nbsp;&nbsp;&nbsp;&nbsp;当然，如果实在内网情况，没办法使用在线识别网站，这时间我们可以使用工具WhatWeb 进行识别<br>&nbsp;&nbsp;&nbsp;&nbsp;最重要的，可以根据一些特征，直接判断是什么cms或者框架，例如spring ico文件是一片树叶<br>&nbsp;&nbsp;&nbsp;&nbsp;还可以根据报错等进行判断，这些就需要自己平时多进行搜集，多关注一些就可以</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>名称</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>指纹识别</td>
+<td>在线cms指纹识别</td>
+<td><a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>Wappalyzer</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/AliasIO/wappalyzer">https://github.com/AliasIO/wappalyzer</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>TideFinger潮汐</td>
+<td><a target="_blank" rel="noopener" href="http://finger.tidesec.net/">http://finger.tidesec.net/</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>云悉指纹</td>
+<td><a target="_blank" rel="noopener" href="https://www.yunsee.cn/">https://www.yunsee.cn/</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>WhatWeb</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/urbanadventurer/WhatWeb">https://github.com/urbanadventurer/WhatWeb</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>数字观星Finger-P</td>
+<td><a target="_blank" rel="noopener" href="https://fp.shuziguanxing.com/#/">https://fp.shuziguanxing.com/#/</a></td>
+</tr>
+</tbody></table>
+<h2 id="后端-开源-指纹识别-源码下载"><a href="#后端-开源-指纹识别-源码下载" class="headerlink" title="后端-开源-指纹识别-源码下载"></a>后端-开源-指纹识别-源码下载</h2><p>CMS识别见上述项目</p>
+<h2 id="后端-闭源-配置不当-源码泄漏"><a href="#后端-闭源-配置不当-源码泄漏" class="headerlink" title="后端-闭源-配置不当-源码泄漏"></a>后端-闭源-配置不当-源码泄漏</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.secpulse.com/archives/124398.html">https://www.secpulse.com/archives/124398.html</a><br>备份：敏感目录文件扫描<br>CVS：<a target="_blank" rel="noopener" href="https://github.com/kost/dvcs-ripper">https://github.com/kost/dvcs-ripper</a><br>GIT：<a target="_blank" rel="noopener" href="https://github.com/lijiejie/GitHack">https://github.com/lijiejie/GitHack</a><br>SVN：<a target="_blank" rel="noopener" href="https://github.com/callmefeifei/SvnHack">https://github.com/callmefeifei/SvnHack</a><br>DS_Store：<a target="_blank" rel="noopener" href="https://github.com/lijiejie/ds_store_exp">https://github.com/lijiejie/ds_store_exp</a>  </p>
+<p>源码泄漏原因：<br>1、从源码本身的特性入口<br>2、从管理员不好的习惯入口<br>3、从管理员不好的配置入口<br>4、从管理员不好的意识入口<br>5、从管理员资源信息搜集入口<br>源码泄漏集合：<br>composer.json(<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/487883420">https://zhuanlan.zhihu.com/p/487883420</a>)<br>git源码泄露<br>svn源码泄露<br>hg源码泄漏<br>网站备份压缩文件<br>WEB-INF&#x2F;web.xml 泄露<br>&nbsp;&nbsp;&nbsp;&nbsp;(WEB.xml:应用程序配置文件，描述了SErvlet和其它应用配置及命名规则。<br>&nbsp;&nbsp;&nbsp;&nbsp;classes：含所有classes文件<br>&nbsp;&nbsp;&nbsp;&nbsp;lib:存放应用的各种jAR文件<br>&nbsp;&nbsp;&nbsp;&nbsp;src：源文件<br>&nbsp;&nbsp;&nbsp;&nbsp;database.properties:数据库配置文件)<br>DS_Store 文件泄露<br>SWP 文件泄露<br>CVS泄露<br>Bzr泄露<br>GitHub源码泄漏  </p>
+<h2 id="后端-方向-资源GITHUB-源码泄漏"><a href="#后端-方向-资源GITHUB-源码泄漏" class="headerlink" title="后端-方向-资源GITHUB-源码泄漏"></a>后端-方向-资源GITHUB-源码泄漏</h2><p>解决1：识别出大致信息却无下载资源(oschina、github、gitee)<br>解决2：未识别出信息使用码云资源获取<br>解决3：其他行业开发使用对口资源站获取<br>涉及：(oschina)<br><a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a><br><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a><br><a target="_blank" rel="noopener" href="https://www.huzhan.com/">https://www.huzhan.com/</a>  </p>
+<ul>
+<li>GITHUB资源搜索： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">in:name test               #仓库标题搜索含有关键字   </span><br><span class="line">in:descripton test         #仓库描述搜索含有关键字   </span><br><span class="line">in:readme test             #Readme文件搜素含有关键字   </span><br><span class="line">stars:&gt;3000 test           #stars数量大于3000的搜索关键字   </span><br><span class="line">stars:1000..3000 test      #stars数量大于1000小于3000的搜索关键字  </span><br><span class="line">forks:&gt;1000 test           #forks数量大于1000的搜索关键字(考虑路由)     </span><br><span class="line">forks:1000..3000 test      #forks数量大于1000小于3000的搜索关键字  </span><br><span class="line">size:&gt;=5000 test           #指定仓库大于5000k(5M)的搜索关键字</span><br><span class="line">pushed:&gt;2019-02-12 test    #发布时间大于2019-02-12的搜索关键字  </span><br><span class="line">created:&gt;2019-02-12 test   #创建时间大于2019-02-12的搜索关键字  </span><br><span class="line">user:test                  #用户名搜素   </span><br><span class="line">license:apache-2.0 test    #明确仓库的 LICENSE 搜索关键字   </span><br><span class="line">language:java test         #在java语言的代码中搜索关键字   </span><br><span class="line">user:test in:name test     #组合搜索,用户名test的标题含有test的  </span><br></pre></td></tr></table></figure></li>
+<li>关键字配合谷歌搜索：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">site:Github.com smtp     </span><br><span class="line">site:Github.com smtp @qq.com     </span><br><span class="line">site:Github.com smtp @126.com   </span><br><span class="line">site:Github.com smtp @163.com   </span><br><span class="line">site:Github.com smtp @sina.com.cn   </span><br><span class="line">site:Github.com smtp password   </span><br><span class="line">site:Github.com String password smtp  </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">12信息打点-信息收集网站</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-03 09:02:20" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:20+08:00">2023-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 20:39:09" itemprop="dateModified" datetime="2023-11-06T20:39:09+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/image2.png"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>1、业务资产-应用类型分类<br>2、Web单域名获取-接口查询<br>3、Web子域名获取-解析枚举<br>4、Web架构资产-平台指纹识别</p>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等<br>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等<br>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等<br>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等<br>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等<br>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>名称</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>企业信息</td>
+<td>天眼查</td>
+<td><a target="_blank" rel="noopener" href="https://www.tianyancha.com/">https://www.tianyancha.com/</a></td>
+</tr>
+<tr>
+<td>企业信息</td>
+<td>小蓝本</td>
+<td><a target="_blank" rel="noopener" href="https://www.xiaolanben.com/">https://www.xiaolanben.com/</a></td>
+</tr>
+<tr>
+<td>企业信息</td>
+<td>爱企查</td>
+<td><a target="_blank" rel="noopener" href="https://aiqicha.baidu.com/">https://aiqicha.baidu.com/</a></td>
+</tr>
+<tr>
+<td>企业信息</td>
+<td>企查查</td>
+<td><a target="_blank" rel="noopener" href="https://www.qcc.com/">https://www.qcc.com/</a></td>
+</tr>
+<tr>
+<td>企业信息</td>
+<td>国外企查</td>
+<td><a target="_blank" rel="noopener" href="https://opencorporates.com/">https://opencorporates.com/</a></td>
+</tr>
+<tr>
+<td>企业信息</td>
+<td>启信宝</td>
+<td><a target="_blank" rel="noopener" href="https://www.qixin.com/">https://www.qixin.com/</a></td>
+</tr>
+<tr>
+<td>备案信息</td>
+<td>备案信息查询</td>
+<td><a target="_blank" rel="noopener" href="http://www.beianx.cn/">http://www.beianx.cn/</a></td>
+</tr>
+<tr>
+<td>备案信息</td>
+<td>备案管理系统</td>
+<td><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">https://beian.miit.gov.cn/</a></td>
+</tr>
+<tr>
+<td>公众号信息</td>
+<td>搜狗微信搜索</td>
+<td><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a></td>
+</tr>
+<tr>
+<td>注册域名</td>
+<td>域名注册查询</td>
+<td><a target="_blank" rel="noopener" href="https://buy.cloud.tencent.com/domain">https://buy.cloud.tencent.com/domain</a></td>
+</tr>
+<tr>
+<td>IP反查</td>
+<td>IP反查域名</td>
+<td><a target="_blank" rel="noopener" href="https://x.threatbook.cn/">https://x.threatbook.cn/</a></td>
+</tr>
+<tr>
+<td>IP反查</td>
+<td>IP反查域名</td>
+<td><a target="_blank" rel="noopener" href="http://dns.bugscaner.com/">http://dns.bugscaner.com/</a></td>
+</tr>
+<tr>
+<td>DNS数据</td>
+<td>dnsdumpster</td>
+<td><a target="_blank" rel="noopener" href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></td>
+</tr>
+<tr>
+<td>证书查询</td>
+<td>CertificateSearch</td>
+<td><a target="_blank" rel="noopener" href="https://crt.sh/">https://crt.sh/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>FOFA</td>
+<td><a target="_blank" rel="noopener" href="https://fofa.info/">https://fofa.info/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>全球鹰</td>
+<td><a target="_blank" rel="noopener" href="http://hunter.qianxin.com/">http://hunter.qianxin.com/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>360</td>
+<td><a target="_blank" rel="noopener" href="https://quake.360.cn/quake/#/index">https://quake.360.cn/quake/#/index</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>微步在线 情报社区</td>
+<td><a target="_blank" rel="noopener" href="https://x.threatbook.cn/">https://x.threatbook.cn/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>奇安信 威胁情报中心</td>
+<td><a target="_blank" rel="noopener" href="https://ti.qianxin.com/">https://ti.qianxin.com/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>360 威胁情报中心</td>
+<td><a target="_blank" rel="noopener" href="https://ti.360.cn/#/homepage">https://ti.360.cn/#/homepage</a></td>
+</tr>
+<tr>
+<td>枚举解析</td>
+<td>在线子域名查询</td>
+<td><a target="_blank" rel="noopener" href="http://tools.bugscaner.com/subdomain/">http://tools.bugscaner.com/subdomain/</a></td>
+</tr>
+<tr>
+<td>枚举解析</td>
+<td>DNSGrep子域名查询</td>
+<td><a target="_blank" rel="noopener" href="https://www.dnsgrep.cn/subdomain">https://www.dnsgrep.cn/subdomain</a></td>
+</tr>
+<tr>
+<td>枚举解析</td>
+<td>工具强大的子域名收集器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>在线cms指纹识别</td>
+<td><a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>Wappalyzer</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/AliasIO/wappalyzer">https://github.com/AliasIO/wappalyzer</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>TideFinger潮汐</td>
+<td><a target="_blank" rel="noopener" href="http://finger.tidesec.net/">http://finger.tidesec.net/</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>云悉指纹</td>
+<td><a target="_blank" rel="noopener" href="https://www.yunsee.cn/">https://www.yunsee.cn/</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>WhatWeb</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/urbanadventurer/WhatWeb">https://github.com/urbanadventurer/WhatWeb</a></td>
+</tr>
+<tr>
+<td>指纹识别</td>
+<td>数字观星Finger-P</td>
+<td><a target="_blank" rel="noopener" href="https://fp.shuziguanxing.com/#/">https://fp.shuziguanxing.com/#/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>钟馗之眼</td>
+<td><a target="_blank" rel="noopener" href="https://www.zoomeye.org/?R1nG">https://www.zoomeye.org/?R1nG</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>零零信安</td>
+<td><a target="_blank" rel="noopener" href="https://0.zone/">https://0.zone/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>Shodan</td>
+<td><a target="_blank" rel="noopener" href="https://www.shodan.io/">https://www.shodan.io/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>Censys</td>
+<td><a target="_blank" rel="noopener" href="https://censys.io/">https://censys.io/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>ONYPHE</td>
+<td><a target="_blank" rel="noopener" href="https://www.onyphe.io/">https://www.onyphe.io/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>FullHunt</td>
+<td><a target="_blank" rel="noopener" href="https://fullhunt.io/">https://fullhunt.io/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>Soall Search Engine</td>
+<td><a target="_blank" rel="noopener" href="https://soall.org/">https://soall.org/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>Netlas</td>
+<td><a target="_blank" rel="noopener" href="https://app.netlas.io/responses/">https://app.netlas.io/responses/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>Leakix</td>
+<td><a target="_blank" rel="noopener" href="https://leakix.net/">https://leakix.net/</a></td>
+</tr>
+<tr>
+<td>网络空间</td>
+<td>DorkSearch</td>
+<td><a target="_blank" rel="noopener" href="https://dorksearch.com/">https://dorksearch.com/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>VirusTotal在线查杀平台</td>
+<td><a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/">https://www.virustotal.com/gui/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>VenusEye 威胁情报中心</td>
+<td><a target="_blank" rel="noopener" href="https://www.venuseye.com.cn/">https://www.venuseye.com.cn/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>绿盟科技 威胁情报云</td>
+<td><a target="_blank" rel="noopener" href="https://ti.nsfocus.com/">https://ti.nsfocus.com/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>IBM 情报中心</td>
+<td><a target="_blank" rel="noopener" href="https://exchange.xforce.ibmcloud.com/">https://exchange.xforce.ibmcloud.com/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>天际友盟安全智能平台</td>
+<td><a target="_blank" rel="noopener" href="https://redqueen.tj-un.com/IntelHome.html">https://redqueen.tj-un.com/IntelHome.html</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>华为安全中心平台</td>
+<td><a target="_blank" rel="noopener" href="https://isecurity.huawei.com/sec/web/intelligencePortal.do">https://isecurity.huawei.com/sec/web/intelligencePortal.do</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>安恒威胁情报中心</td>
+<td><a target="_blank" rel="noopener" href="https://ti.dbappsecurity.com.cn/">https://ti.dbappsecurity.com.cn/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>AlienVault</td>
+<td><a target="_blank" rel="noopener" href="https://otx.alienvault.com/">https://otx.alienvault.com/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>深信服</td>
+<td><a target="_blank" rel="noopener" href="https://sec.sangfor.com.cn/analysis-platform">https://sec.sangfor.com.cn/analysis-platform</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>丁爸情报分析师的工具箱</td>
+<td><a target="_blank" rel="noopener" href="http://dingba.top/">http://dingba.top/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>听风者情报源 start.me</td>
+<td><a target="_blank" rel="noopener" href="https://start.me/p/X20Apn">https://start.me/p/X20Apn</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>GreyNoise Visualizer</td>
+<td><a target="_blank" rel="noopener" href="https://viz.greynoise.io/">https://viz.greynoise.io/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>URLhaus 数据库</td>
+<td><a target="_blank" rel="noopener" href="https://urlhaus.abuse.ch/browse/">https://urlhaus.abuse.ch/browse/</a></td>
+</tr>
+<tr>
+<td>威胁情报</td>
+<td>Pithus</td>
+<td><a target="_blank" rel="noopener" href="https://beta.pithus.org/">https://beta.pithus.org/</a></td>
+</tr>
+</tbody></table>
+<h2 id="业务资产："><a href="#业务资产：" class="headerlink" title="业务资产："></a>业务资产：</h2><p>1、WEB应用<br>2、APP应用<br>3、PC端应用<br>4、小程序应用<br>5、微信公众号<br>6、其他产品等  </p>
+<h2 id="WEB单域名："><a href="#WEB单域名：" class="headerlink" title="WEB单域名："></a>WEB单域名：</h2><p>1、备案信息<br>2、企业产权<br>3、注册域名<br>4、反查解析  </p>
+<h2 id="WEB子域名："><a href="#WEB子域名：" class="headerlink" title="WEB子域名："></a>WEB子域名：</h2><p>1、DNS数据<br>2、证书查询(https)<br>3、网络空间<br>4、威胁情报<br>5、枚举解析(爆破子域)  </p>
+<h2 id="Web架构资产：（指纹识别）"><a href="#Web架构资产：（指纹识别）" class="headerlink" title="Web架构资产：（指纹识别）"></a>Web架构资产：（指纹识别）</h2><p>1、程序语言<br>2、框架源码（纯内网识别cms用工具cmsmap、cmseek）<br>3、搭建平台<br>4、数据库类<br>5、操作系统  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/11%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-chatGPT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1153,368 +1829,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/" class="post-title-link" itemprop="url">3基础入门-安全产品</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-02 14:26:49" itemprop="dateCreated datePublished" datetime="2023-10-02T14:26:49+08:00">2023-10-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:05:49" itemprop="dateModified" datetime="2023-11-06T21:05:49+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">1基础入门</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>1、Web常规-系统 &amp; 中间件 &amp; 数据库 &amp; 源码等</li>
-<li>2、Web其他-前后端 &amp; 软件 &amp; Docker &amp; 分配站等</li>
-<li>3、Web拓展-CDN &amp; WAF &amp; OSS &amp; 反向 &amp; 负载均衡等</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;三方服务&#x2F;负载均衡等</li>
-<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
-<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
-<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
-<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
-</ul>
-<h2 id="WAF"><a href="#WAF" class="headerlink" title="WAF"></a>WAF</h2><p><img src="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/waf.png" alt="WAF"><br>&nbsp;&nbsp;&nbsp;&nbsp;原理：Web应用防火墙，旨在提供保护<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：常规Web安全测试手段会受到拦截<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：免费D盾防护软件<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + IIS +D盾<br>&nbsp;&nbsp;&nbsp;&nbsp;(基本没漏洞，遇到就跑)</p>
-<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p><img src="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/cdn.png" alt="WAF"><br>&nbsp;&nbsp;&nbsp;&nbsp;分发网络CDN（Content Delivery Network）是建立并覆盖在承载网之上，由遍布全球的边缘节点服务器群组成的分布式网络。阿里云CDN能分担源站压力，避免网络拥塞，确保在不同区域、不同场景下加速网站内容的分发，提高资源访问速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：内容分发服务，旨在提高访问速度<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：隐藏真实源IP，导致对目标测试错误<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：阿里云备案域名全局CDN加速服务<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + BT宝塔面板 + CDN服务<br>&nbsp;&nbsp;&nbsp;&nbsp;常见的获取网站真实IP的途径：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超级ping<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获取子域名ip<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;海外测试<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看自建邮件ip<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络搜索引擎搜索（可能存在历史ip，再未部署cdn之前记录的）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip库fuzz（概率不大，并且需要跑的内容过于庞大）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;……<br>&nbsp;&nbsp;&nbsp;&nbsp;在获取到真实ip之后，即可绑定本地host，使用漏扫工具等进行测试。  </p>
-<h2 id="OSS"><a href="#OSS" class="headerlink" title="OSS"></a>OSS</h2><p> <img src="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/oss.png" alt="OSS"><br>&nbsp;&nbsp;&nbsp;&nbsp;原理：云存储服务，旨在提高访问速度<br>&nbsp;&nbsp;&nbsp;&nbsp;影响： 无法进行getshell等操作，但是可以通过获取osskey进行储存桶权限接管，直接得到oss权限<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：<a target="_blank" rel="noopener" href="https://cloudreve.org/">https://cloudreve.org/</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + cloudreve + 阿里云OSS<br>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases/tag/3.7.1">https://github.com/cloudreve/Cloudreve/releases/tag/3.7.1</a><br>&nbsp;&nbsp;&nbsp;&nbsp;1、启动应用<br>&nbsp;&nbsp;&nbsp;&nbsp;2、登录管理<br>&nbsp;&nbsp;&nbsp;&nbsp;3、配置存储信息<br>&nbsp;&nbsp;&nbsp;&nbsp;4、更改用户组存储属性  </p>
-<p>阿里云OSS:<br>&nbsp;&nbsp;&nbsp;&nbsp;1、开OSS<br>&nbsp;&nbsp;&nbsp;&nbsp;2、新建Bucket<br>&nbsp;&nbsp;&nbsp;&nbsp;3、配置Bucket属性<br>&nbsp;&nbsp;&nbsp;&nbsp;4、配置Access访问  </p>
-<p>原理：<br>为什么要使用第三方存储？<br>&nbsp;&nbsp;&nbsp;&nbsp;1）静态文件会占用大量带宽<br>&nbsp;&nbsp;&nbsp;&nbsp;2）加载速度<br>&nbsp;&nbsp;&nbsp;&nbsp;3）存储空间<br>影响：<br>上传的文件或解析的文件均来自于OSS资源，无法解析，单独存储<br>&nbsp;&nbsp;&nbsp;&nbsp;1、修复上传安全<br>&nbsp;&nbsp;&nbsp;&nbsp;2、文件解析不一样<br>&nbsp;&nbsp;&nbsp;&nbsp;3、存在A ccesskey隐患  </p>
-<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;正代理为客户端服务,客户端主动建立代理访问目标（不代理不可达）<br>反向代理为服务端服务,服务端主动转发数据给可访问地址（不主动不可达）<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：通过网络反向代理转发真实服务达到访问目的<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：访问目标只是一个代理，非真实应用服务器<br>&nbsp;&nbsp;&nbsp;&nbsp;注意：正向代理和反向代理都是解决访问不可达的问题，但由于反向代理中多出一个可以重定向解析的功能操作，导致反代理出的站点指向和真实应用毫无关系！<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：Nginx反向代理配置<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + BT宝塔面板 + Nginx  </p>
-<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：分摊到多个操作单元上进行执行，共同完成工作任务<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：有多个服务器加载服务，测试过程中存在多个目标情况<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：Nginx负载均衡配置<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + BT宝塔面板 + Nginx  </p>
-<h2 id="定义负载设置"><a href="#定义负载设置" class="headerlink" title="定义负载设置"></a>定义负载设置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream fzjh&#123;</span><br><span class="line">	server <span class="number">47.94</span><span class="number">.236</span><span class="number">.117</span>:<span class="number">80</span> weight=<span class="number">2</span>;</span><br><span class="line">	server <span class="number">47.122</span><span class="number">.22</span><span class="number">.195</span>:<span class="number">80</span> weight=<span class="number">1</span>;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-
-<h2 id="定义访问路径-访问策略"><a href="#定义访问路径-访问策略" class="headerlink" title="定义访问路径 访问策略"></a>定义访问路径 访问策略</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;  </span><br><span class="line">    proxy_pass http:<span class="comment">//fzjh/;  </span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/2%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/02/2%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">2基础入门-应用架构</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-02 14:04:05" itemprop="dateCreated datePublished" datetime="2023-10-02T14:04:05+08:00">2023-10-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:05:55" itemprop="dateModified" datetime="2023-11-06T21:05:55+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">1基础入门</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>1、Web常规-系统 &amp; 中间件 &amp; 数据库 &amp; 源码等</li>
-<li>2、Web其他-前后端 &amp; 软件 &amp; Docker &amp; 分配站等</li>
-<li>3、Web拓展-CDN &amp; WAF &amp; OSS &amp; 静态 &amp; 负载均衡等</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;三方服务&#x2F;负载均衡等</li>
-<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
-<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
-<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
-<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
-</ul>
-<h2 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：源码数据都在同服务器<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：无，常规安全测试手法   </p>
-<h2 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：源码数据库不在同服务器<br>&nbsp;&nbsp;&nbsp;&nbsp;存储：其他服务器上数据库&amp;云数据库产品<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：数据被单独存放，能连接才可影响数据  </p>
-<h2 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：前端JS框架，API传输数据<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：<br>&nbsp;&nbsp;&nbsp;&nbsp;1、前端页面大部分不存在漏洞<br>&nbsp;&nbsp;&nbsp;&nbsp;2、后端管理大部分不在同域名<br>&nbsp;&nbsp;&nbsp;&nbsp;3、获得权限有可能不影响后端（可能不在同一域名下)  </p>
-<h2 id="宝塔-Phpstudy"><a href="#宝塔-Phpstudy" class="headerlink" title="宝塔+Phpstudy"></a>宝塔+Phpstudy</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：打包类集成化环境，权限配置或受控制<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：攻击者权限对比区别<br>&nbsp;&nbsp;&nbsp;&nbsp;通常情况下，对于宝塔linux搭建的网站，获取的权限为www-data，该权限只能查看当前wwwroot路径下的文件，权限低，可以考虑进一步提权；对于phpstudy搭建的网站，通常多数为windows，再没有新建用户的情况下，直接拿到的权限就是administrator 无需提权即可满足多数情况的操作，这就是对于集成化环境搭建网站最主要的区别。</p>
-<h2 id="Docker容器"><a href="#Docker容器" class="headerlink" title="Docker容器"></a>Docker容器</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：虚拟化技术独立磁盘空间，非真实物理环境<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：攻击者虚拟空间磁盘<br>&nbsp;&nbsp;&nbsp;&nbsp;(获取的权限是一小块虚拟空间——&gt;docker逃逸)<br>&nbsp;&nbsp;&nbsp;&nbsp;该类站点在拿到权限之后，例如反弹shell之后，可以明显的看见主机名为一串数字，权限为root，文件目录中存在docker等文件夹或文件，此类情况下，在存在docker配置不当，或者内核存在漏洞的情况下，可以进行虚拟机逃逸。如果不能逃逸，只能就此结束。</p>
-<h2 id="建站分配站"><a href="#建站分配站" class="headerlink" title="建站分配站"></a>建站分配站</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;1.托管<br>&nbsp;&nbsp;&nbsp;&nbsp;2.申请<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：利用别人域名模版建立<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：实质安全测试非目标资产<br>&nbsp;&nbsp;&nbsp;&nbsp;(网站搭建借助平台——&gt;查域名与网站内容是否相符)<br>&nbsp;&nbsp;&nbsp;&nbsp;例：博客园、凡客建站等</p>
-<h2 id="静态Web"><a href="#静态Web" class="headerlink" title="静态Web"></a>静态Web</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;例子：大学学的html设计的网站<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：数据没有传输性（js传输不算）<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：无漏洞  </p>
-<h2 id="伪静态"><a href="#伪静态" class="headerlink" title="伪静态"></a>伪静态</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;动态转为静态技术，伪装的静态(似是静态实则是动态，不唯一)<br>&nbsp;&nbsp;&nbsp;&nbsp;还是利用动态网站的测试方法进行测试</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">1基础入门-应用架构</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-02 12:00:00" itemprop="dateCreated datePublished" datetime="2023-10-02T12:00:00+08:00">2023-10-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 20:21:55" itemprop="dateModified" datetime="2023-11-06T20:21:55+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/image1.png" alt="思维导图"></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>1、Web常规-系统&amp;中间件&amp;数据库&amp;源码等</li>
-<li>2、Web其他-集成软件&amp;Docker容器&amp;分配站等<br>  分配站–大域名分配给用户的 免费或收费的网站  （网校系统…）<br>集成软件—宝塔BT…</li>
-<li>3、Web拓展-CDN&amp;WAF&amp;OSS&amp;静态&amp;负载均衡等<br>  OSS对象存储—文件上传漏洞失效</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;三方服务&#x2F;负载均衡等</li>
-<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
-<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
-<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
-<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
-</ul>
-<h2 id="常规的Web应用搭建："><a href="#常规的Web应用搭建：" class="headerlink" title="常规的Web应用搭建："></a>常规的Web应用搭建：</h2><ul>
-<li>1、购买云服务器，购买域名</li>
-<li>2、云服务器去搭建中间件</li>
-<li>3、下载并上传Web程序源码</li>
-<li>4、添加网站并绑定域名目录</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><p>0、知道Web必备四大件作用<br>  系统、中间件、数据库、源码</p>
-</li>
-<li><p>1、知道网站有哪些形式展示  </p>
-</li>
-<li><p> 子域名模式：<br> <a target="_blank" rel="noopener" href="http://www.xiaodi8.com/">www.xiaodi8.com</a>         –zblog asp程序<br> xiaodi.xiaodi8.com      –wordpress php程序<br> bbs.xiaodi8.com         –论坛 dz程序<br> oa.xiaodi8.com          –OA  通达OA<br> 端口模式：<br> <a target="_blank" rel="noopener" href="http://www.xiaodi8.com/">www.xiaodi8.com</a>         –zblog asp程序<br> <a target="_blank" rel="noopener" href="http://www.xiaodi8.com:8080/">www.xiaodi8.com:8080</a>    –wordpress php程序<br> 目录模式：<br> <a target="_blank" rel="noopener" href="http://www.xiaosedi123.fun/">http://www.xiaosedi123.fun/</a>        –zblog asp程序<br> <a target="_blank" rel="noopener" href="http://www.xiaosedi123.fun/bbs">http://www.xiaosedi123.fun/bbs</a>     –论坛 dz程序<br> 其他：<br> 集成软件    Docker容器    分配站等</p>
-</li>
-<li><p>2、知道源码和URL访问对应关系  </p>
-</li>
-<li><p>3、知道源码有加密开源闭源类型<br>   Web程序源码：（源码是否能拿到手）<br>   开源—-商业—-自写<br>   开源—源码可见&#x2F;源码不可见（加密&#x2F;语言特性决定）<br>   &nbsp;&nbsp;&nbsp;&nbsp;可见–白盒测试-代码审计<br>   路由访问—mvc源码 Java python（有些目录存在但里面文件访问不到）–URL和文件目录对应不上 要根据配饰路由决定<br>   常规访问—URL和文件目录对应上–根据网站目录访问对应文件</p>
-</li>
-<li><p>4、知道文件访问解析由什么决定<br>  媒体类型（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型）是一种标准，用来表示文档、文件或字节流的性质和格式，通过该规则我们能够根据文件的后缀来解析指定的文件格式，某些网站会存在解析漏洞，我们可以将木马文件上传后，通过修改解析规则来执行木马—-注意权限</p>
-</li>
-<li><p>5、知道数据库存储数据站库分离<br>  本地存储–网站和数据库在同一个服务器<br>  站库分离–网站和数据库不在同一个服务器<br>  云数据库–网站文件不存储在本地，而是在OSS中  </p>
-</li>
-<li><p>6、知道中间件配置影响后续手法<br>  一次web访问的顺序，web浏览器-&gt;web服务器（狭义）-&gt;web容器-&gt;应用服务器-&gt;数据库服务器<br>  详情可以参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/473453245">知乎-平台安全之中间件安全</a>  </p>
-</li>
-<li><p>7、知道常规真实Web搭建解析流程</p>
-</li>
-<li><p>8、思考为什么要学习掌握这些东西</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1586,7 +1900,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1662,19 +1976,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">181k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:45</span>
+    <span title="站点阅读时长">2:48</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共67.9k字</span>
+  <span class="post-count">博客全站共69.7k字</span>
 </div>
 
 

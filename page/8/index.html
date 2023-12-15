@@ -201,6 +201,368 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/" class="post-title-link" itemprop="url">3基础入门-安全产品</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-02 14:26:49" itemprop="dateCreated datePublished" datetime="2023-10-02T14:26:49+08:00">2023-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:05:49" itemprop="dateModified" datetime="2023-11-06T21:05:49+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">1基础入门</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>1、Web常规-系统 &amp; 中间件 &amp; 数据库 &amp; 源码等</li>
+<li>2、Web其他-前后端 &amp; 软件 &amp; Docker &amp; 分配站等</li>
+<li>3、Web拓展-CDN &amp; WAF &amp; OSS &amp; 反向 &amp; 负载均衡等</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;三方服务&#x2F;负载均衡等</li>
+<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
+<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
+<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
+<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
+</ul>
+<h2 id="WAF"><a href="#WAF" class="headerlink" title="WAF"></a>WAF</h2><p><img src="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/waf.png" alt="WAF"><br>&nbsp;&nbsp;&nbsp;&nbsp;原理：Web应用防火墙，旨在提供保护<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：常规Web安全测试手段会受到拦截<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：免费D盾防护软件<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + IIS +D盾<br>&nbsp;&nbsp;&nbsp;&nbsp;(基本没漏洞，遇到就跑)</p>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p><img src="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/cdn.png" alt="WAF"><br>&nbsp;&nbsp;&nbsp;&nbsp;分发网络CDN（Content Delivery Network）是建立并覆盖在承载网之上，由遍布全球的边缘节点服务器群组成的分布式网络。阿里云CDN能分担源站压力，避免网络拥塞，确保在不同区域、不同场景下加速网站内容的分发，提高资源访问速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：内容分发服务，旨在提高访问速度<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：隐藏真实源IP，导致对目标测试错误<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：阿里云备案域名全局CDN加速服务<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + BT宝塔面板 + CDN服务<br>&nbsp;&nbsp;&nbsp;&nbsp;常见的获取网站真实IP的途径：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超级ping<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获取子域名ip<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;海外测试<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看自建邮件ip<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络搜索引擎搜索（可能存在历史ip，再未部署cdn之前记录的）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ip库fuzz（概率不大，并且需要跑的内容过于庞大）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;……<br>&nbsp;&nbsp;&nbsp;&nbsp;在获取到真实ip之后，即可绑定本地host，使用漏扫工具等进行测试。  </p>
+<h2 id="OSS"><a href="#OSS" class="headerlink" title="OSS"></a>OSS</h2><p> <img src="/2023/10/02/3%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%AE%89%E5%85%A8%E4%BA%A7%E5%93%81/oss.png" alt="OSS"><br>&nbsp;&nbsp;&nbsp;&nbsp;原理：云存储服务，旨在提高访问速度<br>&nbsp;&nbsp;&nbsp;&nbsp;影响： 无法进行getshell等操作，但是可以通过获取osskey进行储存桶权限接管，直接得到oss权限<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：<a target="_blank" rel="noopener" href="https://cloudreve.org/">https://cloudreve.org/</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + cloudreve + 阿里云OSS<br>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases/tag/3.7.1">https://github.com/cloudreve/Cloudreve/releases/tag/3.7.1</a><br>&nbsp;&nbsp;&nbsp;&nbsp;1、启动应用<br>&nbsp;&nbsp;&nbsp;&nbsp;2、登录管理<br>&nbsp;&nbsp;&nbsp;&nbsp;3、配置存储信息<br>&nbsp;&nbsp;&nbsp;&nbsp;4、更改用户组存储属性  </p>
+<p>阿里云OSS:<br>&nbsp;&nbsp;&nbsp;&nbsp;1、开OSS<br>&nbsp;&nbsp;&nbsp;&nbsp;2、新建Bucket<br>&nbsp;&nbsp;&nbsp;&nbsp;3、配置Bucket属性<br>&nbsp;&nbsp;&nbsp;&nbsp;4、配置Access访问  </p>
+<p>原理：<br>为什么要使用第三方存储？<br>&nbsp;&nbsp;&nbsp;&nbsp;1）静态文件会占用大量带宽<br>&nbsp;&nbsp;&nbsp;&nbsp;2）加载速度<br>&nbsp;&nbsp;&nbsp;&nbsp;3）存储空间<br>影响：<br>上传的文件或解析的文件均来自于OSS资源，无法解析，单独存储<br>&nbsp;&nbsp;&nbsp;&nbsp;1、修复上传安全<br>&nbsp;&nbsp;&nbsp;&nbsp;2、文件解析不一样<br>&nbsp;&nbsp;&nbsp;&nbsp;3、存在A ccesskey隐患  </p>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;正代理为客户端服务,客户端主动建立代理访问目标（不代理不可达）<br>反向代理为服务端服务,服务端主动转发数据给可访问地址（不主动不可达）<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：通过网络反向代理转发真实服务达到访问目的<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：访问目标只是一个代理，非真实应用服务器<br>&nbsp;&nbsp;&nbsp;&nbsp;注意：正向代理和反向代理都是解决访问不可达的问题，但由于反向代理中多出一个可以重定向解析的功能操作，导致反代理出的站点指向和真实应用毫无关系！<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：Nginx反向代理配置<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + BT宝塔面板 + Nginx  </p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：分摊到多个操作单元上进行执行，共同完成工作任务<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：有多个服务器加载服务，测试过程中存在多个目标情况<br>&nbsp;&nbsp;&nbsp;&nbsp;演示：Nginx负载均衡配置<br>&nbsp;&nbsp;&nbsp;&nbsp;Windows2012 + BT宝塔面板 + Nginx  </p>
+<h2 id="定义负载设置"><a href="#定义负载设置" class="headerlink" title="定义负载设置"></a>定义负载设置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream fzjh&#123;</span><br><span class="line">	server <span class="number">47.94</span><span class="number">.236</span><span class="number">.117</span>:<span class="number">80</span> weight=<span class="number">2</span>;</span><br><span class="line">	server <span class="number">47.122</span><span class="number">.22</span><span class="number">.195</span>:<span class="number">80</span> weight=<span class="number">1</span>;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="定义访问路径-访问策略"><a href="#定义访问路径-访问策略" class="headerlink" title="定义访问路径 访问策略"></a>定义访问路径 访问策略</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;  </span><br><span class="line">    proxy_pass http:<span class="comment">//fzjh/;  </span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/2%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/02/2%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">2基础入门-应用架构</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-02 14:04:05" itemprop="dateCreated datePublished" datetime="2023-10-02T14:04:05+08:00">2023-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:05:55" itemprop="dateModified" datetime="2023-11-06T21:05:55+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">1基础入门</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>1、Web常规-系统 &amp; 中间件 &amp; 数据库 &amp; 源码等</li>
+<li>2、Web其他-前后端 &amp; 软件 &amp; Docker &amp; 分配站等</li>
+<li>3、Web拓展-CDN &amp; WAF &amp; OSS &amp; 静态 &amp; 负载均衡等</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;三方服务&#x2F;负载均衡等</li>
+<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
+<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
+<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
+<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
+</ul>
+<h2 id="常规化"><a href="#常规化" class="headerlink" title="常规化"></a>常规化</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：源码数据都在同服务器<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：无，常规安全测试手法   </p>
+<h2 id="站库分离："><a href="#站库分离：" class="headerlink" title="站库分离："></a>站库分离：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：源码数据库不在同服务器<br>&nbsp;&nbsp;&nbsp;&nbsp;存储：其他服务器上数据库&amp;云数据库产品<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：数据被单独存放，能连接才可影响数据  </p>
+<h2 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：前端JS框架，API传输数据<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：<br>&nbsp;&nbsp;&nbsp;&nbsp;1、前端页面大部分不存在漏洞<br>&nbsp;&nbsp;&nbsp;&nbsp;2、后端管理大部分不在同域名<br>&nbsp;&nbsp;&nbsp;&nbsp;3、获得权限有可能不影响后端（可能不在同一域名下)  </p>
+<h2 id="宝塔-Phpstudy"><a href="#宝塔-Phpstudy" class="headerlink" title="宝塔+Phpstudy"></a>宝塔+Phpstudy</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：打包类集成化环境，权限配置或受控制<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：攻击者权限对比区别<br>&nbsp;&nbsp;&nbsp;&nbsp;通常情况下，对于宝塔linux搭建的网站，获取的权限为www-data，该权限只能查看当前wwwroot路径下的文件，权限低，可以考虑进一步提权；对于phpstudy搭建的网站，通常多数为windows，再没有新建用户的情况下，直接拿到的权限就是administrator 无需提权即可满足多数情况的操作，这就是对于集成化环境搭建网站最主要的区别。</p>
+<h2 id="Docker容器"><a href="#Docker容器" class="headerlink" title="Docker容器"></a>Docker容器</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;原理：虚拟化技术独立磁盘空间，非真实物理环境<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：攻击者虚拟空间磁盘<br>&nbsp;&nbsp;&nbsp;&nbsp;(获取的权限是一小块虚拟空间——&gt;docker逃逸)<br>&nbsp;&nbsp;&nbsp;&nbsp;该类站点在拿到权限之后，例如反弹shell之后，可以明显的看见主机名为一串数字，权限为root，文件目录中存在docker等文件夹或文件，此类情况下，在存在docker配置不当，或者内核存在漏洞的情况下，可以进行虚拟机逃逸。如果不能逃逸，只能就此结束。</p>
+<h2 id="建站分配站"><a href="#建站分配站" class="headerlink" title="建站分配站"></a>建站分配站</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;1.托管<br>&nbsp;&nbsp;&nbsp;&nbsp;2.申请<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：利用别人域名模版建立<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：实质安全测试非目标资产<br>&nbsp;&nbsp;&nbsp;&nbsp;(网站搭建借助平台——&gt;查域名与网站内容是否相符)<br>&nbsp;&nbsp;&nbsp;&nbsp;例：博客园、凡客建站等</p>
+<h2 id="静态Web"><a href="#静态Web" class="headerlink" title="静态Web"></a>静态Web</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;例子：大学学的html设计的网站<br>&nbsp;&nbsp;&nbsp;&nbsp;原理：数据没有传输性（js传输不算）<br>&nbsp;&nbsp;&nbsp;&nbsp;影响：无漏洞  </p>
+<h2 id="伪静态"><a href="#伪静态" class="headerlink" title="伪静态"></a>伪静态</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;动态转为静态技术，伪装的静态(似是静态实则是动态，不唯一)<br>&nbsp;&nbsp;&nbsp;&nbsp;还是利用动态网站的测试方法进行测试</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">1基础入门-应用架构</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-02 12:00:00" itemprop="dateCreated datePublished" datetime="2023-10-02T12:00:00+08:00">2023-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 20:21:55" itemprop="dateModified" datetime="2023-11-06T20:21:55+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/image1.png" alt="思维导图"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>1、Web常规-系统&amp;中间件&amp;数据库&amp;源码等</li>
+<li>2、Web其他-集成软件&amp;Docker容器&amp;分配站等<br>  分配站–大域名分配给用户的 免费或收费的网站  （网校系统…）<br>集成软件—宝塔BT…</li>
+<li>3、Web拓展-CDN&amp;WAF&amp;OSS&amp;静态&amp;负载均衡等<br>  OSS对象存储—文件上传漏洞失效</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;三方服务&#x2F;负载均衡等</li>
+<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
+<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
+<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
+<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
+</ul>
+<h2 id="常规的Web应用搭建："><a href="#常规的Web应用搭建：" class="headerlink" title="常规的Web应用搭建："></a>常规的Web应用搭建：</h2><ul>
+<li>1、购买云服务器，购买域名</li>
+<li>2、云服务器去搭建中间件</li>
+<li>3、下载并上传Web程序源码</li>
+<li>4、添加网站并绑定域名目录</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><p>0、知道Web必备四大件作用<br>  系统、中间件、数据库、源码</p>
+</li>
+<li><p>1、知道网站有哪些形式展示  </p>
+</li>
+<li><p> 子域名模式：<br> <a target="_blank" rel="noopener" href="http://www.xiaodi8.com/">www.xiaodi8.com</a>         –zblog asp程序<br> xiaodi.xiaodi8.com      –wordpress php程序<br> bbs.xiaodi8.com         –论坛 dz程序<br> oa.xiaodi8.com          –OA  通达OA<br> 端口模式：<br> <a target="_blank" rel="noopener" href="http://www.xiaodi8.com/">www.xiaodi8.com</a>         –zblog asp程序<br> <a target="_blank" rel="noopener" href="http://www.xiaodi8.com:8080/">www.xiaodi8.com:8080</a>    –wordpress php程序<br> 目录模式：<br> <a target="_blank" rel="noopener" href="http://www.xiaosedi123.fun/">http://www.xiaosedi123.fun/</a>        –zblog asp程序<br> <a target="_blank" rel="noopener" href="http://www.xiaosedi123.fun/bbs">http://www.xiaosedi123.fun/bbs</a>     –论坛 dz程序<br> 其他：<br> 集成软件    Docker容器    分配站等</p>
+</li>
+<li><p>2、知道源码和URL访问对应关系  </p>
+</li>
+<li><p>3、知道源码有加密开源闭源类型<br>   Web程序源码：（源码是否能拿到手）<br>   开源—-商业—-自写<br>   开源—源码可见&#x2F;源码不可见（加密&#x2F;语言特性决定）<br>   &nbsp;&nbsp;&nbsp;&nbsp;可见–白盒测试-代码审计<br>   路由访问—mvc源码 Java python（有些目录存在但里面文件访问不到）–URL和文件目录对应不上 要根据配饰路由决定<br>   常规访问—URL和文件目录对应上–根据网站目录访问对应文件</p>
+</li>
+<li><p>4、知道文件访问解析由什么决定<br>  媒体类型（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型）是一种标准，用来表示文档、文件或字节流的性质和格式，通过该规则我们能够根据文件的后缀来解析指定的文件格式，某些网站会存在解析漏洞，我们可以将木马文件上传后，通过修改解析规则来执行木马—-注意权限</p>
+</li>
+<li><p>5、知道数据库存储数据站库分离<br>  本地存储–网站和数据库在同一个服务器<br>  站库分离–网站和数据库不在同一个服务器<br>  云数据库–网站文件不存储在本地，而是在OSS中  </p>
+</li>
+<li><p>6、知道中间件配置影响后续手法<br>  一次web访问的顺序，web浏览器-&gt;web服务器（狭义）-&gt;web容器-&gt;应用服务器-&gt;数据库服务器<br>  详情可以参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/473453245">知乎-平台安全之中间件安全</a>  </p>
+</li>
+<li><p>7、知道常规真实Web搭建解析流程</p>
+</li>
+<li><p>8、思考为什么要学习掌握这些东西</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/29/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -356,7 +718,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -432,19 +794,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">181k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:45</span>
+    <span title="站点阅读时长">2:48</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共67.9k字</span>
+  <span class="post-count">博客全站共69.7k字</span>
 </div>
 
 

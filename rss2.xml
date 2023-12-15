@@ -9,14 +9,14 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>师从小迪，欢迎各位来当迪总的韭菜</description>
-    <pubDate>Tue, 12 Dec 2023 02:54:59 GMT</pubDate>
+    <pubDate>Fri, 15 Dec 2023 08:54:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>71WEB攻防-python安全2</title>
-      <link>http://example.com/2023/12/12/71WEB%E6%94%BB%E9%98%B2-python%E5%AE%89%E5%85%A82/</link>
-      <guid>http://example.com/2023/12/12/71WEB%E6%94%BB%E9%98%B2-python%E5%AE%89%E5%85%A82/</guid>
-      <pubDate>Tue, 12 Dec 2023 02:54:21 GMT</pubDate>
+      <title>74WEB攻防-机制验证</title>
+      <link>http://example.com/2023/12/15/74WEB%E6%94%BB%E9%98%B2-%E6%9C%BA%E5%88%B6%E9%AA%8C%E8%AF%81/</link>
+      <guid>http://example.com/2023/12/15/74WEB%E6%94%BB%E9%98%B2-%E6%9C%BA%E5%88%B6%E9%AA%8C%E8%AF%81/</guid>
+      <pubDate>Fri, 15 Dec 2023 08:53:10 GMT</pubDate>
       
         
         
@@ -26,6 +26,84 @@
       
       
       <content:encoded><![CDATA[<h1 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h1>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <category domain="http://example.com/tags/WEB%E6%94%BB%E9%98%B2/">WEB攻防</category>
+      
+      
+      <comments>http://example.com/2023/12/15/74WEB%E6%94%BB%E9%98%B2-%E6%9C%BA%E5%88%B6%E9%AA%8C%E8%AF%81/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>73WEB攻防-支付逻辑</title>
+      <link>http://example.com/2023/12/15/73WEB%E6%94%BB%E9%98%B2-%E6%94%AF%E4%BB%98%E9%80%BB%E8%BE%91/</link>
+      <guid>http://example.com/2023/12/15/73WEB%E6%94%BB%E9%98%B2-%E6%94%AF%E4%BB%98%E9%80%BB%E8%BE%91/</guid>
+      <pubDate>Fri, 15 Dec 2023 08:36:43 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;思维导图&quot;&gt;&lt;a href=&quot;#思维导图&quot; class=&quot;headerlink&quot; title=&quot;思维导图&quot;&gt;&lt;/a&gt;思维导图&lt;/h2&gt;&lt;p&gt;见 &lt;a href=&quot;http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>94、支付逻辑-商品本身-修改-数量&amp;价格&amp;属性等</li><li>95、支付逻辑-营销折扣-优惠券&amp;积分&amp;签约&amp;试用等</li><li>96、支付逻辑-订单接口-替换&amp;并发&amp;状态值&amp;越权支付等</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p><p> <img src="/2023/12/15/73WEB%E6%94%BB%E9%98%B2-%E6%94%AF%E4%BB%98%E9%80%BB%E8%BE%91/%E6%94%AF%E4%BB%98%E9%80%BB%E8%BE%91.png"></p><h2 id="支付逻辑常见测试："><a href="#支付逻辑常见测试：" class="headerlink" title="支付逻辑常见测试："></a>支付逻辑常见测试：</h2><ul><li>1、熟悉常见支付流程<br>选择商品和数量-选择支付及配送方式-生成订单编号-订单支付选择-完成支付  </li><li>2、熟悉那些数据篡改<br>商品ID，购买价格，购买数量，订单属性，折扣属性，支付方式，支付状态等  </li><li>3、熟悉那些修改方式<br>替换支付，重复支付，最小额支付，负数支付，溢出支付，优惠券支付等  </li><li>4、熟悉那些另类方法<br>无限试用，越权支付，并发兑换，四舍五入半价购，循环利用优惠券，支付签约逻辑等</li></ul><h2 id="支付逻辑如何挖掘："><a href="#支付逻辑如何挖掘：" class="headerlink" title="支付逻辑如何挖掘："></a>支付逻辑如何挖掘：</h2><ul><li>1、找到关键的数据包<br>可能一个支付操作有三四个数据包，我们要对数据包进行挑选。  </li><li>2、分析数据包<br>支付数据包中会包含很多的敏感信息（账号，金额，余额，优惠等）<br>要尝试对数据包中的各个参数进行分析。  </li><li>3、不按套路出牌<br>多去想想开发者没有想到的地方，如算法拼接，关闭开启返优惠券等  </li><li>4、PC端尝试过，APP端也看看，小程序也试试</li></ul><h2 id="支付逻辑安全修复："><a href="#支付逻辑安全修复：" class="headerlink" title="支付逻辑安全修复："></a>支付逻辑安全修复：</h2><p>1、在后端检查订单的每一个值，包括支付状态；<br>2、校验价格、数量参数，比如产品数量只能为整数，并限制最大购买数量 ；<br>3、与第三方支付平台检查，实际支付的金额是否与订单金额一致；<br>4、如给用户退款，要使用原路、原订单退回。如：退押金，按用户原支付订单原路退回；<br>5、加密、解密、数字签名及验证，这个可以有效避免数据修改，重放攻击中的各种问题；<br>6、金额超过指定值，进行人工审核等。  </p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <category domain="http://example.com/tags/WEB%E6%94%BB%E9%98%B2/">WEB攻防</category>
+      
+      
+      <comments>http://example.com/2023/12/15/73WEB%E6%94%BB%E9%98%B2-%E6%94%AF%E4%BB%98%E9%80%BB%E8%BE%91/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>72WEB攻防-业务逻辑</title>
+      <link>http://example.com/2023/12/12/72WEB%E6%94%BB%E9%98%B2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/</link>
+      <guid>http://example.com/2023/12/12/72WEB%E6%94%BB%E9%98%B2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/</guid>
+      <pubDate>Tue, 12 Dec 2023 09:02:35 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;思维导图&quot;&gt;&lt;a href=&quot;#思维导图&quot; class=&quot;headerlink&quot; title=&quot;思维导图&quot;&gt;&lt;/a&gt;思维导图&lt;/h2&gt;&lt;p&gt;见 &lt;a href=&quot;http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>91、逻辑越权-检测原理-水平&amp;垂直&amp;未授权</li><li>92、逻辑越权-检测项目-BURP插件&amp;对比项目</li><li>93、SRC挖掘-实战越权及未授权挖掘分享案例</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p><p> <img src="/2023/12/12/72WEB%E6%94%BB%E9%98%B2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%911.png"><br> <img src="/2023/12/12/72WEB%E6%94%BB%E9%98%B2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%912.png"></p><h2 id="逻辑越权-检测原理-水平-垂直-未授权"><a href="#逻辑越权-检测原理-水平-垂直-未授权" class="headerlink" title="逻辑越权-检测原理-水平&amp;垂直&amp;未授权"></a>逻辑越权-检测原理-水平&amp;垂直&amp;未授权</h2><p>1、水平越权：同级别的用户之间权限的跨越<br>2、垂直越权：低级别用户到高级别用户权限的跨越<br>3、未授权访问：通过无级别用户能访问到需验证应用<br>PHPStudy + Metinfo4.0 + 会员后台中心  </p><h2 id="逻辑越权-检测项目-BURP插件-对比项目"><a href="#逻辑越权-检测项目-BURP插件-对比项目" class="headerlink" title="逻辑越权-检测项目-BURP插件&amp;对比项目"></a>逻辑越权-检测项目-BURP插件&amp;对比项目</h2><ul><li>1、检测插件：<br><a href="https://github.com/smxiazi/xia_Yue">https://github.com/smxiazi/xia_Yue</a><br><a href="https://github.com/VVeakee/auth-analyzer-plus">https://github.com/VVeakee/auth-analyzer-plus</a>  </li><li>2、检测项目：<br><a href="https://github.com/ztosec/secscan-authcheck">https://github.com/ztosec/secscan-authcheck</a><br><a href="https://github.com/y1nglamore/IDOR_detect_tool">https://github.com/y1nglamore/IDOR_detect_tool</a></li></ul><p>实战：找到当前用户相关的参数名，添加返回包里面的参数名参数值去提交；<br>参数值请求数据加密：JS中找逆向算法，还原算法重新修改发包测试；<br>请求包带token：直接复用和删除测试。</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <category domain="http://example.com/tags/WEB%E6%94%BB%E9%98%B2/">WEB攻防</category>
+      
+      
+      <comments>http://example.com/2023/12/12/72WEB%E6%94%BB%E9%98%B2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>71WEB攻防-python安全2</title>
+      <link>http://example.com/2023/12/12/71WEB%E6%94%BB%E9%98%B2-python%E5%AE%89%E5%85%A82/</link>
+      <guid>http://example.com/2023/12/12/71WEB%E6%94%BB%E9%98%B2-python%E5%AE%89%E5%85%A82/</guid>
+      <pubDate>Tue, 12 Dec 2023 02:54:21 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;思维导图&quot;&gt;&lt;a href=&quot;#思维导图&quot; class=&quot;headerlink&quot; title=&quot;思维导图&quot;&gt;&lt;/a&gt;思维导图&lt;/h2&gt;&lt;p&gt;见 &lt;a href=&quot;http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>88、Python-PYC-反编译文件出源码</li><li>89、Python-反序列化-调用链&amp;魔术方法</li><li>90、Python-格式化字符串-类魔术方法引用</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p><h2 id="Python-PYC-反编译文件出源码"><a href="#Python-PYC-反编译文件出源码" class="headerlink" title="Python-PYC-反编译文件出源码"></a>Python-PYC-反编译文件出源码</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pyc文件是py文件编译后生成的字节码文件(byte code)，pyc文件经过python解释器最终会生成机器码运行。因此pyc文件是可以跨平台部署的，类似Java的.class文件，一般py文件改变后，都会重新生成pyc文件。<br>真题：<a href="http://pan.baidu.com/s/1jGpB8DS">http://pan.baidu.com/s/1jGpB8DS</a><br>安装：pip install uncompyle6<br>使用：uncompyle6 -o test.py test.pyc<br>下载：<a href="https://github.com/rocky/python-uncompyle6">https://github.com/rocky/python-uncompyle6</a>  </p><h2 id="Python-反序列化-调用链-魔术方法"><a href="#Python-反序列化-调用链-魔术方法" class="headerlink" title="Python-反序列化-调用链&amp;魔术方法"></a>Python-反序列化-调用链&amp;魔术方法</h2><p>各类语言序列化和反序列化函数：<br>Java： Serializable Externalizable接口、fastjson、jackson、gson、ObjectInputStream.read、ObjectObjectInputStream.readUnshared、XMLDecoder.read、ObjectYaml.loadXStream.fromXML、ObjectMapper.readValue、JSON.parseObject等<br>PHP： serialize()、 unserialize()<br>Python：pickle marshal json PyYAML shelve PIL unzip  </p><p>序列化：把类对象转化为字节流或文件<br>反序列化：将字节流或文件转化为类对象  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pickle.dump(obj, file) : 将对象序列化后保存到文件</span><br><span class="line">pickle.load(file) : 将文件序列化内容反序列化为对象</span><br><span class="line">pickle.dumps(obj) : 将对象序列化成字符串格式的字节流</span><br><span class="line">pickle.loads(bytes_obj) : 将字符串字节流反序列化为对象</span><br><span class="line">PyYAML yaml.load()</span><br><span class="line">JSON json.loads(s)</span><br><span class="line">marshal</span><br></pre></td></tr></table></figure><p>魔术方法：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reduce() 反序列化时调用</span><br><span class="line">reduce_ex() 反序列化时调用</span><br><span class="line">setstate() 反序列化时调用（类似于php的isset被设置）</span><br><span class="line">getstate() 序列化时调用</span><br></pre></td></tr></table></figure><p>1、序列化和反序列化演示-test.py<br>2、序列化和反序列化形成-test.py<br>3、序列化和反序列化利用-server.py pop.py<br>4、序列化和反序列化赛题-[watevrCTF-2019]Pickle Store<br>黑盒：Python反序列化特征：base64编码 前面gA固定（序列化数据）<br>测试：直接提交构造的payload测试  </p><h2 id="Python-格式化字符串-类魔术方法引用"><a href="#Python-格式化字符串-类魔术方法引用" class="headerlink" title="Python-格式化字符串-类魔术方法引用"></a>Python-格式化字符串-类魔术方法引用</h2><p><a href="https://xz.aliyun.com/t/3569">https://xz.aliyun.com/t/3569</a><br>第一种：%操作符<br>第二种：string.Template<br>第三种：调用format方法 （可控格式化字符串）<br>第四种: f-Strings（可控格式化字符串）  </p>]]></content:encoded>
       
       
       <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
@@ -191,84 +269,6 @@
       
       
       <comments>http://example.com/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>64WEB攻防-JS应用2</title>
-      <link>http://example.com/2023/12/01/64WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A82/</link>
-      <guid>http://example.com/2023/12/01/64WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A82/</guid>
-      <pubDate>Fri, 01 Dec 2023 14:29:41 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;思维导图&quot;&gt;&lt;a href=&quot;#思维导图&quot; class=&quot;headerlink&quot; title=&quot;思维导图&quot;&gt;&lt;/a&gt;思维导图&lt;/h2&gt;&lt;p&gt;见 &lt;a href=&quot;http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>69、JavaScript-反调试&amp;方法&amp;绕过</li><li>70、JavaScript-代码混淆&amp;识别&amp;还原</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中…. </p><p> <img src="/2023/12/01/64WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A82/JS%E5%8A%A0%E5%AF%86.png"><br> <img src="/2023/12/01/64WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A82/%E5%8F%8D%E8%B0%83%E8%AF%95.png"></p><h2 id="JS逆向-反调试-检测-绕过"><a href="#JS逆向-反调试-检测-绕过" class="headerlink" title="JS逆向-反调试-检测&amp;绕过"></a>JS逆向-反调试-检测&amp;绕过</h2><p>程序加入反调试：  </p><ul><li>1、反调试：<br>实现防止他人调试、动态分析自己的代码  </li><li>2、检测调试方法：(见图)<br>-键盘监听（F12）<br>-检测浏览器的高度插值<br>-检测开发者人员工具变量是否为true<br>-利用console.log调用次数<br>-利用代码运行的时间差<br>–利用toString<br>-检测非浏览器  </li><li>3、常见绕过方法：<br>-禁用断点法<br>-条件断点法<br>-此处暂停法<br>-置空函数法<br>-本地覆盖法</li></ul><h2 id="JS逆向-混淆加密-识别-还原"><a href="#JS逆向-混淆加密-识别-还原" class="headerlink" title="JS逆向-混淆加密-识别&amp;还原"></a>JS逆向-混淆加密-识别&amp;还原</h2><ul><li>代码混淆加密：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述几种方法，已经达到了反调试的效果，但如果他人查看代码，也可能被找出检测功能并删去。为了防止反调试功能被剔除，我们可以对JS代码进行混淆加密。  </li><li>开源代码混淆解密<br>JJEncode AAEncode JSFuck<br><a href="https://www.sojson.com/">https://www.sojson.com/</a>  </li><li>商业代码混淆解密<br><a href="https://www.jsjiami.com/">https://www.jsjiami.com/</a><br><a href="https://jsdec.js.org/">https://jsdec.js.org/</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <category domain="http://example.com/tags/WEB%E6%94%BB%E9%98%B2/">WEB攻防</category>
-      
-      
-      <comments>http://example.com/2023/12/01/64WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A82/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>63WEB攻防-JS应用1</title>
-      <link>http://example.com/2023/12/01/63WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A81/</link>
-      <guid>http://example.com/2023/12/01/63WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A81/</guid>
-      <pubDate>Fri, 01 Dec 2023 14:29:29 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;思维导图&quot;&gt;&lt;a href=&quot;#思维导图&quot; class=&quot;headerlink&quot; title=&quot;思维导图&quot;&gt;&lt;/a&gt;思维导图&lt;/h2&gt;&lt;p&gt;见 &lt;a href=&quot;http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>66、JavaScript-作用域&amp;调用堆栈</li><li>67、JavaScript-断点调试&amp;全局搜索</li><li>68、JavaScript-Burp算法模块使用</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中…. </p><p> <img src="/2023/12/01/63WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A81/JS%E5%8A%A0%E5%AF%86.png"></p><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ul><li><p>1、作用域：（本地&amp;全局）<br>简单来说就是运行后相关的数据值  </p></li><li><p>2、调用堆栈：（由下到上）<br>简单来说就是代码的执行逻辑顺序  </p></li><li><p>3、常见分析调试：<br>-代码全局搜索<br>-文件流程断点<br>-代码标签断点<br>-XHR提交断点  </p></li><li><p>4、为什么要学这个？<br>-针对JS开发应用<br>-密码登录枚举爆破<br>-参数提交漏洞检测<br>-泄漏URL有更多测试</p></li></ul><h2 id="JS逆向-流程-全局搜索-登录算法"><a href="#JS逆向-流程-全局搜索-登录算法" class="headerlink" title="JS逆向-流程&amp;全局搜索-登录算法"></a>JS逆向-流程&amp;全局搜索-登录算法</h2><p>流程断点：审查元素抓网络请求包发起程序<br>全局搜索：通过抓包参数名进行代码全局搜索  </p><h2 id="JS逆向-标签-XHR断点-登录算法"><a href="#JS逆向-标签-XHR断点-登录算法" class="headerlink" title="JS逆向-标签&amp;XHR断点-登录算法"></a>JS逆向-标签&amp;XHR断点-登录算法</h2><p>标签断点：审查元素对应标签按钮加入断点<br>XHR断点：审查元素源代码加入XHR断点配置  </p><h2 id="JS逆向-结合BurpSuite-插件引用"><a href="#JS逆向-结合BurpSuite-插件引用" class="headerlink" title="JS逆向-结合BurpSuite-插件引用"></a>JS逆向-结合BurpSuite-插件引用</h2><ul><li><p>1、下载phantomjs并设置环境变量<br><a href="https://phantomjs.org/download.html">https://phantomjs.org/download.html</a>  </p></li><li><p>2、BurpSuite加载jsEncrypter插件<br><a href="https://github.com/c0ny1/jsEncrypter/releases">https://github.com/c0ny1/jsEncrypter/releases</a>  </p></li><li><p>3、对逆向的加密算法提取JS文件及代码  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JSEncrypt.js</span><br><span class="line"></span><br><span class="line">var r = new JSEncrypt, </span><br><span class="line">o = &quot;xxxxxxxxx&quot;;</span><br><span class="line">    r.setPublicKey(o);</span><br><span class="line">    var s = r.encrypt(password)</span><br><span class="line">return s</span><br></pre></td></tr></table></figure></li><li><p>4、讲代码写入到模版中（引用JS和调用加密）  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var wasSuccessful = phantom.injectJs(&#x27;JSEncrypt.js&#x27;);</span><br><span class="line"></span><br><span class="line">function encrypt(password)&#123;</span><br><span class="line">var r = new JSEncrypt, </span><br><span class="line">o = &quot;xxxxxxxxx&quot;;</span><br><span class="line">    r.setPublicKey(o);</span><br><span class="line">    var s = r.encrypt(password)</span><br><span class="line">return s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 处理函数</span><br><span class="line">function js_encrypt(payload)&#123;</span><br><span class="line">var newpayload;</span><br><span class="line">/**********在这里编写调用加密函数进行加密的代码************/</span><br><span class="line">var newpayload=encrypt(payload)</span><br><span class="line">/**********************************************************/</span><br><span class="line">return newpayload;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>5、运行刚写入的模版文件后插件连接测试</p></li></ul><p><code>phantomjs xxxxx.js  </code></p><ul><li>6、正常设置发包后选择引用插件选项</li></ul>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <category domain="http://example.com/tags/WEB%E6%94%BB%E9%98%B2/">WEB攻防</category>
-      
-      
-      <comments>http://example.com/2023/12/01/63WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A81/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>62WEB攻防-PHP反序列化3</title>
-      <link>http://example.com/2023/11/28/62WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%963/</link>
-      <guid>http://example.com/2023/11/28/62WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%963/</guid>
-      <pubDate>Tue, 28 Nov 2023 12:19:35 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;思维导图&quot;&gt;&lt;a href=&quot;#思维导图&quot; class=&quot;headerlink&quot; title=&quot;思维导图&quot;&gt;&lt;/a&gt;思维导图&lt;/h2&gt;&lt;p&gt;见 &lt;a href=&quot;http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p><h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul><li>63、PHP-反序列化-开发框架类项目</li><li>64、PHP-反序列化-Payload生成项目</li><li>65、PHP-反序列化-Payload生成综合项目</li></ul><h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….  </p><h2 id="反序列化链项目-PHPGGC-NotSoSecure"><a href="#反序列化链项目-PHPGGC-NotSoSecure" class="headerlink" title="反序列化链项目-PHPGGC&amp;NotSoSecure"></a>反序列化链项目-PHPGGC&amp;NotSoSecure</h2><h3 id="NotSoSecure"><a href="#NotSoSecure" class="headerlink" title="NotSoSecure"></a>NotSoSecure</h3><p><a href="https://github.com/NotSoSecure/SerializedPayloadGenerator">https://github.com/NotSoSecure/SerializedPayloadGenerator</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了利用反序列化漏洞，需要设置不同的工具，如 YSoSerial(Java)、YSoSerial.NET、PHPGGC 和它的先决条件。DeserializationHelper 是包含对 YSoSerial(Java)、YSoSerial.Net、PHPGGC 和其他工具的支持的Web界面。使用Web界面，您可以为各种框架生成反序列化payload.<br>Java – YSoSerial<br>NET – YSoSerial.NET<br>PHP – PHPGGC<br>Python - 原生  </p><h3 id="PHPGGC"><a href="#PHPGGC" class="headerlink" title="PHPGGC"></a>PHPGGC</h3><p><a href="https://github.com/ambionics/phpggc">https://github.com/ambionics/phpggc</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHPGGC是一个包含unserialize()有效载荷的库以及一个从命令行或以编程方式生成它们的工具。当在您没有代码的网站上遇到反序列化时，或者只是在尝试构建漏洞时，此工具允许您生成有效负载，而无需执行查找小工具并将它们组合的繁琐步骤。 它可以看作是frohoff的ysoserial的等价物，但是对于PHP。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前该工具支持的小工具链包括：CodeIgniter4、Doctrine、Drupal7、Guzzle、Laravel、Magento、Monolog、Phalcon、Podio、ThinkPHP、Slim、SwiftMailer、Symfony、Wordpress、Yii和ZendFramework等。  </p><h2 id="反序列化框架利用-ThinkPHP-Yii-Laravel"><a href="#反序列化框架利用-ThinkPHP-Yii-Laravel" class="headerlink" title="反序列化框架利用-ThinkPHP&amp;Yii&amp;Laravel"></a>反序列化框架利用-ThinkPHP&amp;Yii&amp;Laravel</h2><p>[安洵杯 2019]iamthinking Thinkphp V6.0.X 反序列化<br><code>./phpggc ThinkPHP/RCE4 system &#39;cat /flag&#39; --url</code></p><p>CTFSHOW 反序列化 267 Yii2反序列化<br>弱口令登录&#x2F;源码提示泄漏  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET：index.php?r=site%2Fabout&amp;view-source</span><br><span class="line">GET：/index.php?r=backdoor/shell&amp;code=</span><br><span class="line">./phpggc Yii2/RCE1 exec &#x27;cp /fla* tt.txt&#x27; --base64</span><br></pre></td></tr></table></figure><p>CTFSHOW 反序列化 271 Laravel反序列化<br><code>./phpggc Laravel/RCE2 system &quot;id&quot; --url</code></p><h2 id="Thinkphp-反序列化链分析"><a href="#Thinkphp-反序列化链分析" class="headerlink" title="Thinkphp 反序列化链分析"></a>Thinkphp 反序列化链分析</h2><p>Thinkphp-All-vuln-main  </p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <category domain="http://example.com/tags/WEB%E6%94%BB%E9%98%B2/">WEB攻防</category>
-      
-      
-      <comments>http://example.com/2023/11/28/62WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%963/#disqus_thread</comments>
       
     </item>
     
