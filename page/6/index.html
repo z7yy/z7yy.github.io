@@ -201,6 +201,236 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/09/26%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%B0%E9%97%BB-%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/09/26%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%B0%E9%97%BB-%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">26安全开发-新闻 框架</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-09 19:02:27" itemprop="dateCreated datePublished" datetime="2023-10-09T19:02:27+08:00">2023-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:44" itemprop="dateModified" datetime="2023-11-06T21:09:44+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>13、PHP新闻显示-数据库操作读取显示</li>
+<li>14、PHP模版引用-自写模版&amp;Smarty渲染</li>
+<li>15、PHP模版安全-RCE代码执行&amp;三方漏洞</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……  </p>
+<h2 id="新闻列表"><a href="#新闻列表" class="headerlink" title="新闻列表"></a>新闻列表</h2><ul>
+<li>1、数据库创建新闻存储  </li>
+<li>2、代码连接数据库读取  </li>
+<li>3、页面进行自定义显示</li>
+</ul>
+<h2 id="自写模版引用"><a href="#自写模版引用" class="headerlink" title="自写模版引用"></a>自写模版引用</h2><ul>
+<li>1、页面显示样式编排  </li>
+<li>2、显示数据插入页面  </li>
+<li>3、引用模版调用触发</li>
+</ul>
+<h2 id="Smarty模版引用"><a href="#Smarty模版引用" class="headerlink" title="Smarty模版引用"></a>Smarty模版引用</h2><p>下载：<a target="_blank" rel="noopener" href="https://github.com/smarty-php/smarty/releases">https://github.com/smarty-php/smarty/releases</a><br>使用：  </p>
+<ul>
+<li>1、创建一个文件夹，命名为smarty-demo。  </li>
+<li>2、下载Smarty对应版本并解压缩到该文件夹中。  </li>
+<li>3、创建一个PHP文件，命名为index.php，并在文件中添加以下代码：  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 引入 Smarty 类文件</span></span><br><span class="line"><span class="keyword">require</span>(<span class="string">&#x27;smarty-demo/libs/Smarty.class.php&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建 Smarty 实例</span></span><br><span class="line"><span class="variable">$smarty</span> = <span class="keyword">new</span> <span class="title class_">Smarty</span>;</span><br><span class="line"><span class="comment">// 设置 Smarty 相关属性</span></span><br><span class="line"><span class="variable">$smarty</span>-&gt;template_dir = <span class="string">&#x27;smarty-demo/templates/&#x27;</span>;</span><br><span class="line"><span class="variable">$smarty</span>-&gt;compile_dir = <span class="string">&#x27;smarty-demo/templates_c/&#x27;</span>;</span><br><span class="line"><span class="variable">$smarty</span>-&gt;cache_dir = <span class="string">&#x27;smarty-demo/cache/&#x27;</span>;</span><br><span class="line"><span class="variable">$smarty</span>-&gt;config_dir = <span class="string">&#x27;smarty-demo/configs/&#x27;</span>;</span><br><span class="line"><span class="comment">// 赋值变量到模板中</span></span><br><span class="line"><span class="variable">$smarty</span>-&gt;<span class="title function_ invoke__">assign</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;欢迎使用 Smarty&#x27;</span>);</span><br><span class="line"><span class="comment">// 显示模板</span></span><br><span class="line"><span class="variable">$smarty</span>-&gt;<span class="title function_ invoke__">display</span>(<span class="string">&#x27;index.tpl&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>4、创建一个名为index.tpl的模板文件，并将以下代码复制到上述点定义文件夹中  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;$title&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;$title&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个使用 Smarty 的例子。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="代码RCE安全测试"><a href="#代码RCE安全测试" class="headerlink" title="代码RCE安全测试"></a>代码RCE安全测试</h2><ul>
+<li>1、自写模版的安全隐患<br>php文件渲染模板时使用了代码执行函数——&gt;模板中加上可控变量造成代码执行</li>
+<li>2、第三方Smarty的安全隐患<br>第三方插件 ueditor<br>第三方组件 shiro<br>也有安全隐患<br>代码审计——&gt;不仅仅是代码，还有引用的第三方软件<br>黑盒插件识别模板、特征<br>白盒文件，代码、特征</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">25安全开发-文件管理</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-08 19:56:32" itemprop="dateCreated datePublished" datetime="2023-10-08T19:56:32+08:00">2023-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:37" itemprop="dateModified" datetime="2023-11-06T21:09:37+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>11、PHP文件管理-下载&amp;删除功能实现</li>
+<li>12、PHP文件管理-编辑&amp;包含功能实现</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86.png"></p>
+<h2 id="PHP文件操作安全"><a href="#PHP文件操作安全" class="headerlink" title="PHP文件操作安全"></a>PHP文件操作安全</h2><p>-文件包含，文件上传，文件下载，文件删除，文件写入，文件遍历  </p>
+<h2 id="文件包含："><a href="#文件包含：" class="headerlink" title="文件包含："></a>文件包含：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">include() 在错误发生后脚本继续执行  </span><br><span class="line">require() 在错误发生后脚本停止执行  </span><br><span class="line">include_once() 如果已经包含，则不再执行  </span><br><span class="line">require_once() 如果已经包含，则不再执行  </span><br></pre></td></tr></table></figure>
+
+<h2 id="文件上传："><a href="#文件上传：" class="headerlink" title="文件上传："></a>文件上传：</h2><p>1、无过滤机制<br>2、黑名单过滤机制<br>3、白名单过滤机制<br>4、文件类型过滤机制  </p>
+<p>架构：<br>1、上传至服务器本身的存储磁盘(源码在一起)<br>2、云产品OSS存储对象去存储文件(泄漏安全)<br>3、把文件上传到其他域名,如：<a href="http://www.xiaodi8.com->upload.xiaodi8.com">www.xiaodi8.com-&gt;upload.xiaodi8.com</a>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$_FILES：PHP中一个预定义的超全局变量，用于在上传文件时从客户端接收文件，并将其保存到服务器上。它是一个包含上传文件信息的数组，包括文件名、类型、大小、临时文件名等信息。  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;name&quot;] 获取上传文件原始名称  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;type&quot;] 获取上传文件MIME类型  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;size&quot;] 获取上传文件字节单位大小  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;tmp_name&quot;] 获取上传的临时副本文件名  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;error&quot;] 获取上传时发生的错误代码  </span><br><span class="line">move_uploaded_file() 将上传的文件移动到指定位置的函数  </span><br></pre></td></tr></table></figure>
+<h2 id="文件显示："><a href="#文件显示：" class="headerlink" title="文件显示："></a>文件显示：</h2><p>1.打开目录读取文件列表<br>2.递归循环读取文件列表<br>3.判断是文件还是文件夹<br>4.PHP.INI目录访问控制  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">is_dir() 函数用于检查指定的路径是否是一个目录  </span><br><span class="line">opendir() 函数用于打开指定的目录，返回句柄，用来读取目录中的文件和子目录  </span><br><span class="line">readdir() 函数用于从打开的目录句柄中读取目录中的文件和子目录  </span><br><span class="line">open_basedir：PHP.INI中的设置用来控制脚本程序访问目录  </span><br><span class="line">ini_set(&#x27;open_basedir&#x27;,__DIR__); 设置配置文件中，只能访问本目录  </span><br></pre></td></tr></table></figure>
+<h2 id="文件删除："><a href="#文件删除：" class="headerlink" title="文件删除："></a>文件删除：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unlink() 文件删除函数  </span><br><span class="line">调用命令删除：system shell_exec exec等  </span><br></pre></td></tr></table></figure>
+<h2 id="文件下载："><a href="#文件下载：" class="headerlink" title="文件下载："></a>文件下载：</h2><p>修改HTTP头实现文件读取解析下载：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">header(&quot;Content-Type: application/octet-stream&quot;);  </span><br><span class="line">header(&quot;Content-Disposition: attachment; filename=&quot;&quot;);  </span><br><span class="line">header(&quot;Content-Length: &quot; . filesize($file));  </span><br><span class="line">readfile($file);  </span><br></pre></td></tr></table></figure>
+<h2 id="文件编辑："><a href="#文件编辑：" class="headerlink" title="文件编辑："></a>文件编辑：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、file_get_contents() 读取文件内容  </span><br><span class="line">2、fopen() fread() 文件打开读入  </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/08/24%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1214,535 +1444,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/16%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-CDN%E7%BB%95%E8%BF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/03/16%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-CDN%E7%BB%95%E8%BF%87/" class="post-title-link" itemprop="url">16基础入门-CDN绕过</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-03 09:02:42" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:42+08:00">2023-10-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:06:51" itemprop="dateModified" datetime="2023-11-06T21:06:51+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>15、CDN服务-解释差异识别  </li>
-<li>16、CDN绕过-配置差异导致  </li>
-<li>17、CDN绕过-主动连接获取  </li>
-<li>18、CDN绕过-全网扫描获取<br>解决：<br>1、CDN服务对安全影响<br>2、CDN服务绕过识别手法</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
-<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
-<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
-<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
-<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
-<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</li>
-</ul>
-<h2 id="前置知识："><a href="#前置知识：" class="headerlink" title="前置知识："></a>前置知识：</h2><p><a target="_blank" rel="noopener" href="https://www.wangan.com/p/7fy7f6d0b4d1aeaf#%E6%96%B9%E6%B3%95%E5%85%AD%EF%BC%9A%E5%88%A9%E7%94%A8%E7%BD%91%E7%AB%99%E8%BF%94%E5%9B%9E%E7%9A%84%E5%86%85%E5%AE%B9%E5%AF%BB%E6%89%BE%E7%9C%9F%E5%AE%9E%E7%9A%84%E5%8E%9FIP">CDN绕过技术总汇</a>  </p>
-<ul>
-<li><p>1.传统访问：<br>用户访问域名–&gt;解析服务器IP–&gt;访问目标主机  </p>
-</li>
-<li><p>2.普通CDN：<br>用户访问域名–&gt;CDN节点–&gt;真实服务器IP–&gt;访问目标主机  </p>
-</li>
-<li><p>3.带WAF的CDN：<br>用户访问域名–&gt;CDN节点（WAF）–&gt;真实服务器IP–&gt;访问目标主机  </p>
-</li>
-<li><p>4.国内服务商：<br>阿里云  百度云  七牛云<br>又拍云 腾讯云  Ucloud<br>360  网宿科技 ChinaCache  </p>
-</li>
-<li><p>5.国外服务商：<br>CloudFlare StackPath Fastly<br>Akamai CloudFront Edgecast<br>CDNetworks Google Cloud CDN<br>CacheFly Keycdn Udomain CDN77</p>
-</li>
-</ul>
-<h2 id="CDN配置：（CND也可以防止DDOS）"><a href="#CDN配置：（CND也可以防止DDOS）" class="headerlink" title="CDN配置：（CND也可以防止DDOS）"></a>CDN配置：（CND也可以防止DDOS）</h2><ul>
-<li>配置1：加速域名-需要启用加速的域名</li>
-<li>配置2：加速区域-需要启用加速的地区</li>
-<li>配置3：加速类型-需要启用加速的资源</li>
-</ul>
-<h2 id="参考知识："><a href="#参考知识：" class="headerlink" title="参考知识："></a>参考知识：</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/zxEH-HMqKukmq7qXfrdnQQ">渗透测试中最全的CDN绕过总结</a><br>超级Ping：<a target="_blank" rel="noopener" href="http://www.17ce.com/">http://www.17ce.com/</a><br>超级Ping：<a target="_blank" rel="noopener" href="https://ping.chinaz.com/">https://ping.chinaz.com/</a><br>接口查询：<a target="_blank" rel="noopener" href="https://get-site-ip.com/">https://get-site-ip.com/</a><br>接口查询：<a target="_blank" rel="noopener" href="https://fofa.info/extensions/source">https://fofa.info/extensions/source</a><br>国外请求：<a target="_blank" rel="noopener" href="https://tools.ipip.net/cdn.php">https://tools.ipip.net/cdn.php</a><br>国外请求：<a target="_blank" rel="noopener" href="https://boce.aliyun.com/detect/">https://boce.aliyun.com/detect/</a><br>IP社区库：<a target="_blank" rel="noopener" href="https://www.cz88.net/geo-public">https://www.cz88.net/geo-public</a><br>全网扫描：<a target="_blank" rel="noopener" href="https://github.com/Tai7sy/fuckcdn">https://github.com/Tai7sy/fuckcdn</a><br>全网扫描：<a target="_blank" rel="noopener" href="https://github.com/boy-hack/w8fuckcdn">https://github.com/boy-hack/w8fuckcdn</a><br>全网扫描：<a target="_blank" rel="noopener" href="https://github.com/Pluto-123/Bypass_cdn">https://github.com/Pluto-123/Bypass_cdn</a>  </p>
-<p>常见方法：<br>子域名，邮件系统，国外访问，证书查询，APP抓包，网络空间<br>通过漏洞或泄露获取，扫全网，以量打量，第三方接口查询等  </p>
-<h2 id="前置后置-CDN服务-识别-绑定访问"><a href="#前置后置-CDN服务-识别-绑定访问" class="headerlink" title="前置后置-CDN服务-识别&amp;绑定访问"></a>前置后置-CDN服务-识别&amp;绑定访问</h2><p>超级Ping：<a target="_blank" rel="noopener" href="http://17ce.com/">http://17ce.com/</a><br>超级Ping：<a target="_blank" rel="noopener" href="https://ping.chinaz.com/">https://ping.chinaz.com/</a><br>各地ping（出现多个IP即启用CDN服务）<br>后置：绑定HOST访问解析（参考基础课CDN安全影响）  </p>
-<h2 id="某应用-CDN绕过-主动漏洞-遗留文件"><a href="#某应用-CDN绕过-主动漏洞-遗留文件" class="headerlink" title="某应用-CDN绕过-主动漏洞&amp;遗留文件"></a>某应用-CDN绕过-主动漏洞&amp;遗留文件</h2><p>配置加速选项中只加速主域名，导致其他子域名未加速（解析IP可能同IP也可能C段）<br>接口查询：<a target="_blank" rel="noopener" href="https://get-site-ip.com/%EF%BC%88%E6%9F%A5%E8%AF%A2%E7%9C%9F%E5%AE%9EIP%EF%BC%89">https://get-site-ip.com/（查询真实IP）</a><br>接口查询：<a target="_blank" rel="noopener" href="https://fofa.info/extensions/source">https://fofa.info/extensions/source</a><br>使用网络空间&amp;第三方功能集合查询判断  </p>
-<h2 id="某应用-CDN绕过-主动漏洞-遗留文件-1"><a href="#某应用-CDN绕过-主动漏洞-遗留文件-1" class="headerlink" title="某应用-CDN绕过-主动漏洞&amp;遗留文件"></a>某应用-CDN绕过-主动漏洞&amp;遗留文件</h2><ul>
-<li>1、漏洞如：SSRF RCE等<br>利用漏洞让对方真实服务器主动出网连接，判断来源IP即真实IP  </li>
-<li>2、遗留文件：phpinfo类似功能<br>通过访问类似PHPINFO类似代码函数获取本地IP造成的地址泄漏</li>
-</ul>
-<h2 id="某应用-CDN绕过-邮件系统"><a href="#某应用-CDN绕过-邮件系统" class="headerlink" title="某应用-CDN绕过-邮件系统"></a>某应用-CDN绕过-邮件系统</h2><p>判断条件：发信人是当前域名邮件用户名  </p>
-<h3 id="让他主动给你发："><a href="#让他主动给你发：" class="headerlink" title="让他主动给你发："></a>让他主动给你发：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;部署架设的邮件服务器如果向外部用户发送邮件的话，那么邮件头部的源码中会包含此邮件服务器的真实IP地址。<br>常见的邮件触发点有：  </p>
-<ul>
-<li>1、RSS订阅  </li>
-<li>2、邮箱注册、激活处  </li>
-<li>3、邮箱找回密码处  </li>
-<li>4、产品更新的邮件推送  </li>
-<li>5、某业务执行后发送的邮件通知  </li>
-<li>6、员工邮箱、邮件管理平台等入口处的忘记密码</li>
-</ul>
-<h3 id="你给未知邮箱发：（需要自己的邮件服务器不能第三方）"><a href="#你给未知邮箱发：（需要自己的邮件服务器不能第三方）" class="headerlink" title="你给未知邮箱发：（需要自己的邮件服务器不能第三方）"></a>你给未知邮箱发：（需要自己的邮件服务器不能第三方）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过发送邮件给一个不存在的邮箱地址，因为该用户邮箱不存在，所以发送将失败，并且还会收到一个包含发送该电子邮件给你的服务器的真实IP通知。  </p>
-<h2 id="某应用-CDN绕过-全网扫描（最后的办法）"><a href="#某应用-CDN绕过-全网扫描（最后的办法）" class="headerlink" title="某应用-CDN绕过-全网扫描（最后的办法）"></a>某应用-CDN绕过-全网扫描（最后的办法）</h2><p>1、判断加速厂商<br>2、IP库筛地址段<br>3、配置范围扫描<br>先从IP段去扫描符合开放端口，再从IP去访问看看关键字，将符合结果进行保存！<br>厂商查询：<br><a target="_blank" rel="noopener" href="https://tools.ipip.net/cdn.php">https://tools.ipip.net/cdn.php</a><br>工具项目：<br><a target="_blank" rel="noopener" href="https://www.cz88.net/geo-public">https://www.cz88.net/geo-public</a><br><a target="_blank" rel="noopener" href="https://github.com/Tai7sy/fuckcdn">https://github.com/Tai7sy/fuckcdn</a>  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/15%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%B8%BB%E6%9C%BA%E6%9E%B6%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/03/15%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%B8%BB%E6%9C%BA%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">15信息打点-主机架构</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-03 09:02:36" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:36+08:00">2023-10-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-06 21:06:44" itemprop="dateModified" datetime="2023-11-06T21:06:44+08:00">2023-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>12、端口扫描-应用&amp;协议  </li>
-<li>13、WAF识别-分类&amp;识别  </li>
-<li>14、蜜罐识别-分类&amp;识别<br>解决：<br>1、Web服务器&amp;应用服务器差异性<br>2、WAF防火墙&amp;安全防护&amp;识别技术<br>3、蜜罐平台&amp;安全防护&amp;识别技术</li>
-</ul>
-<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
-<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
-<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
-<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
-<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
-<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
-<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>端口</th>
-<th>服务</th>
-<th>渗透用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>tcp 20,21</td>
-<td>FTP</td>
-<td>允许匿名的上传下载,爆破,嗅探,win提权,远程执行(proftpd 1.3.5),各类后门(proftpd,vsftp 2.3.4)</td>
-</tr>
-<tr>
-<td>tcp 22</td>
-<td>SSH</td>
-<td>可根据已搜集到的信息尝试爆破,v1版本可中间人,ssh隧道及内网代理转发,文件传输等等</td>
-</tr>
-<tr>
-<td>tcp 23</td>
-<td>Telnet</td>
-<td>爆破,嗅探,一般常用于路由,交换登陆,可尝试弱口令</td>
-</tr>
-<tr>
-<td>tcp 25</td>
-<td>SMTP</td>
-<td>邮件伪造,vrfy&#x2F;expn查询邮件用户信息,可使用smtp-user-enum工具来自动跑</td>
-</tr>
-<tr>
-<td>tcp&#x2F;udp 53</td>
-<td>DNS</td>
-<td>允许区域传送,dns劫持,缓存投毒,欺骗以及各种基于dns隧道的远控</td>
-</tr>
-<tr>
-<td>tcp&#x2F;udp 69</td>
-<td>TFTP</td>
-<td>尝试下载目标及其的各类重要配置文件</td>
-</tr>
-<tr>
-<td>tcp 80-89,443,8440-8450,8080-8089</td>
-<td>各种常用的Web服务端口</td>
-<td>可尝试经典的topn,vpn,owa,webmail,目标oa,各类Java控制台,各类服务器Web管理面板,各类Web中间件漏洞利用,各类Web框架漏洞利用等等……</td>
-</tr>
-<tr>
-<td>tcp 110</td>
-<td>POP3</td>
-<td>可尝试爆破,嗅探</td>
-</tr>
-<tr>
-<td>tcp 111,2049</td>
-<td>NFS</td>
-<td>权限配置不当</td>
-</tr>
-<tr>
-<td>tcp 137,139,445</td>
-<td>Samba</td>
-<td>可尝试爆破以及smb自身的各种远程执行类漏洞利用,如,ms08-067,ms17-010,嗅探等……</td>
-</tr>
-<tr>
-<td>tcp 143</td>
-<td>IMAP</td>
-<td>可尝试爆破</td>
-</tr>
-<tr>
-<td>udp 161</td>
-<td>SNMP</td>
-<td>爆破默认团队字符串,搜集目标内网信息</td>
-</tr>
-<tr>
-<td>tcp 389</td>
-<td>LDAP</td>
-<td>ldap注入,允许匿名访问,弱口令</td>
-</tr>
-<tr>
-<td>tcp 512,513,514</td>
-<td>Linux rexec</td>
-<td>可爆破,rlogin登陆</td>
-</tr>
-<tr>
-<td>tcp 873</td>
-<td>Rsync</td>
-<td>匿名访问,文件上传</td>
-</tr>
-<tr>
-<td>tcp 1194</td>
-<td>OpenVPN</td>
-<td>想办法钓VPN账号,进内网</td>
-</tr>
-<tr>
-<td>tcp 1352</td>
-<td>Lotus</td>
-<td>弱口令,信息泄漏,爆破</td>
-</tr>
-<tr>
-<td>tcp 1433</td>
-<td>SQL Server</td>
-<td>注入,提权,sa弱口令,爆破</td>
-</tr>
-<tr>
-<td>tcp 1521</td>
-<td>Oracle</td>
-<td>tns爆破,注入,弹shell…</td>
-</tr>
-<tr>
-<td>tcp 1500</td>
-<td>ISPmanager</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 1723</td>
-<td>PPTP</td>
-<td>爆破,想办法钓VPN账号,进内网</td>
-</tr>
-<tr>
-<td>tcp 2082,2083</td>
-<td>cPanel</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 2181</td>
-<td>ZooKeeper</td>
-<td>未授权访问</td>
-</tr>
-<tr>
-<td>tcp 2601,2604</td>
-<td>Zebra</td>
-<td>默认密码zerbra</td>
-</tr>
-<tr>
-<td>tcp 3128</td>
-<td>Squid</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 3312,3311</td>
-<td>kangle</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 3306</td>
-<td>MySQL</td>
-<td>注入,提权,爆破</td>
-</tr>
-<tr>
-<td>tcp 3389</td>
-<td>Windows rdp</td>
-<td>shift后门[需要03以下的系统],爆破,ms12-020</td>
-</tr>
-<tr>
-<td>tcp 3690</td>
-<td>SVN</td>
-<td>svn泄露,未授权访问</td>
-</tr>
-<tr>
-<td>tcp 4848</td>
-<td>GlassFish</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 5000</td>
-<td>Sybase&#x2F;DB2</td>
-<td>爆破,注入</td>
-</tr>
-<tr>
-<td>tcp 5432</td>
-<td>PostgreSQL</td>
-<td>爆破,注入,弱口令</td>
-</tr>
-<tr>
-<td>tcp 5900,5901,5902</td>
-<td>VNC</td>
-<td>弱口令爆破</td>
-</tr>
-<tr>
-<td>tcp 5984</td>
-<td>CouchDB</td>
-<td>未授权导致的任意指令执行</td>
-</tr>
-<tr>
-<td>tcp 6379</td>
-<td>Redis</td>
-<td>可尝试未授权访问,弱口令爆破</td>
-</tr>
-<tr>
-<td>tcp 7001,7002</td>
-<td>WebLogic</td>
-<td>Java反序列化,弱口令</td>
-</tr>
-<tr>
-<td>tcp 7778</td>
-<td>Kloxo</td>
-<td>主机面板登录</td>
-</tr>
-<tr>
-<td>tcp 8000</td>
-<td>Ajenti</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 8009</td>
-<td>tomcat Ajp</td>
-<td>Tomcat-Ajp协议漏洞</td>
-</tr>
-<tr>
-<td>tcp 8443</td>
-<td>Plesk</td>
-<td>弱口令</td>
-</tr>
-<tr>
-<td>tcp 8069</td>
-<td>Zabbix</td>
-<td>远程执行,SQL注入</td>
-</tr>
-<tr>
-<td>tcp 8080-8089</td>
-<td>Jenkins,JBoss</td>
-<td>反序列化,控制台弱口令</td>
-</tr>
-<tr>
-<td>tcp 9080-9081,9090</td>
-<td>WebSphere</td>
-<td>Java反序列化&#x2F;弱口令</td>
-</tr>
-<tr>
-<td>tcp 9200,9300</td>
-<td>ElasticSearch</td>
-<td>远程执行</td>
-</tr>
-<tr>
-<td>tcp 11211</td>
-<td>Memcached</td>
-<td>未授权访问</td>
-</tr>
-<tr>
-<td>tcp 27017,27018</td>
-<td>MongoDB</td>
-<td>爆破,未授权访问</td>
-</tr>
-<tr>
-<td>tcp 50070,50030</td>
-<td>Hadoop</td>
-<td>默认端口未授权访问</td>
-</tr>
-</tbody></table>
-<p> <img src="/2023/10/03/15%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%B8%BB%E6%9C%BA%E6%9E%B6%E6%9E%84/%E8%9C%9C%E7%BD%901.png"><br> <img src="/2023/10/03/15%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%B8%BB%E6%9C%BA%E6%9E%B6%E6%9E%84/%E8%9C%9C%E7%BD%902.png"></p>
-<h2 id="识别-Web服务器-请求返回包"><a href="#识别-Web服务器-请求返回包" class="headerlink" title="识别-Web服务器-请求返回包"></a>识别-Web服务器-请求返回包</h2><h2 id="识别-应用服务器-端口扫描技术"><a href="#识别-应用服务器-端口扫描技术" class="headerlink" title="识别-应用服务器-端口扫描技术"></a>识别-应用服务器-端口扫描技术</h2><h2 id="识别-其他服务协议-端口扫描技术"><a href="#识别-其他服务协议-端口扫描技术" class="headerlink" title="识别-其他服务协议-端口扫描技术"></a>识别-其他服务协议-端口扫描技术</h2><p>-Web中间件探针<br>-应用中间件探针<br>-数据库类型探针<br>-其他服务协议探针<br>端口扫描：Nmap、Masscan、网络空间<br>开放状态：Close Open Filtered<br><a target="_blank" rel="noopener" href="https://nmap.org/download.html">https://nmap.org/download.html</a><br><a target="_blank" rel="noopener" href="https://github.com/robertdavidgraham/masscan">https://github.com/robertdavidgraham/masscan</a><br>使用参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079406/article/details/125266331">https://blog.csdn.net/qq_53079406/article/details/125266331</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079406/article/details/125263917">https://blog.csdn.net/qq_53079406/article/details/125263917</a><br>编译masscan：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    masscan.exe -p端口 ipadddress</span><br><span class="line">例：masscan.exe -p1-65535 192.168.43.176 --rate=10000</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lzy575566/p/15513726.html">https://www.cnblogs.com/lzy575566/p/15513726.html</a><br>考虑：1、防火墙 2、内网环境<br>内网环境可能出现情况：明明数据库端口开的，网站也能正常打开，但是你对目标进行端口扫描，发现数据库端口没有开放（排除防火墙问题）  </p>
-<h2 id="识别-WAF防火墙-看图-项目-指纹"><a href="#识别-WAF防火墙-看图-项目-指纹" class="headerlink" title="识别-WAF防火墙-看图&amp;项目&amp;指纹"></a>识别-WAF防火墙-看图&amp;项目&amp;指纹</h2><h3 id="1、WAF解释："><a href="#1、WAF解释：" class="headerlink" title="1、WAF解释："></a>1、WAF解释：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Web应用防护系统（也称为：网站应用级入侵防御系统。英文：Web Application Firewall，简称：WAF）。利用国际上公认的一种说法：Web应用防火墙是通过执行一系列针对HTTP&#x2F;HTTPS的安全策略来专门为Web应用提供保护的一款产品。</p>
-<h3 id="2、WAF分类："><a href="#2、WAF分类：" class="headerlink" title="2、WAF分类："></a>2、WAF分类：</h3><ul>
-<li>云WAF：百度安全宝、阿里云盾、长亭雷池，华为云，亚马逊云等  </li>
-<li>硬件WAF：绿盟、安恒、深信服、知道创宇等公司商业产品  </li>
-<li>软件WAF：宝塔，安全狗、D盾等  </li>
-<li>代码级WAF：自己写的waf规则，防止出现注入等，一般是在代码里面写死的</li>
-</ul>
-<h3 id="3、识别看图："><a href="#3、识别看图：" class="headerlink" title="3、识别看图："></a>3、识别看图：</h3><p>拦截页面，identywaf项目内置  </p>
-<h3 id="4、识别项目："><a href="#4、识别项目：" class="headerlink" title="4、识别项目："></a>4、识别项目：</h3><ul>
-<li><p>*wafw00f<br><a target="_blank" rel="noopener" href="https://github.com/EnableSecurity/wafw00f">https://github.com/EnableSecurity/wafw00f</a>  </p>
-</li>
-<li><p>*identywaf<br><a target="_blank" rel="noopener" href="https://github.com/stamparm/identYwaf">https://github.com/stamparm/identYwaf</a></p>
-</li>
-</ul>
-<h2 id="识别-蜜罐平台-人工-网络空间-项目"><a href="#识别-蜜罐平台-人工-网络空间-项目" class="headerlink" title="识别-蜜罐平台-人工&amp;网络空间&amp;项目"></a>识别-蜜罐平台-人工&amp;网络空间&amp;项目</h2><h3 id="蜜罐解释："><a href="#蜜罐解释：" class="headerlink" title="蜜罐解释："></a>蜜罐解释：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;蜜罐是一种安全威胁的检测技术，其本质在于引诱和欺骗攻击者，并且通过记录攻击者的攻击日志来产生价值。安全研究人员可以通过分析蜜罐的被攻击记录推测攻击者的意图和手段等信息。攻击方可以通过蜜罐识别技术来发现和规避蜜罐。因此，我们有必要站在红队攻击者的角度钻研蜜罐识别的方式方法。  </p>
-<h3 id="蜜罐分类："><a href="#蜜罐分类：" class="headerlink" title="蜜罐分类："></a>蜜罐分类：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据蜜罐与攻击者之间进行的交互的程度可以将蜜罐分为三类:低交互蜜罐、中交互蜜罐、高交互蜜罐。当然还可以根据蜜罐模拟的目标进行分类，比如：数据库蜜罐、工控蜜罐、物联网蜜罐、Web蜜罐等等。  </p>
-<h3 id="蜜罐产品："><a href="#蜜罐产品：" class="headerlink" title="蜜罐产品："></a>蜜罐产品：</h3><p>见上图  </p>
-<h3 id="识别原理："><a href="#识别原理：" class="headerlink" title="识别原理："></a>识别原理：</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jPz9hBmUypFyQlU27vglUg">https://mp.weixin.qq.com/s/jPz9hBmUypFyQlU27vglUg</a>  </p>
-<h3 id="识别技术："><a href="#识别技术：" class="headerlink" title="识别技术："></a>识别技术：</h3><ul>
-<li><p>1、测试<br>大概了解组成功能等<br><a target="_blank" rel="noopener" href="https://hfish.net/#/">https://hfish.net/#/</a><br>（虚拟机ubuntu开启环境，使用root运行：)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line">bash &lt;(curl -sS -L https://hfish.net/webinstall.sh)</span><br></pre></td></tr></table></figure>
-<p>登陆链接：https:&#x2F;&#x2F;[ip]:4433&#x2F;web&#x2F; (192.168.43.50) </p>
-</li>
-<li><p>2、项目<br>项目识别<br><a target="_blank" rel="noopener" href="https://github.com/graynjo/Heimdallr">https://github.com/graynjo/Heimdallr</a><br><a target="_blank" rel="noopener" href="https://github.com/360quake/quake_rs">https://github.com/360quake/quake_rs</a><br>quake.exe init apikey值<br>quake.exe honeypot 目标  </p>
-</li>
-<li><p>3、人工<br>*端口多而有规律性<br>*Web访问协议就下载<br>*设备指纹分析（见上图）  </p>
-</li>
-<li><p>4、网络空间<br>鹰图，Quake</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1814,7 +1515,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1890,19 +1591,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">185k</span>
+    <span title="站点总字数">187k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:48</span>
+    <span title="站点阅读时长">2:50</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共69.7k字</span>
+  <span class="post-count">博客全站共71.3k字</span>
 </div>
 
 

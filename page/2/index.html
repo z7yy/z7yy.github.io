@@ -201,6 +201,246 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/06/66WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/12/06/66WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A81/" class="post-title-link" itemprop="url">66WEB攻防-JAVA安全1</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-06 16:05:01" itemprop="dateCreated datePublished" datetime="2023-12-06T16:05:01+08:00">2023-12-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-07 16:38:50" itemprop="dateModified" datetime="2023-12-07T16:38:50+08:00">2023-12-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>75、Java安全-SQL注入-JDBC&amp;MyBatis</li>
+<li>76、Java安全-XXE注入-Reader&amp;Builder</li>
+<li>77、Java安全-SSTI模版-Thymeleaf&amp;URL</li>
+<li>78、Java安全-SPEL表达式-SpringBoot框架</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
+<h2 id="JAVA安全"><a href="#JAVA安全" class="headerlink" title="JAVA安全"></a>JAVA安全</h2><p><a target="_blank" rel="noopener" href="https://github.com/bewhale/JavaSec">https://github.com/bewhale/JavaSec</a><br><a target="_blank" rel="noopener" href="https://github.com/j3ers3/Hello-Java-Sec">https://github.com/j3ers3/Hello-Java-Sec</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ZO4tpz9ys6kCIryNhA5nYw">https://mp.weixin.qq.com/s/ZO4tpz9ys6kCIryNhA5nYw</a>  </p>
+<h2 id="Java安全-SQL注入-JDBC-MyBatis"><a href="#Java安全-SQL注入-JDBC-MyBatis" class="headerlink" title="Java安全-SQL注入-JDBC&amp;MyBatis"></a>Java安全-SQL注入-JDBC&amp;MyBatis</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><ul>
+<li>1、采用Statement方法拼接SQL语句  </li>
+<li>2、PrepareStatement会对SQL语句进行预编译，但如果直接采取拼接的方式构造SQL，此时进行预编译也无用。  </li>
+<li>3、JDBCTemplate是Spring对JDBC的封装，如果使用拼接语句便会产生注入<br>安全写法：SQL语句占位符（?） + PrepareStatement预编译</li>
+</ul>
+<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBatis支持两种参数符号，一种是#，另一种是$，#使用预编译，$使用拼接SQL。  </p>
+<ul>
+<li>1、order by注入：由于使用#{}会将对象转成字符串，形成order by “user” desc造成错误，因此很多研发会采用${}来解决，从而造成注入.</li>
+<li>2、like 注入：模糊搜索时，直接使用’%#{q}%’ 会报错，部分研发图方便直接改成’%${q}%’从而造成注入.</li>
+<li>3、in注入：in之后多个id查询时使用 # 同样会报错，从而造成注入.</li>
+</ul>
+<h3 id="代码审计案例：inxedu后台MyBatis注入"><a href="#代码审计案例：inxedu后台MyBatis注入" class="headerlink" title="代码审计案例：inxedu后台MyBatis注入"></a>代码审计案例：inxedu后台MyBatis注入</h3><h2 id="Java安全-XXE注入-Reader-Builder"><a href="#Java安全-XXE注入-Reader-Builder" class="headerlink" title="Java安全-XXE注入-Reader&amp;Builder"></a>Java安全-XXE注入-Reader&amp;Builder</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXE (XML External Entity Injection), XML外部实体注入，当开发人员配置其XML解析功能允许外部实体引用时，攻击者可利用这一可引发安全问题的配置方式，实施任意文件读取、内网端口探测、命令执行、拒绝服务等攻击。<br>-XMLReader<br>-SAXReader<br>-SAXBuilder<br>-Unmarshaller<br>-DocumentBuilder  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 审计的函数</span><br><span class="line"> * 1. XMLReader</span><br><span class="line"> * 2. SAXReader</span><br><span class="line"> * 3. DocumentBuilder</span><br><span class="line"> * 4. XMLStreamReader</span><br><span class="line"> * 5. SAXBuilder</span><br><span class="line"> * 6. SAXParser</span><br><span class="line"> * 7. SAXSource</span><br><span class="line"> * 8. TransformerFactory</span><br><span class="line"> * 9. SAXTransformerFactory</span><br><span class="line"> * 10. SchemaFactory</span><br><span class="line"> * 11. Unmarshaller</span><br><span class="line"> * 12. XPathExpression</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<h2 id="Java安全-SSTI模版-Thymeleaf-URL"><a href="#Java安全-SSTI模版-Thymeleaf-URL" class="headerlink" title="Java安全-SSTI模版-Thymeleaf&amp;URL"></a>Java安全-SSTI模版-Thymeleaf&amp;URL</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SSTI(Server Side Template Injection) 服务器模板注入, 服务端接收了用户的输入，将其作为 Web 应用模板内容的一部分，在进行目标编译渲染的过程中，执行了用户插入的恶意内容。  </p>
+<ul>
+<li>1、URL作视图    </li>
+<li>2、Velocity  </li>
+<li>3、Thymeleaf  </li>
+<li>其他语言参考：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bmjoker/p/13508538.html">https://www.cnblogs.com/bmjoker/p/13508538.html</a></li>
+</ul>
+<h2 id="Java安全-SPEL表达式-SpringBoot框架"><a href="#Java安全-SPEL表达式-SpringBoot框架" class="headerlink" title="Java安全-SPEL表达式-SpringBoot框架"></a>Java安全-SPEL表达式-SpringBoot框架</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpEL（Spring Expression Language）表达式注入, 是一种功能强大的表达式语言、用于在运行时查询和操作对象图，由于未对参数做过滤可造成任意命令执行。   </p>
+<ul>
+<li>1、Spring表达式  </li>
+<li>2、Spring反射绕过<br>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e3c77c053359">https://www.jianshu.com/p/e3c77c053359</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/" class="post-title-link" itemprop="url">65WEB攻防-JS应用3</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-02 22:41:24" itemprop="dateCreated datePublished" datetime="2023-12-02T22:41:24+08:00">2023-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-07 16:39:23" itemprop="dateModified" datetime="2023-12-07T16:39:23+08:00">2023-12-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>958</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>71、JavaScript安全-泄漏配置信息</li>
+<li>72、JavaScript安全-获取接口测试</li>
+<li>73、JavaScript安全-代码逻辑分析</li>
+<li>74、JavaScript安全-框架漏洞检测</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中…. </p>
+<p> <img src="/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/JS%E5%BA%94%E7%94%A81.png"><br> <img src="/2023/12/02/65WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A83/JS%E5%BA%94%E7%94%A82.png"></p>
+<h2 id="JS安全"><a href="#JS安全" class="headerlink" title="JS安全"></a>JS安全</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Javascript中也存在变量和函数，当存在可控变量及函数调用即可参数漏洞。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JS开发应用和PHP，JAVA等区别在于即没源代码，也可通过浏览器查看源代码。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获取URL，获取JS敏感信息，获取代码传参等，所以相当于JS开发的WEB应用属于白盒测试，一般会在JS中寻找更多URL地址，（加密算法，APIkey配置，验证逻辑，框架漏洞等）进行后期安全测试。  </p>
+<ul>
+<li><p>1、会增加攻击面（URL、接口，分析调试代码逻辑）  </p>
+</li>
+<li><p>2、敏感信息（用户密码、ak&#x2F;sk、token&#x2F;session）  </p>
+</li>
+<li><p>3、潜在危险函数（eval、dangerallySetInnerHTML）  </p>
+</li>
+<li><p>4、开发框架类(寻找历史漏洞Vue、NodeJS、Angular等)  </p>
+</li>
+<li><p>打包器Webpack：PackerFuzzer<br>AK&#x2F;SK云安全利用：工具箱CF（云安全后续会讲更多）<br>浏览器插件：Pentestkit FindSomething Wappalyzer（前期的JS收集项目）</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/01/64WEB%E6%94%BB%E9%98%B2-JS%E5%BA%94%E7%94%A82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1166,248 +1406,6 @@
 
  
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/08/56WEB%E6%94%BB%E9%98%B2-CSRF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/08/56WEB%E6%94%BB%E9%98%B2-CSRF/" class="post-title-link" itemprop="url">56WEB攻防-CSRF</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-11-08 20:57:14 / 修改时间：21:06:11" itemprop="dateCreated datePublished" datetime="2023-11-08T20:57:14+08:00">2023-11-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>46、CSRF-原理&amp;检测&amp;利用&amp;防御</li>
-<li>47、CSRF-防御-Referer策略隐患</li>
-<li>48、CSRF-防御-Token校验策略隐患</li>
-</ul>
-<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
-<p> <img src="/2023/11/08/56WEB%E6%94%BB%E9%98%B2-CSRF/CSRF1.png"><br> <img src="/2023/11/08/56WEB%E6%94%BB%E9%98%B2-CSRF/CSRF2.png"><br> <img src="/2023/11/08/56WEB%E6%94%BB%E9%98%B2-CSRF/CSRF3.png"></p>
-<h2 id="CSRF-无检测防护-检测-生成-利用"><a href="#CSRF-无检测防护-检测-生成-利用" class="headerlink" title="CSRF-无检测防护-检测&amp;生成&amp;利用"></a>CSRF-无检测防护-检测&amp;生成&amp;利用</h2><p>检测：黑盒手工利用测试，白盒看代码检验（有无token，来源检验等）<br>生成：BurpSuite-&gt;Engagement tools-&gt;Generate CSRF Poc<br>利用：将文件防止自己的站点下，诱使受害者访问（或配合XSS触发访问）  </p>
-<h2 id="CSRF-Referer同源-规则-上传-XSS"><a href="#CSRF-Referer同源-规则-上传-XSS" class="headerlink" title="CSRF-Referer同源-规则&amp;上传&amp;XSS"></a>CSRF-Referer同源-规则&amp;上传&amp;XSS</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50464560/article/details/120581841">https://blog.csdn.net/weixin_50464560/article/details/120581841</a><br>严谨代码PHP DEMO：   </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 检测来源</span><br><span class="line">function checkReferrer() &#123;</span><br><span class="line">    $expectedReferrer = &quot;http://example.com&quot;; // 期望的来源页面</span><br><span class="line"></span><br><span class="line">    if (!isset($_SERVER[&#x27;HTTP_REFERER&#x27;]) || $_SERVER[&#x27;HTTP_REFERER&#x27;] !== $expectedReferrer) &#123;</span><br><span class="line">        die(&quot;非法访问&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 处理表单提交</span><br><span class="line">if ($_SERVER[&#x27;REQUEST_METHOD&#x27;] === &#x27;POST&#x27;) &#123;</span><br><span class="line">    // 检测来源</span><br><span class="line">    checkReferrer();</span><br><span class="line"></span><br><span class="line">    // 获取用户输入的数据</span><br><span class="line">    $name = $_POST[&#x27;name&#x27;];</span><br><span class="line">    $email = $_POST[&#x27;email&#x27;];</span><br><span class="line"></span><br><span class="line">    // 输出用户输入的数据</span><br><span class="line">    echo &quot;姓名：$name&lt;br&gt;&quot;;</span><br><span class="line">    echo &quot;邮箱：$email&lt;br&gt;&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;检测来源示例&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;检测来源示例&lt;/h1&gt;</span><br><span class="line">    &lt;form action=&quot;&lt;?php echo $_SERVER[&#x27;PHP_SELF&#x27;]; ?&gt;&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;name&quot;&gt;姓名：&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; required /&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;label for=&quot;email&quot;&gt;邮箱：&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;email&quot; name=&quot;email&quot; id=&quot;email&quot; required /&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>绕过0：规则匹配绕过问题（代码逻辑不严谨）<br>1、<meta name="referrer" content="no-referrer"><br>2、<a target="_blank" rel="noopener" href="http://xx.xx.xx.xx/http://xx.xx.xx.xx">http://xx.xx.xx.xx/http://xx.xx.xx.xx</a><br>绕过1：配合文件上传绕过（严谨使用同源绕过）<br>绕过2：配合存储XSS绕过（严谨使用同源绕过）  </p>
-<h2 id="CSRF-Token校验-值删除-复用-留空"><a href="#CSRF-Token校验-值删除-复用-留空" class="headerlink" title="CSRF-Token校验-值删除&amp;复用&amp;留空"></a>CSRF-Token校验-值删除&amp;复用&amp;留空</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50464560/article/details/120581841">https://blog.csdn.net/weixin_50464560/article/details/120581841</a><br>严谨代码PHP DEMO：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">// 生成并存储 CSRF Token</span><br><span class="line">function generateCSRFToken() &#123;</span><br><span class="line">    $token = bin2hex(random_bytes(32));</span><br><span class="line">    $_SESSION[&#x27;csrf_token&#x27;] = $token;</span><br><span class="line">    return $token;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 检查 CSRF Token 是否有效</span><br><span class="line">function validateCSRFToken($token) &#123;</span><br><span class="line">    return isset($_SESSION[&#x27;csrf_token&#x27;]) &amp;&amp; $_SESSION[&#x27;csrf_token&#x27;] === $token;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 处理表单提交</span><br><span class="line">if ($_SERVER[&#x27;REQUEST_METHOD&#x27;] === &#x27;POST&#x27;) &#123;</span><br><span class="line">    // 检查 CSRF Token</span><br><span class="line">    if (!isset($_POST[&#x27;csrf_token&#x27;]) || !validateCSRFToken($_POST[&#x27;csrf_token&#x27;])) &#123;</span><br><span class="line">        die(&quot;CSRF Token 验证失败&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 获取用户输入的数据</span><br><span class="line">    $name = $_POST[&#x27;name&#x27;];</span><br><span class="line">    $email = $_POST[&#x27;email&#x27;];</span><br><span class="line"></span><br><span class="line">    // 输出用户输入的数据</span><br><span class="line">    echo &quot;姓名：$name&lt;br&gt;&quot;;</span><br><span class="line">    echo &quot;邮箱：$email&lt;br&gt;&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 生成 CSRF Token</span><br><span class="line">$csrfToken = generateCSRFToken();</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;CSRF Token 示例&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;CSRF Token 示例&lt;/h1&gt;</span><br><span class="line">    &lt;form action=&quot;&lt;?php echo $_SERVER[&#x27;PHP_SELF&#x27;]; ?&gt;&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;hidden&quot; name=&quot;csrf_token&quot; value=&quot;&lt;?php echo $csrfToken; ?&gt;&quot; /&gt;</span><br><span class="line">        &lt;label for=&quot;name&quot;&gt;姓名：&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; required /&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;label for=&quot;email&quot;&gt;邮箱：&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;email&quot; name=&quot;email&quot; id=&quot;email&quot; required /&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>绕过0：将Token参数值复用（代码逻辑不严谨）<br>绕过1：将Token参数删除（代码逻辑不严谨）<br>绕过2：将Token参数值置空（代码逻辑不严谨）  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/08/55WEB%E6%94%BB%E9%98%B2-XSS%E8%B7%A8%E7%AB%994/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="z7">
-      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/08/55WEB%E6%94%BB%E9%98%B2-XSS%E8%B7%A8%E7%AB%994/" class="post-title-link" itemprop="url">55WEB攻防-XSS跨站4</a>
-        </h2>
-
-        <div class="post-meta">
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-11-08 20:56:43 / 修改时间：21:02:02" itemprop="dateCreated datePublished" datetime="2023-11-08T20:56:43+08:00">2023-11-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
-<li>43、XSS跨站-安全防御-CSP策略</li>
-<li>44、XSS跨站-安全防御-HttpOnly</li>
-<li>45、XSS跨站-安全防御-XSSFilte</li>
-</ul>
-<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
-<h2 id="1-CSP-Content-Security-Policy-内容安全策略"><a href="#1-CSP-Content-Security-Policy-内容安全策略" class="headerlink" title="1. CSP (Content Security Policy 内容安全策略)"></a>1. CSP (Content Security Policy 内容安全策略)</h2><p>内容安全策略是一种可信白名单机制，来限制网站中是否可以包含某来源内容。<br>该制度明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单，它的实现和执行全部由浏览器完成，开发者只需提供配置。<br>禁止加载外域代码，防止复杂的攻击逻辑。<br>禁止外域提交，网站被攻击后，用户的数据不会泄露到外域。<br>禁止内联脚本执行（规则较严格，目前发现 GitHub 使用）。<br>禁止未授权的脚本执行（新特性，Google Map 移动版在使用）。<br>合理使用上报可以及时发现XSS，利于尽快修复问题。  </p>
-<p>实验：<br>开启CSP时XSS的加载情况<br>未开启CSP时XSS的加载情况<br>绕过：有但鸡肋<br><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/12370">https://xz.aliyun.com/t/12370</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/a1766855068/article/details/89370320">https://blog.csdn.net/a1766855068/article/details/89370320</a><br>header(“Content-Security-Policy:img-src ‘self’ “);  </p>
-<h2 id="2-HttpOnly"><a href="#2-HttpOnly" class="headerlink" title="2. HttpOnly"></a>2. HttpOnly</h2><p>禁止页面的JavaScript访问带有HttpOnly属性的Cookie。<br>PHP.INI设置或代码引用  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-session.cookie_httponly =1</span><br><span class="line">-ini_set(&quot;session.cookie_httponly&quot;, 1);</span><br><span class="line">-setcookie(&#x27;&#x27;, &#x27;&#x27;, time() + 3600, &#x27;/xss&#x27;, &#x27;&#x27;, false, true);</span><br></pre></td></tr></table></figure>
-
-<p>实验：<br>开启HttpOnly时XSS窃取Cookie的加载情况<br>未开启HttpOnly时XSS窃取Cookie的加载情况<br>绕过：有但鸡肋<br>(1) CVE-2012-0053<br>(2) PHPINFO页面&#x2F;<br>(3) Flash&#x2F;Java<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42478365/article/details/116597222">https://blog.csdn.net/weixin_42478365/article/details/116597222</a><br>思路：不获取Cookie采用方式（钓鱼，浏览器攻击框架等）  </p>
-<h2 id="3-XSS-Filter"><a href="#3-XSS-Filter" class="headerlink" title="3. XSS Filter"></a>3. XSS Filter</h2><p>检查用户输入的数据中是否包含特殊字符， 如&lt;、&gt;、’、”,进行实体化等。  </p>
-<p>实验：手工分析&amp;工具分析<br>Xss-Lab 标签及常见过滤绕过<br>环境下载：<a target="_blank" rel="noopener" href="https://github.com/Re13orn/xss-lab">https://github.com/Re13orn/xss-lab</a><br>参考资料：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/4067">https://xz.aliyun.com/t/4067</a><br>工具资料：<a target="_blank" rel="noopener" href="https://github.com/s0md3v/XSStrike">https://github.com/s0md3v/XSStrike</a>  </p>
-<ul>
-<li>1、无任何过滤</li>
-</ul>
-<p><code>&lt;script&gt;alert()&lt;/script&gt;</code></p>
-<ul>
-<li>2、实体化 输入框没有</li>
-</ul>
-<p><code>&quot;&gt;  &lt;script&gt;alert()&lt;/script&gt;  &lt;&quot;</code></p>
-<ul>
-<li>3、全部实体化 利用标签事件 单引号闭合</li>
-</ul>
-<p><code>&#39; onfocus=javascript:alert() &#39;</code></p>
-<ul>
-<li>4、全部实体化 利用标签事件 双引号闭合</li>
-</ul>
-<p><code>&quot; onfocus=javascript:alert() &quot;</code></p>
-<ul>
-<li>5、事件关键字过滤 利用其他标签调用 双引号闭合</li>
-</ul>
-<p><code>&quot;&gt; &lt;a href=javascript:alert()&gt;xxx&lt;/a&gt; &lt;&quot;</code></p>
-<ul>
-<li>6、利用大小写未正则匹配</li>
-</ul>
-<p><code>&quot;&gt; &lt;sCript&gt;alert()&lt;/sCript&gt; &lt;&quot;</code></p>
-<ul>
-<li>7、利用双写绕过匹配</li>
-</ul>
-<p><code>&quot;&gt; &lt;a hrehreff=javasscriptcript:alert()&gt;x&lt;/a&gt; &lt;&quot;</code></p>
-<ul>
-<li>8、利用Unicode编码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;#x006a&amp;#x0061&amp;#x0076&amp;#x0061&amp;#x0073&amp;#x0063&amp;#x0072&amp;#x0069&amp;#x0070&amp;#x0074&amp;#x003a&amp;#x0061&amp;#x006c&amp;#x0065&amp;#x0072&amp;#x0074&amp;#x0028&amp;#x0029</span><br></pre></td></tr></table></figure></li>
-<li>9、利用Unicode编码（内容检测）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;#x006a&amp;#x0061&amp;#x0076&amp;#x0061&amp;#x0073&amp;#x0063&amp;#x0072&amp;#x0069&amp;#x0070&amp;#x0074&amp;#x003a&amp;#x0061&amp;#x006c&amp;#x0065&amp;#x0072&amp;#x0074&amp;#x0028&amp;#x0029;(&#x27;http://&#x27;)</span><br></pre></td></tr></table></figure></li>
-<li>10、隐藏属性触发闭合</li>
-</ul>
-<p><code>?t_sort=&quot; onfocus=javascript:alert() type=&quot;text</code></p>
-<ul>
-<li>11-20<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/l2872253606/article/details/125638898">https://blog.csdn.net/l2872253606/article/details/125638898</a></li>
-</ul>
-<p>黑盒XSS手工分析：<br>1、页面中显示的数据找可控的（有些隐藏的）<br>2、利用可控地方发送JS代码去看执行加载情况<br>3、成功执行即XSS，不能成功就看语句输出的地方显示（过滤）<br>4、根据显示分析为什么不能执行（实体化，符号括起来，关键字被删除等）  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
- 
-
 
   
   <nav class="pagination">
@@ -1479,7 +1477,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1555,19 +1553,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">185k</span>
+    <span title="站点总字数">187k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:48</span>
+    <span title="站点阅读时长">2:50</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共69.7k字</span>
+  <span class="post-count">博客全站共71.3k字</span>
 </div>
 
 
