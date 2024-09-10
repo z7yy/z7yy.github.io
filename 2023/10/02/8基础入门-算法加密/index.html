@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="思维导图见 1基础入门 知识点： 13、存储密码加密-应用对象 14、传输加密编码-发送回显 15、数据传输格式-统一格式 16、代码特性混淆-开发语言  章节点应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;小程序&#x2F;负载均衡等安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等渗透命令：文件上传下载&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8基础入门-算法加密">
+<meta property="og:url" content="http://example.com/2023/10/02/8%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="思维导图见 1基础入门 知识点： 13、存储密码加密-应用对象 14、传输加密编码-发送回显 15、数据传输格式-统一格式 16、代码特性混淆-开发语言  章节点应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;小程序&#x2F;负载均衡等安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等渗透命令：文件上传下载&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-02T15:13:42.000Z">
+<meta property="article:modified_time" content="2023-11-06T13:05:18.842Z">
+<meta property="article:author" content="z7">
+<meta property="article:tag" content="基础入门">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/10/02/8%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>8基础入门-算法加密 | 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://z7yy" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/02/8%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          8基础入门-算法加密
+        </h1>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-02 23:13:42" itemprop="dateCreated datePublished" datetime="2023-10-02T23:13:42+08:00">2023-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:05:18" itemprop="dateModified" datetime="2023-11-06T21:05:18+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">1基础入门</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>13、存储密码加密-应用对象</li>
+<li>14、传输加密编码-发送回显</li>
+<li>15、数据传输格式-统一格式</li>
+<li>16、代码特性混淆-开发语言</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;小程序&#x2F;负载均衡等<br>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等<br>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等<br>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等<br>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</p>
+<h2 id="传输数据-编码型-加密型等"><a href="#传输数据-编码型-加密型等" class="headerlink" title="传输数据-编码型&amp;加密型等"></a>传输数据-编码型&amp;加密型等</h2><p>例：某视频、某Web站、博客登录、APP-斗地主<br>影响：漏洞探针</p>
+<h2 id="传输格式-常规-JSON-XML等"><a href="#传输格式-常规-JSON-XML等" class="headerlink" title="传输格式-常规&amp;JSON&amp;XML等"></a>传输格式-常规&amp;JSON&amp;XML等</h2><p>例：App-期H、APP-斗地主<br>影响：发送漏洞探针,回显数据分析</p>
+<h2 id="密码存储-Web-系统-三方应用"><a href="#密码存储-Web-系统-三方应用" class="headerlink" title="密码存储-Web&amp;系统&amp;三方应用"></a>密码存储-Web&amp;系统&amp;三方应用</h2><p>例：ZZZCMS&amp;Dz、Win&amp;Linux、MSSQL&amp;MYSQL<br>影响：安全后渗透测试</p>
+<h2 id="代码混淆-源代码加密-逆向保护"><a href="#代码混淆-源代码加密-逆向保护" class="headerlink" title="代码混淆-源代码加密&amp;逆向保护"></a>代码混淆-源代码加密&amp;逆向保护</h2><p>例：PHP&amp;JS混淆加密、EXE&amp;JAR代码保护<br>影响：代码审计，逆向破解<br><a target="_blank" rel="noopener" href="https://indialms.in/wfp_login.php?r_id=1">https://indialms.in/wfp_login.php?r_id=1</a><br>base64编码<br>username&#x3D;YWRtaW4&#x3D;<br><a target="_blank" rel="noopener" href="https://indialms.in/wfp_login.php?r_id=MQ==112123">https://indialms.in/wfp_login.php?r_id=MQ==112123</a></p>
+<h3 id="数据在传输的时候进行编码-为什么要了解？"><a href="#数据在传输的时候进行编码-为什么要了解？" class="headerlink" title="数据在传输的时候进行编码 为什么要了解？"></a>数据在传输的时候进行编码 为什么要了解？</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;对方服务器可能会在接受的时候进行解码在带入如果我们还是按照原有思路不对自己的Payload进行同样编码的话 传入过去的东西就是不认识的东西 测试无效<br>&nbsp;&nbsp;&nbsp;&nbsp;正确：测试的话也要进行payload同样的加密或编码进行提交安全测试漏洞时候 通常都会进行数据的修改增加提交测试以数据的正确格式发送接受才行<br>登录的数据包：<br>&nbsp;&nbsp;&nbsp;&nbsp;admin 123456<br>MD5加密：<br>&nbsp;&nbsp;&nbsp;&nbsp;username&#x3D;admin&amp;password&#x3D;123456<br>&nbsp;&nbsp;&nbsp;&nbsp;username&#x3D;admin&amp;password&#x3D;e10adc3949ba59abbe56e057f20f883e  </p>
+<p>###如果进行密码破解爆破<br>字典文件：<br>帐号什么都不用更改 去替换username&#x3D;值即可<br>密码需要进行密码算法 保证和password&#x3D;值同等加密才行<br><a target="_blank" rel="noopener" href="https://tv.sohu.com/v/dXMvMzg1MjM2NzE5LzQyNzUyODUzOC5zaHRtbA==.html">https://tv.sohu.com/v/dXMvMzg1MjM2NzE5LzQyNzUyODUzOC5zaHRtbA==.html</a></p>
+<p>开发：数组 列表<br>btnPost&#x3D;%E7%99%BB%E5%BD%95&amp;username&#x3D;admin and&amp;password&#x3D;e10adc3949ba59abbe56e057f20f883e&amp;savedate&#x3D;1  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	btnPost:&quot;%E7%99%BB%E5%BD%95&quot;；</span><br><span class="line">	username:&quot;admin&quot;;</span><br><span class="line">	password:&quot;e10adc3949ba59abbe56e057f20f883e and&quot;;</span><br><span class="line">	savedate:1;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>json xml 常规<br>x&#x3D;123</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	x:123</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>zzzcms admin &#x2F;123456 密文利用md5加密<br>md5(123456)&#x3D;密文<br>dz3.2 admin &#x2F;123456<br>md5(md5(123456).salt)&#x3D;密文<br>dz3.5 admin &#x2F; 123456<br>aes des（密匙 偏移量 填充 模式等）<br>$2y$10$OtsSmawENczg1BLcQCEn5OdLqJC9GLiDrClwEUooNnn8b609DfJc.  </p>
+<p>大部分的解密都是碰撞式解密<br>不是算法的逆向的还原解密  </p>
+<ul>
+<li>1.常见加密编码进制等算法解析<br>MD5，SHA，ASC，进制，时间戳，URL，BASE64，Unescape，AES，DES等</li>
+<li>2.常见加密编码形式算法解析<br>直接加密，带salt，带密码，带偏移，带位数，带模式，带干扰，自定义组合等</li>
+<li>3.常见解密解码方式（针对）<br>枚举，自定义逆向算法，可逆向<br>4.常见加密解码算法的特性<br>长度位数，字符规律，代码分析，搜索获取等</li>
+</ul>
+<h2 id="本课意义："><a href="#本课意义：" class="headerlink" title="本课意义："></a>本课意义：</h2><p>1.了解加密编码进制在安全测试中的存在<br>2.掌握常见的加密解密编码解码进制互转的操作<br>3.了解常见的加密解密编码解密进制互转的影响  </p>
+<p>识别算法编码方法：<br>1、看密文位数<br>2、看密文的特征（数字，字母，大小写，符号等）<br>3、看当前密文存在的地方（Web，数据库，操作系统等应用）  </p>
+<h2 id="拓展补充参考资料："><a href="#拓展补充参考资料：" class="headerlink" title="拓展补充参考资料："></a>拓展补充参考资料：</h2><ul>
+<li><p>1.传输数据编码：<br>BASE64 URL HEX ASCII<br>1.BASE64值是由数字”0-9”和字母”a-f”所组成的字符串,大小写敏感,结尾通常有符号&#x3D;<br>2.URL编码是由数字”0-9”和字母”a-f”所组成的字符串,大小写敏感,通常以%数字字母间隔<br>3.HEX编码是计算机中数据的一种表示方法,将数据进行十六进制转换,它由0-9,A-F,组成<br>4.ASCII编码是将128个字符进行进制数来表示,常见ASCII码表大小规则：0<del>9&lt;A</del>Z&lt;a~z<br>-传输数据加密：同密码存储加密<br>-传输数据格式：常规字符串 JSON XML等 </p>
+</li>
+<li><p>2.密码存储加密：<br>MD5 SHA1 NTLM AES DES RC4<br>1.MD5值是32或16位位由数字”0-9”和字母”a-f”所组成的字符串<br>2.SHA1这种加密的密文特征跟MD5差不多，只不过位数是40<br>3.NTLM这种加密是Windows的哈希密码，标准通讯安全协议<br>4.AES,DES,RC4这些都是对称性加密算法，RSA非对称加密；引入密钥，密文特征与Base64类似  </p>
+</li>
+<li><p>3.代码混淆：<br>JS前端代码加密：<br>JS颜文字 jother JSFUCK<br>1.颜文字特征：一堆颜文字构成的js代码，在F12中可直接解密执行<br>2.jother特征：只用! + ( ) [ ] { }这八个字符就能完成对任意字符串的编码。也可在F12中解密执行<br>3.JSFUCK特征：与jother很像，只是少了{ }  </p>
+</li>
+<li><p>4.后端代码混淆：<br>PHP .NET JAVA<br>1.PHP：乱码，头部有信息<br>2..NET：DLL封装代码文件，加保护<br>3.JAVA：JAR&amp;CLASS文件，，加保护<br>举例：加密平台 Zend ILSpy IDEA<br>应用场景：版权代码加密，开发特性，CTF比赛等  </p>
+</li>
+<li><p>5.特定应用-数据库密文加密：<br>MYSQL MSSQL Oracle Redis等</p>
+</li>
+<li><p>6.数据显示编码：<br>UTF-8 GBK2312等</p>
+</li>
+<li><p>7.部分资源：<br><a target="_blank" rel="noopener" href="https://www.cmd5.com/">https://www.cmd5.com</a><br><a target="_blank" rel="noopener" href="http://tmxk.org/jother">http://tmxk.org/jother</a><br><a target="_blank" rel="noopener" href="http://www.jsfuck.com/">http://www.jsfuck.com</a><br><a target="_blank" rel="noopener" href="http://www.hiencode.com/">http://www.hiencode.com</a><br><a target="_blank" rel="noopener" href="http://tool.chacuo.net/cryptaes">http://tool.chacuo.net/cryptaes</a><br><a target="_blank" rel="noopener" href="https://utf-8.jp/public/aaencode.html">https://utf-8.jp/public/aaencode.html</a><br><a target="_blank" rel="noopener" href="https://github.com/guyoung/CaptfEncoder">https://github.com/guyoung/CaptfEncoder</a>  </p>
+</li>
+<li><p>8.30余种加密编码类型的密文特征分析（建议收藏）<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwNDcxMjI2MA==&mid=2247484455&idx=1&sn=e1b4324ddcf7d6123be30d9a5613e17b&chksm=9b26f60cac517f1a920cf3b73b3212a645aeef78882c47957b9f3c2135cb7ce051c73fe77bb2&mpshare=1&scene=23&srcid=1111auAYWmr1N0NAs9Wp2hGz&sharer_sharetime=1605145141579&sharer_shareid=5051b3eddbbe2cb698aedf9452370026#rd">https://mp.weixin.qq.com/s?__biz=MzAwNDcxMjI2MA==&amp;mid=2247484455&amp;idx=1&amp;sn=e1b4324ddcf7d6123be30d9a5613e17b&amp;chksm=9b26f60cac517f1a920cf3b73b3212a645aeef78882c47957b9f3c2135cb7ce051c73fe77bb2&amp;mpshare=1&amp;scene=23&amp;srcid=1111auAYWmr1N0NAs9Wp2hGz&amp;sharer_sharetime=1605145141579&amp;sharer_shareid=5051b3eddbbe2cb698aedf9452370026#rd</a>  </p>
+</li>
+<li><p>9.CTF中常见密码题解密网站总结（建议收藏）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41638851/article/details/100526839">https://blog.csdn.net/qq_41638851/article/details/100526839</a>  </p>
+</li>
+<li><p>10.CTF密码学常见加密解密总结（建议收藏）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40837276/article/details/83080460">https://blog.csdn.net/qq_40837276/article/details/83080460</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>z7
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/10/02/8%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/" title="8基础入门-算法加密">http://example.com/2023/10/02/8基础入门-算法加密/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" rel="tag"># 基础入门</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/10/02/6%E3%80%817%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E6%8A%93%E5%8C%85%E6%8A%80%E6%9C%AF/" rel="prev" title="6、7基础入门-抓包技术">
+      <i class="fa fa-chevron-left"></i> 6、7基础入门-抓包技术
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/" rel="next" title="9基础入门-算法加密">
+      9基础入门-算法加密 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+ 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTAzNi8zNTQ5OA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">知识点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">章节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE-%E7%BC%96%E7%A0%81%E5%9E%8B-%E5%8A%A0%E5%AF%86%E5%9E%8B%E7%AD%89"><span class="nav-number">4.</span> <span class="nav-text">传输数据-编码型&amp;加密型等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E6%A0%BC%E5%BC%8F-%E5%B8%B8%E8%A7%84-JSON-XML%E7%AD%89"><span class="nav-number">5.</span> <span class="nav-text">传输格式-常规&amp;JSON&amp;XML等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%98%E5%82%A8-Web-%E7%B3%BB%E7%BB%9F-%E4%B8%89%E6%96%B9%E5%BA%94%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">密码存储-Web&amp;系统&amp;三方应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86-%E6%BA%90%E4%BB%A3%E7%A0%81%E5%8A%A0%E5%AF%86-%E9%80%86%E5%90%91%E4%BF%9D%E6%8A%A4"><span class="nav-number">7.</span> <span class="nav-text">代码混淆-源代码加密&amp;逆向保护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%9C%A8%E4%BC%A0%E8%BE%93%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BA%86%E8%A7%A3%EF%BC%9F"><span class="nav-number">7.1.</span> <span class="nav-text">数据在传输的时候进行编码 为什么要了解？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E8%AF%BE%E6%84%8F%E4%B9%89%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">本课意义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E8%A1%A5%E5%85%85%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="nav-number">9.</span> <span class="nav-text">拓展补充参考资料：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="z7"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">z7</p>
+  <div class="site-description" itemprop="description">师从小迪，欢迎各位来当迪总的韭菜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z7yy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z7yy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:15866095848@163.com" title="E-Mail → mailto:15866095848@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-git fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      链接网站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xiaodi8.com/" title="http:&#x2F;&#x2F;www.xiaodi8.com&#x2F;" rel="noopener" target="_blank">小迪渗透吧</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-10 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">z7</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共75.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,255,0' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>

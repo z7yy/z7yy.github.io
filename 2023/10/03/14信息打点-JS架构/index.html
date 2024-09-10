@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="思维导图见 12信息打点 知识点： 8、JS前端架构-识别&amp;分析 9、JS前端架构-开发框架分析 10、JS前端架构-打包器分析 11、JS前端架构-提取&amp;FUZZ解决：1、如何从表现中的JS提取价值信息2、如何从地址中FUZZ提取未知的JS文件3、如何从JS开放框架WebPack进行测试  章节点 Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="14信息打点-JS架构">
+<meta property="og:url" content="http://example.com/2023/10/03/14%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-JS%E6%9E%B6%E6%9E%84/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="思维导图见 12信息打点 知识点： 8、JS前端架构-识别&amp;分析 9、JS前端架构-开发框架分析 10、JS前端架构-打包器分析 11、JS前端架构-提取&amp;FUZZ解决：1、如何从表现中的JS提取价值信息2、如何从地址中FUZZ提取未知的JS文件3、如何从JS开放框架WebPack进行测试  章节点 Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-03T01:02:30.000Z">
+<meta property="article:modified_time" content="2023-11-06T13:06:34.825Z">
+<meta property="article:author" content="z7">
+<meta property="article:tag" content="信息打点">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/10/03/14%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-JS%E6%9E%B6%E6%9E%84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>14信息打点-JS架构 | 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://z7yy" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/14%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-JS%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          14信息打点-JS架构
+        </h1>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-03 09:02:30" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:30+08:00">2023-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:06:34" itemprop="dateModified" datetime="2023-11-06T21:06:34+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>8、JS前端架构-识别&amp;分析</li>
+<li>9、JS前端架构-开发框架分析</li>
+<li>10、JS前端架构-打包器分析</li>
+<li>11、JS前端架构-提取&amp;FUZZ<br>解决：<br>1、如何从表现中的JS提取价值信息<br>2、如何从地址中FUZZ提取未知的JS文件<br>3、如何从JS开放框架WebPack进行测试</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
+<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
+<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
+<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
+<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
+<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等</li>
+</ul>
+<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><ul>
+<li>CMS：<br>Discuz、WordPress、Ecshop、蝉知等  </li>
+<li>前端技术：<br>HTML5、jquery、bootstrap、Vue等  </li>
+<li>开发语言：<br>PHP、JAVA、Ruby、Python、C#，JS等  </li>
+<li>Web服务器：(中间件)<br>Apache、Nginx、IIS、lighttpd，Apache等  </li>
+<li>应用服务器：<br>（应用服务器特点就是会开放一个端口，web和应用服务器是针对不同服务类型的特点就是会开放一个端口，web和应用服务器是针对不同服务类型的）<br>Tomcat、Jboss、Weblogic、Websphere等  </li>
+<li>数据库类型：<br>Mysql、SqlServer、Oracle、Redis、MongoDB等  </li>
+<li>操作系统信息：<br>Linux、windows等  </li>
+<li>应用服务信息：<br>FTP、SSH、RDP、SMB、SMTP、LDAP、Rsync等  </li>
+<li>CDN信息：<br>帝联、Cloudflare、网宿、七牛云、阿里云等  </li>
+<li>WAF信息：<br>创宇盾、宝塔、ModSecurity、玄武盾、OpenRASP等  </li>
+<li>蜜罐信息：<br>HFish、TeaPot、T-Pot、Glastopf等  </li>
+<li>其他组件信息：<br>fastjson、shiro、log4j、OA办公等</li>
+</ul>
+<h3 id="1、什么是JS渗透测试？"><a href="#1、什么是JS渗透测试？" class="headerlink" title="1、什么是JS渗透测试？"></a>1、什么是JS渗透测试？</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Javascript中也存在变量和函数，当存在可控变量及函数调用即可参数漏洞JS开发的WEB应用和PHP，JAVA,NET等区别在于即没有源代码，也可以通过浏览器的查看源代码获取真实的点。获取URL，获取JS敏感信息，获取代码传参等，所以相当于JS开发的WEB应用属于白盒测试（默认有源码参考），一般会在JS中寻找更多的URL地址，在JS代码逻辑（加密算法，APIkey配置，验证逻辑等）进行后期安全测试。<br>前提：Web应用可以采用后端或前端语言开发<br>-后端语言：php java python .NET 浏览器端看不到真实的源代码<br>-前端语言：JavaScript(JS)和JS框架 浏览器端看到真实的源代码<br>例子：<br>zblog：核心功能采用PHP语言去传输接受<br>vue.js：核心功能采用框架语法（JS）传输接受  </p>
+<h3 id="2、JS安全问题"><a href="#2、JS安全问题" class="headerlink" title="2、JS安全问题"></a>2、JS安全问题</h3><p>源码泄漏<br>未授权访问&#x3D;JS里面分析更多的URL访问确定接口路径<br>敏感key泄漏&#x3D;JS文件中可能配置了接口信息（云应用，短信，邮件，数据库等）<br>API接口安全&#x3D;（代码中加密提交参数传递，更多的URL路径）  </p>
+<h3 id="3、流行的Js框架有那些？"><a href="#3、流行的Js框架有那些？" class="headerlink" title="3、流行的Js框架有那些？"></a>3、流行的Js框架有那些？</h3><p>Vue NodeJS jQuery Angular等    </p>
+<h3 id="4、如何判定JS开发应用？"><a href="#4、如何判定JS开发应用？" class="headerlink" title="4、如何判定JS开发应用？"></a>4、如何判定JS开发应用？</h3><p>插件wappalyzer<br>源程序代码简短<br>引入多个js文件<br>一般有&#x2F;static&#x2F;js&#x2F;app.js等顺序的js文件<br>一般cookie中有connect.sid  </p>
+<h3 id="5、如何获取更多的JS文件？"><a href="#5、如何获取更多的JS文件？" class="headerlink" title="5、如何获取更多的JS文件？"></a>5、如何获取更多的JS文件？</h3><p>手工-浏览器搜索<br>半自动-Burpsuite插件<br>工具化-各类提取&amp;FUZZ项目  </p>
+<h3 id="6、如何快速获取价值信息？"><a href="#6、如何快速获取价值信息？" class="headerlink" title="6、如何快速获取价值信息？"></a>6、如何快速获取价值信息？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src=  </span><br><span class="line">path=  </span><br><span class="line">method:&quot;get&quot;  </span><br><span class="line">http.get(&quot;  </span><br><span class="line">method:&quot;post&quot;  </span><br><span class="line">http.post(&quot;  </span><br><span class="line">$.ajax  </span><br><span class="line">http://service.httppost  </span><br><span class="line"> http://service.httpget  </span><br></pre></td></tr></table></figure>
+<h2 id="前端架构-手工搜索分析"><a href="#前端架构-手工搜索分析" class="headerlink" title="前端架构-手工搜索分析"></a>前端架构-手工搜索分析</h2><p>浏览器全局搜索分析  </p>
+<h2 id="前端架构-半自动Burp分析"><a href="#前端架构-半自动Burp分析" class="headerlink" title="前端架构-半自动Burp分析"></a>前端架构-半自动Burp分析</h2><p>自带功能：Target-&gt;sitemap-&gt;Engagement tools-&gt;Find scripts<br>官方插件：JS Link Finder &amp; JS Miner<br>第三方插件：HaE &amp; Unexpected_information<br>插件加载器：jython-standalone-2.7.2<br><strong>Unexpected_information：</strong><br><a target="_blank" rel="noopener" href="https://github.com/ScriptKid-Beta/Unexpected_information">https://github.com/ScriptKid-Beta/Unexpected_information</a><br>用来标记请求包中的一些敏感信息、JS接口和一些特殊字段，防止我们疏忽了一些数据包，使用它可能会有意外的收获信息。<br><strong>HaE：</strong><br><a target="_blank" rel="noopener" href="https://github.com/gh0stkey/HaE">https://github.com/gh0stkey/HaE</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/gh0stkey/HaE/gh-pages/Config.yml">https://raw.githubusercontent.com/gh0stkey/HaE/gh-pages/Config.yml</a><br>基于BurpSuite插件JavaAPI开发的请求高亮标记与信息提取的辅助型插件。该插件可以通过自定义正则的方式匹配响应报文或请求报文，可以自行决定符合该自定义正则匹配的相应请求是否需要高亮标记、信息提取。  </p>
+<h2 id="前端架构-自动化项目分析"><a href="#前端架构-自动化项目分析" class="headerlink" title="前端架构-自动化项目分析"></a>前端架构-自动化项目分析</h2><ul>
+<li><p><strong>Jsfinder</strong>-从表现中JS中提取URL或者敏感数据<br><a target="_blank" rel="noopener" href="https://github.com/Threezh1/JSFinder">https://github.com/Threezh1/JSFinder</a><br>一款用作快速在网站的js文件中提取URL，子域名的工具  </p>
+</li>
+<li><p><strong>URLFinder</strong>-从表现中JS中提取URL或者敏感数据<br><a target="_blank" rel="noopener" href="https://github.com/pingc0y/URLFinder">https://github.com/pingc0y/URLFinder</a><br>一款用于快速提取检测页面中JS与URL的工具。<br>功能类似于JSFinder，但JSFinder好久没更新了。</p>
+</li>
+</ul>
+<p><code>URLFinder-windows-amd64.exe -u url -s all -m 2</code></p>
+<ul>
+<li><p><strong>JSINFO-SCAN</strong>-从表现中JS中提取URL或者敏感数据<br><a target="_blank" rel="noopener" href="https://github.com/p1g3/JSINFO-SCAN">https://github.com/p1g3/JSINFO-SCAN</a><br>递归爬取域名(netloc&#x2F;domain)，以及递归从JS中获取信息的工具  </p>
+</li>
+<li><p><strong>FindSomething</strong>-从表现中JS中提取URL或者敏感数据(浏览器插件)<br><a target="_blank" rel="noopener" href="https://github.com/momosecurity/FindSomething">https://github.com/momosecurity/FindSomething</a><br>该工具是用于快速在网页的html源码或js代码中提取一些有趣的信息的浏览器插件，包括请求的资源、接口的url，请求的ip和域名，泄漏的证件号、手机号、邮箱等信息。</p>
+</li>
+<li><p><strong>ffuf-FUZZ</strong>-爆破找到更多的js文件分析更多的信息<br><a target="_blank" rel="noopener" href="https://github.com/ffuf/ffuf">https://github.com/ffuf/ffuf</a><br><a target="_blank" rel="noopener" href="https://wordlists.assetnote.io(下载字典)/">https://wordlists.assetnote.io(下载字典)</a><br>功能强大的模糊化工具，用它来FUZZ模糊化js文件。</p>
+</li>
+</ul>
+<p><code>ffuf.exe -w 字典.txt -u http://xxx.xxx.com/FUZZ  -t 200</code></p>
+<ul>
+<li><strong>Packer-Fuzzer</strong>-针对JS框架开发打包器Webpack检测（扫描完后生成报告）<br><a target="_blank" rel="noopener" href="https://github.com/rtcatc/Packer-Fuzzer">https://github.com/rtcatc/Packer-Fuzzer</a><br>一款针对Webpack等前端打包工具所构造的网站进行快速、高效安全检测的扫描工具</li>
+</ul>
+<p><code>python Packer-Fuzzer.py -u http://xxx.xxx.com</code></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>z7
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/10/03/14%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-JS%E6%9E%B6%E6%9E%84/" title="14信息打点-JS架构">http://example.com/2023/10/03/14信息打点-JS架构/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9/" rel="tag"># 信息打点</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/10/03/13%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-web%E5%BA%94%E7%94%A8%E6%89%93%E7%82%B9/" rel="prev" title="13信息打点-web应用打点">
+      <i class="fa fa-chevron-left"></i> 13信息打点-web应用打点
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/03/15%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%B8%BB%E6%9C%BA%E6%9E%B6%E6%9E%84/" rel="next" title="15信息打点-主机架构">
+      15信息打点-主机架构 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+ 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTAzNi8zNTQ5OA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">知识点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">章节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">补充：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFJS%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">1、什么是JS渗透测试？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81JS%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.</span> <span class="nav-text">2、JS安全问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%B5%81%E8%A1%8C%E7%9A%84Js%E6%A1%86%E6%9E%B6%E6%9C%89%E9%82%A3%E4%BA%9B%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">3、流行的Js框架有那些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%A6%82%E4%BD%95%E5%88%A4%E5%AE%9AJS%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">4、如何判定JS开发应用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E6%9B%B4%E5%A4%9A%E7%9A%84JS%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-number">4.5.</span> <span class="nav-text">5、如何获取更多的JS文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%8E%B7%E5%8F%96%E4%BB%B7%E5%80%BC%E4%BF%A1%E6%81%AF%EF%BC%9F"><span class="nav-number">4.6.</span> <span class="nav-text">6、如何快速获取价值信息？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-%E6%89%8B%E5%B7%A5%E6%90%9C%E7%B4%A2%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">前端架构-手工搜索分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-%E5%8D%8A%E8%87%AA%E5%8A%A8Burp%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">前端架构-半自动Burp分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">前端架构-自动化项目分析</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="z7"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">z7</p>
+  <div class="site-description" itemprop="description">师从小迪，欢迎各位来当迪总的韭菜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z7yy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z7yy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:15866095848@163.com" title="E-Mail → mailto:15866095848@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-git fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      链接网站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xiaodi8.com/" title="http:&#x2F;&#x2F;www.xiaodi8.com&#x2F;" rel="noopener" target="_blank">小迪渗透吧</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-10 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">z7</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共75.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,255,0' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>

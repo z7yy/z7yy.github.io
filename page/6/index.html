@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="http://example.com/page/6/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="师从小迪，欢迎各位来当迪总的韭菜">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="z7">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://z7yy" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/10/29%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/10/29%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">29安全开发-JS技术</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-10 17:58:10" itemprop="dateCreated datePublished" datetime="2023-10-10T17:58:10+08:00">2023-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:10:07" itemprop="dateModified" datetime="2023-11-06T21:10:07+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>20、JS技术-DOM树操作及安全隐患</li>
+<li>21、JS技术-加密编码及数据安全调试</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>安全：原生PHP开发安全，模版引用安全，第三方插件安全，TP框架安全等  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，SQL操作，云应用接入，框架开发，打包器使用等<br>技术：原生开发，DOM，常见库使用，框架开发（Vue，NodeJS），打包器(Webpack)等<br>安全：原生开发安全，NodeJS安全，Vue安全，打包器Webpack安全，三方库安全问题等  </li>
+<li>3、Java：<br>内容筹备中……</li>
+</ul>
+<h2 id="JS原生开发-DOM树-用户交互"><a href="#JS原生开发-DOM树-用户交互" class="headerlink" title="JS原生开发-DOM树-用户交互"></a>JS原生开发-DOM树-用户交互</h2><p>DOM：文档操作对象<br>浏览器提供的一套专门用来操作网页代码内容的功能，实现自主或用户交互动作反馈  </p>
+<p>安全问题：本身的前端代码通过DOM技术实现代码的更新修改，但是更新修改如果修改的数据可以由用户来指定，就会造成DOM-XSS攻击！  </p>
+<ul>
+<li><p>1、获取对象<br>标签：直接写<br>Class：加上符号.<br>id：加上符号#  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getValue()&quot;</span>&gt;</span>这是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">document.querySelector(&#x27;h1&#x27;)</span><br><span class="line">document.querySelector(&#x27;.id&#x27;)</span><br><span class="line">document.querySelector(&#x27;#myHeader&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、获取对象属性  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getValue()&quot;</span>&gt;</span>这是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">const h1=document.querySelector(&#x27;h1&#x27;)</span><br><span class="line">const id=h1.id</span><br><span class="line">console.log(id)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、操作元素数据<br>innerHTML 解析后续代码<br>innerText 不解析后续代码  </p>
+</li>
+<li><p>4、操作元素属性  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">className src id等  </span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;iphone.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span><br><span class="line">const src=document.querySelector(&#x27;img&#x27;)</span><br><span class="line">src.src=&#x27;huawei.png&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="JS导入库开发-编码加密-逆向调试"><a href="#JS导入库开发-编码加密-逆向调试" class="headerlink" title="JS导入库开发-编码加密-逆向调试"></a>JS导入库开发-编码加密-逆向调试</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Base64</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MD5</span></span><br><span class="line">&lt;script src=<span class="string">&quot;js/md5.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str_encode = <span class="title function_">md5</span>(str1);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode) </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//SHA1</span></span><br><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> str_encode = <span class="title class_">CryptoJS</span>.<span class="title class_">SHA1</span>(str1).<span class="title function_">toString</span>(); <span class="comment">// 注意：1是数字1</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/html&gt;      </span><br><span class="line"></span><br><span class="line"><span class="comment">//HMAC</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> key = <span class="string">&#x27;key&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str1 = <span class="string">&#x27;xiaodisec&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> hash = <span class="title class_">CryptoJS</span>.<span class="title class_">HmacSHA256</span>(key, str1);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str_encode = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Hex</span>.<span class="title function_">stringify</span>(hash);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str_encode)  <span class="comment">// &#x27;11a7960cd583ee2c3f1ed910dbc3b6c3991207cbc527d122f69e84d13cc5ce5c&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//AES</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> aseKey = <span class="string">&quot;12345678&quot;</span>     <span class="comment">// 定制秘钥，长度必须为：8/16/32位, 长度不一致也没问题</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> message = <span class="string">&quot;xiaodisec&quot;</span>;  <span class="comment">// 需要加密的内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="comment">// 加密 DES/AES切换只需要修改 CryptoJS.AES &lt;=&gt; CryptoJS.DES</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> encrypt = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">encrypt</span>(message, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey),  <span class="comment">// 参数1=密钥, 参数2=加密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>, <span class="comment">// 为DES的工作方式</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span>  <span class="comment">// 当加密后密文长度达不到指定整数倍(8个字节、16个字节)则填充对应字符</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">             &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          ).<span class="title function_">toString</span>(); <span class="comment">// toString=转字符串类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypt); <span class="comment">// 在弹窗中打印字符串 2vcsEDJv9vAZZLgFLjkZ9A==</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="comment">//解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">var</span> decrypt = <span class="title class_">CryptoJS</span>.<span class="property">AES</span>.<span class="title function_">decrypt</span>(encrypt, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey), <span class="comment">// 参数1=密钥, 参数2=解密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">              &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          ).<span class="title function_">toString</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>); <span class="comment">// toString=转字符串类型,并指定编码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="variable language_">console</span>.<span class="title function_">log</span>(decrypt); <span class="comment">// &quot;xiaodisec&quot;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//DES</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> aseKey = <span class="string">&quot;12345678&quot;</span>     <span class="comment">// 定制秘钥，长度必须为：8/16/32位， 长度不一致也没问题</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> message = <span class="string">&quot;xiaodisec&quot;</span>;  <span class="comment">// 需要加密的内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 加密 DES/AES切换只需要修改 CryptoJS.AES &lt;=&gt; CryptoJS.DES</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> encrypt = <span class="title class_">CryptoJS</span>.<span class="property">DES</span>.<span class="title function_">encrypt</span>(message, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey),  <span class="comment">// 参数1=密钥, 参数2=加密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>, <span class="comment">// 为DES的工作方式</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span>  <span class="comment">// 当加密后密文长度达不到指定整数倍(8个字节、16个字节)则填充对应字符</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">         &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      ).<span class="title function_">toString</span>(); <span class="comment">// toString=转字符串类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypt); <span class="comment">// 控制台打印 CDVNwmEwDRM</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">var</span> decrypt = <span class="title class_">CryptoJS</span>.<span class="property">DES</span>.<span class="title function_">decrypt</span>(encrypt, <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(aseKey), <span class="comment">// 参数1=密钥, 参数2=解密内容</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">mode</span>: <span class="title class_">CryptoJS</span>.<span class="property">mode</span>.<span class="property">ECB</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">padding</span>: <span class="title class_">CryptoJS</span>.<span class="property">pad</span>.<span class="property">Pkcs7</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      ).<span class="title function_">toString</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>); <span class="comment">// toString=转字符串类型,并指定编码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(decrypt); <span class="comment">// 控制台打印 &quot;i am xiaozhou ?&quot;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//RSA</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/jsencrypt.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">// 公钥 私匙是通过公匙计算生成的，不能盲目设置</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> <span class="variable constant_">PUBLIC_KEY</span> = <span class="string">&#x27;-----BEGIN PUBLIC KEY-----MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALyBJ6kZ/VFJYTV3vOC07jqWIqgyvHulv6us/8wzlSBqQ2+eOTX7s5zKfXY40yZWDoCaIGk+tP/sc0D6dQzjaxECAwEAAQ==-----END PUBLIC KEY-----&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//私钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> <span class="variable constant_">PRIVATE_KEY</span> = <span class="string">&#x27;-----BEGIN PRIVATE KEY-----MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAvIEnqRn9UUlhNXe84LTuOpYiqDK8e6W/q6z/zDOVIGpDb545NfuznMp9djjTJlYOgJogaT60/+xzQPp1DONrEQIDAQABAkEAu7DFsqQEDDnKJpiwYfUE9ySiIWNTNLJWZDN/Bu2dYIV4DO2A5aHZfMe48rga5BkoWq2LALlY3tqsOFTe3M6yoQIhAOSfSAU3H6jIOnlEiZabUrVGqiFLCb5Ut3Jz9NN+5p59AiEA0xQDMrxWBBJ9BYq6RRY4pXwa/MthX/8Hy+3GnvNw/yUCIG/3Ee578KVYakq5pih8KSVeVjO37C2qj60d3Ok3XPqBAiEAqGPvxTsAuBDz0kcBIPqASGzArumljkrLsoHHkakOfU0CIDuhxKQwHlXFDO79ppYAPcVO3bph672qGD84YUaHF+pQ-----END PRIVATE KEY-----&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//使用公钥加密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> encrypt = <span class="keyword">new</span> <span class="title class_">JSEncrypt</span>();<span class="comment">//实例化加密对象</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        encrypt.<span class="title function_">setPublicKey</span>(<span class="variable constant_">PUBLIC_KEY</span>);<span class="comment">//设置公钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> message = <span class="string">&#x27;xiaodisec&#x27;</span> <span class="comment">// 需要加密的数据 </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> encrypted = encrypt.<span class="title function_">encrypt</span>(message);<span class="comment">//对指定数据进行加密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(encrypted)  <span class="comment">// &#x27;JQ83h8tmJpsSZcb4BJ3eQvuqIAs3ejepcUUnoFhQEvum8fA8bf1Y/fG+DO1bSIVNJF6EOZKe4wa0njv6aOar9w==&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="comment">//使用私钥解密</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> decrypt = <span class="keyword">new</span> <span class="title class_">JSEncrypt</span>(); <span class="comment">// 创建解密对象</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        decrypt.<span class="title function_">setPrivateKey</span>(<span class="variable constant_">PRIVATE_KEY</span>); <span class="comment">//设置私钥</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> uncrypted = decrypt.<span class="title function_">decrypt</span>(encrypted); <span class="comment">//解密 &#x27;xiaodisec&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(uncrypted);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/10/28%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/10/28%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-JS%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">28安全开发-JS应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-10 17:57:55" itemprop="dateCreated datePublished" datetime="2023-10-10T17:57:55+08:00">2023-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:59" itemprop="dateModified" datetime="2023-11-06T21:09:59+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>867</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>18、JS应用-原生态开发&amp;第三库开发</li>
+<li>19、JS功能-文件上传&amp;登录验证&amp;商品购买</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>1、PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。  </li>
+<li>2、JS：<br>功能：登录验证，文件操作，商品购买，数据库操作，云应用接入，框架开发等<br>技术：原生开发，DOM树，常见库使用(JQuery)，框架开发（Vue，Nodejs）等  </li>
+<li>3、Java：<br>内容筹备中……</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>1、原生JS教程<br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/js/index.asp">https://www.w3school.com.cn/js/index.asp</a>  </li>
+<li>2、jQuery库教程<br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jquery/index.asp">https://www.w3school.com.cn/jquery/index.asp</a></li>
+</ul>
+<h2 id="JS原生开发-文件上传-变量-对象-函数-事件"><a href="#JS原生开发-文件上传-变量-对象-函数-事件" class="headerlink" title="JS原生开发-文件上传-变量&amp;对象&amp;函数&amp;事件"></a>JS原生开发-文件上传-变量&amp;对象&amp;函数&amp;事件</h2><ul>
+<li>1、布置前端页面  </li>
+<li>2、JS获取提交数据  </li>
+<li>3、JS对上传格式判断  </li>
+<li>4、后端对上传数据处理<br>前端JS进行后缀过滤，后端PHP进行上传处理<br>架构：html js php - upload.php</li>
+</ul>
+<h3 id="安全问题："><a href="#安全问题：" class="headerlink" title="安全问题："></a>安全问题：</h3><ul>
+<li>1、过滤代码能看到分析绕过   </li>
+<li>2、禁用JS或删除过滤代码绕过</li>
+</ul>
+<h2 id="JS导入库开发-登录验证-JQuery库-Ajax技术"><a href="#JS导入库开发-登录验证-JQuery库-Ajax技术" class="headerlink" title="JS导入库开发-登录验证-JQuery库&amp;Ajax技术"></a>JS导入库开发-登录验证-JQuery库&amp;Ajax技术</h2><ul>
+<li>1、布置前端页面  </li>
+<li>2、获取登录事件  </li>
+<li>3、配置Ajax请求  </li>
+<li>4、后端代码验证  </li>
+<li>5、成功回调判断<br>后端PHP进行帐号判断，前端JS进行登录处理<br>架构：html js login.html - logincheck.php</li>
+</ul>
+<h2 id="JS导入库开发-逻辑购买-JQuery库-Ajax技术"><a href="#JS导入库开发-逻辑购买-JQuery库-Ajax技术" class="headerlink" title="JS导入库开发-逻辑购买-JQuery库&amp;Ajax技术"></a>JS导入库开发-逻辑购买-JQuery库&amp;Ajax技术</h2><ul>
+<li>1、布置前端页面  </li>
+<li>2、获取登录事件  </li>
+<li>3、配置Ajax请求  </li>
+<li>4、后端代码验证  </li>
+<li>5、成功回调判断<br>架构：html js shop.html - shopcheck.php</li>
+</ul>
+<h2 id="实例测试-某违规APP-密码找回-JS验证逻辑安全"><a href="#实例测试-某违规APP-密码找回-JS验证逻辑安全" class="headerlink" title="实例测试-某违规APP-密码找回&amp;JS验证逻辑安全"></a>实例测试-某违规APP-密码找回&amp;JS验证逻辑安全</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/09/27%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-TP%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/09/27%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-TP%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">27安全开发-TP框架</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-09 19:03:09" itemprop="dateCreated datePublished" datetime="2023-10-09T19:03:09+08:00">2023-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:52" itemprop="dateModified" datetime="2023-11-06T21:09:52+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>503</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>16、TP框架-开发-路由访问&amp;数据库&amp;文件上传&amp;MVC模型</li>
+<li>17、TP框架-安全-不合规写法&amp;内置过滤绕过&amp;版本安全漏洞</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……  </p>
+<h2 id="TP框架-开发-配置架构-路由-MVC模型"><a href="#TP框架-开发-配置架构-路由-MVC模型" class="headerlink" title="TP框架-开发-配置架构&amp;路由&amp;MVC模型"></a>TP框架-开发-配置架构&amp;路由&amp;MVC模型</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.kancloud.cn/manual/thinkphp5_1">https://www.kancloud.cn/manual/thinkphp5_1</a>  </p>
+<ul>
+<li>1、配置架构-导入使用  </li>
+<li>2、路由访问-URL访问  </li>
+<li>3、数据库操作-应用对象  </li>
+<li>4、文件上传操作-应用对象  </li>
+<li>5、前端页面渲染-MVC模型</li>
+</ul>
+<h2 id="TP框架-安全-不安全写法-版本过滤绕过"><a href="#TP框架-安全-不安全写法-版本过滤绕过" class="headerlink" title="TP框架-安全-不安全写法&amp;版本过滤绕过"></a>TP框架-安全-不安全写法&amp;版本过滤绕过</h2><ul>
+<li>1、内置代码写法<br>例子：不合规的代码写法-TP5-自写  </li>
+<li>2、框架版本安全<br>例子1：写法内置安全绕过-TP5-SQL注入<br>例子2：内置版本安全漏洞-TP5-代码执行</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/09/26%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%B0%E9%97%BB-%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/09/26%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%B0%E9%97%BB-%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">26安全开发-新闻 框架</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-09 19:02:27" itemprop="dateCreated datePublished" datetime="2023-10-09T19:02:27+08:00">2023-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:44" itemprop="dateModified" datetime="2023-11-06T21:09:44+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>13、PHP新闻显示-数据库操作读取显示</li>
+<li>14、PHP模版引用-自写模版&amp;Smarty渲染</li>
+<li>15、PHP模版安全-RCE代码执行&amp;三方漏洞</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……  </p>
+<h2 id="新闻列表"><a href="#新闻列表" class="headerlink" title="新闻列表"></a>新闻列表</h2><ul>
+<li>1、数据库创建新闻存储  </li>
+<li>2、代码连接数据库读取  </li>
+<li>3、页面进行自定义显示</li>
+</ul>
+<h2 id="自写模版引用"><a href="#自写模版引用" class="headerlink" title="自写模版引用"></a>自写模版引用</h2><ul>
+<li>1、页面显示样式编排  </li>
+<li>2、显示数据插入页面  </li>
+<li>3、引用模版调用触发</li>
+</ul>
+<h2 id="Smarty模版引用"><a href="#Smarty模版引用" class="headerlink" title="Smarty模版引用"></a>Smarty模版引用</h2><p>下载：<a target="_blank" rel="noopener" href="https://github.com/smarty-php/smarty/releases">https://github.com/smarty-php/smarty/releases</a><br>使用：  </p>
+<ul>
+<li>1、创建一个文件夹，命名为smarty-demo。  </li>
+<li>2、下载Smarty对应版本并解压缩到该文件夹中。  </li>
+<li>3、创建一个PHP文件，命名为index.php，并在文件中添加以下代码：  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 引入 Smarty 类文件</span></span><br><span class="line"><span class="keyword">require</span>(<span class="string">&#x27;smarty-demo/libs/Smarty.class.php&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建 Smarty 实例</span></span><br><span class="line"><span class="variable">$smarty</span> = <span class="keyword">new</span> <span class="title class_">Smarty</span>;</span><br><span class="line"><span class="comment">// 设置 Smarty 相关属性</span></span><br><span class="line"><span class="variable">$smarty</span>-&gt;template_dir = <span class="string">&#x27;smarty-demo/templates/&#x27;</span>;</span><br><span class="line"><span class="variable">$smarty</span>-&gt;compile_dir = <span class="string">&#x27;smarty-demo/templates_c/&#x27;</span>;</span><br><span class="line"><span class="variable">$smarty</span>-&gt;cache_dir = <span class="string">&#x27;smarty-demo/cache/&#x27;</span>;</span><br><span class="line"><span class="variable">$smarty</span>-&gt;config_dir = <span class="string">&#x27;smarty-demo/configs/&#x27;</span>;</span><br><span class="line"><span class="comment">// 赋值变量到模板中</span></span><br><span class="line"><span class="variable">$smarty</span>-&gt;<span class="title function_ invoke__">assign</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;欢迎使用 Smarty&#x27;</span>);</span><br><span class="line"><span class="comment">// 显示模板</span></span><br><span class="line"><span class="variable">$smarty</span>-&gt;<span class="title function_ invoke__">display</span>(<span class="string">&#x27;index.tpl&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>4、创建一个名为index.tpl的模板文件，并将以下代码复制到上述点定义文件夹中  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;$title&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;$title&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个使用 Smarty 的例子。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="代码RCE安全测试"><a href="#代码RCE安全测试" class="headerlink" title="代码RCE安全测试"></a>代码RCE安全测试</h2><ul>
+<li>1、自写模版的安全隐患<br>php文件渲染模板时使用了代码执行函数——&gt;模板中加上可控变量造成代码执行</li>
+<li>2、第三方Smarty的安全隐患<br>第三方插件 ueditor<br>第三方组件 shiro<br>也有安全隐患<br>代码审计——&gt;不仅仅是代码，还有引用的第三方软件<br>黑盒插件识别模板、特征<br>白盒文件，代码、特征</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">25安全开发-文件管理</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-08 19:56:32" itemprop="dateCreated datePublished" datetime="2023-10-08T19:56:32+08:00">2023-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:37" itemprop="dateModified" datetime="2023-11-06T21:09:37+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>11、PHP文件管理-下载&amp;删除功能实现</li>
+<li>12、PHP文件管理-编辑&amp;包含功能实现</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/08/25%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86.png"></p>
+<h2 id="PHP文件操作安全"><a href="#PHP文件操作安全" class="headerlink" title="PHP文件操作安全"></a>PHP文件操作安全</h2><p>-文件包含，文件上传，文件下载，文件删除，文件写入，文件遍历  </p>
+<h2 id="文件包含："><a href="#文件包含：" class="headerlink" title="文件包含："></a>文件包含：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">include() 在错误发生后脚本继续执行  </span><br><span class="line">require() 在错误发生后脚本停止执行  </span><br><span class="line">include_once() 如果已经包含，则不再执行  </span><br><span class="line">require_once() 如果已经包含，则不再执行  </span><br></pre></td></tr></table></figure>
+
+<h2 id="文件上传："><a href="#文件上传：" class="headerlink" title="文件上传："></a>文件上传：</h2><p>1、无过滤机制<br>2、黑名单过滤机制<br>3、白名单过滤机制<br>4、文件类型过滤机制  </p>
+<p>架构：<br>1、上传至服务器本身的存储磁盘(源码在一起)<br>2、云产品OSS存储对象去存储文件(泄漏安全)<br>3、把文件上传到其他域名,如：<a href="http://www.xiaodi8.com->upload.xiaodi8.com">www.xiaodi8.com-&gt;upload.xiaodi8.com</a>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$_FILES：PHP中一个预定义的超全局变量，用于在上传文件时从客户端接收文件，并将其保存到服务器上。它是一个包含上传文件信息的数组，包括文件名、类型、大小、临时文件名等信息。  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;name&quot;] 获取上传文件原始名称  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;type&quot;] 获取上传文件MIME类型  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;size&quot;] 获取上传文件字节单位大小  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;tmp_name&quot;] 获取上传的临时副本文件名  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;error&quot;] 获取上传时发生的错误代码  </span><br><span class="line">move_uploaded_file() 将上传的文件移动到指定位置的函数  </span><br></pre></td></tr></table></figure>
+<h2 id="文件显示："><a href="#文件显示：" class="headerlink" title="文件显示："></a>文件显示：</h2><p>1.打开目录读取文件列表<br>2.递归循环读取文件列表<br>3.判断是文件还是文件夹<br>4.PHP.INI目录访问控制  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">is_dir() 函数用于检查指定的路径是否是一个目录  </span><br><span class="line">opendir() 函数用于打开指定的目录，返回句柄，用来读取目录中的文件和子目录  </span><br><span class="line">readdir() 函数用于从打开的目录句柄中读取目录中的文件和子目录  </span><br><span class="line">open_basedir：PHP.INI中的设置用来控制脚本程序访问目录  </span><br><span class="line">ini_set(&#x27;open_basedir&#x27;,__DIR__); 设置配置文件中，只能访问本目录  </span><br></pre></td></tr></table></figure>
+<h2 id="文件删除："><a href="#文件删除：" class="headerlink" title="文件删除："></a>文件删除：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unlink() 文件删除函数  </span><br><span class="line">调用命令删除：system shell_exec exec等  </span><br></pre></td></tr></table></figure>
+<h2 id="文件下载："><a href="#文件下载：" class="headerlink" title="文件下载："></a>文件下载：</h2><p>修改HTTP头实现文件读取解析下载：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">header(&quot;Content-Type: application/octet-stream&quot;);  </span><br><span class="line">header(&quot;Content-Disposition: attachment; filename=&quot;&quot;);  </span><br><span class="line">header(&quot;Content-Length: &quot; . filesize($file));  </span><br><span class="line">readfile($file);  </span><br></pre></td></tr></table></figure>
+<h2 id="文件编辑："><a href="#文件编辑：" class="headerlink" title="文件编辑："></a>文件编辑：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、file_get_contents() 读取文件内容  </span><br><span class="line">2、fopen() fread() 文件打开读入  </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/08/24%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/08/24%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">24安全开发-文件管理</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-08 19:56:22" itemprop="dateCreated datePublished" datetime="2023-10-08T19:56:22+08:00">2023-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:26" itemprop="dateModified" datetime="2023-11-06T21:09:26+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>964</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>8、PHP文件管理-显示&amp;上传功能实现</li>
+<li>9、文件上传-$_FILES&amp;过滤机制实现</li>
+<li>10、文件显示-目录遍历&amp;过滤机制实现</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……</p>
+<h2 id="文件管理模块-上传-过滤机制"><a href="#文件管理模块-上传-过滤机制" class="headerlink" title="文件管理模块-上传-过滤机制"></a>文件管理模块-上传-过滤机制</h2><ul>
+<li>1、无过滤机制  </li>
+<li>2、黑名单过滤机制  </li>
+<li>3、白名单过滤机制  </li>
+<li>4、文件类型过滤机制  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$_FILES：PHP中一个预定义的超全局变量，用于在上传文件时从客户端接收文件，并将其保存到服务器上。它是一个包含上传文件信息的数组，包括文件名、类型、大小、临时文件名等信息。  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;name&quot;] 获取上传文件原始名称  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;type&quot;] 获取上传文件MIME类型  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;size&quot;] 获取上传文件字节单位大小  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;tmp_name&quot;] 获取上传的临时副本文件名  </span><br><span class="line">$_FILES[&quot;表单值&quot;][&quot;error&quot;] 获取上传时发生的错误代码  </span><br><span class="line">move_uploaded_file() 将上传的文件移动到指定位置的函数  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="文件管理模块-显示-过滤机制"><a href="#文件管理模块-显示-过滤机制" class="headerlink" title="文件管理模块-显示-过滤机制"></a>文件管理模块-显示-过滤机制</h2><p>功能：显示 上传 下载 删除 编辑 包含等<br>1.打开目录读取文件列表<br>2.递归循环读取文件列表<br>3.判断是文件还是文件夹<br>4.PHP.INI目录访问控制  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">is_dir() 函数用于检查指定的路径是否是一个目录  </span><br><span class="line">opendir() 函数用于打开指定的目录，返回句柄，用来读取目录中的文件和子目录  </span><br><span class="line">readdir() 函数用于从打开的目录句柄中读取目录中的文件和子目录  </span><br><span class="line">open_basedir：PHP.INI中的设置用来控制脚本程序访问目录  </span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">23安全开发-php应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-07 20:56:17" itemprop="dateCreated datePublished" datetime="2023-10-07T20:56:17+08:00">2023-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:09:18" itemprop="dateModified" datetime="2023-11-06T21:09:18+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">22安全开发</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>5、PHP后台身份验证模块实现  </li>
+<li>6、Cookie&amp;Session技术&amp;差异  </li>
+<li>7、Token数据包唯一性应用场景  </li>
+<li>项目1：用cookie做后台身份验证  </li>
+<li>项目2：用session做后台身份验证  </li>
+<li>项目3：用token做用户登录判断</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/cookie1.png"><br> <img src="/2023/10/07/23%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/cookie1.png"></p>
+<h2 id="身份验证-Cookie使用"><a href="#身份验证-Cookie使用" class="headerlink" title="身份验证-Cookie使用"></a>身份验证-Cookie使用</h2><p>生成cookie的原理图过程：见图  </p>
+<ul>
+<li>1、客户端向服务器发送HTTP请求。  </li>
+<li>2、服务器检查请求头中是否包含cookie信息。  </li>
+<li>3、如果请求头中包含cookie信息，则服务器使用该cookie来识别客户端，否则服务器将生成一个新的cookie。  </li>
+<li>4、服务器在响应头中设置cookie信息并将其发送回客户端。  </li>
+<li>5、客户端接收响应并将cookie保存在本地。  </li>
+<li>6、当客户端发送下一次HTTP请求时，它会将cookie信息附加到请求头中。  </li>
+<li>7、服务器收到请求并检查cookie的有效性。  </li>
+<li>8、如果cookie有效，则服务器响应请求。否则，服务器可能会要求客户端重新登录。</li>
+</ul>
+<p>setcookie(): 设置一个cookie并发送到客户端浏览器。<br>unset(): 用于删除指定的cookie。  </p>
+<h2 id="身份验证-Session使用"><a href="#身份验证-Session使用" class="headerlink" title="身份验证-Session使用"></a>身份验证-Session使用</h2><ul>
+<li>1、客户端向服务器发送HTTP请求。  </li>
+<li>2、服务器为客户端生成一个唯一的session ID，并将其存储在服务器端的存储器中（如文件、数据库等）。  </li>
+<li>3、服务器将生成的session ID作为一个cookie发送给客户端。  </li>
+<li>4、客户端将session ID保存为一个cookie，通常是在本地浏览器中存储。  </li>
+<li>5、当客户端在发送下一次HTTP请求时，它会将该cookie信息附加到请求头中，以便服务器可以通过该session ID来识别客户端。   </li>
+<li>6、服务器使用session ID来检索存储在服务器端存储器中的与该客户端相关的session数据，从而在客户端和服务器之间共享数据。</li>
+</ul>
+<p>session_start(): 启动会话，用于开始或恢复一个已经存在的会话。<br>$_SESSION: 用于存储和访问当前会话中的所有变量。<br>session_destroy(): 销毁当前会话中的所有数据。<br>session_unset(): 释放当前会话中的所有变量。<br>Session存储路径：PHP.INI中session.save_path设置路径  </p>
+<h2 id="唯一性判断-Token使用"><a href="#唯一性判断-Token使用" class="headerlink" title="唯一性判断-Token使用"></a>唯一性判断-Token使用</h2><ul>
+<li>1、生成Token并将其存储在Session  </li>
+<li>2、生成Token并将其绑定在Cookie触发  </li>
+<li>3、尝试登录表单中带入Token验证逻辑  </li>
+<li>4、思考Token安全特性</li>
+</ul>
+<h2 id="具体安全知识点："><a href="#具体安全知识点：" class="headerlink" title="具体安全知识点："></a>具体安全知识点：</h2><h3 id="Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制"><a href="#Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制" class="headerlink" title="Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制"></a>Cookie和Session都是用来在Web应用程序中跟踪用户状态的机制</h3><ul>
+<li>1、存储位置不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie是存储在客户端（浏览器）上的，而Session是存储在服务器端的。  </li>
+<li>2、安全性不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie存储在客户端上，可能会被黑客利用窃取信息，而Session存储在服务器上，更加安全。  </li>
+<li>3、存储容量不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie的存储容量有限，一般为4KB，而Session的存储容量理论上没有限制，取决于服务器的硬件和配置。  </li>
+<li>4、生命周期不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie可以设置过期时间，即便关闭浏览器或者重新打开电脑，Cookie仍然存在，直到过期或者被删除。而Session一般默认在浏览器关闭后就会过期。  </li>
+<li>5、访问方式不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie可以通过JavaScript访问，而Session只能在服务器端进行访问。  </li>
+<li>6、使用场景不同：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cookie一般用于存储小型的数据，如用户的用户名和密码等信息。而Session一般用于存储大型的数据，如购物车、登录状态等信息。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总之，Cookie和Session都有各自的优缺点，选择使用哪一种方式，取决于具体的应用场景和需求。一般来说，如果需要存储敏感信息或者数据较大，建议使用Session；如果只需要存储少量的数据，并且需要在客户端进行访问，可以选择使用Cookie。  </p>
+<h3 id="在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。"><a href="#在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。" class="headerlink" title="在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。"></a>在Web应用程序中，使用token和不使用token的主要差异在于身份验证和安全性。</h3><ul>
+<li>1.身份验证：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用token机制的Web应用程序，用户在登录成功后会收到一个token，这个token可以在每次请求时发送给服务器进行身份验证。而不采用token机制的Web应用程序，一般会使用session机制来保存用户登录状态，服务器会在用户登录成功后创建一个session，之后的每个请求都需要在HTTP头中附带这个session ID，以便服务器能够验证用户身份。  </li>
+<li>2、安全性：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用token机制的Web应用程序，在服务器上不会存储用户的登录状态，只需要存储token即可。因此，即使token被盗取，黑客也无法获得用户的密码或者其他敏感信息。而不采用token机制的Web应用程序，一般会在服务器上存储用户的登录状态，因此如果服务器被黑客攻击，黑客可能会获得用户的敏感信息。  </li>
+<li>3、跨域访问：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用token机制的Web应用程序，在跨域访问时，可以使用HTTP头中的Authorization字段来传递token信息，方便实现跨域访问。而不采用token机制的Web应用程序，在跨域访问时，需使用cookie或session来传递用户身份信息，比较麻烦。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总之，采用token机制可以提高Web应用程序的安全性，并且方便实现跨域访问。不过，使用token机制也需要开发者自己来实现身份验证和token的生成和验证，相对来说比较复杂。而不采用token机制，使用session机制则相对简单，但是安全性相对较低。因此，具体采用哪种机制，需要根据实际情况进行权衡和选择。  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">22安全开发-php应用</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-07 10:25:06" itemprop="dateCreated datePublished" datetime="2023-10-07T10:25:06+08:00">2023-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 20:42:54" itemprop="dateModified" datetime="2023-11-06T20:42:54+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p> <img src="/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/image3.png"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>1、PHP留言板前后端功能实现<br>2、数据库创建&amp;架构&amp;增删改查<br>3、内置超全局变量&amp;HTML&amp;JS混编<br>4、第三方应用插件&amp;传参&amp;对象调用</p>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><p>PHP：<br>功能：新闻列表，会员中心，资源下载，留言版，后台模块，模版引用，框架开发等<br>技术：输入输出，超全局变量，数据库操作，逻辑架构，包含上传&amp;下载删除;<br>技术：JS&amp;CSS混用，Cookie,Session操作，MVC架构，ThinkPHP引用等。<br>JS：内容筹备中……<br>Java:内容筹备中……<br> <img src="/2023/10/07/22%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91-php%E5%BA%94%E7%94%A8/%E8%AF%84%E8%AE%BA%E5%8C%BA.png"></p>
+<h2 id="开发环境："><a href="#开发环境：" class="headerlink" title="开发环境："></a>开发环境：</h2><p>DW + PHPStorm + PhpStudy + Navicat Premium<br>DW : HTML&amp;JS&amp;CSS开发<br>PHPStorm : 专业PHP开发IDE<br>PhpStudy ：Apache MYSQL环境<br>Navicat Premium: 全能数据库管理工具  </p>
+<h2 id="数据导入-mysql架构-库表列"><a href="#数据导入-mysql架构-库表列" class="headerlink" title="数据导入-mysql架构&amp;库表列"></a>数据导入-mysql架构&amp;库表列</h2><p>1、数据库名，数据库表名，数据库列名<br>2、数据库数据，格式类型，长度，键等  </p>
+<h2 id="数据库操作-mysqli函数-增删改查"><a href="#数据库操作-mysqli函数-增删改查" class="headerlink" title="数据库操作-mysqli函数&amp;增删改查"></a>数据库操作-mysqli函数&amp;增删改查</h2><p>PHP函数：连接，选择，执行，结果，关闭等<br>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-ref-mysqli.html">https://www.runoob.com/php/php-ref-mysqli.html</a><br>常用：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysqli_connect()	打开一个到MySQL的新的连接。  </span><br><span class="line">mysqli_select_db()	更改连接的默认数据库。  </span><br><span class="line">mysqli_query()	执行某个针对数据库的查询。  </span><br><span class="line">mysqli_fetch_row()	从结果集中取得一行，并作为枚举数组返回。  </span><br><span class="line">mysqli_close()	关闭先前打开的数据库连接。  </span><br></pre></td></tr></table></figure>
+<p>MYSQL增删改查：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查：select * from 表名 where 列名=&#x27;条件&#x27;;  </span><br><span class="line">增：insert into 表名(`列名1`, `列名2`) value(&#x27;列1值1&#x27;, &#x27;列2值2&#x27;);  </span><br><span class="line">删：delete from 表名 where 列名 = &#x27;条件&#x27;;  </span><br><span class="line">改：update 表名 set 列名 = 数据 where 列名 = &#x27;条件&#x27;;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="数据接收输出-html混编-超全局变量"><a href="#数据接收输出-html混编-超全局变量" class="headerlink" title="数据接收输出-html混编&amp;超全局变量"></a>数据接收输出-html混编&amp;超全局变量</h2><p>1、html混编：使HTML(JS)在PHP语言中运行  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line">echo &#x27;&lt;script&gt;alert(&#x27;x&#x27;);&lt;/script&gt;&#x27;  </span><br><span class="line">?&gt;  </span><br></pre></td></tr></table></figure>
+<p>2、超全局变量：<br>参考：<br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/php/php_superglobals.asp">https://www.w3school.com.cn/php/php_superglobals.asp</a><br><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/language.variables.superglobals.php">https://www.php.net/manual/zh/language.variables.superglobals.php</a>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$GLOBALS：这种全局变量用于在 PHP 脚本中的任意位置访问全局变量  </span><br><span class="line">$_SERVER：这种超全局变量保存关于报头、路径和脚本位置的信息。  </span><br><span class="line">$_REQUEST：$_REQUEST 用于收集 HTML 表单提交的数据。  </span><br><span class="line">$_POST：广泛用于收集提交method=&quot;post&quot; 的HTML表单后的表单数据。  </span><br><span class="line">$_GET：收集URL中的发送的数据。也可用于收集提交HTML表单数据(method=&quot;get&quot;)   </span><br><span class="line">$_FILES：文件上传且处理包含通过HTTP POST方法上传给当前脚本的文件内容。  </span><br><span class="line">$_ENV：是一个包含服务器端环境变量的数组。  </span><br><span class="line">$_COOKIE：是一个关联数组，包含通过cookie传递给当前脚本的内容。  </span><br><span class="line">$_SESSION：是一个关联数组，包含当前脚本中的所有session内容。  </span><br></pre></td></tr></table></figure>
+
+<h2 id="第三方插件引用-js传参-函数对象调用"><a href="#第三方插件引用-js传参-函数对象调用" class="headerlink" title="第三方插件引用-js传参&amp;函数对象调用"></a>第三方插件引用-js传参&amp;函数对象调用</h2><p>引用：<script src="../xxx.js"></script><br>函数对象调用：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    value : 0,</span><br><span class="line">    increment : function (inc) &#123;   </span><br><span class="line">        this.value += typeof inc === &#x27;number&#x27; ? inc :1;</span><br><span class="line">        //设置inc且为数字时 value=inc 反之 value=1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.increment();</span><br><span class="line">console.log(obj.value);  //1</span><br><span class="line">obj.increment(2);</span><br><span class="line">console.log(obj.value);  //2</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/06/21%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/06/21%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="post-title-link" itemprop="url">21信息打点-公众号信息收集</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-06 09:46:43" itemprop="dateCreated datePublished" datetime="2023-10-06T09:46:43+08:00">2023-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:07:31" itemprop="dateModified" datetime="2023-11-06T21:07:31+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>29、开发泄漏-Github监控</li>
+<li>30、文件泄漏-网盘全局搜索</li>
+<li>31、架构泄漏-目录扫码&amp;爬虫</li>
+<li>32、其他泄漏-公众号服务资产</li>
+<li>33、收集进阶-证书&amp;图标&amp;邮箱</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
+<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
+<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
+<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
+<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
+<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等 </li>
+<li>技术：APK反编译&#x2F;小程序解包反编译&#x2F;动态调试APP&amp;小程序等</li>
+</ul>
+<h2 id="微信公众号-获取-三方服务"><a href="#微信公众号-获取-三方服务" class="headerlink" title="微信公众号-获取&amp;三方服务"></a>微信公众号-获取&amp;三方服务</h2><p>1、获取微信公众号途径<br><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a><br>2、微信公众号有无第三方服务(非调用api，用自己的资产)  </p>
+<h2 id="Github监控-开发-配置-源码"><a href="#Github监控-开发-配置-源码" class="headerlink" title="Github监控-开发&amp;配置&amp;源码"></a>Github监控-开发&amp;配置&amp;源码</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标中开发人员或者托管公司上传的项目存在源码泄漏或配置信息（密码密匙等），人员数据库等敏感信息，找到多个脆弱点。  </p>
+<ul>
+<li>1、人员&amp;域名&amp;邮箱等筛选<br>eg：xxx.cn password in:file<br><a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a><br><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a><br><a target="_blank" rel="noopener" href="https://www.huzhan.com/">https://www.huzhan.com/</a><br>GITHUB资源搜索：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">in:name test               #仓库标题搜索含有关键字 </span><br><span class="line">in:descripton test         #仓库描述搜索含有关键字 </span><br><span class="line">in:readme test             #Readme文件搜素含有关键字 </span><br><span class="line">stars:&gt;3000 test           #stars数量大于3000的搜索关键字 </span><br><span class="line">stars:1000..3000 test      #stars数量大于1000小于3000的搜索关键字 </span><br><span class="line">forks:&gt;1000 test           #forks数量大于1000的搜索关键字 </span><br><span class="line">forks:1000..3000 test      #forks数量大于1000小于3000的搜索关键字 </span><br><span class="line">size:&gt;=5000 test           #指定仓库大于5000k(5M)的搜索关键字</span><br><span class="line">pushed:&gt;2019-02-12 test    #发布时间大于2019-02-12的搜索关键字 </span><br><span class="line">created:&gt;2019-02-12 test   #创建时间大于2019-02-12的搜索关键字 </span><br><span class="line">user:test                  #用户名搜素 </span><br><span class="line">license:apache-2.0 test    #明确仓库的 LICENSE 搜索关键字</span><br><span class="line">language:java test         #在java语言的代码中搜索关键字 </span><br><span class="line">user:test in:name test     #组合搜索,用户名test的标题含有test的关键字配合谷歌搜索：</span><br><span class="line">site:Github.com smtp   </span><br><span class="line">site:Github.com smtp @qq.com   </span><br><span class="line">site:Github.com smtp @126.com   </span><br><span class="line">site:Github.com smtp @163.com   </span><br><span class="line">site:Github.com smtp @sina.com.cn </span><br><span class="line">site:Github.com smtp password </span><br><span class="line">site:Github.com String password smtp</span><br></pre></td></tr></table></figure></li>
+<li>2、语法固定长期后续监控新泄露<br>-基于关键字监控<br>-基于项目规则监控<br><a target="_blank" rel="noopener" href="https://github.com/madneal/gshark">https://github.com/madneal/gshark</a><br><a target="_blank" rel="noopener" href="https://github.com/NHPT/FireEyeGoldCrystal">https://github.com/NHPT/FireEyeGoldCrystal</a><br><a target="_blank" rel="noopener" href="https://github.com/Explorer1092/Github-Monitor">https://github.com/Explorer1092/Github-Monitor</a></li>
+</ul>
+<h2 id="网盘资源搜索-全局文件机密"><a href="#网盘资源搜索-全局文件机密" class="headerlink" title="网盘资源搜索-全局文件机密"></a>网盘资源搜索-全局文件机密</h2><p>主要就是查看网盘中是否存有目标的敏感文件<br>如：企业招标，人员信息，业务产品，应用源码等</p>
+<h2 id="敏感目录文件-目录扫描-爬虫"><a href="#敏感目录文件-目录扫描-爬虫" class="headerlink" title="敏感目录文件-目录扫描&amp;爬虫"></a>敏感目录文件-目录扫描&amp;爬虫</h2><p>-后续会详细讲到各类工具项目  </p>
+<h2 id="网络空间进阶-证书-图标-邮箱"><a href="#网络空间进阶-证书-图标-邮箱" class="headerlink" title="网络空间进阶-证书&amp;图标&amp;邮箱"></a>网络空间进阶-证书&amp;图标&amp;邮箱</h2><ul>
+<li>证书资产<br>fofa quake hunter  </li>
+<li>ICO资产<br>fofa quake hunter  </li>
+<li>邮箱资产<br><a target="_blank" rel="noopener" href="https://hunter.io/">https://hunter.io/</a></li>
+</ul>
+<p>#实战案例四则-技术分享打击方位<br>案例1–招标平台二级跳<br>案例2–爱企查隐藏的惊喜<br>案例3–邮箱爆破到内网<br>案例4–不靠系统漏洞，从外网获取域控
+  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/06/20%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B7%A5%E5%85%B7%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/06/20%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E5%B7%A5%E5%85%B7%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">20信息打点-工具项目</a>
+        </h2>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-06 09:46:36" itemprop="dateCreated datePublished" datetime="2023-10-06T09:46:36+08:00">2023-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:07:24" itemprop="dateModified" datetime="2023-11-06T21:07:24+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/03/12%E4%BF%A1%E6%81%AF%E6%89%93%E7%82%B9-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%BD%91%E7%AB%99/">12信息打点</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>26、工具项目-红蓝队&amp;自动化部署</li>
+<li>27、工具项目-自动化侦查收集提取</li>
+<li>28、工具项目-综合&amp;网络空间&amp;信息</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>Web：语言&#x2F;CMS&#x2F;中间件&#x2F;数据库&#x2F;系统&#x2F;WAF等</li>
+<li>系统：操作系统&#x2F;端口服务&#x2F;网络环境&#x2F;防火墙等</li>
+<li>应用：APP对象&#x2F;API接口&#x2F;微信小程序&#x2F;PC应用等</li>
+<li>架构：CDN&#x2F;前后端&#x2F;云应用&#x2F;站库分离&#x2F;OSS资源等</li>
+<li>技术：JS爬虫&#x2F;敏感扫描&#x2F;目录爬虫&#x2F;源码获取&#x2F;接口泄漏等</li>
+<li>技术：指纹识别&#x2F;端口扫描&#x2F;CDN绕过&#x2F;WAF识别&#x2F;Github监控等 </li>
+<li>技术：APK反编译&#x2F;小程序解包反编译&#x2F;动态调试APP&amp;小程序等</li>
+</ul>
+<h2 id="各类红蓝队优秀工具项目集合："><a href="#各类红蓝队优秀工具项目集合：" class="headerlink" title="各类红蓝队优秀工具项目集合："></a>各类红蓝队优秀工具项目集合：</h2><p><a target="_blank" rel="noopener" href="https://github.com/guchangan1/All-Defense-Tool">https://github.com/guchangan1/All-Defense-Tool</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目集成了全网优秀的开源攻防武器项目，包含信息收集工具（自动化利用工具、资产发现工具、目录扫描工具、子域名收集工具、指纹识别工具、端口扫描工具、各种插件…），漏洞利用工具（各大CMS利用工具、中间件利用工具等项目…），内网渗透工具（隧道代理、密码提取…）、应急响应工具、甲方运维工具、等其他安全攻防资料整理，供攻防双方使用。如果你有更好的建议，欢迎提出请求。  </p>
+<p>##新服务器设置</p>
+<ul>
+<li>Ubuntu<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install docker</span><br><span class="line">apt-get install docker-compose</span><br><span class="line">git clone https://github.com/TophantTechnology/ARL  </span><br><span class="line">cd ARL/docker/  </span><br><span class="line">docker volume create arl_db  </span><br><span class="line">docker-compose pull  </span><br><span class="line">docker-compose up -d </span><br><span class="line">mkdir nemo;tar xvf nemo_linux_amd64.tar -C nemo;cd nemo  </span><br><span class="line">docker-compose up -d </span><br><span class="line">vim docker-compose.yum</span><br><span class="line">version:&#x27;3.7&#x27;(i)----&gt;3.3(:wq)</span><br><span class="line">docker-compose up -d </span><br><span class="line">cd ..</span><br><span class="line">wget : wget -O f8x https://f8x.io/</span><br><span class="line">bash f8x -h</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="自动化-武器库部署-F8x"><a href="#自动化-武器库部署-F8x" class="headerlink" title="自动化-武器库部署-F8x"></a>自动化-武器库部署-F8x</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ffffffff0x/f8x">https://github.com/ffffffff0x/f8x</a>  </p>
+<ul>
+<li>1、介绍：<br>一款红&#x2F;蓝队环境自动化部署工具,支持多种场景,渗透,开发,代理环境,服务可选项等.  </li>
+<li>2、配置：<br>通过 CF Workers 下载 [推荐]  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget : wget -O f8x https://f8x.io/  </span><br><span class="line">curl : curl -o f8x https://f8x.io/  </span><br></pre></td></tr></table></figure></li>
+<li>3、使用：见项目文档  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash f8x -h </span><br><span class="line">例：bash f8x -mobsf</span><br></pre></td></tr></table></figure>
+云服务器Ubuntu系统已搭建好，访问地址：https:&#x2F;&#x2F;[IP]:8000</li>
+</ul>
+<h2 id="自动化-网络空间-AsamF"><a href="#自动化-网络空间-AsamF" class="headerlink" title="自动化-网络空间-AsamF"></a>自动化-网络空间-AsamF</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Kento-Sec/AsamF">https://github.com/Kento-Sec/AsamF</a>  </p>
+<ul>
+<li>1、介绍：<br>AsamF集成了Fofa、Hunter、Quake、Zoomeye、Shodan、爱企查、Chinaz、0.zone、subfinder。AsamF支持Fofa、Hunter、Quake、Zoomeye、Shodan、Chinaz、0.zone配置多个Key。  </li>
+<li>2、配置：<br>AsamF会在<del>&#x2F;.config&#x2F;asamf&#x2F;目录下生成config.json文件。<br>如果你有多个key，按照json的格式录入即可，建议键值按照阿拉伯数字依次录入,方便以阿拉伯数字来切换key。自动结果保存在</del>&#x2F;asamf&#x2F;目录下。  </li>
+<li>3、使用：见项目文档</li>
+</ul>
+<h2 id="自动化-企查信息-ENScan"><a href="#自动化-企查信息-ENScan" class="headerlink" title="自动化-企查信息-ENScan"></a>自动化-企查信息-ENScan</h2><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/wgpsec/ENScan_GO">https://github.com/wgpsec/ENScan_GO</a>  </p>
+<ul>
+<li>1、介绍：<br>剑指HW&#x2F;SRC，解决在HW&#x2F;SRC场景下遇到的各种针对国内企业信息收集难题</li>
+<li>2、配置：<br>ENScanGo在第一次使用时需要使用-v命令生成配置文件信息后进行配置</li>
+<li>3、使用：见项目文档</li>
+</ul>
+<h2 id="自动化-综合架构-ARL-Nemo"><a href="#自动化-综合架构-ARL-Nemo" class="headerlink" title="自动化-综合架构-ARL&amp;Nemo"></a>自动化-综合架构-ARL&amp;Nemo</h2><h3 id="ARL灯塔"><a href="#ARL灯塔" class="headerlink" title="ARL灯塔"></a>ARL灯塔</h3><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/TophantTechnology/ARL">https://github.com/TophantTechnology/ARL</a>  </p>
+<ul>
+<li>1、介绍：<br>&nbsp;&nbsp;&nbsp;&nbsp;旨在快速侦察与目标关联的互联网资产，构建基础资产信息库。 协助甲方安全团队或者渗透测试人员有效侦察和检索资产，发现存在的薄弱点和攻击面。  </li>
+<li>2、配置：（docker搭建）  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/TophantTechnology/ARL  </span><br><span class="line">cd ARL/docker/  </span><br><span class="line">docker volume create arl_db  </span><br><span class="line">docker-compose pull  </span><br><span class="line">docker-compose up -d  </span><br></pre></td></tr></table></figure></li>
+<li>3、使用：见直播操作<br>云服务器Ubuntu系统已搭建好，访问地址：https:&#x2F;&#x2F;[IP]:5003<br>默认用户名&#x2F;密码admin&#x2F;arlpass</li>
+</ul>
+<h3 id="Nemo-Go"><a href="#Nemo-Go" class="headerlink" title="Nemo_Go"></a>Nemo_Go</h3><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/hanc00l/nemo_go">https://github.com/hanc00l/nemo_go</a>  </p>
+<ul>
+<li>1、介绍：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nemo是用来进行自动化信息收集的一个简单平台，通过集成常用的信息收集工具和技术，实现对内网及互联网资产信息的自动收集，提高隐患排查和渗透测试的工作效率，用Golang完全重构了原Python版本。  </li>
+<li>2、配置：（docker搭建）<br><a target="_blank" rel="noopener" href="https://github.com/hanc00l/nemo_go/blob/main/docs/docker.md">https://github.com/hanc00l/nemo_go/blob/main/docs/docker.md</a><br>下载release的nemo_linux_amd64.tar后执行：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir nemo;tar xvf nemo_linux_amd64.tar -C nemo;cd nemo  </span><br><span class="line">docker-compose up -d  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启开机后执行：cd nemo  </span><br><span class="line">docker-compose up -d    </span><br></pre></td></tr></table></figure></li>
+<li>3、使用：见直播操作<br>云服务器Ubuntu系统已搭建好，访问地址：http:&#x2F;&#x2F;[IP]:5000<br>默认用户名&#x2F;密码nemo&#x2F;nemo</li>
+<li>4、Bug：网络空间（配置后要重启）<br><a target="_blank" rel="noopener" href="https://github.com/hanc00l/nemo_go/issues/72">https://github.com/hanc00l/nemo_go/issues/72</a></li>
+</ul>
+<h3 id="MobSF"><a href="#MobSF" class="headerlink" title="MobSF"></a>MobSF</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest</span><br></pre></td></tr></table></figure>
+<p>云服务器Ubuntu系统已搭建好，访问地址：http:&#x2F;&#x2F;[IP]:8000 </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+ 
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="z7"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">z7</p>
+  <div class="site-description" itemprop="description">师从小迪，欢迎各位来当迪总的韭菜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z7yy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z7yy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:15866095848@163.com" title="E-Mail → mailto:15866095848@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-git fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      链接网站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xiaodi8.com/" title="http:&#x2F;&#x2F;www.xiaodi8.com&#x2F;" rel="noopener" target="_blank">小迪渗透吧</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-10 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">z7</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共75.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,255,0' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="思维导图见 41WEB攻防 知识点： 84、Java安全-Druid监控-未授权访问&amp;信息泄漏 85、Java安全-Swagger接口-文档导入&amp;联动批量测试 86、Java安全-JWT令牌攻防-空算法&amp;未签名&amp;密匙提取  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="69WEB攻防-JAVA安全4">
+<meta property="og:url" content="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="思维导图见 41WEB攻防 知识点： 84、Java安全-Druid监控-未授权访问&amp;信息泄漏 85、Java安全-Swagger接口-文档导入&amp;联动批量测试 86、Java安全-JWT令牌攻防-空算法&amp;未签名&amp;密匙提取  章节点：Web层面：Web2.0 &amp; Web3.0语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）OWTO">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT1.png">
+<meta property="og:image" content="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT2.png">
+<meta property="og:image" content="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT3.png">
+<meta property="article:published_time" content="2023-12-09T01:51:20.000Z">
+<meta property="article:modified_time" content="2023-12-12T03:03:51.821Z">
+<meta property="article:author" content="z7">
+<meta property="article:tag" content="WEB攻防">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT1.png">
+
+<link rel="canonical" href="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>69WEB攻防-JAVA安全4 | 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://z7yy" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          69WEB攻防-JAVA安全4
+        </h1>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-09 09:51:20" itemprop="dateCreated datePublished" datetime="2023-12-09T09:51:20+08:00">2023-12-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-12 11:03:51" itemprop="dateModified" datetime="2023-12-12T11:03:51+08:00">2023-12-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/18/41WEB%E6%94%BB%E9%98%B2-ASP%E5%BA%94%E7%94%A8/">41WEB攻防</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>84、Java安全-Druid监控-未授权访问&amp;信息泄漏</li>
+<li>85、Java安全-Swagger接口-文档导入&amp;联动批量测试</li>
+<li>86、Java安全-JWT令牌攻防-空算法&amp;未签名&amp;密匙提取</li>
+</ul>
+<h2 id="章节点："><a href="#章节点：" class="headerlink" title="章节点："></a>章节点：</h2><p>Web层面：Web2.0 &amp; Web3.0<br>语言安全：JS，ASP，PHP，NET，Java，Python等（包含框架类）<br>OWTOP10：注入，文件安全，XSS，RCE，XXE，CSRF，SSRF，反序列化，未授权访问等<br>业务逻辑：水平垂直越权，支付签约&amp;购买充值，找回机制，数据并发，验证码&amp;弱口令等<br>特殊漏洞：JWT，CRLF，CORS，重定向，JSONP回调，域名接管，DDOS，接口枚举等<br>关键技术：POP链构造，JS逆向调试，NET反编译，JAVA反编译，代码解密，数据解密等<br>Web3.0：未待完续筹备中….</p>
+<p> <img src="/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT1.png"><br> <img src="/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT2.png"><br> <img src="/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/JWT3.png"></p>
+<h2 id="Java安全-Druid监控-未授权访问-信息泄漏"><a href="#Java安全-Druid监控-未授权访问-信息泄漏" class="headerlink" title="Java安全-Druid监控-未授权访问&amp;信息泄漏"></a>Java安全-Druid监控-未授权访问&amp;信息泄漏</h2><p>参考：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1260382">https://developer.aliyun.com/article/1260382</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Druid是阿里巴巴数据库事业部出品，为监控而生的数据库连接池。Druid提供的监控功能，监控SQL的执行时间、监控Web URI的请求、Session监控。当开发者配置不当时就可能造成未授权访问漏洞。<br>攻击点：<br>1、直接拼接URL路径，尝试能否直接未授权访问系统功能点。<br>2、结合泄露URL路径和Session信息，利用BurpSuite进行尝试登录。<br>3、利用Cookie编辑器替换Session，再次访问后台路径尝试进入后台。  </p>
+<h2 id="Java安全-Swagger接口-导入-联动批量测试"><a href="#Java安全-Swagger接口-导入-联动批量测试" class="headerlink" title="Java安全-Swagger接口-导入&amp;联动批量测试"></a>Java安全-Swagger接口-导入&amp;联动批量测试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Swagger是一个用于生成、描述和调用RESTful接口的Web服务。就是将项目中所有（想要暴露的）接口展现在页面上，并可以进行接口调用和测试的服务。所以可以对这个接口进行漏洞测试，看是否存在未授权访问、sql注入、文件上传等漏洞。由于接口太多，一个个接口测试的话太费时间，所以一般会采用自动化接口漏洞安全测试。<br>1、自动化发包测试<br>Postman：<a target="_blank" rel="noopener" href="https://github.com/hlmd/Postman-cn">https://github.com/hlmd/Postman-cn</a><br>2、自动化漏洞测试<br>联动BurpSuite Xray等  </p>
+<h2 id="Java安全-JWT令牌-空算法-未签名-密匙获取"><a href="#Java安全-JWT令牌-空算法-未签名-密匙获取" class="headerlink" title="Java安全-JWT令牌-空算法&amp;未签名&amp;密匙获取"></a>Java安全-JWT令牌-空算法&amp;未签名&amp;密匙获取</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSON Web Token(JWT)。它遵循JSON格式，将用户信息加密到token里，服务器不保存任何用户信息，只保存密钥信息，通过使用特定加密算法验证token，通过token验证用户身份。基于token的身份验证可以替代传统的cookie+session身份验证方法。这使得JWT成为高度分布式网站的热门选择，在这些网站中，用户需要与多个后端服务器无缝交互。  </p>
+<h3 id="JWT识别"><a href="#JWT识别" class="headerlink" title="JWT识别"></a>JWT识别</h3><ul>
+<li><p>1、标头（Header）<br>Header是JWT的第一个部分，是一个JSON对象，主要声明了JWT的签名算法，如”HS256”、”RS256”等，以及其他可选参数，如”kid”、”jku”、”x5u”等<br>alg字段通常用于表示加密采用的算法。如”HS256”、”RS256”等<br>typ字段通常用于表示类型<br>还有一些其他可选参数，如”kid”、”jku”、”x5u”等  </p>
+</li>
+<li><p>2、有效载荷（Payload）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payload是JWT的第二个部分，这是一个JSON对象，主要承载了各种声明并传递明文数据，用于存储用户的信息，如id、用户名、角色、令牌生成时间和其他自定义声明。<br>iss：该字段表示jwt的签发者。<br>sub：该jwt面向的用户。<br>aud：jwt的接收方。<br>exp：jwt的过期时间,通常来说是一个时间戳。<br>iat：jwt的签发时间,常来说是一个时间戳。<br>jti：此jwt的唯一标识。通常用于解决请求中的重放攻击。该字段在大多数地方没有被提及或使用。因为使用此字段就意味着必须要在服务器维护一张jti表， 当客户端携带jwt访问的时候需要在jti表中查找这个唯一标识是否被使用过。使用这种方式防止重放攻击似乎让jwt有点怪怪的感觉, 毕竟jwt所宣称的优点就是无状态访问  </p>
+</li>
+<li><p>3、签名（Signature）<br>Signature是对Header和Payload进行签名，具体是用什么加密方式写在Header的alg 中。同时拥有该部分的JWT被称为JWS，也就是签了名的JWT。<br>对Header和Payload进行签名，具体是用什么加密方式写在Header的alg中。<br>同时拥有该部分的JWT被称为JWS，也就是签了名的JWT。</p>
+</li>
+</ul>
+<p>第一部分：对 JSON 的头部做 base64 编码处理得到<br>第二部分：对 JSON 类型的 payload 做 base64 编码处理得到<br>第三部分：分别对头部和载荷做base64编码，并使用.拼接起来<br>使用头部声明的加密方式，对base64编码前两部分合并的结果加盐加密处理，作为JWT  </p>
+<p>在线解析：<a target="_blank" rel="noopener" href="https://jwt.io/">https://jwt.io/</a><br>BURP插件：Hae 或 JSON Web Tokens  </p>
+<h3 id="JWT安全"><a href="#JWT安全" class="headerlink" title="JWT安全"></a>JWT安全</h3><ul>
+<li><p>1、空加密算法（攻击头部不使用加密）<br>签名算法可被修改为none，JWT支持将算法设定为”None”。如果”alg”字段设为”None”，那么签名会被置空，这样任何token都是有效的。  </p>
+</li>
+<li><p>2、未校验签名（攻击签名不使用签名认证）<br>某些服务端并未校验JWT签名，可以尝试修改payload后然后直接请求token或者直接删除signature再次请求查看其是否还有效。  </p>
+</li>
+<li><p>3、暴力破解密钥（攻击签名知道密钥实现重组）<br>针对是对称加密算法（非对称没有用）<br>非对称要使用方法：获取源码或者公钥私钥文件<br>某些签名算法，例如HS256（HMAC+SHA-256），会像密码一样使用一个任意的、独立的字符串作为秘密密钥。这个秘钥如被轻易猜到或暴力破解，则攻击者能以任意的头部和载荷值来创建JWT，然后用密钥重新给令牌签名。  </p>
+</li>
+<li><p>4、其他安全参考：（源码泄漏密匙，Kid注入等）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44288604/article/details/128562796">https://blog.csdn.net/weixin_44288604/article/details/128562796</a></p>
+</li>
+</ul>
+<h3 id="JWT利用"><a href="#JWT利用" class="headerlink" title="JWT利用"></a>JWT利用</h3><p>利用项目：<a target="_blank" rel="noopener" href="https://github.com/ticarpi/jwt_tool">https://github.com/ticarpi/jwt_tool</a>  </p>
+<ul>
+<li>Web345(None无签名认证)  </li>
+<li>Web346(None算法绕过签名)  </li>
+<li>Web347(弱口令密钥获取)  </li>
+<li>Web348(爆破密钥上题一样)<br>使用None算法</li>
+</ul>
+<p><code>python3 jwt_tool.py JWT_HERE -X a</code><br>自定义修改生成<br><code>python3 jwt_tool.py JWT_HERE -T</code><br>使用字典破解<br><code>python3 jwt_tool.py JWT_HERE -C -d dictionary.txt</code><br>指定密码测试<br><code>python3 jwt_tool.py JWT_HERE -C -p password_here</code></p>
+<ul>
+<li>Web349（公钥私钥泄露）<br>公钥私钥泄露，访问&#x2F;private.key &#x2F;public.key得到公钥密钥<br>服务器私钥生成jwt，利用公钥解密jwt，只要有私钥重新生成  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import jwt</span><br><span class="line">public = open(&#x27;private.key&#x27;, &#x27;r&#x27;).read()</span><br><span class="line">payload=&#123;&quot;user&quot;:&quot;admin&quot;&#125;</span><br><span class="line">print(jwt.encode(payload, key=public, algorithm=&#x27;RS256&#x27;))</span><br></pre></td></tr></table></figure></li>
+<li>Web350(密钥混淆攻击RS256&#x3D;&gt;HS256)<br>将RS256算法改为HS256（非对称密码算法&#x3D;&gt;对称密码算法）<br>HS256算法使用密钥为所有消息进行签名和验证。<br>而RS256算法则使用私钥对消息进行签名并使用公钥进行身份验证。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var jwt = require(&#x27;jsonwebtoken&#x27;);</span><br><span class="line">var fs = require(&#x27;fs&#x27;);</span><br><span class="line"></span><br><span class="line">var privateKey = fs.readFileSync(&#x27;./public.key&#x27;);</span><br><span class="line">var token = jwt.sign(&#123; user: &#x27;admin&#x27; &#125;, privateKey, &#123; algorithm: &#x27;HS256&#x27; &#125;);</span><br><span class="line">console.log(token)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="黑盒JWT测试"><a href="#黑盒JWT测试" class="headerlink" title="黑盒JWT测试"></a>黑盒JWT测试</h3><p>首先找到需要JWT鉴权后才能访问的页面，如个人资料页面，将该请求包重放测试：<br>1）未授权访问：删除Token后仍然可以正常响应对应页面<br>2）敏感信息泄露：通过JWt.io解密出Payload后查看其中是否包含敏感信息，如弱加密的密码等<br>3）破解密钥+越权访问：通过JWT.io解密出Payload部分内容，通过空加密算法或密钥爆破等方式实现重新签发Token并修改Payload部分内容，重放请求包，观察响应包是否能够越权查看其他用户资料<br>4）检查Token时效性：解密查看payload中是否有exp字段键值对（Token过期时间），等待过期时间后再次使用该Token发送请求，若正常响应则存在Token不过期<br>5）通过页面回显进行探测：如修改Payload中键值对后页面报错信息是否存在注入，payload中kid字段的目录遍历问题与sql注入问题  </p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>z7
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/12/09/69WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A84/" title="69WEB攻防-JAVA安全4">http://example.com/2023/12/09/69WEB攻防-JAVA安全4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WEB%E6%94%BB%E9%98%B2/" rel="tag"># WEB攻防</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/08/68WEB%E6%94%BB%E9%98%B2-JAVA%E5%AE%89%E5%85%A83/" rel="prev" title="68WEB攻防-JAVA安全3">
+      <i class="fa fa-chevron-left"></i> 68WEB攻防-JAVA安全3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/11/70WEB%E6%94%BB%E9%98%B2-python%E5%AE%89%E5%85%A81/" rel="next" title="70WEB攻防-python安全1">
+      70WEB攻防-python安全1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+ 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTAzNi8zNTQ5OA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">知识点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82%E7%82%B9%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">章节点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%AE%89%E5%85%A8-Druid%E7%9B%91%E6%8E%A7-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-%E4%BF%A1%E6%81%AF%E6%B3%84%E6%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">Java安全-Druid监控-未授权访问&amp;信息泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%AE%89%E5%85%A8-Swagger%E6%8E%A5%E5%8F%A3-%E5%AF%BC%E5%85%A5-%E8%81%94%E5%8A%A8%E6%89%B9%E9%87%8F%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">Java安全-Swagger接口-导入&amp;联动批量测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%AE%89%E5%85%A8-JWT%E4%BB%A4%E7%89%8C-%E7%A9%BA%E7%AE%97%E6%B3%95-%E6%9C%AA%E7%AD%BE%E5%90%8D-%E5%AF%86%E5%8C%99%E8%8E%B7%E5%8F%96"><span class="nav-number">6.</span> <span class="nav-text">Java安全-JWT令牌-空算法&amp;未签名&amp;密匙获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT%E8%AF%86%E5%88%AB"><span class="nav-number">6.1.</span> <span class="nav-text">JWT识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT%E5%AE%89%E5%85%A8"><span class="nav-number">6.2.</span> <span class="nav-text">JWT安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT%E5%88%A9%E7%94%A8"><span class="nav-number">6.3.</span> <span class="nav-text">JWT利用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%91%E7%9B%92JWT%E6%B5%8B%E8%AF%95"><span class="nav-number">6.4.</span> <span class="nav-text">黑盒JWT测试</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="z7"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">z7</p>
+  <div class="site-description" itemprop="description">师从小迪，欢迎各位来当迪总的韭菜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z7yy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z7yy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:15866095848@163.com" title="E-Mail → mailto:15866095848@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-git fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      链接网站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xiaodi8.com/" title="http:&#x2F;&#x2F;www.xiaodi8.com&#x2F;" rel="noopener" target="_blank">小迪渗透吧</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-10 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">z7</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共75.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,255,0' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>

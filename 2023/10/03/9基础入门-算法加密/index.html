@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="思维导图见 1基础入门 知识点： 17、单向散列加密 -MD5，HASH 18、对称加密 -AES DES 19、非对称加密 -RSA 20、解密-识别&amp;需求&amp;寻找(前后端)&amp;操作  章节点 应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;小程序&#x2F;负载均衡等 安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9基础入门-算法加密">
+<meta property="og:url" content="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="思维导图见 1基础入门 知识点： 17、单向散列加密 -MD5，HASH 18、对称加密 -AES DES 19、非对称加密 -RSA 20、解密-识别&amp;需求&amp;寻找(前后端)&amp;操作  章节点 应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;小程序&#x2F;负载均衡等 安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/AES.png">
+<meta property="og:image" content="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/%E5%8A%A0%E5%AF%862.png">
+<meta property="og:image" content="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/%E5%8A%A0%E5%AF%863.png">
+<meta property="article:published_time" content="2023-10-03T01:02:04.000Z">
+<meta property="article:modified_time" content="2023-11-06T13:05:09.616Z">
+<meta property="article:author" content="z7">
+<meta property="article:tag" content="基础入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/AES.png">
+
+<link rel="canonical" href="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>9基础入门-算法加密 | 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+        <a target="_blank" rel="noopener" href="https://z7yy" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="z7">
+      <meta itemprop="description" content="师从小迪，欢迎各位来当迪总的韭菜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          9基础入门-算法加密
+        </h1>
+
+        <div class="post-meta">
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-03 09:02:04" itemprop="dateCreated datePublished" datetime="2023-10-03T09:02:04+08:00">2023-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-06 21:05:09" itemprop="dateModified" datetime="2023-11-06T21:05:09+08:00">2023-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>见 <a target="_blank" rel="noopener" href="http://z7yy.top/2023/10/02/1%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/">1基础入门</a></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ul>
+<li>17、单向散列加密 -MD5，HASH</li>
+<li>18、对称加密 -AES DES</li>
+<li>19、非对称加密 -RSA</li>
+<li>20、解密-识别&amp;需求&amp;寻找(前后端)&amp;操作</li>
+</ul>
+<h2 id="章节点"><a href="#章节点" class="headerlink" title="章节点"></a>章节点</h2><ul>
+<li>应用架构：Web&#x2F;APP&#x2F;云应用&#x2F;小程序&#x2F;负载均衡等</li>
+<li>安全产品：CDN&#x2F;WAF&#x2F;IDS&#x2F;IPS&#x2F;蜜罐&#x2F;防火墙&#x2F;杀毒等</li>
+<li>渗透命令：文件上传下载&#x2F;端口服务&#x2F;Shell反弹等</li>
+<li>抓包技术：HTTP&#x2F;TCP&#x2F;UDP&#x2F;ICMP&#x2F;DNS&#x2F;封包&#x2F;代理等</li>
+<li>算法加密：数据编码&#x2F;密码算法&#x2F;密码保护&#x2F;反编译&#x2F;加壳等</li>
+</ul>
+<p><img src="/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/AES.png"><br><img src="/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/%E5%8A%A0%E5%AF%862.png"><br><img src="/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/%E5%8A%A0%E5%AF%863.png">  </p>
+<ul>
+<li>安全测试中：<br>密文-有源码直接看源码分析算法（后端必须要有源码才能彻底知道）<br>密文-没有源码：1、猜识别 2、看前端JS（加密逻辑是不是在前端）</li>
+</ul>
+<h2 id="算法加密-概念-分类-类型"><a href="#算法加密-概念-分类-类型" class="headerlink" title="算法加密-概念&amp;分类&amp;类型"></a>算法加密-概念&amp;分类&amp;类型</h2><h3 id="1-单向散列加密-MD5"><a href="#1-单向散列加密-MD5" class="headerlink" title="1. 单向散列加密 -MD5"></a>1. 单向散列加密 -MD5</h3><p>单向散列加密算法的优点有(以MD5为例)：<br>&nbsp;&nbsp;&nbsp;&nbsp;方便存储，损耗低：加密对于性能的损耗微乎其微。<br>&nbsp;&nbsp;&nbsp;&nbsp;单向散列加密的缺点就是存在暴力破解的可能性，最好通过加盐值的方式提高安全性，此外可能存在散列冲突。我们都知道MD5加密也是可以破解(碰撞解密)的。<br>常见的单向散列加密算法有：<br>&nbsp;&nbsp;&nbsp;&nbsp;MD5 SHA MAC CRC  </p>
+<h3 id="2-对称加密-AES"><a href="#2-对称加密-AES" class="headerlink" title="2. 对称加密 -AES"></a>2. 对称加密 -AES</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;对称加密优点是算法公开、计算量小、加密速度快、加密效率高。<br>&nbsp;&nbsp;&nbsp;&nbsp;缺点是发送方和接收方必须商定好密钥，然后使双方都能保存好密钥，密钥管理成为双方的负担。<br>常见的对称加密算法有：<br>&nbsp;&nbsp;&nbsp;&nbsp;DES AES RC4<br>（aes关键在key、偏移量、模式；des关键在key、偏移量、填充、模式）  </p>
+<h3 id="3-非对称加密-RSA"><a href="#3-非对称加密-RSA" class="headerlink" title="3. 非对称加密 -RSA"></a>3. 非对称加密 -RSA</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;非对称加密的优点是与对称加密相比，安全性更好，加解密需要不同的密钥，公钥和私钥都可进行相互的加解密。<br>&nbsp;&nbsp;&nbsp;&nbsp;缺点是加密和解密花费时间长、速度慢，只适合对少量数据进行加密。<br>常见的非对称加密算法：<br>&nbsp;&nbsp;&nbsp;&nbsp;RSA RSA2 PKCS</p>
+<h2 id="加密解密-识别特征-解密条件"><a href="#加密解密-识别特征-解密条件" class="headerlink" title="加密解密-识别特征&amp;解密条件"></a>加密解密-识别特征&amp;解密条件</h2><h3 id="MD5密文特点："><a href="#MD5密文特点：" class="headerlink" title="MD5密文特点："></a>MD5密文特点：</h3><ul>
+<li>1、由数字“0-9”和字母“a-f”所组成的字符串  </li>
+<li>2、固定的位数 16 和 32位<br>解密需求：密文即可，但复杂明文可能解不出</li>
+</ul>
+<h3 id="BASE64编码特点："><a href="#BASE64编码特点：" class="headerlink" title="BASE64编码特点："></a>BASE64编码特点：</h3><ul>
+<li>1、大小写区分，通过数字和字母的组合</li>
+<li>2、一般情况下密文尾部都会有两个等号，明文很少的时候则没有</li>
+<li>3、明文越长密文越长，一般不会出现”&#x2F;“”+”在密文中</li>
+</ul>
+<h3 id="AES、DES密文特点："><a href="#AES、DES密文特点：" class="headerlink" title="AES、DES密文特点："></a>AES、DES密文特点：</h3><p>同BASE64基本类似，但一般会出现”&#x2F;“和”+”在密文中<br>解密需求：密文，模式，加密Key，偏移量，条件满足才可解出  </p>
+<h3 id="RSA密文特点："><a href="#RSA密文特点：" class="headerlink" title="RSA密文特点："></a>RSA密文特点：</h3><p>特征同AES,DES相似，但是长度较长<br>解密需求：密文，公钥或私钥即可解出  </p>
+<h3 id="其他密文特点见："><a href="#其他密文特点见：" class="headerlink" title="其他密文特点见："></a>其他密文特点见：</h3><p>1.30余种加密编码类型的密文特征分析（建议收藏）<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwNDcxMjI2MA==&mid=2247484455&idx=1&sn=e1b4324ddcf7d6123be30d9a5613e17b&chksm=9b26f60cac517f1a920cf3b73b3212a645aeef78882c47957b9f3c2135cb7ce051c73fe77bb2&mpshare=1&scene=23&srcid=1111auAYWmr1N0NAs9Wp2hGz&sharer_sharetime=1605145141579&sharer_shareid=5051b3eddbbe2cb698aedf9452370026#rd">https://mp.weixin.qq.com/s?__biz=MzAwNDcxMjI2MA==&amp;mid=2247484455&amp;idx=1&amp;sn=e1b4324ddcf7d6123be30d9a5613e17b&amp;chksm=9b26f60cac517f1a920cf3b73b3212a645aeef78882c47957b9f3c2135cb7ce051c73fe77bb2&amp;mpshare=1&amp;scene=23&amp;srcid=1111auAYWmr1N0NAs9Wp2hGz&amp;sharer_sharetime=1605145141579&amp;sharer_shareid=5051b3eddbbe2cb698aedf9452370026#rd</a>  </p>
+<p>2.CTF中常见密码题解密网站总结（建议收藏）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41638851/article/details/100526839">https://blog.csdn.net/qq_41638851/article/details/100526839</a>  </p>
+<p>3.CTF密码学常见加密解密总结（建议收藏）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40837276/article/details/83080460">https://blog.csdn.net/qq_40837276/article/details/83080460</a>  </p>
+<h2 id="解密实例-密文存储-数据传输"><a href="#解密实例-密文存储-数据传输" class="headerlink" title="解密实例-密文存储&amp;数据传输"></a>解密实例-密文存储&amp;数据传输</h2><h3 id="1、密码存储（后端处理）"><a href="#1、密码存储（后端处理）" class="headerlink" title="1、密码存储（后端处理）"></a>1、密码存储（后端处理）</h3><ul>
+<li>X3.2-md5&amp;salt<br>DZ对应代码段-&#x2F;uc_server&#x2F;model&#x2F;user.php  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add_user</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">	<span class="variable">$password</span> = <span class="title function_ invoke__">md5</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$password</span>).<span class="variable">$salt</span>);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span>PHP</span><br><span class="line"><span class="variable">$h</span> = <span class="string">&#x27;d7192407bb4bfc83d28f374b6812fbcd&#x27;</span>;  </span><br><span class="line"><span class="variable">$hash</span>=<span class="title function_ invoke__">md5</span>(<span class="title function_ invoke__">md5</span>(<span class="string">&#x27;123456&#x27;</span>).<span class="string">&#x27;3946d5&#x27;</span>);  </span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$h</span>==<span class="variable">$hash</span>)&#123;  </span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&#x27;ok&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;  </span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&#x27;no&#x27;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">?&gt;</span>  </span><br></pre></td></tr></table></figure></li>
+<li>X3.5-hash<br>DZ对应代码段-&#x2F;uc_server&#x2F;model&#x2F;user.php <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add_user</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="variable">$salt</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	<span class="variable">$password</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">generate_password</span>(<span class="variable">$password</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generate_password</span>(<span class="params"><span class="variable">$password</span></span>) </span>&#123;</span><br><span class="line">	<span class="variable">$algo</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">get_passwordalgo</span>();</span><br><span class="line">	<span class="variable">$options</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">get_passwordoptions</span>();</span><br><span class="line">	<span class="variable">$hash</span> = <span class="title function_ invoke__">password_hash</span>(<span class="variable">$password</span>, <span class="variable">$algo</span>, <span class="variable">$options</span>);</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span>PHP</span><br><span class="line"><span class="variable">$hash</span> = <span class="string">&#x27;$2y$10$KA.7VYVheqod8F3X65tWjO3ZXfozNA2fC4oIZoDSu/TbfgKmiw7xO&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">password_verify</span>(<span class="string">&#x27;123456&#x27;</span>, <span class="variable">$hash</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;ok&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;error&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span>  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2、数据通讯"><a href="#2、数据通讯" class="headerlink" title="2、数据通讯"></a>2、数据通讯</h3><ul>
+<li>博客登录-zblog（前端处理）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script/md5.js&quot;</span> type=<span class="string">&quot;text/javascript&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">$(<span class="string">&quot;#btnPost&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> strPassWord=$(<span class="string">&quot;#edtPassWord&quot;</span>).<span class="title function_">val</span>();</span><br><span class="line">    $(<span class="string">&quot;form&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;action&quot;</span>,<span class="string">&quot;cmd.php?act=verify&quot;</span>);</span><br><span class="line">    $(<span class="string">&quot;#password&quot;</span>).<span class="title function_">val</span>(<span class="title class_">MD5</span>(strPassWord));  </span><br></pre></td></tr></table></figure></li>
+<li>墨者靶场-（后端处理） <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">union select 1,database(),user(),4_mozhe</span><br><span class="line">xgd58ipTrnx8VzSBJicqCibZxIRsZKgXOYUrNQP8fCCtx9JZ+6K1hHt7RKkzV305</span><br><span class="line">eGdkNThpcFRybng4VnpTQkppY3FDaWJaeElSc1pLZ1hPWVVyTlFQOGZDQ3R4OUpaKzZLMWhIdDdSS2t6VjMwNQ==  </span><br></pre></td></tr></table></figure>
+&#x2F;&#x2F;PHP7.3加密演示代码块  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//aes</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">vendor</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncryptionTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">enAES</span>(<span class="params"><span class="variable">$originTxt</span>, <span class="variable">$key</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">openssl_encrypt</span>(<span class="variable">$originTxt</span>, <span class="string">&#x27;AES-128-ECB&#x27;</span>,<span class="variable">$key</span>, OPENSSL_RAW_DATA));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">deAES</span>(<span class="params"><span class="variable">$originTxt</span>, <span class="variable">$key</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">        <span class="variable">$data</span> = <span class="title function_ invoke__">base64_decode</span>(<span class="variable">$originTxt</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">openssl_decrypt</span>(<span class="variable">$data</span>,<span class="string">&#x27;AES-128-ECB&#x27;</span>,<span class="variable">$key</span>, OPENSSL_RAW_DATA);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&#x2F;&#x2F;des<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DES</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string $method 加解密方法，可通过 openssl_get_cipher_methods() 获得</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$method</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string $key 加解密的密钥</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$key</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string $output 输出格式 无、base64、hex</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$output</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string $iv 加解密的向量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$iv</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string $options</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$options</span>;</span><br><span class="line">    <span class="comment">// output 的类型</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">OUTPUT_NULL</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">OUTPUT_BASE64</span> = <span class="string">&#x27;base64&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">OUTPUT_HEX</span> = <span class="string">&#x27;hex&#x27;</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * DES constructor.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $method</span></span><br><span class="line"><span class="comment">     *      ECB DES-ECB、DES-EDE3 （为 ECB 模式时，$iv 为空即可）</span></span><br><span class="line"><span class="comment">     *      CBC DES-CBC、DES-EDE3-CBC、DESX-CBC</span></span><br><span class="line"><span class="comment">     *      CFB DES-CFB8、DES-EDE3-CFB8</span></span><br><span class="line"><span class="comment">     *      CTR</span></span><br><span class="line"><span class="comment">     *      OFB</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $output</span></span><br><span class="line"><span class="comment">     *      base64、hex</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $iv</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $options</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$key</span>, <span class="variable">$method</span> = <span class="string">&#x27;DES-ECB&#x27;</span>, <span class="variable">$output</span> = <span class="string">&#x27;&#x27;</span>, <span class="variable">$iv</span> = <span class="string">&#x27;&#x27;</span>, <span class="variable">$options</span> = OPENSSL_RAW_DATA | OPENSSL_NO_PADDING</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;key = <span class="variable">$key</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;method = <span class="variable">$method</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;output = <span class="variable">$output</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;iv = <span class="variable">$iv</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;options = <span class="variable">$options</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加密</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $str</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">encrypt</span>(<span class="params"><span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$str</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">pkcsPadding</span>(<span class="variable">$str</span>, <span class="number">8</span>);</span><br><span class="line">        <span class="variable">$sign</span> = <span class="title function_ invoke__">openssl_encrypt</span>(<span class="variable">$str</span>, <span class="variable">$this</span>-&gt;method, <span class="variable">$this</span>-&gt;key, <span class="variable">$this</span>-&gt;options, <span class="variable">$this</span>-&gt;iv);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;output == <span class="built_in">self</span>::<span class="variable constant_">OUTPUT_BASE64</span>) &#123;</span><br><span class="line">            <span class="variable">$sign</span> = <span class="title function_ invoke__">base64_encode</span>(<span class="variable">$sign</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;output == <span class="built_in">self</span>::<span class="variable constant_">OUTPUT_HEX</span>) &#123;</span><br><span class="line">            <span class="variable">$sign</span> = <span class="title function_ invoke__">bin2hex</span>(<span class="variable">$sign</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$sign</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解密</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $encrypted</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">decrypt</span>(<span class="params"><span class="variable">$encrypted</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;output == <span class="built_in">self</span>::<span class="variable constant_">OUTPUT_BASE64</span>) &#123;</span><br><span class="line">            <span class="variable">$encrypted</span> = <span class="title function_ invoke__">base64_decode</span>(<span class="variable">$encrypted</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;output == <span class="built_in">self</span>::<span class="variable constant_">OUTPUT_HEX</span>) &#123;</span><br><span class="line">            <span class="variable">$encrypted</span> = <span class="title function_ invoke__">hex2bin</span>(<span class="variable">$encrypted</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$sign</span> = @<span class="title function_ invoke__">openssl_decrypt</span>(<span class="variable">$encrypted</span>, <span class="variable">$this</span>-&gt;method, <span class="variable">$this</span>-&gt;key, <span class="variable">$this</span>-&gt;options, <span class="variable">$this</span>-&gt;iv);</span><br><span class="line">        <span class="variable">$sign</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">unPkcsPadding</span>(<span class="variable">$sign</span>);</span><br><span class="line">        <span class="variable">$sign</span> = <span class="title function_ invoke__">rtrim</span>(<span class="variable">$sign</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$sign</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 填充</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $str</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $blocksize</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">pkcsPadding</span>(<span class="params"><span class="variable">$str</span>, <span class="variable">$blocksize</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$pad</span> = <span class="variable">$blocksize</span> - (<span class="title function_ invoke__">strlen</span>(<span class="variable">$str</span>) % <span class="variable">$blocksize</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$str</span> . <span class="title function_ invoke__">str_repeat</span>(<span class="title function_ invoke__">chr</span>(<span class="variable">$pad</span>), <span class="variable">$pad</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 去填充</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $str</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">unPkcsPadding</span>(<span class="params"><span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$pad</span> = <span class="title function_ invoke__">ord</span>(<span class="variable">$str</span>&#123;<span class="title function_ invoke__">strlen</span>(<span class="variable">$str</span>) - <span class="number">1</span>&#125;);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$pad</span> &gt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$str</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">substr</span>(<span class="variable">$str</span>, <span class="number">0</span>, -<span class="number">1</span> * <span class="variable">$pad</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>&#x2F;&#x2F;rsa</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;RSA_PUBLIC&#x27;</span>, <span class="string">&#x27;-----BEGIN PUBLIC KEY-----</span></span><br><span class="line"><span class="string">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCmkANmC849IOntYQQdSgLvMMGm</span></span><br><span class="line"><span class="string">8V/u838ATHaoZwvweoYyd+/7Wx+bx5bdktJb46YbqS1vz3VRdXsyJIWhpNcmtKhY</span></span><br><span class="line"><span class="string">inwcl83aLtzJeKsznppqMyAIseaKIeAm6tT8uttNkr2zOymL/PbMpByTQeEFlyy1</span></span><br><span class="line"><span class="string">poLBwrol0F4USc+owwIDAQAB</span></span><br><span class="line"><span class="string">-----END PUBLIC KEY-----&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;RSA_PRIVATE&#x27;</span>,<span class="string">&#x27;-----BEGIN PRIVATE KEY-----</span></span><br><span class="line"><span class="string">MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKaQA2YLzj0g6e1h</span></span><br><span class="line"><span class="string">BB1KAu8wwabxX+7zfwBMdqhnC/B6hjJ37/tbH5vHlt2S0lvjphupLW/PdVF1ezIk</span></span><br><span class="line"><span class="string">haGk1ya0qFiKfByXzdou3Ml4qzOemmozIAix5ooh4Cbq1Py6202SvbM7KYv89syk</span></span><br><span class="line"><span class="string">HJNB4QWXLLWmgsHCuiXQXhRJz6jDAgMBAAECgYAIF5cSriAm+CJlVgFNKvtZg5Tk</span></span><br><span class="line"><span class="string">93UhttLEwPJC3D7IQCuk6A7Qt2yhtOCvgyKVNEotrdp3RCz++CY0GXIkmE2bj7i0</span></span><br><span class="line"><span class="string">fv5vT3kWvO9nImGhTBH6QlFDxc9+p3ukwsonnCshkSV9gmH5NB/yFoH1m8tck2Gm</span></span><br><span class="line"><span class="string">BXDj+bBGUoKGWtQ7gQJBANR/jd5ZKf6unLsgpFUS/kNBgUa+EhVg2tfr9OMioWDv</span></span><br><span class="line"><span class="string">MSqzG/sARQ2AbO00ytpkbAKxxKkObPYsn47MWsf5970CQQDIqRiGmCY5QDAaejW4</span></span><br><span class="line"><span class="string">HbOcsSovoxTqu1scGc3Qd6GYvLHujKDoubZdXCVOYQUMEnCD5j7kdNxPbVzdzXll</span></span><br><span class="line"><span class="string">9+p/AkEAu/34iXwCbgEWQWp4V5dNAD0kXGxs3SLpmNpztLn/YR1bNvZry5wKew5h</span></span><br><span class="line"><span class="string">z1zEFX+AGsYgQJu1g/goVJGvwnj/VQJAOe6f9xPsTTEb8jkAU2S323BG1rQFsPNg</span></span><br><span class="line"><span class="string">jY9hnWM8k2U/FbkiJ66eWPvmhWd7Vo3oUBxkYf7fMEtJuXu+JdNarwJAAwJK0YmO</span></span><br><span class="line"><span class="string">LxP4U+gTrj7y/j/feArDqBukSngcDFnAKu1hsc68FJ/vT5iOC6S7YpRJkp8egj5o</span></span><br><span class="line"><span class="string">pCcWaTO3GgC5Kg==</span></span><br><span class="line"><span class="string">-----END PRIVATE KEY-----&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$password</span>=<span class="string">&#x27;xiaodisec&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;md5</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;原始数据:<span class="subst">$password</span>&quot;</span>. <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;MD5加密后:&quot;</span>.<span class="title function_ invoke__">md5</span>(<span class="variable">$password</span>). <span class="string">&quot;&lt;hr/&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;base64</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;原始数据:<span class="subst">$password</span>&quot;</span>. <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;BASE64编码后:&quot;</span>.<span class="title function_ invoke__">base64_encode</span>(<span class="variable">$password</span>). <span class="string">&quot;&lt;hr/&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;aes</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;原始数据: &quot;</span> . <span class="variable">$password</span> . <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$data</span> = <span class="title class_">EncryptionTool</span>::<span class="title function_ invoke__">enAES</span>(<span class="variable">$password</span>, <span class="string">&quot;1234567891234567&quot;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;AES加密后: &quot;</span> . <span class="variable">$data</span> . <span class="string">&quot;&lt;hr/&gt;&quot;</span>;</span><br><span class="line"><span class="comment">//echo &quot;解密后: &quot; . EncryptionTool::deAES($data, &quot;1234567891234567&quot;) . &quot;&lt;br/&gt;&quot;;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;des</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;原始数据:<span class="subst">$password</span>&quot;</span>. <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$key</span> = <span class="string">&#x27;key123456&#x27;</span>;</span><br><span class="line"><span class="variable">$iv</span> = <span class="string">&#x27;iv123456&#x27;</span>;</span><br><span class="line"><span class="comment">// DES CBC 加解密</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;DES CBC 加解密:&#x27;</span>;</span><br><span class="line"><span class="variable">$des</span> = <span class="keyword">new</span> <span class="title function_ invoke__">DES</span>(<span class="variable">$key</span>, <span class="string">&#x27;DES-CBC&#x27;</span>, DES::<span class="variable constant_">OUTPUT_BASE64</span>, <span class="variable">$iv</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$base64Sign</span> = <span class="variable">$des</span>-&gt;<span class="title function_ invoke__">encrypt</span>(<span class="variable">$password</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="comment">//echo $des-&gt;decrypt($base64Sign);</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;hr&gt;&quot;</span>;</span><br><span class="line"><span class="comment">// DES ECB 加解密</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;原始数据:<span class="subst">$password</span>&quot;</span>. <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;DES ECB 加解密:&#x27;</span>;</span><br><span class="line"><span class="variable">$des</span> = <span class="keyword">new</span> <span class="title function_ invoke__">DES</span>(<span class="variable">$key</span>, <span class="string">&#x27;DES-ECB&#x27;</span>, DES::<span class="variable constant_">OUTPUT_BASE64</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$base64Sign</span> = <span class="variable">$des</span>-&gt;<span class="title function_ invoke__">encrypt</span>(<span class="variable">$password</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;hr&gt;&quot;</span>;</span><br><span class="line"><span class="comment">//echo $des-&gt;decrypt($base64Sign);</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;rsa</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//公钥加密 </span></span><br><span class="line"><span class="variable">$public_key</span> = <span class="title function_ invoke__">openssl_pkey_get_public</span>(RSA_PUBLIC); </span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$public_key</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;公钥不可用&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第一个参数是待加密的数据只能是string，第二个参数是加密后的数据,第三个参数是openssl_pkey_get_public返回的资源类型,第四个参数是填充方式</span></span><br><span class="line"><span class="variable">$return_en</span> = <span class="title function_ invoke__">openssl_public_encrypt</span>(<span class="variable">$password</span>, <span class="variable">$crypted</span>, <span class="variable">$public_key</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$return_en</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="string">&#x27;加密失败,请检查RSA秘钥&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$eb64_cry</span> = <span class="title function_ invoke__">base64_encode</span>(<span class="variable">$crypted</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;RSA公钥加密数据：&quot;</span>.<span class="variable">$eb64_cry</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="comment">//私钥解密</span></span><br><span class="line"><span class="variable">$private_key</span> = <span class="title function_ invoke__">openssl_pkey_get_private</span>(RSA_PRIVATE);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$private_key</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;私钥不可用&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$return_de</span> = <span class="title function_ invoke__">openssl_private_decrypt</span>(<span class="title function_ invoke__">base64_decode</span>(<span class="variable">$eb64_cry</span>), <span class="variable">$decrypted</span>, <span class="variable">$private_key</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$return_de</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="string">&#x27;解密失败,请检查RSA秘钥&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;RSA私钥解密数据:&quot;</span>.<span class="variable">$decrypted</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;hr&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//私钥加密</span></span><br><span class="line"><span class="variable">$private_key</span> = <span class="title function_ invoke__">openssl_pkey_get_private</span>(RSA_PRIVATE);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$private_key</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;私钥不可用&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$return_en</span> = <span class="title function_ invoke__">openssl_private_encrypt</span>(<span class="variable">$password</span>, <span class="variable">$crypted</span>, <span class="variable">$private_key</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$return_en</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="string">&#x27;加密失败,请检查RSA秘钥&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$eb64_cry</span> = <span class="title function_ invoke__">base64_encode</span>(<span class="variable">$crypted</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;RSA私钥加密数据&quot;</span>.<span class="variable">$eb64_cry</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="comment">//公钥解密</span></span><br><span class="line"><span class="variable">$public_key</span> = <span class="title function_ invoke__">openssl_pkey_get_public</span>(RSA_PUBLIC);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$public_key</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;公钥不可用&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$return_de</span> = <span class="title function_ invoke__">openssl_public_decrypt</span>(<span class="title function_ invoke__">base64_decode</span>(<span class="variable">$eb64_cry</span>), <span class="variable">$decrypted</span>, <span class="variable">$public_key</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$return_de</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="string">&#x27;解密失败,请检查RSA秘钥&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;RSA公钥解密数据:&quot;</span>.<span class="variable">$decrypted</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;hr&gt;&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>z7
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/10/03/9%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/" title="9基础入门-算法加密">http://example.com/2023/10/03/9基础入门-算法加密/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" rel="tag"># 基础入门</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/10/02/8%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/" rel="prev" title="8基础入门-算法加密">
+      <i class="fa fa-chevron-left"></i> 8基础入门-算法加密
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/03/10%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9E%E5%8C%85/" rel="next" title="10基础入门-请求返回包">
+      10基础入门-请求返回包 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+ 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81OTAzNi8zNTQ5OA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">知识点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">章节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86-%E6%A6%82%E5%BF%B5-%E5%88%86%E7%B1%BB-%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">算法加密-概念&amp;分类&amp;类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E5%90%91%E6%95%A3%E5%88%97%E5%8A%A0%E5%AF%86-MD5"><span class="nav-number">4.1.</span> <span class="nav-text">1. 单向散列加密 -MD5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-AES"><span class="nav-number">4.2.</span> <span class="nav-text">2. 对称加密 -AES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-RSA"><span class="nav-number">4.3.</span> <span class="nav-text">3. 非对称加密 -RSA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86-%E8%AF%86%E5%88%AB%E7%89%B9%E5%BE%81-%E8%A7%A3%E5%AF%86%E6%9D%A1%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">加密解密-识别特征&amp;解密条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5%E5%AF%86%E6%96%87%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">MD5密文特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BASE64%E7%BC%96%E7%A0%81%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">BASE64编码特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AES%E3%80%81DES%E5%AF%86%E6%96%87%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="nav-number">5.3.</span> <span class="nav-text">AES、DES密文特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA%E5%AF%86%E6%96%87%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="nav-number">5.4.</span> <span class="nav-text">RSA密文特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AF%86%E6%96%87%E7%89%B9%E7%82%B9%E8%A7%81%EF%BC%9A"><span class="nav-number">5.5.</span> <span class="nav-text">其他密文特点见：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%AE%9E%E4%BE%8B-%E5%AF%86%E6%96%87%E5%AD%98%E5%82%A8-%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="nav-number">6.</span> <span class="nav-text">解密实例-密文存储&amp;数据传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AF%86%E7%A0%81%E5%AD%98%E5%82%A8%EF%BC%88%E5%90%8E%E7%AB%AF%E5%A4%84%E7%90%86%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">1、密码存储（后端处理）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E9%80%9A%E8%AE%AF"><span class="nav-number">6.2.</span> <span class="nav-text">2、数据通讯</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="z7"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">z7</p>
+  <div class="site-description" itemprop="description">师从小迪，欢迎各位来当迪总的韭菜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z7yy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z7yy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:15866095848@163.com" title="E-Mail → mailto:15866095848@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-git fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      链接网站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xiaodi8.com/" title="http:&#x2F;&#x2F;www.xiaodi8.com&#x2F;" rel="noopener" target="_blank">小迪渗透吧</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-10 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">z7</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共75.5k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,255,0' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>
